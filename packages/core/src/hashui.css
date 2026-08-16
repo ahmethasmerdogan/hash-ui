@@ -1,12 +1,19 @@
 /* ------------------------------------------------------------------ */
-/* HashUI — portable stylesheet                                        */
-/* Drop this next to the ui/ folder and import it AFTER tailwind:      */
+/* HashUI — the token layer                                            */
+/*                                                                     */
+/* Import it AFTER Tailwind, wherever it ended up:                     */
 /*                                                                     */
 /*   @import "tailwindcss";                                            */
-/*   @import "./ui/hashui.css";                                        */
+/*   @import "hash-ui/css";          — installed from npm              */
+/*   @import "./styles/hashui.css";  — copied in by the shadcn CLI     */
 /*                                                                     */
-/* Requires Tailwind CSS v4. Fonts (optional but recommended):         */
+/* Requires Tailwind CSS v4 — the token layer is built on              */
+/* @theme inline and @custom-variant, which do not exist in v3.        */
+/*                                                                     */
+/* Fonts are optional but the system is drawn for them:                */
 /*   npm i @fontsource-variable/geist @fontsource-variable/geist-mono  */
+/*                                                                     */
+/* https://hashui.vercel.app/docs/theming                              */
 /* ------------------------------------------------------------------ */
 
 @custom-variant dark (&:where(.dark, .dark *));
