@@ -332,7 +332,7 @@ export default function IconsSection() {
     <Section
       id="icons"
       eyebrow="Brand"
-      title="App icons & appearance"
+      title="App icons"
       desc="Squircle icon treatments rebuilt in CSS and SVG — glass stars, LCD screens, orbs — plus the appearance sheet, wired to the actual site theme."
     >
       <Demo label="Icon set" refName="logo-0001 · logo-0002 · logo-design-0001" contentClassName="py-10">

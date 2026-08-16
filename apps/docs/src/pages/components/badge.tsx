@@ -24,7 +24,7 @@ export default function BadgesSection() {
       registry="badge"
       source="Badge.tsx"
       eyebrow="Components"
-      title="Badges & pills"
+      title="Badge & pill"
       desc="The full status vocabulary from the CRM table, bordered dot pills from the employee grid, outline priority badges, and the animated announcement chip."
     >
       <Demo label="Status pills" imports={["StatusPill"]} refName="datatable-0001">

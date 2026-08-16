@@ -30,7 +30,7 @@ export default function Foundations() {
       registry="tokens"
       source="hashui.css"
       eyebrow="Foundations"
-      title="Tokens every reference agrees on"
+      title="Theming & tokens"
       desc="Warm neutral canvas, hairline borders, one emerald accent surrounded by purposeful status hues. Depth is expressed with stacked surfaces — the system ships no drop shadows at all."
     >
       <Demo label="Surfaces & ink" refName="all references">
@@ -94,11 +94,11 @@ export default function Foundations() {
                 A design foundation
               </div>
               <div className="mt-1 text-sm text-ink-2">
-                Geist 700 · −0.035em tracking on hero &amp; modal headlines
+                Geist 700 · −0.035em tracking on hero & modal headlines
               </div>
             </div>
             <div className="rounded-xl border border-line bg-surface p-5 shadow-soft">
-              <div className="microlabel mb-2">MONO — METRICS &amp; TIME</div>
+              <div className="microlabel mb-2">MONO — METRICS & TIME</div>
               <div className="lcd text-[26px] font-bold text-ink">
                 2h 50m · 340ms · 99.9%
               </div>

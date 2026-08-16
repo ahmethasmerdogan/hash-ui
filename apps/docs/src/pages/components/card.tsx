@@ -460,7 +460,7 @@ export default function CardsSection() {
       registry="card"
       source="Card.tsx"
       eyebrow="Components"
-      title="Cards"
+      title="Card"
       desc="Nested card-in-card layering: white shells, gray inset panels, hairline internals. Recreations of the order tracker, the schedule agenda and the ops incident card."
     >
       <div className="grid items-start gap-6 xl:grid-cols-2">

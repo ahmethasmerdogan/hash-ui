@@ -144,7 +144,7 @@ export default function FeedbackSection() {
       registry={["feedback", "overlay"]}
       source="Feedback.tsx"
       eyebrow="Components"
-      title="Feedback & status"
+      title="Feedback & overlays"
       desc="Inline alerts, a live toast queue, tooltips, a real modal with focus handling, dropdown menus, shimmer skeletons and empty states — the layer every professional library needs."
     >
       <Demo label="Alerts" imports={["Alert"]} refName="hashui original" contentClassName="!items-stretch">
@@ -230,7 +230,7 @@ export default function FeedbackSection() {
               </Button>
             </div>
             <span className="text-[12px] text-ink-3">
-              loading &amp; disabled states, any variant
+              loading & disabled states, any variant
             </span>
           </DemoCol>
         </Demo>

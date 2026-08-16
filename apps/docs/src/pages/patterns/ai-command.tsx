@@ -463,7 +463,7 @@ export default function ChatSection() {
     <Section
       id="chat"
       eyebrow="Patterns"
-      title="AI & command surfaces"
+      title="AI & command"
       desc="The AI deal-insight panel with quoted source citations, the dark command palette with term highlighting, and the deploy-log console with severity filters."
     >
       <div className="grid items-start gap-6 xl:grid-cols-2">

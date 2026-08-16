@@ -49,7 +49,7 @@ export default function ButtonsSection() {
       registry="button"
       source="Button.tsx"
       eyebrow="Components"
-      title="Buttons"
+      title="Button"
       desc="One recipe for every button: a vertical gradient, a 1px ring of the same hue and a hairline top highlight — the treatment from the credit-score CTA, applied across the palette. Fully rounded by default, no drop shadows anywhere."
     >
       <Demo label="Accent faces" imports={["Button"]} refName="button-001 · top-alert-0001 · datatable-0001">

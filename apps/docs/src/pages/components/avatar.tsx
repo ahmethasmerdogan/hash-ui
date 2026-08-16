@@ -12,7 +12,7 @@ export default function AvatarsSection() {
       registry="avatar"
       source="Avatar.tsx"
       eyebrow="Components"
-      title="Avatars & social proof"
+      title="Avatar"
       desc="Gradient-initial avatars with presence, overlapping groups from the invite card, and the memoji social-proof cards rebuilt with emoji tints."
     >
       <div className="grid gap-6 lg:grid-cols-2">

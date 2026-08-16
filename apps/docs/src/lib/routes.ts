@@ -118,7 +118,7 @@ export const NAV: NavGroup[] = [
       },
       {
         path: "/docs/components/tabs",
-        label: "Tabs & nav",
+        label: "Tabs & navigation",
         desc: "Raised pill, browser notch, accent dot, underline and pill nav.",
         keywords: "PillTabs NotchTabs DotTabs UnderlineTabs PillNav navigation",
         Component: lazy(() => import("@/pages/components/tabs")),
