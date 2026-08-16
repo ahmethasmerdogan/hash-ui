@@ -9,8 +9,8 @@
 /*   apps/docs/src/lib/registry-items.ts  typed list for the docs UI    */
 /*                                                                      */
 /* Once the site is deployed those files are a plain JSON API:          */
-/*   npx shadcn@latest add https://hash-ui.vercel.app/r/button.json     */
-/*   curl  https://hash-ui.vercel.app/r/registry.json                   */
+/*   npx shadcn@latest add https://hashui.vercel.app/r/button.json      */
+/*   curl  https://hashui.vercel.app/r/registry.json                    */
 /* ------------------------------------------------------------------ */
 
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
@@ -21,7 +21,7 @@ const SRC = `${ROOT}packages/core/src`;
 const OUT = `${ROOT}apps/docs/public/r`;
 const LIB = `${ROOT}apps/docs/src/lib`;
 
-const HOMEPAGE = "https://hash-ui.vercel.app";
+const HOMEPAGE = "https://hashui.vercel.app";
 const BASE = `${HOMEPAGE}/r`;
 
 /** where copied files land in the consumer's project */

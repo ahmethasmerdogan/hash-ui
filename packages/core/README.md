@@ -7,9 +7,9 @@
 A flat, shadow-free **React + Tailwind CSS v4** design system — 70+ components
 and 83 hand-drawn icons, rebuilt from 36 curated interface references.
 
-[Documentation](https://hash-ui.vercel.app) ·
+[Documentation](https://hashui.vercel.app) ·
 [GitHub](https://github.com/ahmethasmerdogan/hash-ui) ·
-[Registry](https://hash-ui.vercel.app/docs/registry)
+[Registry](https://hashui.vercel.app/docs/registry)
 
 </div>
 
@@ -61,15 +61,15 @@ To avoid a flash of the wrong theme, set the class before React boots:
 </script>
 ```
 
-[Full installation guide, including Next.js →](https://hash-ui.vercel.app/docs/installation)
+[Full installation guide, including Next.js →](https://hashui.vercel.app/docs/installation)
 
 ## Prefer to own the code?
 
 Every component is also a shadcn registry item:
 
 ```bash
-npx shadcn@latest add https://hash-ui.vercel.app/r/button.json
-npx shadcn@latest add https://hash-ui.vercel.app/r/hashui.json   # everything
+npx shadcn@latest add https://hashui.vercel.app/r/button.json
+npx shadcn@latest add https://hashui.vercel.app/r/hashui.json   # everything
 ```
 
 ## Theming

@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "hash-ui",
-  "homepage": "https://hash-ui.vercel.app",
+  "homepage": "https://hashui.vercel.app",
   "items": [
     {
       "name": "tokens",
@@ -23,7 +23,7 @@
       "title": "cx",
       "description": "The three-line class-name joiner every component uses. No clsx, no tailwind-merge.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json"
+        "https://hashui.vercel.app/r/tokens.json"
       ],
       "files": [
         {
@@ -39,7 +39,7 @@
       "title": "Icons",
       "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json"
+        "https://hashui.vercel.app/r/tokens.json"
       ],
       "files": [
         {
@@ -55,7 +55,7 @@
       "title": "ThemeProvider",
       "description": "light / dark / system with a persisted choice, plus the live sans-stack switcher behind useTheme().",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json"
+        "https://hashui.vercel.app/r/tokens.json"
       ],
       "files": [
         {
@@ -71,8 +71,8 @@
       "title": "Button",
       "description": "One anatomy — vertical gradient, 1px ring, hairline highlight — across eight faces. Plus ButtonGroup, IconButton and SplitButton.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -88,8 +88,8 @@
       "title": "Badge & pill",
       "description": "StatusPill, DotPill, OutlineBadge, GlowPill, GlowDot, AnnouncementPill, CountBadge and Kbd — the whole status vocabulary.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -105,8 +105,8 @@
       "title": "Avatar",
       "description": "Gradient-initial avatars with presence rings, overlapping AvatarGroup and the EntityChip company mark.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -122,8 +122,8 @@
       "title": "Card",
       "description": "Card, InsetPanel, StatTile, OverviewTile and MetaRow — the card-in-card layering the system uses instead of shadows.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -139,9 +139,9 @@
       "title": "Controls",
       "description": "Switch, Checkbox, SegmentedControl and SearchField.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json",
-        "https://hash-ui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
       ],
       "files": [
         {
@@ -157,9 +157,9 @@
       "title": "Inputs & selection",
       "description": "Slider, RadioGroup, RadioCards, SelectField, Accordion, Stepper, Pagination and Breadcrumbs.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json",
-        "https://hash-ui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
       ],
       "files": [
         {
@@ -175,8 +175,8 @@
       "title": "Tabs",
       "description": "PillTabs, NotchTabs, DotTabs, UnderlineTabs and PillNav — five tab treatments on one item model.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -192,8 +192,8 @@
       "title": "Progress & meters",
       "description": "ProgressBar, TickBars, SignalBars, DottedMeter, GoalBar, RainbowMeter, RingProgress, RangeBar, CountdownLCD and LcdTimer.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -209,10 +209,10 @@
       "title": "Timeline",
       "description": "DeliveryTimeline for ordered steps and StageFlow for service pipelines with protocol connectors.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json",
-        "https://hash-ui.vercel.app/r/badge.json",
-        "https://hash-ui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/badge.json",
+        "https://hashui.vercel.app/r/icons.json"
       ],
       "files": [
         {
@@ -228,10 +228,10 @@
       "title": "CommitGraph",
       "description": "A branching git graph with a hover card and diff counts — built for event-sourced history.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json",
-        "https://hash-ui.vercel.app/r/avatar.json",
-        "https://hash-ui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/avatar.json",
+        "https://hashui.vercel.app/r/icons.json"
       ],
       "files": [
         {
@@ -247,9 +247,9 @@
       "title": "Feedback",
       "description": "Alert, ToastProvider + useToast, Tooltip, Skeleton and EmptyState.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json",
-        "https://hash-ui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
       ],
       "files": [
         {
@@ -265,9 +265,9 @@
       "title": "Overlay",
       "description": "Modal with focus and Esc handling, ModalClose, and the Dropdown menu.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json",
-        "https://hash-ui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
       ],
       "files": [
         {
@@ -283,8 +283,8 @@
       "title": "Motion",
       "description": "NumberTicker, Typewriter, Marquee, ShimmerButton, BorderBeam, Spotlight, TiltCard, Reveal, Meteors and GradientText — all dependency-free.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {
@@ -300,8 +300,8 @@
       "title": "ThreeOrb",
       "description": "A wireframe three.js scene that imports the library only once it scrolls into view.",
       "registryDependencies": [
-        "https://hash-ui.vercel.app/r/tokens.json",
-        "https://hash-ui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
       ],
       "files": [
         {

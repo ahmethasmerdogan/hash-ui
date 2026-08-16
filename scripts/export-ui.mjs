@@ -6,7 +6,7 @@
  *
  * Copies packages/core/src/** (components, icons, theme, hashui.css) and
  * prints the wiring you still have to add by hand. Prefer
- * `npx shadcn@latest add https://hash-ui.vercel.app/r/hashui.json` if the
+ * `npx shadcn@latest add https://hashui.vercel.app/r/hashui.json` if the
  * target project is already shadcn-initialised.
  */
 import { cp, mkdir, readdir, stat } from "node:fs/promises";

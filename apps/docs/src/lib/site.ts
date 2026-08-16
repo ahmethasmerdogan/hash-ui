@@ -7,7 +7,7 @@ export const SITE = {
   tagline: "A design foundation, distilled from the wild.",
   description:
     "A flat, shadow-free React 19 + Tailwind CSS v4 design system — 70+ components and 83 hand-drawn icons, distilled from 36 curated interface references.",
-  url: "https://hash-ui.vercel.app",
+  url: "https://hashui.vercel.app",
   github: "https://github.com/ahmethasmerdogan/hash-ui",
   npm: "https://www.npmjs.com/package/hash-ui",
   author: "Ahmet Hâşim Erdoğan",

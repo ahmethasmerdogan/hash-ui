@@ -15,7 +15,7 @@ Install it from npm, or copy any component into your repo with the shadcn CLI.
 [![react](https://img.shields.io/badge/React-18%20%7C%2019-1c1b18?logo=react)](https://react.dev)
 [![tailwind](https://img.shields.io/badge/Tailwind-v4-1c1b18?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-### **[hash-ui.vercel.app →](https://hash-ui.vercel.app)**
+### **[hashui.vercel.app →](https://hashui.vercel.app)**
 
 <img src="apps/docs/public/og.png" width="760" alt="HashUI — 70+ flat, shadow-free components and 83 hand-drawn icons" />
 
@@ -51,7 +51,7 @@ export default function App() {
 ```
 
 That is the whole setup. No config file, no plugin, no runtime dependency beyond
-React — [full guide →](https://hash-ui.vercel.app/docs/installation)
+React — [full guide →](https://hashui.vercel.app/docs/installation)
 
 ### …or copy the source in instead
 
@@ -59,19 +59,19 @@ Every component is also a [shadcn registry](https://ui.shadcn.com/docs/registry)
 item, so you can take the code rather than the dependency:
 
 ```bash
-npx shadcn@latest add https://hash-ui.vercel.app/r/button.json   # one component
-npx shadcn@latest add https://hash-ui.vercel.app/r/hashui.json   # the whole library
+npx shadcn@latest add https://hashui.vercel.app/r/button.json   # one component
+npx shadcn@latest add https://hashui.vercel.app/r/hashui.json   # the whole library
 ```
 
 The registry is plain JSON with permissive CORS, so anything that speaks HTTP can
 read it:
 
 ```bash
-curl https://hash-ui.vercel.app/r/registry.json | jq '.items[].name'
-curl https://hash-ui.vercel.app/r/button.json  | jq -r '.files[0].content'
+curl https://hashui.vercel.app/r/registry.json | jq '.items[].name'
+curl https://hashui.vercel.app/r/button.json  | jq -r '.files[0].content'
 ```
 
-[Registry docs →](https://hash-ui.vercel.app/docs/registry)
+[Registry docs →](https://hashui.vercel.app/docs/registry)
 
 ---
 
@@ -84,7 +84,7 @@ curl https://hash-ui.vercel.app/r/button.json  | jq -r '.files[0].content'
 | **Feedback & overlays** | `Alert` · `ToastProvider` + `useToast` · `Tooltip` · `Modal` · `Dropdown` · `Skeleton` · `EmptyState` |
 | **Data** | `PillTabs` · `NotchTabs` · `DotTabs` · `UnderlineTabs` · `PillNav` · `ProgressBar` · `TickBars` · `SignalBars` · `DottedMeter` · `GoalBar` · `RainbowMeter` · `RingProgress` · `RangeBar` · `CountdownLCD` · `LcdTimer` · `DeliveryTimeline` · `StageFlow` · `CommitGraph` |
 | **Motion** | `NumberTicker` · `Typewriter` · `Marquee` · `ShimmerButton` · `BorderBeam` · `Spotlight` · `TiltCard` · `Reveal` · `Meteors` · `GradientText` · `ThreeOrb` |
-| **Icons** | 83 hand-drawn SVGs on a 24px grid — [browse them](https://hash-ui.vercel.app/docs/components/icons) |
+| **Icons** | 83 hand-drawn SVGs on a 24px grid — [browse them](https://hashui.vercel.app/docs/components/icons) |
 
 Semantic classes come from the token layer:
 `bg-canvas · bg-surface · bg-elev · bg-inset · border-line · text-ink · text-ink-2 ·
@@ -131,7 +131,7 @@ the dark theme — follows.
 Dropping HashUI into a product that already has its own tokens? Alias the names
 instead of restyling the components — a worked example lives in
 [`packages/core/src/presets/brand-bridge.css`](packages/core/src/presets/brand-bridge.css).
-[Theming docs →](https://hash-ui.vercel.app/docs/theming)
+[Theming docs →](https://hashui.vercel.app/docs/theming)
 
 ---
 

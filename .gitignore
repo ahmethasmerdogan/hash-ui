@@ -14,3 +14,4 @@ npm-debug.log*
 
 # personal / client-specific material kept out of the public repo
 .local/
+.env*
