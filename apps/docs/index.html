@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>HashUI — React + Tailwind v4 design system</title>
+    <meta
+      name="description"
+      content="A flat, shadow-free React 19 + Tailwind CSS v4 design system. 70+ components and 83 hand-drawn icons, installable from npm or copied into your project with the shadcn CLI."
+    />
+    <link rel="canonical" href="https://hash-ui.vercel.app/" />
+    <meta name="theme-color" content="#059669" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0e11" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/favicon.svg" color="#059669" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HashUI" />
+    <meta property="og:title" content="HashUI — React + Tailwind v4 design system" />
+    <meta
+      property="og:description"
+      content="70+ flat, shadow-free components and 83 hand-drawn icons. npm install hash-ui, or copy any component in with the shadcn CLI."
+    />
+    <meta property="og:url" content="https://hash-ui.vercel.app/" />
+    <meta property="og:image" content="https://hash-ui.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HashUI — React + Tailwind v4 design system" />
+    <meta
+      name="twitter:description"
+      content="70+ flat, shadow-free components and 83 hand-drawn icons. npm install hash-ui, or copy any component in with the shadcn CLI."
+    />
+    <meta name="twitter:image" content="https://hash-ui.vercel.app/og.png" />
+
+    <script>
+      /* paint the right theme before first paint — no flash of the wrong one */
+      (function () {
+        try {
+          var stored = localStorage.getItem("hashui-theme");
+          var dark =
+            stored === "dark" ||
+            ((stored === null || stored === "system") &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+          var font = localStorage.getItem("hashui-font");
+          if (font === "inter")
+            document.documentElement.style.setProperty(
+              "--font-sans-pick",
+              '"Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            );
+          else if (font === "system")
+            document.documentElement.style.setProperty(
+              "--font-sans-pick",
+              '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif',
+            );
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

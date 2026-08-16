@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.shots/
+.peek.mjs
+*.tsbuildinfo
+
+.DS_Store
+.env
+.env.local
+.vercel
+
+*.log
+npm-debug.log*
+
+# personal / client-specific material kept out of the public repo
+.local/

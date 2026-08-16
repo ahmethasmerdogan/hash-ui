@@ -1,0 +1,414 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "hash-ui",
+  "homepage": "https://hash-ui.vercel.app",
+  "items": [
+    {
+      "name": "tokens",
+      "type": "registry:theme",
+      "title": "Design tokens",
+      "description": "Every design token in one file: surfaces, ink, brand, the button-face palette, both themes and the utility classes. Import it after Tailwind.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/hashui/hashui.css",
+          "type": "registry:file",
+          "target": "styles/hashui.css"
+        }
+      ]
+    },
+    {
+      "name": "cx",
+      "type": "registry:lib",
+      "title": "cx",
+      "description": "The three-line class-name joiner every component uses. No clsx, no tailwind-merge.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/cx.ts",
+          "type": "registry:lib",
+          "target": "lib/hashui/cx.ts"
+        }
+      ]
+    },
+    {
+      "name": "icons",
+      "type": "registry:ui",
+      "title": "Icons",
+      "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/icons.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "type": "registry:ui",
+      "title": "ThemeProvider",
+      "description": "light / dark / system with a persisted choice, plus the live sans-stack switcher behind useTheme().",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/theme.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/theme.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "One anatomy — vertical gradient, 1px ring, hairline highlight — across eight faces. Plus ButtonGroup, IconButton and SplitButton.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge & pill",
+      "description": "StatusPill, DotPill, OutlineBadge, GlowPill, GlowDot, AnnouncementPill, CountBadge and Kbd — the whole status vocabulary.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Gradient-initial avatars with presence rings, overlapping AvatarGroup and the EntityChip company mark.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Card, InsetPanel, StatTile, OverviewTile and MetaRow — the card-in-card layering the system uses instead of shadows.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "controls",
+      "type": "registry:ui",
+      "title": "Controls",
+      "description": "Switch, Checkbox, SegmentedControl and SearchField.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json",
+        "https://hash-ui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/controls.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/controls.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inputs",
+      "type": "registry:ui",
+      "title": "Inputs & selection",
+      "description": "Slider, RadioGroup, RadioCards, SelectField, Accordion, Stepper, Pagination and Breadcrumbs.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json",
+        "https://hash-ui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/inputs.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/inputs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "PillTabs, NotchTabs, DotTabs, UnderlineTabs and PillNav — five tab treatments on one item model.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress & meters",
+      "description": "ProgressBar, TickBars, SignalBars, DottedMeter, GoalBar, RainbowMeter, RingProgress, RangeBar, CountdownLCD and LcdTimer.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "DeliveryTimeline for ordered steps and StageFlow for service pipelines with protocol connectors.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json",
+        "https://hash-ui.vercel.app/r/badge.json",
+        "https://hash-ui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/timeline.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "commit-graph",
+      "type": "registry:ui",
+      "title": "CommitGraph",
+      "description": "A branching git graph with a hover card and diff counts — built for event-sourced history.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json",
+        "https://hash-ui.vercel.app/r/avatar.json",
+        "https://hash-ui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/commit-graph.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/commit-graph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feedback",
+      "type": "registry:ui",
+      "title": "Feedback",
+      "description": "Alert, ToastProvider + useToast, Tooltip, Skeleton and EmptyState.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json",
+        "https://hash-ui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/feedback.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/feedback.tsx"
+        }
+      ]
+    },
+    {
+      "name": "overlay",
+      "type": "registry:ui",
+      "title": "Overlay",
+      "description": "Modal with focus and Esc handling, ModalClose, and the Dropdown menu.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json",
+        "https://hash-ui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/overlay.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/overlay.tsx"
+        }
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:ui",
+      "title": "Motion",
+      "description": "NumberTicker, Typewriter, Marquee, ShimmerButton, BorderBeam, Spotlight, TiltCard, Reveal, Meteors and GradientText — all dependency-free.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/motion.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "three-orb",
+      "type": "registry:ui",
+      "title": "ThreeOrb",
+      "description": "A wireframe three.js scene that imports the library only once it scrolls into view.",
+      "registryDependencies": [
+        "https://hash-ui.vercel.app/r/tokens.json",
+        "https://hash-ui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/three-orb.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/three-orb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hashui",
+      "type": "registry:ui",
+      "title": "HashUI — the whole library",
+      "description": "Every HashUI component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/hashui/hashui.css",
+          "type": "registry:file",
+          "target": "styles/hashui.css"
+        },
+        {
+          "path": "registry/hashui/cx.ts",
+          "type": "registry:lib",
+          "target": "lib/hashui/cx.ts"
+        },
+        {
+          "path": "registry/hashui/icons.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/icons.tsx"
+        },
+        {
+          "path": "registry/hashui/theme.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/theme.tsx"
+        },
+        {
+          "path": "registry/hashui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/button.tsx"
+        },
+        {
+          "path": "registry/hashui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/badge.tsx"
+        },
+        {
+          "path": "registry/hashui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/avatar.tsx"
+        },
+        {
+          "path": "registry/hashui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/card.tsx"
+        },
+        {
+          "path": "registry/hashui/controls.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/controls.tsx"
+        },
+        {
+          "path": "registry/hashui/inputs.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/inputs.tsx"
+        },
+        {
+          "path": "registry/hashui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/tabs.tsx"
+        },
+        {
+          "path": "registry/hashui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/progress.tsx"
+        },
+        {
+          "path": "registry/hashui/timeline.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/timeline.tsx"
+        },
+        {
+          "path": "registry/hashui/commit-graph.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/commit-graph.tsx"
+        },
+        {
+          "path": "registry/hashui/feedback.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/feedback.tsx"
+        },
+        {
+          "path": "registry/hashui/overlay.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/overlay.tsx"
+        },
+        {
+          "path": "registry/hashui/motion.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/motion.tsx"
+        },
+        {
+          "path": "registry/hashui/three-orb.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/three-orb.tsx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+/* ------------------------------------------------------------------ */
+/* Brand bridge — worked example                                       */
+/*                                                                     */
+/* Use this when you are dropping HashUI into a product that already   */
+/* has its own design tokens. Instead of restyling every component,    */
+/* you alias HashUI's token names onto the ones your app already       */
+/* defines. The components keep working; they just speak your brand.   */
+/*                                                                     */
+/* Load it LAST, after both Tailwind and hashui.css:                   */
+/*                                                                     */
+/*   @import "tailwindcss";                                            */
+/*   ... your existing tokens ...                                      */
+/*   @import "hash-ui/css";                                            */
+/*   @import "hash-ui/presets/brand-bridge.css";                       */
+/*                                                                     */
+/* Replace the right-hand side of every line below with your own       */
+/* variable names. Nothing else in the system needs to change.         */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* surfaces → your neutral ramp */
+  --canvas: var(--bg-page);
+  --surface: var(--bg-surface);
+  --elev: var(--bg-surface-alt);
+  --inset: var(--bg-sunken);
+
+  /* hairlines → your border scale */
+  --line: var(--border-subtle);
+  --line-strong: var(--border-default);
+
+  /* text */
+  --ink: var(--text-primary);
+  --ink2: var(--text-secondary);
+  --ink3: var(--text-tertiary);
+
+  /* brand → your single functional accent (HashUI's emerald steps aside) */
+  --brand: var(--accent);
+  --brand-ink: var(--accent-hover);
+  --brand-soft: var(--accent-soft);
+
+  --dot: var(--border-default);
+}
+
+/* the dark theme reads the same names — your tokens already flipped */
+.dark {
+  --canvas: var(--bg-page);
+  --surface: var(--bg-surface);
+  --elev: var(--bg-surface-alt);
+  --inset: var(--bg-sunken);
+  --line: var(--border-subtle);
+  --line-strong: var(--border-default);
+  --ink: var(--text-primary);
+  --ink2: var(--text-secondary);
+  --ink3: var(--text-tertiary);
+  --brand: var(--accent);
+  --brand-ink: var(--accent-hover);
+  --brand-soft: var(--accent-soft);
+  --dot: var(--border-default);
+}
+
+/* ------------------------------------------------------------------ */
+/* Button faces                                                        */
+/*                                                                     */
+/* The anatomy stays — gradient, ring, top highlight — only the hues   */
+/* move. Here `green` becomes "the brand face" and `primary` falls     */
+/* back to neutral, which is what you want in a product that allows    */
+/* exactly one accent colour.                                          */
+/* ------------------------------------------------------------------ */
+
+.btn-green {
+  --btn-a: var(--accent);
+  --btn-b: var(--accent-hover);
+  --btn-ring: var(--accent-pressed);
+  color: #fff;
+}
+
+.btn-primary {
+  --btn-a: var(--bg-surface);
+  --btn-b: var(--bg-surface-alt);
+  --btn-ring: var(--border-default);
+  color: var(--text-primary);
+}
+
+.btn-danger {
+  --btn-a: var(--danger-text);
+  --btn-b: var(--danger-text);
+  --btn-ring: var(--danger-text);
+  color: #fff;
+}
+
+.btn-amber {
+  --btn-a: var(--warning-text);
+  --btn-b: var(--warning-text);
+  --btn-ring: var(--warning-text);
+  color: #fff;
+}
+
+.btn-dark {
+  --btn-a: var(--bg-inverse-alt);
+  --btn-b: var(--bg-inverse);
+  --btn-ring: var(--bg-inverse);
+  color: var(--text-on-inverse);
+}
+.dark .btn-dark {
+  --btn-a: var(--text-primary);
+  --btn-b: var(--text-primary);
+  --btn-ring: var(--text-primary);
+  color: var(--bg-page);
+}
+
+.btn-white {
+  --btn-a: var(--bg-surface);
+  --btn-b: var(--bg-surface-alt);
+  --btn-ring: var(--border-default);
+  color: var(--text-primary);
+}
+
+/* ------------------------------------------------------------------ */
+/* Escape hatches                                                      */
+/*                                                                     */
+/* Some design systems ban gradients outright, or mandate a corporate  */
+/* corner radius. Opt in per document rather than forking components:  */
+/*                                                                     */
+/*   <html class="hashui-flat hashui-radius-brand">                    */
+/* ------------------------------------------------------------------ */
+
+/* flat fills — the top highlight and 1px ring anatomy survives */
+.hashui-flat .btn-face {
+  background-image: none;
+  background-color: var(--btn-b);
+}
+
+/* square off the default pill */
+.hashui-radius-brand .btn-face,
+.hashui-radius-brand .rounded-full:where(button) {
+  border-radius: var(--radius, 10px);
+}

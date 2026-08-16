@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* The docs site dogfoods the library from source (see vite.config.ts alias),
+   so it reads the stylesheet and scans the components straight from the
+   package folder — no build step between editing a component and seeing it. */
+@import "../../../packages/core/src/hashui.css";
+@source "../../../packages/core/src";

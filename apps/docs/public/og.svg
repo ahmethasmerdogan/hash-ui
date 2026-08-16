@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none" font-family="Geist, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="tile" x1="32" y1="0" x2="32" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2eb266"/>
+      <stop offset="1" stop-color="#0c7d47"/>
+    </linearGradient>
+    <linearGradient id="glyph" x1="32" y1="10" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e4fbef"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1.4" fill="#d6d5d0"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f4f4f2" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f4f4f2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f4f4f2"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <rect width="1200" height="630" fill="url(#fade)"/>
+
+  <!-- mark -->
+  <g transform="translate(88, 92) scale(1.5)">
+    <rect width="64" height="64" rx="15" fill="url(#tile)"/>
+    <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="14.25" stroke="#0a6b3c" stroke-width="1.5"/>
+    <path d="M15 1.5H49" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
+    <g stroke="url(#glyph)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 26.5H50"/>
+      <path d="M14 40.5H50"/>
+      <path d="M28.5 12L23.5 53"/>
+      <path d="M44.5 12L39.5 53"/>
+    </g>
+  </g>
+  <text x="196" y="140" font-size="46" font-weight="700" letter-spacing="-1.6" fill="#1c1b18">HashUI</text>
+  <text x="196" y="172" font-size="20" font-weight="500" fill="#6b6862">React 19 · Tailwind CSS v4 · Geist</text>
+
+  <!-- headline -->
+  <text x="88" y="300" font-size="72" font-weight="700" letter-spacing="-2.6" fill="#1c1b18">A design foundation,</text>
+  <text x="88" y="382" font-size="72" font-weight="700" letter-spacing="-2.6" fill="#1c1b18">distilled from the wild.</text>
+
+  <text x="88" y="440" font-size="24" font-weight="400" fill="#6b6862">70+ flat, shadow-free components and 83 hand-drawn icons.</text>
+
+  <!-- install pill -->
+  <g transform="translate(88, 478)">
+    <rect width="392" height="56" rx="14" fill="#ffffff" stroke="#e6e5e1" stroke-width="1.5"/>
+    <text x="26" y="35" font-size="21" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace" fill="#059669">$</text>
+    <text x="48" y="35" font-size="21" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1c1b18">npm install hash-ui</text>
+  </g>
+
+  <!-- stat rail -->
+  <g transform="translate(520, 478)">
+    <rect width="592" height="56" rx="14" fill="#f7f7f5" stroke="#e6e5e1" stroke-width="1.5"/>
+    <text x="30" y="35" font-size="18" font-weight="600" fill="#1c1b18">70+</text>
+    <text x="72" y="35" font-size="16" fill="#a3a099">components</text>
+    <text x="204" y="35" font-size="18" font-weight="600" fill="#1c1b18">83</text>
+    <text x="232" y="35" font-size="16" fill="#a3a099">icons</text>
+    <text x="308" y="35" font-size="18" font-weight="600" fill="#1c1b18">0</text>
+    <text x="326" y="35" font-size="16" fill="#a3a099">runtime deps</text>
+    <text x="472" y="35" font-size="18" font-weight="600" fill="#059669">MIT</text>
+  </g>
+
+  <text x="1112" y="122" font-size="18" font-weight="500" fill="#a3a099" text-anchor="end">github.com/ahmethasmerdogan/hash-ui</text>
+</svg>

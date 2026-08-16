@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck both workspaces
+        run: npm run typecheck
+
+      - name: Build the npm package
+        run: npm run build:lib
+
+      - name: Build the registry and the docs site
+        run: npm run build
+
+      - name: Registry is in sync with the source
+        run: git diff --exit-code apps/docs/public/r apps/docs/src/lib/registry-items.ts
+
+  qa:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      - name: Serve the built site
+        run: |
+          npm run build
+          npx --yes serve -s apps/docs/dist -l 5180 &
+          npx --yes wait-on http://localhost:5180 -t 60000
+
+      # every route × both themes: overflow, contrast, the no-shadow rule,
+      # then the interactive surfaces (⌘K, modal, toast, registry JSON)
+      - name: Route sweep
+        run: node scripts/qa.mjs
+        env:
+          QA_URL: http://localhost:5180
