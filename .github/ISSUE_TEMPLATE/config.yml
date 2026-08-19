@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the docs
+    url: https://hashui.vercel.app/docs
+    about: Tokens, theming, every component and every block, live.
+  - name: Contributing guide
+    url: https://github.com/ahmethasmerdogan/hash-ui/blob/main/CONTRIBUTING.md
+    about: The rules that do not bend, and how to add a block.

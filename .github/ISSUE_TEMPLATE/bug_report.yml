@@ -1,0 +1,55 @@
+name: Bug report
+description: Something renders, behaves or builds differently than documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: if a block looks right but does not move, please run
+        `node scripts/motion.mjs` and paste the line for it. That output
+        distinguishes a broken animation from one that was never wired up,
+        and it is the first thing anyone will ask for.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: hash-ui 0.6.0 / @hash-ui/blocks 0.6.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: route
+    attributes:
+      label: How is it installed?
+      options:
+        - npm package
+        - copied in with the shadcn CLI
+        - running the repo locally
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: >
+        The smallest thing that shows it — a component, its props, and the
+        theme and accent it was under.
+      render: tsx
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Browser and OS
+      placeholder: Chrome 130 / macOS 15

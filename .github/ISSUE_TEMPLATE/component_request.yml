@@ -1,0 +1,46 @@
+name: Component or block
+description: Propose something new for the library.
+labels: [component]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every piece in HashUI comes from a specific interface reference rather
+        than from a general idea of what a component should be. Agreeing on the
+        reference first is what keeps the set looking related — and it takes
+        five minutes instead of a rewrite.
+
+  - type: input
+    id: name
+    attributes:
+      label: What would it be called?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: The reference
+      description: >
+        A screenshot, a link, or the product you saw it in. If it is a variation
+        on something already here, say which one and what differs.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where would it live?
+      options:
+        - "core — a primitive, no dependencies"
+        - "blocks — a section, may need an optional peer"
+        - "not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: api
+    attributes:
+      label: How would it be used?
+      description: A rough call site. Content is props, with working defaults.
+      render: tsx
