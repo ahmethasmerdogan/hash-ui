@@ -46,13 +46,27 @@ page.on("requestfailed", (r) =>
   errors.push(`request failed: ${r.url().slice(0, 100)}`),
 );
 
+/* Never `networkidle`.
+ *
+ * /docs/blocks/geo holds a live MapLibre canvas and a turning globe, so the
+ * page keeps requesting tiles and never goes idle — the sweep hung there for
+ * thirty seconds and then failed the build. `domcontentloaded` plus an
+ * explicit settle is deterministic and takes about the same wall clock. */
+const SETTLE = 550;
+
+/** goto + settle. Every navigation in this file goes through it. */
+const go = async (route) => {
+  await page.goto(BASE + route, { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(SETTLE);
+};
+
 /* ------------------------------------------------------------ sweep -- */
 
 console.log(`sweeping ${ROUTES.length} routes × 2 themes …\n`);
 
 for (const theme of ["light", "dark"]) {
   for (const route of ROUTES) {
-    await page.goto(BASE + route, { waitUntil: "networkidle" });
+    await go(route);
     await page.evaluate(
       (t) => document.documentElement.classList.toggle("dark", t === "dark"),
       theme,
@@ -124,7 +138,7 @@ await page.evaluate(() => document.documentElement.classList.remove("dark"));
 
 /* ------------------------------------------------------ interaction -- */
 
-await page.goto(BASE + "/", { waitUntil: "networkidle" });
+await go("/");
 
 await page.keyboard.press("Meta+k");
 await page.waitForTimeout(350);
@@ -159,7 +173,7 @@ checks.push([
 ]);
 await page.waitForTimeout(4600);
 
-await page.goto(BASE + "/docs/typography", { waitUntil: "networkidle" });
+await go("/docs/typography");
 await page.getByRole("button", { name: /Inter/ }).first().click();
 await page.waitForTimeout(300);
 checks.push([
@@ -171,7 +185,7 @@ checks.push([
 await page.getByRole("button", { name: /Geist/ }).first().click();
 await page.waitForTimeout(250);
 
-await page.goto(BASE + "/docs/components/table", { waitUntil: "networkidle" });
+await go("/docs/components/table");
 await page.waitForTimeout(400);
 const before = await page.locator(".hatch").count();
 await page.getByRole("switch").first().click();
@@ -181,7 +195,7 @@ checks.push([
   before > 0 && (await page.locator(".hatch").count()) < before,
 ]);
 
-await page.goto(BASE + "/docs/patterns/templates", { waitUntil: "networkidle" });
+await go("/docs/patterns/templates");
 await page.waitForTimeout(500);
 await page.getByRole("button", { name: "Open preview" }).first().click();
 await page.waitForTimeout(900);
@@ -191,12 +205,12 @@ checks.push([
 ]);
 await page.keyboard.press("Escape");
 
-await page.goto(BASE + "/docs/components/icons", { waitUntil: "networkidle" });
+await go("/docs/components/icons");
 await page.waitForTimeout(400);
 const iconCount = await page.locator("button[title^='import']").count();
 checks.push([`icon grid renders (${iconCount})`, iconCount > 60]);
 
-await page.goto(BASE + "/docs/registry", { waitUntil: "networkidle" });
+await go("/docs/registry");
 await page.waitForTimeout(300);
 checks.push([
   "registry lists items",
@@ -217,7 +231,7 @@ if (reg.ok()) {
 /* ---------------------------------------------------------- mobile -- */
 
 await page.setViewportSize({ width: 390, height: 844 });
-await page.goto(BASE + "/docs/components/button", { waitUntil: "networkidle" });
+await go("/docs/components/button");
 await page.waitForTimeout(500);
 const mobileOverflow = await page.evaluate(
   () => document.documentElement.scrollWidth - document.documentElement.clientWidth,

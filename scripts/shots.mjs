@@ -30,7 +30,10 @@ for (const scheme of ["light", "dark"]) {
   const page = await ctx.newPage();
 
   for (const route of routes) {
-    await page.goto(BASE + route, { waitUntil: "networkidle" });
+    /* not `networkidle`: the geo route keeps fetching map tiles and never
+       goes idle, which used to hang the capture until it timed out */
+    await page.goto(BASE + route, { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(600);
     await page.addStyleTag({ content: "html{scroll-behavior:auto!important}" });
 
     /* Chromium captures fullPage beyond the viewport without scrolling, so
