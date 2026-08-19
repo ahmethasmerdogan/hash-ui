@@ -254,8 +254,9 @@ frozen one — which is how a block ships looking finished and sitting still.
 Each check grabs two frames of one element around a wait, a hover, a click or
 a scroll, and fails if too few pixels changed.
 
-Contributions are welcome — open an issue first if you are adding a component,
-so we can agree on which reference it comes from.
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Open an
+issue first if you are adding a component or a block, so we can agree on which
+reference it comes from.
 
 ---
 
