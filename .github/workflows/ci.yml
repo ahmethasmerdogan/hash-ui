@@ -17,10 +17,10 @@ jobs:
 
       - run: npm ci
 
-      - name: Typecheck both workspaces
+      - name: Typecheck every workspace
         run: npm run typecheck
 
-      - name: Build the npm package
+      - name: Build both npm packages
         run: npm run build:lib
 
       - name: Build the registry and the docs site
@@ -54,3 +54,14 @@ jobs:
         run: node scripts/qa.mjs
         env:
           QA_URL: http://localhost:5180
+
+      # A screenshot cannot tell a working animation from a frozen one, which
+      # is how blocks have shipped before now looking finished and sitting
+      # still. Each check photographs one element twice and fails on too few
+      # changed pixels. The Spline scene is skipped here: it is fetched from a
+      # third-party CDN and would fail for reasons unrelated to the commit.
+      - name: Motion sweep
+        run: node scripts/motion.mjs
+        env:
+          QA_URL: http://localhost:5180
+          MOTION_SKIP: spline

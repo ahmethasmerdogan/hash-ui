@@ -20,6 +20,14 @@ import { chromium } from "playwright";
 const BASE = process.env.QA_URL ?? "http://localhost:5180";
 const only = process.argv[2];
 
+/* MOTION_SKIP=spline,globe — for CI, where a check that depends on a
+   third-party CDN would fail for reasons that have nothing to do with the
+   commit under test. Skipped checks are reported, never silently dropped. */
+const skip = (process.env.MOTION_SKIP ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+
 /* A check either passes `min` (it moved enough) or fails.
    `max` catches the opposite failure: something that should be still. */
 const CHECKS = [
@@ -406,7 +414,13 @@ const page = await browser.newPage({
 page.on("pageerror", (e) => console.log("    ! pageerror:", String(e).slice(0, 120)));
 
 const results = [];
-const checks = only ? CHECKS.filter((c) => c.id.includes(only)) : CHECKS;
+const selected = only ? CHECKS.filter((c) => c.id.includes(only)) : CHECKS;
+const checks = selected.filter((c) => !skip.some((s) => c.id.includes(s)));
+const skipped = selected.filter((c) => skip.some((s) => c.id.includes(s)));
+
+for (const c of skipped) {
+  console.log(`  – ${c.id.padEnd(24)} ${"skipped".padStart(14)}  MOTION_SKIP`);
+}
 
 for (const c of checks) {
   let note = "";
@@ -564,6 +578,7 @@ for (const c of checks) {
 const failed = results.filter((r) => !r.ok);
 console.log(
   `\n${results.length - failed.length}/${results.length} moving.` +
+    (skipped.length ? `  ${skipped.length} skipped.` : "") +
     (failed.length ? `  still: ${failed.map((f) => f.id).join(", ")}` : ""),
 );
 
