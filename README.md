@@ -18,6 +18,8 @@ Install it from npm, or copy any component into your repo with the shadcn CLI.
 
 ### **[hashui.vercel.app →](https://hashui.vercel.app)**
 
+[Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
+
 <img src="apps/docs/public/og.png" width="760" alt="HashUI — 70+ flat, shadow-free components and 83 hand-drawn icons" />
 
 </div>

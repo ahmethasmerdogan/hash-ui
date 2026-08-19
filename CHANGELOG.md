@@ -1,0 +1,92 @@
+# Changelog
+
+All notable changes to HashUI. The format follows
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the packages
+follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
+
+`hash-ui` and `@hash-ui/blocks` are versioned together.
+
+---
+
+## [0.6.0] — 2026-08-19
+
+### Added
+
+**`@hash-ui/blocks`** — a second package of section-sized pieces, built out of
+the core primitives so they inherit your tokens rather than bringing their own.
+Twenty-one blocks in seven groups:
+
+| Group | Blocks |
+| --- | --- |
+| Heroes | `HeroTerminal` · `HeroSplit` · `HeroNexus` · `HeroCinematic` · `SplineHero` |
+| Features | `FeaturesBento` · `FeaturesTerminal` · `FeaturesCrop` |
+| Logos | `LogoCloud` · `LogoCloudPlus` · `LogoCloudSection` · `IntegrationsMarquee` |
+| Footers | `CinematicFooter` · `GridFooter` |
+| App shell | `DashboardShell` · `SidebarNav` · `RailSidebar` |
+| Maps & globe | `Map` and its markers · `GlobeFlights` |
+| Effects | `LiquidMetalButton` · `GeminiRibbon` · `NeuralVortex` |
+
+Core stays dependency-free. The three blocks that genuinely need a library
+declare it as an **optional peer** behind a dynamic import, so a project only
+pays for the one it uses: `@splinetool/react-spline`, `cobe` (pinned to
+`^0.6.5`) and `maplibre-gl`.
+
+**Five accent presets** — Emerald, Blue, Violet, Amber, Rose. Set with
+`[data-accent]` on `<html>`, or through `useTheme().setAccent()`, which
+persists the choice. Each supplies the same four tokens, so a preset is a
+palette swap and never a change in contrast, spacing or layout.
+
+**`scripts/motion.mjs`** — twenty-seven checks that photograph one element
+twice, around a wait, hover, click or scroll, and fail on too few changed
+pixels. It exists because screenshots cannot tell a working animation from a
+frozen one.
+
+**`scripts/filmstrip.mjs`** — N frames of one element laid out side by side,
+for when a number is not enough to judge timing or easing.
+
+### Changed
+
+- `variant="green"` now reads the accent rather than a fixed hue. The class
+  name `.btn-green` is historical; it is the brand face.
+- The blocks' glow and aurora are `color-mix`ed from `--brand`, so the effects
+  layer follows the accent along with everything else.
+- `scripts/shots.mjs` walks the page before capturing, so anything gated on
+  `IntersectionObserver` is photographed revealed rather than mid-hide.
+- `scripts/qa.mjs` skips elements carrying an `fx-*` class in the no-shadow
+  rule — the one sanctioned exception, scoped to the element that opted in.
+
+### Fixed
+
+- Three blocks (`HeroTerminal`, `HeroNexus`, `IntegrationsMarquee`) drew their
+  backdrops at a negative z-index without a stacking context, so the layers
+  escaped and painted behind an ancestor's background. They now `isolate`.
+- `HeroCinematic`'s headline could stay invisible where `IntersectionObserver`
+  never fires — printing, `content-visibility`, screenshot tools that capture
+  beyond the viewport. `useInView` takes a fail-safe timeout.
+- `SplineScene` spun forever when the runtime or the scene failed to arrive.
+  It now warms both while the page is idle, starts 600px earlier, shows a
+  designed plate instead of a bare spinner, and offers a retry after
+  `timeoutMs`.
+- `packages/blocks` emitted its type declarations to the wrong path, so the
+  published package would have shipped without usable types.
+
+### Notes
+
+- `cobe` is pinned to `^0.6.5`. Version 2.x advertises native `arcs`, which
+  would replace most of `GlobeFlights`, but 2.0.1 draws the sphere with no
+  landmasses at all — verified against its own README configuration.
+
+---
+
+## [0.5.0] — 2026-08-16
+
+### Added
+
+- Published as an npm package, with a shadcn-compatible registry at
+  `/r/*.json` — every component is both an import and a copy-paste.
+- A page per component family, replacing the single-page showcase.
+- The icon library page: all 83 icons, searchable, with copyable imports.
+
+### Changed
+
+- The canonical URL is `hashui.vercel.app`.
