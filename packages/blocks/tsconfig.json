@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true,
+    "noEmit": true,
+
+    /* Resolve the core from source rather than its dist/, so blocks can be
+       typechecked without building core first — the same trick the docs app
+       uses. The emitted .d.ts still says `from "hash-ui"`, which is what a
+       consumer installing from npm needs. */
+    "paths": {
+      "hash-ui": ["../core/src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}

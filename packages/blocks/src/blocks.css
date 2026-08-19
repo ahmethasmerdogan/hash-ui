@@ -1,0 +1,323 @@
+/* ------------------------------------------------------------------ */
+/* @hash-ui/blocks — the effects layer                                 */
+/*                                                                     */
+/* Import it AFTER the core token sheet:                               */
+/*                                                                     */
+/*   @import "tailwindcss";                                            */
+/*   @import "hash-ui/css";                                            */
+/*   @import "@hash-ui/blocks/css";                                    */
+/*                                                                     */
+/* Core is flat on purpose — every --sh-* token there is `none` and    */
+/* depth comes from canvas > surface > elev > inset layering. Blocks   */
+/* is the one place that rule is relaxed, because a scroll-driven      */
+/* ribbon or an aurora footer has no other way to read as light.       */
+/*                                                                     */
+/* The escape hatch is deliberately narrow: glow lives on the .fx-*    */
+/* classes below and nowhere else, so it is always something you       */
+/* opted into by name. Nothing here restyles a core component.         */
+/*                                                                     */
+/* https://hashui.vercel.app/docs/blocks                               */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* The effects palette — only ever read by .fx-* classes.
+
+     The brand-derived values are mixed from --brand rather than written out,
+     so switching [data-accent] moves the glow and the aurora with everything
+     else. The other two aurora stops stay fixed: a wash needs more than one
+     hue to read as light, and pinning them keeps every accent recognisable. */
+  --fx-glow: color-mix(in srgb, var(--brand) 38%, transparent);
+  --fx-glow-soft: color-mix(in srgb, var(--brand) 15%, transparent);
+  --fx-aurora-1: color-mix(in srgb, var(--brand) 24%, transparent);
+  --fx-aurora-2: rgba(56, 189, 248, 0.16);
+  --fx-aurora-3: rgba(244, 114, 182, 0.12);
+
+  /* Chrome, in BOTH themes. This is a lit object rather than a surface, so
+     it does not flip pale in light mode — that would make the white label
+     illegible and lose the material entirely.
+
+     What makes metal read as metal is not a gradient but the *alternation*:
+     a dark band, a near-white band, a mid band, repeating around the object.
+     A single vertical ramp only ever reads as a dark button. */
+  --fx-chrome-dark: #16161c;
+  --fx-chrome-lit: #9c9db2;
+  --fx-chrome-mid: #4a4b58;
+
+  /* the grid that sits behind most marketing blocks */
+  --fx-grid-line: rgba(28, 27, 24, 0.06);
+  --fx-grid-size: 32px;
+}
+
+.dark {
+  --fx-chrome-dark: #1d1d25;
+  --fx-chrome-lit: #adaec4;
+  --fx-chrome-mid: #55566a;
+
+  --fx-glow: color-mix(in srgb, var(--brand) 42%, transparent);
+  --fx-glow-soft: color-mix(in srgb, var(--brand) 17%, transparent);
+  --fx-aurora-1: color-mix(in srgb, var(--brand) 28%, transparent);
+  --fx-aurora-2: rgba(56, 189, 248, 0.2);
+  --fx-aurora-3: rgba(244, 114, 182, 0.14);
+
+  --fx-grid-line: rgba(255, 255, 255, 0.07);
+}
+
+/* ---------------------------------- */
+/* backdrops                          */
+/* ---------------------------------- */
+
+/* the 32px rule grid behind logo clouds, integrations and hero sections */
+.fx-grid {
+  background-image:
+    linear-gradient(to right, var(--fx-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--fx-grid-line) 1px, transparent 1px);
+  background-size: var(--fx-grid-size) var(--fx-grid-size);
+}
+
+/* The pointer-lit dot field. It exists because the core `.dot-grid` is drawn
+   in `--dot`, a hairline neutral one shade off the canvas: perfect as a
+   texture, invisible as a highlight. This one uses the brand hue so the
+   revealed patch actually reads as light following the cursor. */
+.fx-dot-brand {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--brand) 55%, transparent) 1.4px,
+    transparent 1.4px
+  );
+  background-size: 18px 18px;
+}
+
+/* fades a block out at its edges so marquees have somewhere to go */
+.fx-mask-radial {
+  mask-image: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    #000 60%,
+    transparent 100%
+  );
+}
+
+.fx-mask-b {
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* slow drifting colour wash — the footer and hero backdrops */
+.fx-aurora {
+  background:
+    radial-gradient(60% 55% at 20% 15%, var(--fx-aurora-1), transparent 70%),
+    radial-gradient(55% 50% at 80% 25%, var(--fx-aurora-2), transparent 70%),
+    radial-gradient(50% 60% at 50% 90%, var(--fx-aurora-3), transparent 70%);
+  filter: blur(48px);
+  animation: hashui-fx-aurora 22s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------- */
+/* surfaces                           */
+/* ---------------------------------- */
+
+/* the one place a glow is allowed on a control */
+.fx-glow-ring {
+  box-shadow:
+    0 0 0 1px var(--fx-glow-soft),
+    0 0 24px -4px var(--fx-glow);
+}
+
+/* The turning chrome. `inset: -60%` so the square gradient still covers the
+   pill at every angle of its rotation. */
+.fx-metal-spin::after {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: conic-gradient(
+    from 0deg,
+    var(--fx-chrome-dark) 0%,
+    var(--fx-chrome-lit) 9%,
+    var(--fx-chrome-dark) 20%,
+    var(--fx-chrome-mid) 31%,
+    var(--fx-chrome-dark) 42%,
+    var(--fx-chrome-lit) 54%,
+    var(--fx-chrome-dark) 66%,
+    var(--fx-chrome-mid) 78%,
+    var(--fx-chrome-dark) 88%,
+    var(--fx-chrome-lit) 96%,
+    var(--fx-chrome-dark) 100%
+  );
+  animation: hashui-fx-swirl 7s linear infinite;
+  pointer-events: none;
+}
+
+/* The light falling on it: a hot top edge and a shaded underside. Without
+   this the chrome reads as a flat disc of stripes rather than as an object. */
+.fx-metal-lit {
+  background:
+    /* a pool of shade through the middle, so a white label stays legible
+       however the bands happen to be turned */
+    radial-gradient(
+      70% 130% at 50% 50%,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.12) 70%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.34) 0%,
+      rgba(255, 255, 255, 0.06) 26%,
+      rgba(0, 0, 0, 0.26) 62%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+}
+
+.fx-kenburns {
+  animation: hashui-fx-kenburns 18s ease-in-out infinite alternate;
+}
+
+/* the plate under a block that is still fetching something large */
+.fx-shimmer {
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    color-mix(in srgb, var(--ink) 7%, transparent) 50%,
+    transparent 80%
+  );
+  background-size: 220% 100%;
+  animation: hashui-fx-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes hashui-fx-shimmer {
+  from {
+    background-position: 140% 0;
+  }
+  to {
+    background-position: -40% 0;
+  }
+}
+
+/* the drifting wash behind GridFooter's lit cell */
+.fx-sweep {
+  animation: hashui-fx-sweep 14s ease-in-out infinite alternate;
+}
+
+/* frosted pill used by the cinematic footer's magnetic buttons */
+.fx-glass {
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+
+/* ---------------------------------- */
+/* typography                         */
+/* ---------------------------------- */
+
+/* the giant vertical-gradient headline the footer and heroes share */
+.fx-fade-type {
+  background: linear-gradient(
+    180deg,
+    var(--ink) 0%,
+    color-mix(in srgb, var(--ink) 35%, transparent) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* oversized watermark bleeding off an edge */
+.fx-ghost-type {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-strong);
+  opacity: 0.5;
+}
+
+/* ---------------------------------- */
+/* keyframes                          */
+/* ---------------------------------- */
+
+@keyframes hashui-fx-aurora {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(4%, 3%, 0) scale(1.12);
+  }
+}
+
+@keyframes hashui-fx-swirl {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* the footer marquee runs on a slight tilt, so it gets its own track */
+@keyframes hashui-fx-marquee-x {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* the lit cell in GridFooter: a wash that drifts across, so the one bright
+   spot in an otherwise still footer is alive rather than painted on */
+@keyframes hashui-fx-sweep {
+  0% {
+    transform: translate3d(-30%, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(30%, 0, 0) scale(1.25);
+    opacity: 0.55;
+  }
+}
+
+/* the slow push behind HeroCinematic's stand-in backdrop */
+@keyframes hashui-fx-kenburns {
+  from {
+    transform: scale(1) translate3d(-4%, 2%, 0);
+    opacity: 0.75;
+  }
+  to {
+    transform: scale(1.3) translate3d(5%, -3%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes hashui-fx-ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.45;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes hashui-fx-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------- */
+/* motion preferences                 */
+/* ---------------------------------- */
+
+/* Every block below degrades to a still frame rather than disappearing —
+   a reader who asks for less motion still gets the whole layout. */
+@media (prefers-reduced-motion: reduce) {
+  .fx-aurora,
+  .fx-metal-spin::after,
+  .fx-sweep,
+  .fx-kenburns,
+  .fx-shimmer,
+  [data-fx-marquee] > * {
+    animation: none !important;
+  }
+  [data-fx-rise] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

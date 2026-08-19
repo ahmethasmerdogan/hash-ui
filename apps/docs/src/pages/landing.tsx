@@ -27,11 +27,12 @@ import {
   ISparkleFill,
   IZap,
 } from "hash-ui";
+import { IntegrationsMarquee, LogoCloudSection } from "@hash-ui/blocks";
 import { LogoMark } from "@/components/Logo";
 import { InstallTabs } from "@/components/InstallTabs";
 import { CodeBlock } from "@/components/Code";
 import { SITE } from "@/lib/site";
-import { COMPONENT_PAGES } from "@/lib/routes";
+import { BLOCK_PAGES, COMPONENT_PAGES } from "@/lib/routes";
 import { IGithub } from "@/app/Topbar";
 
 const STATS = [
@@ -167,7 +168,20 @@ export default function Landing() {
       {/* ---------------------------------------------------- hero ---- */}
       <section className="pt-10 md:pt-16">
         <div className="relative overflow-hidden rounded-[28px] border border-line bg-surface">
-          <div className="grain relative h-40 overflow-hidden bg-[linear-gradient(105deg,#0d9488_0%,#059669_26%,#22c55e_52%,#84cc16_78%,#10b981_100%)] md:h-48">
+          {/* the largest brand surface on the site, so it is mixed from
+              --brand rather than written out — it follows the accent picker */}
+          <div
+            className="grain relative h-40 overflow-hidden md:h-48"
+            style={{
+              backgroundImage:
+                "linear-gradient(105deg," +
+                " color-mix(in srgb, var(--brand) 78%, #0b3b2e) 0%," +
+                " var(--brand) 26%," +
+                " color-mix(in srgb, var(--brand) 72%, #ffffff) 52%," +
+                " color-mix(in srgb, var(--brand) 55%, #d9f99d) 78%," +
+                " var(--brand) 100%)",
+            }}
+          >
             <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_50%_-40%,rgba(255,255,255,0.4),transparent_62%)]" />
             <div className="absolute inset-x-0 top-1/2 z-[2] flex -translate-y-1/2 items-center justify-center">
               <span className="rounded-[26%] border border-white/35 bg-white/15 p-2.5 backdrop-blur-md">
@@ -179,7 +193,7 @@ export default function Landing() {
           <div className="px-6 pt-9 pb-11 text-center md:px-12">
             <div className="mb-7 flex justify-center">
               <AnnouncementPill chip={SITE.version}>
-                npm package · shadcn registry · MIT
+                21 new page blocks · shadcn registry · MIT
               </AnnouncementPill>
             </div>
 
@@ -192,8 +206,7 @@ export default function Landing() {
             <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-ink-2">
               HashUI turns a folder of curated interface screenshots into a
               reusable React&nbsp;19 + Tailwind&nbsp;v4 system — tokens,
-              primitives and pixel-faithful recreations of every reference, in
-              light and dark.
+              primitives, and now whole page blocks, in light and dark.
             </p>
 
             <div className="mx-auto mt-8 max-w-lg text-left">
@@ -287,6 +300,83 @@ export default function Landing() {
         <Reveal>
           <Sampler />
         </Reveal>
+      </section>
+
+
+      {/* -------------------------------------------------- blocks ---- */}
+      <section className="pt-16">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="microlabel mb-2 flex items-center gap-2 !text-brand">
+              <span aria-hidden>[</span> New in {SITE.version}{" "}
+              <span aria-hidden>]</span>
+            </div>
+            <h2 className="text-[26px] font-bold tracking-[-0.02em] text-ink">
+              Twenty-one blocks, in their own package
+            </h2>
+            <p className="mt-2 max-w-xl text-[14.5px] leading-relaxed text-ink-2">
+              Whole strips of a page — heroes, feature grids, footers, app
+              shells, maps and scroll-driven effects. Built out of the
+              primitives above, so they inherit your tokens rather than
+              bringing their own.
+            </p>
+          </div>
+          <Link
+            to="/docs/blocks"
+            className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-ink-2 transition-colors hover:text-ink"
+          >
+            All {BLOCK_PAGES.length} block pages <IArrowRight size={14} />
+          </Link>
+        </div>
+
+        {/* the two blocks that read at a glance, running live */}
+        <Card className="overflow-hidden p-0">
+          <IntegrationsMarquee
+            className="!py-12"
+            title="Composed from the same primitives"
+            description="Every block here is core components in a new arrangement — no second design language, no second token set."
+            action={{ label: "Browse the blocks", href: "/docs/blocks" }}
+          />
+        </Card>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {BLOCK_PAGES.map((p) => (
+            <Link key={p.path} to={p.path} className="group/b">
+              <Card className="flex h-full items-start justify-between gap-2 p-4 transition-colors group-hover/b:border-line-strong">
+                <span>
+                  <span className="block text-[13.5px] font-semibold text-ink">
+                    {p.label}
+                  </span>
+                  <span className="mt-1 block text-[12px] leading-relaxed text-ink-3">
+                    {p.desc}
+                  </span>
+                </span>
+                <IArrowUpRight
+                  size={13}
+                  className="mt-0.5 shrink-0 text-ink-3 transition-transform group-hover/b:-translate-y-0.5 group-hover/b:translate-x-0.5 group-hover/b:text-ink"
+                />
+              </Card>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <LogoCloudSection
+            title="Drawn from references by"
+            highlight="designers worth studying."
+            variant="plus"
+            logos={[
+              { alt: "Tailark" },
+              { alt: "Aceternity" },
+              { alt: "jolyui" },
+              { alt: "Efferd" },
+              { alt: "mapcn" },
+              { alt: "cobe" },
+              { alt: "Spline" },
+              { alt: "MapLibre" },
+            ]}
+          />
+        </div>
       </section>
 
       {/* --------------------------------------------------- usage ---- */}

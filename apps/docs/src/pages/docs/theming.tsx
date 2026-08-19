@@ -1,5 +1,84 @@
 import { Section, Demo } from "@/components/Section";
-import { cx } from "hash-ui";
+import {
+  ACCENTS,
+  Button,
+  Card,
+  StatusPill,
+  cx,
+  useTheme,
+  ICheck,
+  type AccentId,
+} from "hash-ui";
+import { CodeBlock } from "@/components/Code";
+
+const ACCENT_IDS = Object.keys(ACCENTS) as AccentId[];
+
+/* The five presets, live. Clicking one swaps [data-accent] on <html>, so the
+   sample beside it — and the entire site around it — recolours at once. */
+function AccentPresets() {
+  const { accent, setAccent } = useTheme();
+  return (
+    <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,300px)_1fr]">
+      <div className="flex flex-col gap-1.5">
+        {ACCENT_IDS.map((id) => {
+          const a = ACCENTS[id];
+          const active = id === accent;
+          return (
+            <button
+              key={id}
+              type="button"
+              onClick={() => setAccent(id)}
+              aria-pressed={active}
+              className={cx(
+                "flex items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-colors",
+                active
+                  ? "border-line-strong bg-elev"
+                  : "border-line bg-surface hover:bg-elev",
+              )}
+            >
+              <span
+                className="size-7 shrink-0 rounded-[9px] ring-1 ring-black/10 ring-inset"
+                style={{ background: a.swatch }}
+              />
+              <span className="min-w-0 flex-1 leading-tight">
+                <span className="block text-[13px] font-semibold text-ink">
+                  {a.label}
+                </span>
+                <span className="block text-[11.5px] text-ink-3">{a.note}</span>
+              </span>
+              {active && <ICheck size={15} className="shrink-0 text-brand" />}
+            </button>
+          );
+        })}
+      </div>
+
+      <Card className="flex flex-col gap-5 p-5">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <Button variant="green">Primary action</Button>
+          <Button variant="outline">Secondary</Button>
+          <StatusPill tone="green">Live</StatusPill>
+        </div>
+        <div className="rounded-xl border border-brand/25 bg-brand-soft p-4">
+          <div className="microlabel mb-1.5 !text-brand">Tinted surface</div>
+          <p className="text-[13px] leading-relaxed text-ink-2">
+            Text, borders and fills all resolve through the same four tokens, so
+            a preset is a palette swap and never a layout change.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {(["--brand", "--brand-ink", "--brand-soft"] as const).map((v) => (
+            <span
+              key={v}
+              className="rounded-lg border border-line bg-elev px-2.5 py-1 font-mono text-[11px] text-ink-2"
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+}
 
 const surfaceTokens = [
   { name: "canvas", cls: "bg-canvas", desc: "page" },
@@ -52,7 +131,35 @@ export default function Foundations() {
         </div>
       </Demo>
 
-      <Demo label="Accent system" refName="status pills across refs">
+      <Demo
+        label="Accent presets — click one, the whole site follows"
+        contentClassName="!block !p-6"
+      >
+        <AccentPresets />
+      </Demo>
+
+      <Card className="p-5">
+        <p className="mb-3 text-[13.5px] leading-relaxed text-ink-2">
+          <span className="font-semibold text-ink">One attribute, five palettes.</span>{" "}
+          The presets live in the token sheet under{" "}
+          <code className="font-mono">[data-accent]</code>. Each supplies the
+          same four values, so switching one is a palette swap — never a change
+          in contrast, spacing or layout. The primary button face is built from
+          them too, which is why <code className="font-mono">variant="green"</code>{" "}
+          is whatever the current accent says it is.
+        </p>
+        <CodeBlock
+          code={`import { useTheme, ACCENTS } from "hash-ui";
+
+const { accent, setAccent } = useTheme();
+setAccent("violet");   // persisted, applied to <html data-accent>
+
+// or set it yourself, with no JavaScript at all:
+// <html data-accent="violet">`}
+        />
+      </Card>
+
+      <Demo label="Status vocabulary" refName="status pills across refs">
         <div className="grid w-full grid-cols-2 gap-3 md:grid-cols-4">
           {accents.map((a) => (
             <div

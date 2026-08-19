@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "outDir": "dist/types",
+
+    /* The dev config maps `hash-ui` to packages/core/src so this package can
+       be typechecked without building core first. That mapping must NOT
+       survive into the build: it drags core's sources into the program, which
+       moves the computed common root up to packages/ and emits
+       dist/types/blocks/src/index.d.ts instead of dist/types/index.d.ts —
+       exactly where package.json is not looking.
+
+       Clearing it makes `hash-ui` resolve through the workspace symlink to
+       core's own dist/types, which is why build:lib builds core first. */
+    "paths": {},
+    "rootDir": "src"
+  },
+  "include": ["src"]
+}

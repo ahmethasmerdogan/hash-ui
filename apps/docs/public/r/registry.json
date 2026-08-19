@@ -409,6 +409,462 @@
           "target": "components/hashui/three-orb.tsx"
         }
       ]
+    },
+    {
+      "name": "blocks-tokens",
+      "type": "registry:theme",
+      "title": "Effects tokens",
+      "description": "The .fx-* layer: the one place in HashUI where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/blocks.css",
+          "type": "registry:file",
+          "target": "styles/hashui-blocks.css"
+        }
+      ]
+    },
+    {
+      "name": "blocks-hooks",
+      "type": "registry:lib",
+      "title": "Block hooks",
+      "description": "useInView, useScrollProgress, useMagnetic, usePointer and useReducedMotion — the jobs framer-motion would otherwise be installed for.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/blocks-hooks.ts",
+          "type": "registry:lib",
+          "target": "lib/hashui/blocks-hooks.ts"
+        }
+      ]
+    },
+    {
+      "name": "blocks-parts",
+      "type": "registry:ui",
+      "title": "Block parts",
+      "description": "ActionButton, Eyebrow, SplitHeadline, WindowFrame and WindowField — the small pieces every block is assembled from.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/button.json",
+        "https://hashui.vercel.app/r/blocks-hooks.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/blocks-parts.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/blocks-parts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "block-visuals",
+      "type": "registry:ui",
+      "title": "Block visuals",
+      "description": "StatDial, FingerprintMark, Sparkline, AvatarStack, SetGlyph, IconTile and CropMarks — drawn illustrations, so a feature card never ships a stale PNG.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/avatar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/block-visuals.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/block-visuals.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-cloud",
+      "type": "registry:ui",
+      "title": "LogoCloud",
+      "description": "The social-proof grid in two treatments — plain rules, or plus marks on the interior crossings with a checkerboard tint.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/logo-cloud.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/logo-cloud.tsx"
+        }
+      ]
+    },
+    {
+      "name": "integrations-marquee",
+      "type": "registry:ui",
+      "title": "IntegrationsMarquee",
+      "description": "Three rows of integration chips drifting behind a radial mask, with your own mark held still in the middle.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/motion.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-parts.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/integrations-marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/integrations-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-bento",
+      "type": "registry:ui",
+      "title": "FeaturesBento",
+      "description": "An uneven twelve-column feature grid: a wide claim across the top, then cards that change width as the row goes on.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/card.json",
+        "https://hashui.vercel.app/r/badge.json",
+        "https://hashui.vercel.app/r/blocks-parts.json",
+        "https://hashui.vercel.app/r/block-visuals.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/features-bento.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/features-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-terminal",
+      "type": "registry:ui",
+      "title": "FeaturesTerminal",
+      "description": "The developer-platform grid — every card opens with a terminal or an API exchange, given as data rather than as a screenshot.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/card.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-parts.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/features-terminal.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/features-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "features-crop",
+      "type": "registry:ui",
+      "title": "FeaturesCrop",
+      "description": "Feature plates under printer's crop marks, closed by a full-width card with a row of captioned glyphs.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/block-visuals.json",
+        "https://hashui.vercel.app/r/blocks-parts.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/features-crop.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/features-crop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-terminal",
+      "type": "registry:ui",
+      "title": "HeroTerminal",
+      "description": "The developer-tool opening: announcement chip, two-tone headline, two calls to action, and the install running underneath.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-parts.json",
+        "https://hashui.vercel.app/r/features-terminal.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/hero-terminal.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/hero-terminal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-split",
+      "type": "registry:ui",
+      "title": "HeroSplit",
+      "description": "A real navigation bar, a left-aligned headline and a client strip — the marketing-site opening rather than a launch page.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/button.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-parts.json",
+        "https://hashui.vercel.app/r/logo-cloud.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/hero-split.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/hero-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-nexus",
+      "type": "registry:ui",
+      "title": "HeroNexus",
+      "description": "The SaaS opening: grouped nav menus, an announcement pill, a headline whose last word cycles, and an inline capture form.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/button.json",
+        "https://hashui.vercel.app/r/motion.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-parts.json",
+        "https://hashui.vercel.app/r/blocks-hooks.json",
+        "https://hashui.vercel.app/r/hero-split.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/hero-nexus.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/hero-nexus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-cinematic",
+      "type": "registry:ui",
+      "title": "HeroCinematic",
+      "description": "A full-bleed still or loop, a floating pill of navigation, and the brand set enormous and cropped along the bottom edge.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/blocks-hooks.json",
+        "https://hashui.vercel.app/r/hero-split.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/hero-cinematic.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/hero-cinematic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spline-scene",
+      "type": "registry:ui",
+      "title": "SplineScene",
+      "description": "A Spline 3D scene behind a dynamic import, so the runtime is fetched only once the block nears the viewport.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/motion.json",
+        "https://hashui.vercel.app/r/blocks-hooks.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/spline-scene.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/spline-scene.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cinematic-footer",
+      "type": "registry:ui",
+      "title": "CinematicFooter",
+      "description": "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-hooks.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/cinematic-footer.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/cinematic-footer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "grid-footer",
+      "type": "registry:ui",
+      "title": "GridFooter",
+      "description": "A footer built as an exposed ruled grid rather than as stacked columns.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-parts.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/grid-footer.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/grid-footer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-shell",
+      "type": "registry:ui",
+      "title": "DashboardShell",
+      "description": "A workspace switcher, a nested navigation tree and a pinned footer group, wrapped in a collapsible rail with a top bar and a search overlay.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/avatar.json",
+        "https://hashui.vercel.app/r/badge.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/dashboard-shell.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/dashboard-shell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rail-sidebar",
+      "type": "registry:ui",
+      "title": "RailSidebar",
+      "description": "The two-part admin navigation: a narrow rail of destinations, and a searchable panel holding the tree for the selected one.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/controls.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/rail-sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/rail-sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "type": "registry:ui",
+      "title": "Map",
+      "description": "A composable MapLibre surface whose markers are React children — Map, MapMarker, MarkerContent, MarkerDot, MarkerTooltip and MarkerLabel.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/map.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/map.tsx"
+        }
+      ]
+    },
+    {
+      "name": "globe-flights",
+      "type": "registry:ui",
+      "title": "GlobeFlights",
+      "description": "A turning globe with great-circle routes and a glyph riding each arc, hidden as it passes behind the planet.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/globe-flights.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/globe-flights.tsx"
+        }
+      ]
+    },
+    {
+      "name": "liquid-metal-button",
+      "type": "registry:ui",
+      "title": "LiquidMetalButton",
+      "description": "A brushed-metal pill with a turning sheen, a glowing rim and a ripple from wherever you clicked. No shader program.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/liquid-metal-button.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/liquid-metal-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gemini-ribbon",
+      "type": "registry:ui",
+      "title": "GeminiRibbon",
+      "description": "Five ribbons that draw themselves as the page passes, each trailing a blurred copy of itself for the light.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/blocks-hooks.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/gemini-ribbon.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/gemini-ribbon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "neural-vortex",
+      "type": "registry:ui",
+      "title": "NeuralVortex",
+      "description": "A full-bleed WebGL backdrop of filaments that lean towards the pointer. One fragment shader, no dependencies.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/neural-vortex.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/neural-vortex.tsx"
+        }
+      ]
     }
   ]
 }

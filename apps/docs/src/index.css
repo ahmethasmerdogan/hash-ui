@@ -5,3 +5,8 @@
    package folder — no build step between editing a component and seeing it. */
 @import "../../../packages/core/src/hashui.css";
 @source "../../../packages/core/src";
+
+/* the blocks package is dogfooded the same way — its effects layer has to
+   land after the core tokens so the .fx-* classes can read them */
+@import "../../../packages/blocks/src/blocks.css";
+@source "../../../packages/blocks/src";

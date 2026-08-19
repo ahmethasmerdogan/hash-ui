@@ -2,11 +2,11 @@
 
 export const SITE = {
   name: "HashUI",
-  version: "v0.5",
+  version: "v0.6",
   pkg: "hash-ui",
   tagline: "A design foundation, distilled from the wild.",
   description:
-    "A flat, shadow-free React 19 + Tailwind CSS v4 design system — 70+ components and 83 hand-drawn icons, distilled from 36 curated interface references.",
+    "A flat, shadow-free React 19 + Tailwind CSS v4 design system — 70+ components, 21 page blocks and 83 hand-drawn icons, distilled from curated interface references.",
   url: "https://hashui.vercel.app",
   github: "https://github.com/ahmethasmerdogan/hash-ui",
   npm: "https://www.npmjs.com/package/hash-ui",

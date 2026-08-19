@@ -162,6 +162,75 @@ export const NAV: NavGroup[] = [
     ],
   },
   {
+    label: "Blocks",
+    items: [
+      {
+        path: "/docs/blocks",
+        label: "Overview",
+        badge: "New",
+        desc: "Section-sized blocks built out of the core primitives, in their own package.",
+        keywords: "blocks sections marketing landing page hero footer overview",
+        Component: lazy(() => import("@/pages/blocks/overview")),
+      },
+      {
+        path: "/docs/blocks/heroes",
+        label: "Heroes",
+        badge: "New",
+        desc: "Five opening sections: terminal, split, nexus, cinematic and 3D.",
+        keywords: "HeroTerminal HeroSplit HeroNexus HeroCinematic SplineScene hero landing above the fold",
+        Component: lazy(() => import("@/pages/blocks/heroes")),
+      },
+      {
+        path: "/docs/blocks/features",
+        label: "Features",
+        badge: "New",
+        desc: "Three feature grids: bento, terminal cards and crop-marked cards.",
+        keywords: "FeaturesBento FeaturesTerminal FeaturesCrop feature grid bento cards",
+        Component: lazy(() => import("@/pages/blocks/features")),
+      },
+      {
+        path: "/docs/blocks/logos",
+        label: "Logos & integrations",
+        badge: "New",
+        desc: "Social-proof grids and the three-row integrations marquee.",
+        keywords: "LogoCloud LogoCloudPlus LogoCloudSection IntegrationsMarquee social proof clients partners",
+        Component: lazy(() => import("@/pages/blocks/logos")),
+      },
+      {
+        path: "/docs/blocks/footers",
+        label: "Footers",
+        badge: "New",
+        desc: "The scroll-revealed cinematic footer and the exposed-grid footer.",
+        keywords: "CinematicFooter GridFooter footer marquee magnetic back to top",
+        Component: lazy(() => import("@/pages/blocks/footers")),
+      },
+      {
+        path: "/docs/blocks/app-shell",
+        label: "App shell",
+        badge: "New",
+        desc: "Two sidebars: the nested workspace nav and the dual-rail panel.",
+        keywords: "SidebarNav DashboardShell RailSidebar sidebar workspace navigation dashboard admin",
+        Component: lazy(() => import("@/pages/blocks/app-shell")),
+      },
+      {
+        path: "/docs/blocks/geo",
+        label: "Maps & globe",
+        badge: "New",
+        desc: "MapLibre markers with tooltips and labels, and the flight-arc globe.",
+        keywords: "Map MapMarker MarkerContent MarkerTooltip MarkerLabel GlobeFlights maplibre cobe geography",
+        Component: lazy(() => import("@/pages/blocks/geo")),
+      },
+      {
+        path: "/docs/blocks/effects",
+        label: "Effects",
+        badge: "New",
+        desc: "The one layer where glow is allowed: liquid metal, ribbons, vortex.",
+        keywords: "LiquidMetalButton GeminiRibbon NeuralVortex glow webgl shader scroll effect",
+        Component: lazy(() => import("@/pages/blocks/effects")),
+      },
+    ],
+  },
+  {
     label: "Patterns",
     items: [
       {
@@ -219,6 +288,11 @@ export const PAGES: DocPage[] = NAV.flatMap((g) => g.items);
 
 export const COMPONENT_PAGES: DocPage[] =
   NAV.find((g) => g.label === "Components")?.items ?? [];
+
+/** every Blocks page except its own overview — what the index lists */
+export const BLOCK_PAGES: DocPage[] = (
+  NAV.find((g) => g.label === "Blocks")?.items ?? []
+).filter((p) => p.path !== "/docs/blocks");
 
 export function groupOf(path: string) {
   return NAV.find((g) => g.items.some((i) => i.path === path))?.label;

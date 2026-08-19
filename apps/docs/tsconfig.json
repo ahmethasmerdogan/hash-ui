@@ -19,8 +19,15 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "hash-ui": ["../../packages/core/src/index.ts"]
+      "hash-ui": ["../../packages/core/src/index.ts"],
+      "@hash-ui/blocks": ["../../packages/blocks/src/index.ts"]
     }
   },
-  "include": ["src", "vite.config.ts"]
+  /* the docs app resolves @hash-ui/blocks to source, so it needs the same
+     ambient shims for that package's optional peers */
+  "include": [
+    "src",
+    "vite.config.ts",
+    "../../packages/blocks/src/optional-peers.d.ts"
+  ]
 }

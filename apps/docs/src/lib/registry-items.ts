@@ -239,5 +239,352 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "target": "styles/hashui.css",
     "dependencies": [],
     "registryDependencies": []
+  },
+  {
+    "name": "blocks-tokens",
+    "title": "Effects tokens",
+    "description": "The .fx-* layer: the one place in HashUI where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
+    "type": "registry:theme",
+    "target": "styles/hashui-blocks.css",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens"
+    ]
+  },
+  {
+    "name": "blocks-hooks",
+    "title": "Block hooks",
+    "description": "useInView, useScrollProgress, useMagnetic, usePointer and useReducedMotion — the jobs framer-motion would otherwise be installed for.",
+    "type": "registry:lib",
+    "target": "lib/hashui/blocks-hooks.ts",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens"
+    ]
+  },
+  {
+    "name": "blocks-parts",
+    "title": "Block parts",
+    "description": "ActionButton, Eyebrow, SplitHeadline, WindowFrame and WindowField — the small pieces every block is assembled from.",
+    "type": "registry:ui",
+    "target": "components/hashui/blocks-parts.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "blocks-hooks"
+    ]
+  },
+  {
+    "name": "block-visuals",
+    "title": "Block visuals",
+    "description": "StatDial, FingerprintMark, Sparkline, AvatarStack, SetGlyph, IconTile and CropMarks — drawn illustrations, so a feature card never ships a stale PNG.",
+    "type": "registry:ui",
+    "target": "components/hashui/block-visuals.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "avatar"
+    ]
+  },
+  {
+    "name": "logo-cloud",
+    "title": "LogoCloud",
+    "description": "The social-proof grid in two treatments — plain rules, or plus marks on the interior crossings with a checkerboard tint.",
+    "type": "registry:ui",
+    "target": "components/hashui/logo-cloud.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "icons"
+    ]
+  },
+  {
+    "name": "integrations-marquee",
+    "title": "IntegrationsMarquee",
+    "description": "Three rows of integration chips drifting behind a radial mask, with your own mark held still in the middle.",
+    "type": "registry:ui",
+    "target": "components/hashui/integrations-marquee.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "motion",
+      "icons",
+      "blocks-parts"
+    ]
+  },
+  {
+    "name": "features-bento",
+    "title": "FeaturesBento",
+    "description": "An uneven twelve-column feature grid: a wide claim across the top, then cards that change width as the row goes on.",
+    "type": "registry:ui",
+    "target": "components/hashui/features-bento.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "card",
+      "badge",
+      "blocks-parts",
+      "block-visuals"
+    ]
+  },
+  {
+    "name": "features-terminal",
+    "title": "FeaturesTerminal",
+    "description": "The developer-platform grid — every card opens with a terminal or an API exchange, given as data rather than as a screenshot.",
+    "type": "registry:ui",
+    "target": "components/hashui/features-terminal.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "card",
+      "icons",
+      "blocks-parts"
+    ]
+  },
+  {
+    "name": "features-crop",
+    "title": "FeaturesCrop",
+    "description": "Feature plates under printer's crop marks, closed by a full-width card with a row of captioned glyphs.",
+    "type": "registry:ui",
+    "target": "components/hashui/features-crop.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "icons",
+      "block-visuals",
+      "blocks-parts"
+    ]
+  },
+  {
+    "name": "hero-terminal",
+    "title": "HeroTerminal",
+    "description": "The developer-tool opening: announcement chip, two-tone headline, two calls to action, and the install running underneath.",
+    "type": "registry:ui",
+    "target": "components/hashui/hero-terminal.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "icons",
+      "blocks-parts",
+      "features-terminal"
+    ]
+  },
+  {
+    "name": "hero-split",
+    "title": "HeroSplit",
+    "description": "A real navigation bar, a left-aligned headline and a client strip — the marketing-site opening rather than a launch page.",
+    "type": "registry:ui",
+    "target": "components/hashui/hero-split.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "icons",
+      "blocks-parts",
+      "logo-cloud"
+    ]
+  },
+  {
+    "name": "hero-nexus",
+    "title": "HeroNexus",
+    "description": "The SaaS opening: grouped nav menus, an announcement pill, a headline whose last word cycles, and an inline capture form.",
+    "type": "registry:ui",
+    "target": "components/hashui/hero-nexus.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "motion",
+      "icons",
+      "blocks-parts",
+      "blocks-hooks",
+      "hero-split"
+    ]
+  },
+  {
+    "name": "hero-cinematic",
+    "title": "HeroCinematic",
+    "description": "A full-bleed still or loop, a floating pill of navigation, and the brand set enormous and cropped along the bottom edge.",
+    "type": "registry:ui",
+    "target": "components/hashui/hero-cinematic.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "blocks-hooks",
+      "hero-split"
+    ]
+  },
+  {
+    "name": "spline-scene",
+    "title": "SplineScene",
+    "description": "A Spline 3D scene behind a dynamic import, so the runtime is fetched only once the block nears the viewport.",
+    "type": "registry:ui",
+    "target": "components/hashui/spline-scene.tsx",
+    "dependencies": [
+      "@splinetool/react-spline"
+    ],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "motion",
+      "blocks-hooks"
+    ]
+  },
+  {
+    "name": "cinematic-footer",
+    "title": "CinematicFooter",
+    "description": "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",
+    "type": "registry:ui",
+    "target": "components/hashui/cinematic-footer.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "icons",
+      "blocks-hooks"
+    ]
+  },
+  {
+    "name": "grid-footer",
+    "title": "GridFooter",
+    "description": "A footer built as an exposed ruled grid rather than as stacked columns.",
+    "type": "registry:ui",
+    "target": "components/hashui/grid-footer.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "icons",
+      "blocks-parts"
+    ]
+  },
+  {
+    "name": "dashboard-shell",
+    "title": "DashboardShell",
+    "description": "A workspace switcher, a nested navigation tree and a pinned footer group, wrapped in a collapsible rail with a top bar and a search overlay.",
+    "type": "registry:ui",
+    "target": "components/hashui/dashboard-shell.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "avatar",
+      "badge",
+      "icons"
+    ]
+  },
+  {
+    "name": "rail-sidebar",
+    "title": "RailSidebar",
+    "description": "The two-part admin navigation: a narrow rail of destinations, and a searchable panel holding the tree for the selected one.",
+    "type": "registry:ui",
+    "target": "components/hashui/rail-sidebar.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "controls",
+      "icons"
+    ]
+  },
+  {
+    "name": "map",
+    "title": "Map",
+    "description": "A composable MapLibre surface whose markers are React children — Map, MapMarker, MarkerContent, MarkerDot, MarkerTooltip and MarkerLabel.",
+    "type": "registry:ui",
+    "target": "components/hashui/map.tsx",
+    "dependencies": [
+      "maplibre-gl"
+    ],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx"
+    ]
+  },
+  {
+    "name": "globe-flights",
+    "title": "GlobeFlights",
+    "description": "A turning globe with great-circle routes and a glyph riding each arc, hidden as it passes behind the planet.",
+    "type": "registry:ui",
+    "target": "components/hashui/globe-flights.tsx",
+    "dependencies": [
+      "cobe"
+    ],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx"
+    ]
+  },
+  {
+    "name": "liquid-metal-button",
+    "title": "LiquidMetalButton",
+    "description": "A brushed-metal pill with a turning sheen, a glowing rim and a ripple from wherever you clicked. No shader program.",
+    "type": "registry:ui",
+    "target": "components/hashui/liquid-metal-button.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "icons"
+    ]
+  },
+  {
+    "name": "gemini-ribbon",
+    "title": "GeminiRibbon",
+    "description": "Five ribbons that draw themselves as the page passes, each trailing a blurred copy of itself for the light.",
+    "type": "registry:ui",
+    "target": "components/hashui/gemini-ribbon.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "blocks-hooks"
+    ]
+  },
+  {
+    "name": "neural-vortex",
+    "title": "NeuralVortex",
+    "description": "A full-bleed WebGL backdrop of filaments that lean towards the pointer. One fragment shader, no dependencies.",
+    "type": "registry:ui",
+    "target": "components/hashui/neural-vortex.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx"
+    ]
   }
 ];

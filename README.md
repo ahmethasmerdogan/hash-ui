@@ -6,8 +6,9 @@
 
 **A design foundation, distilled from the wild.**
 
-A flat, shadow-free **React + Tailwind CSS v4** design system — 70+ components and
-83 hand-drawn icons, rebuilt from 36 curated interface references.
+A flat, shadow-free **React + Tailwind CSS v4** design system — 70+ components,
+21 page blocks, 83 hand-drawn icons and five accent themes, rebuilt from curated
+interface references.
 Install it from npm, or copy any component into your repo with the shadcn CLI.
 
 [![npm](https://img.shields.io/npm/v/hash-ui?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/hash-ui)
@@ -73,6 +74,36 @@ curl https://hashui.vercel.app/r/button.json  | jq -r '.files[0].content'
 
 [Registry docs →](https://hashui.vercel.app/docs/registry)
 
+### Blocks
+
+Whole strips of a page — heroes, feature grids, footers, app shells, maps and
+scroll-driven effects — live in a second package so the core stays
+dependency-free.
+
+```bash
+npm install @hash-ui/blocks
+```
+
+```css
+/* after the core sheet — the effects layer reads its tokens */
+@import "tailwindcss";
+@import "hash-ui/css";
+@import "@hash-ui/blocks/css";
+```
+
+```tsx
+import { HeroTerminal, FeaturesBento, CinematicFooter } from "@hash-ui/blocks";
+```
+
+Three blocks reach for a library, each declared an **optional peer** behind a
+dynamic import — you only pay for the one you use:
+
+| Block | Peer |
+| --- | --- |
+| `SplineScene` / `SplineHero` | `@splinetool/react-spline` |
+| `GlobeFlights` | `cobe` (pinned to `^0.6.5`) |
+| `Map` and its markers | `maplibre-gl` |
+
 ---
 
 ## What is in the box
@@ -85,6 +116,7 @@ curl https://hashui.vercel.app/r/button.json  | jq -r '.files[0].content'
 | **Data** | `PillTabs` · `NotchTabs` · `DotTabs` · `UnderlineTabs` · `PillNav` · `ProgressBar` · `TickBars` · `SignalBars` · `DottedMeter` · `GoalBar` · `RainbowMeter` · `RingProgress` · `RangeBar` · `CountdownLCD` · `LcdTimer` · `DeliveryTimeline` · `StageFlow` · `CommitGraph` |
 | **Motion** | `NumberTicker` · `Typewriter` · `Marquee` · `ShimmerButton` · `BorderBeam` · `Spotlight` · `TiltCard` · `Reveal` · `Meteors` · `GradientText` · `ThreeOrb` |
 | **Icons** | 83 hand-drawn SVGs on a 24px grid — [browse them](https://hashui.vercel.app/docs/components/icons) |
+| **Blocks** *(separate package)* | `HeroTerminal` · `HeroSplit` · `HeroNexus` · `HeroCinematic` · `SplineHero` · `FeaturesBento` · `FeaturesTerminal` · `FeaturesCrop` · `LogoCloud` · `LogoCloudPlus` · `IntegrationsMarquee` · `CinematicFooter` · `GridFooter` · `DashboardShell` · `SidebarNav` · `RailSidebar` · `Map` + markers · `GlobeFlights` · `LiquidMetalButton` · `GeminiRibbon` · `NeuralVortex` |
 
 Semantic classes come from the token layer:
 `bg-canvas · bg-surface · bg-elev · bg-inset · border-line · text-ink · text-ink-2 ·
@@ -106,10 +138,36 @@ load-bearing — break one and the components stop looking related.
    opts into a 12px radius.
 4. **Two typographic voices.** Geist for the interface, Geist Mono with tabular
    numerals for every number, timestamp, ID and code sample.
-5. **No neon, no glow.** Accent colour carries meaning, not decoration.
+5. **No neon, no glow.** Accent colour carries meaning, not decoration. The one
+   exception is `@hash-ui/blocks`, whose `.fx-*` effects layer may glow — it is
+   opt-in by class name and never restyles a core component.
 
 A CI check enforces #1 in the browser: `node scripts/qa.mjs` fails the build if
 any element renders a blurred box-shadow.
+
+---
+
+## Accent themes
+
+Five presets — Emerald, Blue, Violet, Amber, Rose — chosen at runtime or set
+once in your HTML. Each supplies the same four tokens, so a preset is a palette
+swap and never a change in contrast, spacing or layout.
+
+```tsx
+import { useTheme, ACCENTS } from "hash-ui";
+
+const { accent, setAccent } = useTheme();
+setAccent("violet");        // persisted to localStorage
+```
+
+```html
+<!-- or with no JavaScript at all -->
+<html data-accent="violet">
+```
+
+Everything accent-coloured resolves through `--brand`, `--brand-ink`,
+`--brand-soft` and `--btn-brand-*`, which is why `variant="green"` is whatever
+the current accent says it is, and why the blocks' glow and aurora follow along.
 
 ---
 
@@ -148,14 +206,23 @@ packages/core/            # the published npm package `hash-ui`
     Button.tsx …          # one file per component family
     presets/               # brand-bridge example
 
+packages/blocks/          # the published npm package `@hash-ui/blocks`
+  src/
+    blocks.css            # the .fx-* effects layer (the one place glow lives)
+    hooks.ts              # useInView, useScrollProgress, useMagnetic …
+    parts.tsx             # ActionButton, SplitHeadline, WindowFrame …
+    heroes/ features/ logos/ footers/ shell/ geo/ effects/
+
 apps/docs/                # the docs site — Vite + React Router
   src/pages/              # one page per component family
   public/r/*.json         # the shadcn registry, generated
 
 scripts/
-  build-registry.mjs      # packages/core → apps/docs/public/r
+  build-registry.mjs      # packages/core + packages/blocks → apps/docs/public/r
   qa.mjs                  # every route × both themes, in a real browser
   shots.mjs               # visual regression captures
+  motion.mjs              # does each animation actually move? (pixel diff)
+  filmstrip.mjs           # N frames of one element, side by side
   make-og.mjs             # brand SVGs → PNG
   export-ui.mjs           # copy the library into another repo
 ```
@@ -169,14 +236,21 @@ file and an install command always line up.
 npm install
 npm run dev          # docs site on http://localhost:5180
 
-npm run build:lib    # build the npm package
+npm run build:lib    # build both npm packages
 npm run registry     # regenerate the shadcn registry
 npm run build        # registry + docs site
-npm run typecheck    # both workspaces
+npm run typecheck    # all three workspaces
 
 node scripts/qa.mjs      # route sweep: overflow, contrast, shadows, interaction
 node scripts/shots.mjs   # screenshots, light + dark
+node scripts/motion.mjs  # 27 animation checks, by pixel diff
+node scripts/filmstrip.mjs /docs/blocks/effects "button.group\\/lm" 6 200
 ```
+
+`motion.mjs` exists because screenshots cannot tell a working animation from a
+frozen one — which is how a block ships looking finished and sitting still.
+Each check grabs two frames of one element around a wait, a hover, a click or
+a scroll, and fails if too few pixels changed.
 
 Contributions are welcome — open an issue first if you are adding a component,
 so we can agree on which reference it comes from.

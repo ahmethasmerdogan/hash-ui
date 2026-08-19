@@ -32,7 +32,19 @@ for (const scheme of ["light", "dark"]) {
   for (const route of routes) {
     await page.goto(BASE + route, { waitUntil: "networkidle" });
     await page.addStyleTag({ content: "html{scroll-behavior:auto!important}" });
-    await page.waitForTimeout(500);
+
+    /* Chromium captures fullPage beyond the viewport without scrolling, so
+       anything gated on IntersectionObserver would photograph un-revealed.
+       Walk the page once to arm them, then go back to the top. */
+    await page.evaluate(async () => {
+      const step = window.innerHeight * 0.8;
+      for (let y = 0; y < document.body.scrollHeight; y += step) {
+        window.scrollTo(0, y);
+        await new Promise((r) => requestAnimationFrame(r));
+      }
+      window.scrollTo(0, 0);
+    });
+    await page.waitForTimeout(600);
 
     const slug = route === "/" ? "landing" : route.replace(/^\/docs\/?/, "").replace(/\//g, "-") || "docs";
     const file = `${OUT}/${slug}.${scheme}.png`;

@@ -7,6 +7,10 @@
 /* Walks every documented route in both themes and checks the rules the */
 /* system claims to follow — no horizontal overflow, no drop shadows,   */
 /* no invisible text — then drives the interactive surfaces.            */
+/*                                                                      */
+/* The one sanctioned exception to the shadow rule is @hash-ui/blocks'   */
+/* effects layer: elements carrying an `fx-*` class may glow. Anything   */
+/* else that casts a blurred shadow is still a failure.                 */
 /* ------------------------------------------------------------------ */
 
 import { chromium } from "playwright";
@@ -85,10 +89,17 @@ for (const theme of ["light", "dark"]) {
     if (invisible.length)
       problems.push(`${theme}${route}: invisible text — ${invisible.join(" | ")}`);
 
-    /* the no-drop-shadow rule: inset highlights and 0-blur rings are fine */
+    /* The no-drop-shadow rule: inset highlights and 0-blur rings are fine.
+       So is anything opting into the blocks effects layer — a .fx-* class is
+       the sanctioned, deliberate exception, and it is scoped to the element
+       that asked for it rather than waived for the whole route. */
     const shadowed = await page.evaluate(() => {
       const bad = [];
+      const isEffect = (el) =>
+        typeof el.className === "string" &&
+        /(^|\s)fx-[a-z-]+/.test(el.className);
       for (const el of document.querySelectorAll("*")) {
+        if (isEffect(el)) continue;
         const bs = getComputedStyle(el).boxShadow;
         if (!bs || bs === "none") continue;
         for (const part of bs.split(/,(?![^(]*\))/)) {

@@ -11,6 +11,7 @@ import {
   ISun,
 } from "hash-ui";
 import { LogoMark } from "@/components/Logo";
+import { AccentPicker } from "@/components/AccentPicker";
 import { SITE } from "@/lib/site";
 
 const TABS = [
@@ -123,6 +124,8 @@ export function Topbar({
           >
             <INpm />
           </a>
+
+          <AccentPicker />
 
           <SegmentedControl<ThemeMode>
             size="sm"

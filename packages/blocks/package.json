@@ -1,0 +1,86 @@
+{
+  "name": "@hash-ui/blocks",
+  "version": "0.6.0",
+  "description": "Marketing and application blocks for HashUI — heroes, feature grids, logo clouds, footers, app shells, maps and scroll-driven effects.",
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "tailwind-v4",
+    "blocks",
+    "hero",
+    "footer",
+    "landing-page",
+    "design-system",
+    "hash-ui"
+  ],
+  "license": "MIT",
+  "author": "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
+  "homepage": "https://hashui.vercel.app/docs/blocks",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmethasmerdogan/hash-ui.git",
+    "directory": "packages/blocks"
+  },
+  "bugs": "https://github.com/ahmethasmerdogan/hash-ui/issues",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./css": "./dist/blocks.css",
+    "./blocks.css": "./dist/blocks.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json && node scripts/copy-css.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@splinetool/react-spline": ">=4",
+    "cobe": "^0.6.5",
+    "hash-ui": "^0.5.0 || ^0.6.0",
+    "maplibre-gl": ">=4",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@splinetool/react-spline": {
+      "optional": true
+    },
+    "cobe": {
+      "optional": true
+    },
+    "maplibre-gl": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -40,10 +40,18 @@
   --ink2: #6b6862;
   --ink3: #a3a099;
 
-  /* brand — emerald, the most recurring accent in the refs */
+  /* Brand — emerald, the most recurring accent in the refs, and the
+     default of five presets. Everything accent-coloured in the system
+     resolves through these four: text and borders take --brand, tinted
+     fills take --brand-soft, and the primary button face is built from
+     --btn-brand-*. Switch [data-accent] on <html> and all of it moves
+     together. See useTheme().setAccent(). */
   --brand: #059669;
   --brand-ink: #047857;
   --brand-soft: #ecfdf3;
+  --btn-brand-a: #2eb266;
+  --btn-brand-b: #1d9b52;
+  --btn-brand-ring: #178a47;
 
   /* dots / patterns */
   --dot: #d6d5d0;
@@ -89,6 +97,73 @@
   --dot: #26262b;
 
   --btn-hi: rgba(255, 255, 255, 0.16);
+}
+
+
+/* ---------------------------------- */
+/* accent presets                     */
+/*                                    */
+/* Five hues, set with [data-accent]  */
+/* on <html>. Each supplies the same  */
+/* four values in each theme, so a    */
+/* preset is a palette swap and never */
+/* a layout or contrast change.       */
+/* ---------------------------------- */
+
+[data-accent="blue"] {
+  --brand: #2563eb;
+  --brand-ink: #1d4ed8;
+  --brand-soft: #eff6ff;
+  --btn-brand-a: #5b93ff;
+  --btn-brand-b: #2563eb;
+  --btn-brand-ring: #1d4ed8;
+}
+.dark[data-accent="blue"] {
+  --brand: #60a5fa;
+  --brand-ink: #93c5fd;
+  --brand-soft: rgba(96, 165, 250, 0.14);
+}
+
+[data-accent="violet"] {
+  --brand: #7c3aed;
+  --brand-ink: #6d28d9;
+  --brand-soft: #f5f3ff;
+  --btn-brand-a: #a06bff;
+  --btn-brand-b: #7c3aed;
+  --btn-brand-ring: #6d28d9;
+}
+.dark[data-accent="violet"] {
+  --brand: #a78bfa;
+  --brand-ink: #c4b5fd;
+  --brand-soft: rgba(167, 139, 250, 0.16);
+}
+
+[data-accent="amber"] {
+  --brand: #b45309;
+  --brand-ink: #92400e;
+  --brand-soft: #fffbeb;
+  --btn-brand-a: #fbbf24;
+  --btn-brand-b: #e0910a;
+  --btn-brand-ring: #c07c05;
+}
+.dark[data-accent="amber"] {
+  --brand: #fbbf24;
+  --brand-ink: #fcd34d;
+  --brand-soft: rgba(251, 191, 36, 0.14);
+}
+
+[data-accent="rose"] {
+  --brand: #e11d48;
+  --brand-ink: #be123c;
+  --brand-soft: #fff1f2;
+  --btn-brand-a: #fb6a86;
+  --btn-brand-b: #e11d48;
+  --btn-brand-ring: #be123c;
+}
+.dark[data-accent="rose"] {
+  --brand: #fb7185;
+  --brand-ink: #fda4af;
+  --brand-soft: rgba(251, 113, 133, 0.16);
 }
 
 @theme inline {
@@ -156,11 +231,15 @@ body {
   transform: scale(0.985);
 }
 
-/* face palette — one hue set per variant */
+/* face palette — one hue set per variant.
+
+   `.btn-green` is the brand face; the name is historical. It reads the
+   accent rather than a fixed hue, so `variant="green"` is whatever the
+   current [data-accent] says it is. */
 .btn-green {
-  --btn-a: #2eb266;
-  --btn-b: #1d9b52;
-  --btn-ring: #178a47;
+  --btn-a: var(--btn-brand-a);
+  --btn-b: var(--btn-brand-b);
+  --btn-ring: var(--btn-brand-ring);
   color: #fff;
 }
 .btn-primary {

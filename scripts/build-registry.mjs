@@ -18,6 +18,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const SRC = `${ROOT}packages/core/src`;
+const BLOCKS_SRC = `${ROOT}packages/blocks/src`;
 const OUT = `${ROOT}apps/docs/public/r`;
 const LIB = `${ROOT}apps/docs/src/lib`;
 
@@ -180,6 +181,186 @@ const CSS_ITEM = {
     "Every design token in one file: surfaces, ink, brand, the button-face palette, both themes and the utility classes. Import it after Tailwind.",
 };
 
+
+/* ------------------------------------------------------------------ */
+/* Blocks — packages/blocks/src                                        */
+/*                                                                     */
+/* Section-sized pieces. They import from `hash-ui`, so copying one    */
+/* into a project means also copying whichever core files it reaches   */
+/* for; `rewriteBlockImports` below works that out per symbol rather   */
+/* than making every block depend on the whole library.                */
+/* ------------------------------------------------------------------ */
+
+/** @type {Array<{name:string,file:string,title:string,description:string,deps?:string[],npm?:string[],lib?:boolean}>} */
+const BLOCK_ITEMS = [
+  {
+    name: "blocks-hooks",
+    file: "hooks.ts",
+    lib: true,
+    title: "Block hooks",
+    description:
+      "useInView, useScrollProgress, useMagnetic, usePointer and useReducedMotion — the jobs framer-motion would otherwise be installed for.",
+  },
+  {
+    name: "blocks-parts",
+    file: "parts.tsx",
+    title: "Block parts",
+    description:
+      "ActionButton, Eyebrow, SplitHeadline, WindowFrame and WindowField — the small pieces every block is assembled from.",
+  },
+  {
+    name: "block-visuals",
+    file: "features/visuals.tsx",
+    title: "Block visuals",
+    description:
+      "StatDial, FingerprintMark, Sparkline, AvatarStack, SetGlyph, IconTile and CropMarks — drawn illustrations, so a feature card never ships a stale PNG.",
+  },
+  {
+    name: "logo-cloud",
+    file: "logos/LogoCloud.tsx",
+    title: "LogoCloud",
+    description:
+      "The social-proof grid in two treatments — plain rules, or plus marks on the interior crossings with a checkerboard tint.",
+  },
+  {
+    name: "integrations-marquee",
+    file: "logos/IntegrationsMarquee.tsx",
+    title: "IntegrationsMarquee",
+    description:
+      "Three rows of integration chips drifting behind a radial mask, with your own mark held still in the middle.",
+  },
+  {
+    name: "features-bento",
+    file: "features/FeaturesBento.tsx",
+    title: "FeaturesBento",
+    description:
+      "An uneven twelve-column feature grid: a wide claim across the top, then cards that change width as the row goes on.",
+  },
+  {
+    name: "features-terminal",
+    file: "features/FeaturesTerminal.tsx",
+    title: "FeaturesTerminal",
+    description:
+      "The developer-platform grid — every card opens with a terminal or an API exchange, given as data rather than as a screenshot.",
+  },
+  {
+    name: "features-crop",
+    file: "features/FeaturesCrop.tsx",
+    title: "FeaturesCrop",
+    description:
+      "Feature plates under printer's crop marks, closed by a full-width card with a row of captioned glyphs.",
+  },
+  {
+    name: "hero-terminal",
+    file: "heroes/HeroTerminal.tsx",
+    title: "HeroTerminal",
+    description:
+      "The developer-tool opening: announcement chip, two-tone headline, two calls to action, and the install running underneath.",
+  },
+  {
+    name: "hero-split",
+    file: "heroes/HeroSplit.tsx",
+    title: "HeroSplit",
+    description:
+      "A real navigation bar, a left-aligned headline and a client strip — the marketing-site opening rather than a launch page.",
+  },
+  {
+    name: "hero-nexus",
+    file: "heroes/HeroNexus.tsx",
+    title: "HeroNexus",
+    description:
+      "The SaaS opening: grouped nav menus, an announcement pill, a headline whose last word cycles, and an inline capture form.",
+  },
+  {
+    name: "hero-cinematic",
+    file: "heroes/HeroCinematic.tsx",
+    title: "HeroCinematic",
+    description:
+      "A full-bleed still or loop, a floating pill of navigation, and the brand set enormous and cropped along the bottom edge.",
+  },
+  {
+    name: "spline-scene",
+    file: "heroes/SplineScene.tsx",
+    npm: ["@splinetool/react-spline"],
+    title: "SplineScene",
+    description:
+      "A Spline 3D scene behind a dynamic import, so the runtime is fetched only once the block nears the viewport.",
+  },
+  {
+    name: "cinematic-footer",
+    file: "footers/CinematicFooter.tsx",
+    title: "CinematicFooter",
+    description:
+      "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",
+  },
+  {
+    name: "grid-footer",
+    file: "footers/GridFooter.tsx",
+    title: "GridFooter",
+    description:
+      "A footer built as an exposed ruled grid rather than as stacked columns.",
+  },
+  {
+    name: "dashboard-shell",
+    file: "shell/SidebarNav.tsx",
+    title: "DashboardShell",
+    description:
+      "A workspace switcher, a nested navigation tree and a pinned footer group, wrapped in a collapsible rail with a top bar and a search overlay.",
+  },
+  {
+    name: "rail-sidebar",
+    file: "shell/RailSidebar.tsx",
+    title: "RailSidebar",
+    description:
+      "The two-part admin navigation: a narrow rail of destinations, and a searchable panel holding the tree for the selected one.",
+  },
+  {
+    name: "map",
+    file: "geo/Map.tsx",
+    npm: ["maplibre-gl"],
+    title: "Map",
+    description:
+      "A composable MapLibre surface whose markers are React children — Map, MapMarker, MarkerContent, MarkerDot, MarkerTooltip and MarkerLabel.",
+  },
+  {
+    name: "globe-flights",
+    file: "geo/GlobeFlights.tsx",
+    npm: ["cobe"],
+    title: "GlobeFlights",
+    description:
+      "A turning globe with great-circle routes and a glyph riding each arc, hidden as it passes behind the planet.",
+  },
+  {
+    name: "liquid-metal-button",
+    file: "effects/LiquidMetalButton.tsx",
+    title: "LiquidMetalButton",
+    description:
+      "A brushed-metal pill with a turning sheen, a glowing rim and a ripple from wherever you clicked. No shader program.",
+  },
+  {
+    name: "gemini-ribbon",
+    file: "effects/GeminiRibbon.tsx",
+    title: "GeminiRibbon",
+    description:
+      "Five ribbons that draw themselves as the page passes, each trailing a blurred copy of itself for the light.",
+  },
+  {
+    name: "neural-vortex",
+    file: "effects/NeuralVortex.tsx",
+    title: "NeuralVortex",
+    description:
+      "A full-bleed WebGL backdrop of filaments that lean towards the pointer. One fragment shader, no dependencies.",
+  },
+];
+
+const BLOCKS_CSS_ITEM = {
+  name: "blocks-tokens",
+  file: "blocks.css",
+  title: "Effects tokens",
+  description:
+    "The .fx-* layer: the one place in HashUI where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
+};
+
 /* source file name → registry item name, used to rewrite imports */
 const BY_FILE = new Map(
   [...ITEMS, CSS_ITEM].map((i) => [i.file.replace(/\.(tsx?|css)$/, ""), i]),
@@ -261,6 +442,156 @@ async function buildCssItem() {
   };
 }
 
+
+/* ------------------------------------------------------------------ */
+/* Blocks: import rewriting                                            */
+/*                                                                     */
+/* A block says `import { cx, Button, IZap } from "hash-ui"`. Copied   */
+/* into someone's project those three live in three different files,   */
+/* so the specifier has to be split per symbol. The map is built by    */
+/* reading the core sources rather than being maintained by hand — a   */
+/* new export in Button.tsx must not silently break a block.           */
+/* ------------------------------------------------------------------ */
+
+/** exported symbol → core registry item name */
+async function buildSymbolMap() {
+  const map = new Map();
+  for (const item of ITEMS) {
+    const code = await readFile(`${SRC}/${item.file}`, "utf8");
+    for (const m of code.matchAll(
+      /export\s+(?:async\s+)?(?:function|const|class)\s+([A-Za-z0-9_$]+)/g,
+    )) {
+      map.set(m[1], item.name);
+    }
+    /* types are erased at runtime but still have to resolve at build time */
+    for (const m of code.matchAll(/export\s+type\s+([A-Za-z0-9_$]+)/g)) {
+      map.set(m[1], item.name);
+    }
+  }
+  return map;
+}
+
+/** relative specifier inside packages/blocks → its registry item */
+function blockItemForPath(fromFile, specifier) {
+  const clean = specifier.replace(/\.js$/, "");
+  const dir = fromFile.includes("/")
+    ? fromFile.slice(0, fromFile.lastIndexOf("/"))
+    : "";
+  const parts = (dir ? dir.split("/") : []).concat(clean.split("/"));
+  const stack = [];
+  for (const part of parts) {
+    if (part === "." || part === "") continue;
+    if (part === "..") stack.pop();
+    else stack.push(part);
+  }
+  const resolved = stack.join("/");
+  const hit = BLOCK_ITEMS.find(
+    (b) => b.file.replace(/\.(tsx?|css)$/, "") === resolved,
+  );
+  if (!hit) throw new Error(`unmapped block import: ${specifier} from ${fromFile}`);
+  return hit;
+}
+
+const blockTargetOf = (item) =>
+  item.lib ? `${LIB_DIR}/${item.name}.ts` : `${UI_DIR}/${item.name}.tsx`;
+
+/**
+ * Rewrites one block's imports and reports which registry items it needs.
+ * Returns { code, deps } so the manifest is derived from the source rather
+ * than declared alongside it and left to drift.
+ */
+function rewriteBlockImports(code, file, symbolMap) {
+  const deps = new Set();
+
+  /* `import { a, b } from "hash-ui"` → one import per core item */
+  code = code.replace(
+    /import\s+(type\s+)?\{([^}]+)\}\s+from\s+"hash-ui";/g,
+    (_whole, typeOnly, body) => {
+      const names = body
+        .split(",")
+        .map((n) => n.trim())
+        .filter(Boolean);
+      const byItem = new Map();
+      for (const name of names) {
+        const bare = name.replace(/^type\s+/, "").split(/\s+as\s+/)[0].trim();
+        const item = symbolMap.get(bare);
+        if (!item) throw new Error(`unmapped hash-ui symbol: ${bare} (${file})`);
+        deps.add(item);
+        if (!byItem.has(item)) byItem.set(item, []);
+        byItem.get(item).push(name);
+      }
+      return [...byItem.entries()]
+        .map(([item, list]) => {
+          /* cx lands in lib/, everything else in components/ */
+          const core = ITEMS.find((i) => i.name === item);
+          const dir = core?.lib ? LIB_DIR : UI_DIR;
+          return `import ${typeOnly ?? ""}{ ${list.join(", ")} } from "@/${dir}/${item}";`;
+        })
+        .join("\n");
+    },
+  );
+
+  /* relative imports between blocks */
+  code = code.replace(/from\s+"(\.[^"]+)"/g, (_whole, spec) => {
+    const item = blockItemForPath(file, spec);
+    deps.add(item.name);
+    const dir = item.lib ? `@/${LIB_DIR}` : `@/${UI_DIR}`;
+    return `from "${dir}/${item.name}"`;
+  });
+
+  return { code, deps: [...deps] };
+}
+
+async function buildBlockItem(item, symbolMap) {
+  const raw = await readFile(`${BLOCKS_SRC}/${item.file}`, "utf8");
+  const { code, deps } = rewriteBlockImports(raw, item.file, symbolMap);
+
+  return {
+    $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    name: item.name,
+    type: item.lib ? "registry:lib" : "registry:ui",
+    title: item.title,
+    description: item.description,
+    author: "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
+    dependencies: item.npm ?? [],
+    registryDependencies: [
+      url(CSS_ITEM.name),
+      url(BLOCKS_CSS_ITEM.name),
+      ...deps.map(url),
+    ],
+    files: [
+      {
+        path: `registry/hashui/${item.name}${item.lib ? ".ts" : ".tsx"}`,
+        content: BANNER(item) + code,
+        type: item.lib ? "registry:lib" : "registry:ui",
+        target: blockTargetOf(item),
+      },
+    ],
+  };
+}
+
+async function buildBlocksCssItem() {
+  const raw = await readFile(`${BLOCKS_SRC}/${BLOCKS_CSS_ITEM.file}`, "utf8");
+  return {
+    $schema: "https://ui.shadcn.com/schema/registry-item.json",
+    name: BLOCKS_CSS_ITEM.name,
+    type: "registry:theme",
+    title: BLOCKS_CSS_ITEM.title,
+    description: BLOCKS_CSS_ITEM.description,
+    author: "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
+    dependencies: [],
+    registryDependencies: [url(CSS_ITEM.name)],
+    files: [
+      {
+        path: "registry/hashui/blocks.css",
+        content: raw,
+        type: "registry:file",
+        target: `${CSS_DIR}/hashui-blocks.css`,
+      },
+    ],
+  };
+}
+
 /** the everything item: one command, whole library */
 async function buildBundle(items, cssItem) {
   return {
@@ -284,9 +615,16 @@ await mkdir(OUT, { recursive: true });
 
 const cssItem = await buildCssItem();
 const built = await Promise.all(ITEMS.map(buildItem));
+
+const symbolMap = await buildSymbolMap();
+const blocksCssItem = await buildBlocksCssItem();
+const blocksBuilt = await Promise.all(
+  BLOCK_ITEMS.map((i) => buildBlockItem(i, symbolMap)),
+);
+
 const bundle = await buildBundle(built, cssItem);
 
-const all = [cssItem, ...built, bundle];
+const all = [cssItem, ...built, bundle, blocksCssItem, ...blocksBuilt];
 
 for (const item of all) {
   await writeFile(`${OUT}/${item.name}.json`, JSON.stringify(item, null, 2));

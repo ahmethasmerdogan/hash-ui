@@ -20,6 +20,7 @@ export function Section({
   desc,
   registry,
   source,
+  pkg = "core",
   children,
   className,
 }: {
@@ -29,8 +30,10 @@ export function Section({
   desc?: ReactNode;
   /** registry item name(s) — renders the install block */
   registry?: string | string[];
-  /** file name inside packages/core/src, e.g. "Button.tsx" */
+  /** file path inside the package's src/, e.g. "Button.tsx" */
   source?: string;
+  /** which workspace the source lives in — blocks pages set "blocks" */
+  pkg?: "core" | "blocks";
   children: ReactNode;
   className?: string;
 }) {
@@ -75,12 +78,12 @@ export function Section({
         )}
         {source && (
           <a
-            href={`${GITHUB_TREE}/packages/core/src/${source}`}
+            href={`${GITHUB_TREE}/packages/${pkg}/src/${source}`}
             target="_blank"
             rel="noreferrer"
             className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 font-mono text-[11.5px] font-medium text-ink-2 transition-colors hover:border-line-strong hover:text-ink"
           >
-            packages/core/src/{source}
+            packages/{pkg}/src/{source}
             <IArrowUpRight size={12} />
           </a>
         )}
