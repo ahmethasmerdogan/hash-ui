@@ -36,6 +36,12 @@ jobs:
       - name: Registry is in sync with the source
         run: git diff --exit-code apps/docs/public/r apps/docs/src/lib/registry-items.ts
 
+      # The npm route is covered by `typecheck`. This covers the other one:
+      # lay every registry item out where the CLI would put it and compile it
+      # there, with the real optional peers installed rather than our shims.
+      - name: The copied source compiles
+        run: node scripts/verify-registry.mjs
+
   qa:
     runs-on: ubuntu-latest
     needs: build

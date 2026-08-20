@@ -83,10 +83,13 @@ export function Map({
     let cleanup: (() => void) | undefined;
 
     (async () => {
-      let maplibregl: typeof import("maplibre-gl").default;
+      /* maplibre-gl exports `Map` by name and has no default export. Reaching
+         for `.default` happened to work at runtime under some bundlers and
+         did not typecheck against the real package at all — the copied
+         registry file failed to compile for anyone who had it installed. */
+      let MapLibreMap: typeof import("maplibre-gl").Map;
       try {
-        const mod = await import("maplibre-gl");
-        maplibregl = (mod as { default: typeof import("maplibre-gl").default }).default ?? (mod as never);
+        ({ Map: MapLibreMap } = await import("maplibre-gl"));
       } catch {
         console.warn(
           "[@hash-ui/blocks] <Map> needs the optional peer `maplibre-gl`.\n" +
@@ -99,14 +102,20 @@ export function Map({
 
       if (cancelled || !hostRef.current) return;
 
-      const map = new maplibregl.Map({
+      /* `style` is deliberately `unknown` on the public prop — a caller
+         should not have to import maplibre's StyleSpecification just to pass
+         a URL. This is the one place the two meet, so the cast lives here
+         and resolves against whichever types are actually installed. */
+      const options = {
         container: hostRef.current,
         style,
         center,
         zoom,
         interactive,
         attributionControl: { compact: true },
-      });
+      } as ConstructorParameters<typeof MapLibreMap>[0];
+
+      const map = new MapLibreMap(options);
       mapRef.current = map as unknown as typeof mapRef.current;
 
       const bump = () =>

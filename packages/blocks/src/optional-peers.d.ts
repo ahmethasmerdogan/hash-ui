@@ -67,6 +67,9 @@ declare module "cobe" {
 
 declare module "maplibre-gl" {
   export type LngLatLike = [number, number] | { lng: number; lat: number };
+  /* Named, with no default — the real package's shape. Declaring a default
+     here once hid a bug that only surfaced when the copied registry file was
+     compiled against the genuine types. */
   export class Map {
     constructor(options: Record<string, unknown>);
     on(type: string, listener: (...args: unknown[]) => void): this;
@@ -76,6 +79,4 @@ declare module "maplibre-gl" {
     getZoom(): number;
     resize(): void;
   }
-  const maplibregl: { Map: typeof Map };
-  export default maplibregl;
 }
