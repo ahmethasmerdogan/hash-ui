@@ -5,7 +5,12 @@ import { cx } from "./cx.js";
 /* One button recipe for the whole system.                             */
 /* Vertical gradient + 1px ring + inset top highlight — the treatment   */
 /* from the "Get started for Free" reference, applied to every hue.     */
-/* No drop shadows, no glows. Pill by default (softness 100).           */
+/* No drop shadows, no glows.                                          */
+/*                                                                     */
+/* The default face is a squared rectangle, not a pill. The recipe is   */
+/* unchanged — what changed is the corner, and it is now one token      */
+/* (--radius) rather than a number written out per size. Pass           */
+/* shape="pill" for the original.                                       */
 /* ------------------------------------------------------------------ */
 
 export type ButtonVariant =
@@ -38,9 +43,9 @@ const sizes: Record<ButtonSize, string> = {
 };
 
 const rectRadius: Record<ButtonSize, string> = {
-  sm: "rounded-[10px]",
-  md: "rounded-[12px]",
-  lg: "rounded-[14px]",
+  sm: "rounded-[var(--radius-btn-sm)]",
+  md: "rounded-[var(--radius-btn-md)]",
+  lg: "rounded-[var(--radius-btn-lg)]",
 };
 
 /* variants without a gradient face */
@@ -53,7 +58,7 @@ const LIGHT: Record<string, string> = {
 export function Button({
   variant = "green",
   size = "md",
-  shape = "pill",
+  shape = "rect",
   iconLeft,
   iconRight,
   loading,
@@ -111,7 +116,7 @@ export function ButtonGroup({
   return (
     <span
       className={cx(
-        "inline-flex items-stretch overflow-hidden rounded-full border border-line bg-surface",
+        "inline-flex items-stretch overflow-hidden rounded-[var(--radius-btn-md)] border border-line bg-surface",
         className,
       )}
     >
@@ -147,12 +152,12 @@ export function IconButton({
 }) {
   const s =
     size === "xl"
-      ? "size-20 rounded-[28px]"
+      ? "size-20 rounded-[var(--radius-icon-xl)]"
       : size === "lg"
-        ? "size-14 rounded-[20px]"
+        ? "size-14 rounded-[var(--radius-icon-lg)]"
         : size === "md"
-          ? "size-9.5 rounded-[13px]"
-          : "size-8 rounded-[11px]";
+          ? "size-9.5 rounded-[var(--radius-icon-md)]"
+          : "size-8 rounded-[var(--radius-icon-sm)]";
   return (
     <button
       type="button"
@@ -183,14 +188,14 @@ export function SplitButton({
       <button
         type="button"
         onClick={onMain}
-        className="btn-face btn-green h-9.5 rounded-l-full px-4.5 text-sm font-semibold"
+        className="btn-face btn-green h-9.5 rounded-l-[var(--radius-btn-md)] px-4.5 text-sm font-semibold"
       >
         {label}
       </button>
       <button
         type="button"
         aria-label="More options"
-        className="btn-face btn-green ml-px h-9.5 rounded-r-full px-3"
+        className="btn-face btn-green ml-px h-9.5 rounded-r-[var(--radius-btn-md)] px-3"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m6 9.5 6 6 6-6" />

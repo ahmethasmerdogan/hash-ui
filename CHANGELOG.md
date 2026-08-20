@@ -8,6 +8,41 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Changed
+
+- **Buttons are squared, not pills.** `Button` now defaults to
+  `shape="rect"`. The recipe is untouched — same vertical gradient, same 1px
+  ring, same inset top highlight, still no shadow — what changed is the
+  corner. `shape="pill"` gives the original back per button.
+
+- **Corner radius is a token.** `--radius` governs the button family, with
+  every step derived from it by `calc()`, the way shadcn exposes it. The
+  radii were previously written out in eight places across `Button.tsx`, so
+  changing the shape of the system meant eight edits and a chance to miss
+  one. At the shipped `--radius: 10px` the derived values reproduce the old
+  hard-coded numbers exactly, so adopting the token changed nothing by
+  itself.
+
+  `ButtonGroup`, `SplitButton` and `IconButton` all read it, which is why
+  they moved together rather than leaving a pill wrapper around square
+  buttons.
+
+### Fixed
+
+- `ThreeOrb` reported a missing `three` instead of showing "loading three.js
+  scene…" for ever. It takes a `fallback` prop now, matching the three blocks
+  that already handled their optional peers this way.
+
+- The emerald button face measured 3.10:1 against its white label. It is
+  4.54:1, which clears WCAG AA. Emerald was the only accent of the five that
+  needed it.
+
+- Every route reflows to 320px without a horizontal scrollbar (WCAG 1.4.10).
+
+---
+
 ## [0.6.0] — 2026-08-19
 
 ### Added

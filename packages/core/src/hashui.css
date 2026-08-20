@@ -62,6 +62,27 @@
      instead of being darkened into a brown nobody asked for. */
   --btn-brand-fg: #ffffff;
 
+  /* ---------------------------------------------------------------- */
+  /* Corner radius — one number the button family reads.                */
+  /*                                                                    */
+  /* shadcn exposes exactly this: a single --radius, with the steps      */
+  /* derived from it by calc(). HashUI had the same numbers written out  */
+  /* in eight places, so "make the buttons squarer" meant eight edits    */
+  /* and a chance to miss one. Now it means changing this line.          */
+  /*                                                                    */
+  /* The derived values below reproduce the previous hard-coded radii    */
+  /* exactly at --radius: 10px, so adopting the token changed nothing    */
+  /* on its own — the shape change is the `rect` default in Button.tsx.  */
+  /* ---------------------------------------------------------------- */
+  --radius: 10px;
+  --radius-btn-sm: var(--radius);
+  --radius-btn-md: calc(var(--radius) + 2px);
+  --radius-btn-lg: calc(var(--radius) + 4px);
+  --radius-icon-sm: calc(var(--radius) + 1px);
+  --radius-icon-md: calc(var(--radius) + 3px);
+  --radius-icon-lg: calc(var(--radius) + 10px);
+  --radius-icon-xl: calc(var(--radius) + 18px);
+
   /* dots / patterns */
   --dot: #d6d5d0;
 
