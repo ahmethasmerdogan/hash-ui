@@ -138,12 +138,22 @@ a release that npm has never seen.
 npm version 0.7.0 -w hash-ui -w @hash-ui/blocks --no-git-tag-version
 # then package.json, apps/docs/package.json and SITE.version by hand
 
+npm run pack-test                   # see below — run this before publishing
 npm run build:all
 npm publish -w hash-ui
 npm publish -w @hash-ui/blocks      # core first: blocks lists it as a peer
 ```
 
 `prepublishOnly` rebuilds each package, so a stale `dist/` cannot ship.
+
+`npm run pack-test` packs both tarballs and installs them into an empty
+project with nothing but React — no workspace symlinks, and none of the
+optional peers. It is the only check here that sees what a consumer sees:
+whether the `exports` map resolves under both `bundler` and `node16`, whether
+the types come with it, and whether the components behind optional peers
+degrade instead of hanging. It caught `ThreeOrb` waiting for ever on a
+`three` that was never installed, which nothing running inside the workspace
+could have caught, because the docs app has `three`.
 
 ---
 
