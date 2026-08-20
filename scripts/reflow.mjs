@@ -33,6 +33,19 @@ const ROUTES = process.env.REFLOW_ONLY
    that caught the header, because it is where `md:` turns on */
 const WIDTHS = [320, 375, 414, 768, 1024, 1440];
 
+async function goTo(page, url) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45_000 });
+      return;
+    } catch (err) {
+      if (attempt >= 3) throw err;
+      console.log(`  … ${url} did not answer, retry ${attempt}`);
+      await page.waitForTimeout(2000 * attempt);
+    }
+  }
+}
+
 const browser = await chromium.launch();
 const failures = [];
 
@@ -45,7 +58,11 @@ for (const width of WIDTHS) {
   const page = await ctx.newPage();
 
   for (const route of ROUTES) {
-    await page.goto(BASE + route, { waitUntil: "domcontentloaded" });
+    /* against a deployed URL rather than a local dev server, one cold
+       navigation in a sweep of two hundred will occasionally exceed the
+       default timeout. That is the network, not the page — retry once
+       before treating it as a failure. */
+    await goTo(page, BASE + route);
     await page.waitForTimeout(1100);
 
     const { vw, sw, culprit } = await page.evaluate(() => {
