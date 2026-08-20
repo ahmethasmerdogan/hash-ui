@@ -66,13 +66,28 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto flex max-w-[1440px] px-4 md:px-6">
       <Sidebar />
-      <main className="min-w-0 flex-1 lg:pl-10 xl:pl-14">
+      <main id="content" tabIndex={-1} className="min-w-0 flex-1 lg:pl-10 xl:pl-14">
         <div className="mx-auto min-w-0 max-w-4xl">
           <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
           <Pager path={pathname} />
         </div>
       </main>
     </div>
+  );
+}
+
+/* Thirteen tab presses stood between the top of the page and the article, on
+   every route, because the header and the sidebar come first in the DOM. The
+   link is visually hidden until it takes focus, which is the whole convention:
+   invisible to a mouse, the first thing a keyboard finds. */
+function SkipLink() {
+  return (
+    <a
+      href="#content"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-[10px] focus:border focus:border-line focus:bg-surface focus:px-4 focus:py-2.5 focus:text-[13.5px] focus:font-semibold focus:text-ink"
+    >
+      Skip to content
+    </a>
   );
 }
 
@@ -97,6 +112,7 @@ export default function App() {
     <ThemeProvider>
       <ToastProvider>
         <div className="min-h-screen bg-canvas">
+          <SkipLink />
           <DocumentHead />
           <ScrollToTop />
           <Topbar
@@ -106,11 +122,15 @@ export default function App() {
           <MobileNav open={navOpen} onClose={() => setNavOpen(false)} />
 
           {isLanding ? (
-            <Suspense fallback={<div className="min-h-[70vh]" />}>
-              <Routes>
-                <Route path="/" element={<Landing />} />
-              </Routes>
-            </Suspense>
+            /* the landing page opts out of the docs chrome, but it still
+               needs the landmark a screen reader jumps to */
+            <main id="content" tabIndex={-1}>
+              <Suspense fallback={<div className="min-h-[70vh]" />}>
+                <Routes>
+                  <Route path="/" element={<Landing />} />
+                </Routes>
+              </Suspense>
+            </main>
           ) : (
             <DocsLayout>
               <Routes>

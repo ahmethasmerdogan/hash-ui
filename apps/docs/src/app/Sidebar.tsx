@@ -7,11 +7,26 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
   const { pathname } = useLocation();
   const ref = useRef<HTMLElement>(null);
 
-  /* keep the current page in view when you land on a deep link */
+  /* Keep the current page in view when you land on a deep link.
+     Deliberately not scrollIntoView: that also moves the browser's sequential
+     focus navigation starting point onto the link it scrolled to, so the next
+     Tab continued from inside the sidebar and skipped everything before it —
+     including the skip link, on exactly the pages that need one. Adjusting
+     the scroller directly has the same effect on screen and none on focus. */
   useEffect(() => {
-    ref.current
-      ?.querySelector(`[data-nav="${pathname}"]`)
-      ?.scrollIntoView({ block: "nearest" });
+    const nav = ref.current;
+    const link = nav?.querySelector<HTMLElement>(`[data-nav="${pathname}"]`);
+    if (!nav || !link) return;
+
+    const box = nav.closest<HTMLElement>("[data-nav-scroller]") ?? nav.parentElement;
+    if (!box) return;
+
+    /* rect deltas rather than offsetTop: offsetTop is measured against the
+       nearest positioned ancestor, which is not necessarily this scroller */
+    const l = link.getBoundingClientRect();
+    const b = box.getBoundingClientRect();
+    if (l.top < b.top) box.scrollTop += l.top - b.top - 12;
+    else if (l.bottom > b.bottom) box.scrollTop += l.bottom - b.bottom + 12;
   }, [pathname]);
 
   return (
@@ -72,7 +87,10 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
 
 export function Sidebar() {
   return (
-    <aside className="scroll-thin sticky top-15 hidden h-[calc(100vh-3.75rem)] w-[252px] shrink-0 overflow-y-auto border-r border-line lg:block">
+    <aside
+      data-nav-scroller
+      className="scroll-thin sticky top-15 hidden h-[calc(100vh-3.75rem)] w-[252px] shrink-0 overflow-y-auto border-r border-line lg:block"
+    >
       <NavList />
     </aside>
   );
@@ -101,6 +119,7 @@ export function MobileNav({
         onClick={onClose}
       />
       <div
+        data-nav-scroller
         className="scroll-thin absolute inset-y-0 left-0 flex w-[280px] flex-col overflow-y-auto border-r border-line bg-surface"
         style={{ animation: "hashui-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
