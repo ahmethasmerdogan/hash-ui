@@ -189,7 +189,11 @@ export function Ticket() {
         <p className="mb-4 text-[14px] leading-relaxed text-ink-2">
           Same three moves, different files. Use{" "}
           <code className="font-mono">@tailwindcss/postcss</code> instead of the
-          Vite plugin, and mark the providers as a client component.
+          Vite plugin, mark the providers as a client component, and put{" "}
+          <code className="font-mono">themeScript</code> in the head — it applies
+          the stored theme before the first paint, which the provider cannot do
+          on a server without reading a preference that only exists in the
+          browser.
         </p>
         <div className="grid gap-4 lg:grid-cols-2">
           <CodeBlock
@@ -211,11 +215,16 @@ export function Providers({ children }: { children: React.ReactNode }) {
             code={`import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import "./globals.css";
+import { themeScript } from "${SITE.pkg}";
 import { Providers } from "./providers";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* runs before paint — no flash of the wrong theme */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>
