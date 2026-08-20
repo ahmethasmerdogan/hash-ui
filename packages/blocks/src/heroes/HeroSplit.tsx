@@ -25,6 +25,12 @@ export type HeroSplitProps = {
   title?: ReactNode;
   description?: ReactNode;
   actions?: Action[];
+  /**
+   * The headline's element. A hero is its page's title, so h1 is right in a
+   * real page — and wrong on a docs page showing five of them, or anywhere
+   * this block sits below one. Whatever you pass, the type is unchanged.
+   */
+  headingAs?: "h1" | "h2";
   /** the strip below the fold */
   clientsLabel?: ReactNode;
   clients?: Logo[];
@@ -53,6 +59,7 @@ export function HeroSplit({
   ],
   clientsLabel = "Powering the best teams",
   clients,
+  headingAs: H = "h1",
   className,
 }: HeroSplitProps) {
   const [open, setOpen] = useState(false);
@@ -118,9 +125,13 @@ export function HeroSplit({
       </header>
 
       <div ref={ref} className="mx-auto max-w-6xl px-6 pt-20 pb-16 md:pt-28">
-        <h1 {...RISE_ATTR} style={rise(0)} className="max-w-xl text-4xl leading-[1.05] font-bold tracking-[-0.045em] text-balance text-ink md:text-6xl">
+        <H
+          {...RISE_ATTR}
+          style={rise(0)}
+          className="max-w-xl text-4xl leading-[1.05] font-bold tracking-[-0.045em] text-balance text-ink md:text-6xl"
+        >
           {title}
-        </h1>
+        </H>
         {description && (
           <p
             {...RISE_ATTR}

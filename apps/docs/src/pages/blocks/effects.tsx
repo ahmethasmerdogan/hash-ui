@@ -74,6 +74,7 @@ export default function BlocksEffectsPage() {
 
       <Section
         id="gemini-ribbon"
+        level={2}
         eyebrow="Blocks"
         title="GeminiRibbon"
         desc="Five ribbons that draw themselves as the page passes, each trailing a blurred copy of itself for the light."
@@ -111,6 +112,7 @@ export default function BlocksEffectsPage() {
 
       <Section
         id="neural-vortex"
+        level={2}
         eyebrow="Blocks"
         title="NeuralVortex"
         desc="A full-bleed backdrop of filaments that lean towards the pointer. One fragment shader, no dependencies."

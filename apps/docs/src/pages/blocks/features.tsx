@@ -37,6 +37,7 @@ export default function BlocksFeaturesPage() {
 
       <Section
         id="features-terminal"
+        level={2}
         eyebrow="Blocks"
         title="FeaturesTerminal"
         desc="The developer-platform grid: every card opens with a terminal or an API exchange, and the prose is its caption. The log is data, so a renamed route is a text edit rather than a re-exported PNG."
@@ -72,6 +73,7 @@ export default function BlocksFeaturesPage() {
 
       <Section
         id="features-crop"
+        level={2}
         eyebrow="Blocks"
         title="FeaturesCrop"
         desc="Cards under printer's crop marks, closed by a full-width plate with a row of captioned glyphs. Four hairline ticks are about the only decoration a flat system can afford."

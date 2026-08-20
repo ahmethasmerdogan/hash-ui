@@ -49,6 +49,12 @@ export type HeroNexusProps = {
   };
   worksWithLabel?: ReactNode;
   worksWith?: { label: ReactNode; icon?: ReactNode }[];
+  /**
+   * The headline's element. A hero is its page's title, so h1 is right in a
+   * real page — and wrong on a docs page showing five of them, or anywhere
+   * this block sits below one. Whatever you pass, the type is unchanged.
+   */
+  headingAs?: "h1" | "h2";
   /** the product shot under the fold */
   visual?: ReactNode;
   className?: string;
@@ -104,6 +110,7 @@ export function HeroNexus({
   worksWithLabel = "Works with",
   worksWith = DEMO_WORKS_WITH,
   visual,
+  headingAs: H = "h1",
   className,
 }: HeroNexusProps) {
   const [ref, pos] = usePointer<HTMLElement>();
@@ -198,7 +205,7 @@ export function HeroNexus({
           </a>
         )}
 
-        <h1
+        <H
           {...RISE_ATTR}
           style={rise(1)}
           className="mt-7 text-4xl leading-[1.05] font-bold tracking-[-0.045em] text-balance text-ink md:text-6xl"
@@ -207,7 +214,7 @@ export function HeroNexus({
           <span className="text-brand">
             <Typewriter words={rotating} />
           </span>
-        </h1>
+        </H>
 
         {description && (
           <p

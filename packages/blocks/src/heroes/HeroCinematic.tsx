@@ -28,6 +28,12 @@ export type HeroCinematicProps = {
   description?: ReactNode;
   /** the oversized mark along the bottom edge */
   wordmark?: ReactNode;
+  /**
+   * The headline's element. A hero is its page's title, so h1 is right in a
+   * real page — and wrong on a docs page showing five of them, or anywhere
+   * this block sits below one. Whatever you pass, the type is unchanged.
+   */
+  headingAs?: "h1" | "h2";
   /** how far the wordmark is allowed to run off the right edge, in % */
   bleed?: number;
   className?: string;
@@ -61,6 +67,7 @@ export function HeroCinematic({
   description,
   wordmark = "Prisma*",
   bleed = 12,
+  headingAs: H = "h1",
   className,
 }: HeroCinematicProps) {
   /* the headline is gated on this, so it gets the fail-safe: if the observer
@@ -101,7 +108,7 @@ export function HeroCinematic({
 
       <div className="flex min-h-0 flex-1 shrink items-center px-6 py-10 md:px-12">
         <div className="max-w-2xl">
-          <h1 className="text-4xl leading-[1.05] font-bold tracking-[-0.045em] text-white md:text-6xl">
+          <H className="text-4xl leading-[1.05] font-bold tracking-[-0.045em] text-white md:text-6xl">
             {words.map((w, i) => (
               <span
                 key={i}
@@ -117,7 +124,7 @@ export function HeroCinematic({
                 {i < words.length - 1 && " "}
               </span>
             ))}
-          </h1>
+          </H>
           {description && (
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-white/65">
               {description}

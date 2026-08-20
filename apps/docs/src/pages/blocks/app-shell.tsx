@@ -82,6 +82,7 @@ export default function BlocksAppShellPage() {
 
       <Section
         id="rail-sidebar"
+        level={2}
         eyebrow="Blocks"
         title="RailSidebar"
         desc="The two-part navigation an admin tool grows into: a narrow rail of destinations on the far left, and a panel showing the tree for whichever rail item is selected."

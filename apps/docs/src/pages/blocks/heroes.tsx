@@ -62,13 +62,14 @@ export default function BlocksHeroesPage() {
 />`}
         >
           <Frame height={620}>
-            <HeroTerminal />
+            <HeroTerminal headingAs="h2" />
           </Frame>
         </Demo>
       </Section>
 
       <Section
         id="hero-split"
+        level={2}
         eyebrow="Blocks"
         title="HeroSplit"
         desc="A real navigation bar, a left-aligned headline — not centred, which is what makes it read as a product site rather than a launch page — and a client strip below."
@@ -92,13 +93,14 @@ export default function BlocksHeroesPage() {
 />`}
         >
           <Frame height={620}>
-            <HeroSplit />
+            <HeroSplit headingAs="h2" />
           </Frame>
         </Demo>
       </Section>
 
       <Section
         id="hero-nexus"
+        level={2}
         eyebrow="Blocks"
         title="HeroNexus"
         desc="The SaaS opening with the parts that actually convert: grouped nav menus, an announcement pill, a headline whose last word cycles, and an inline capture form instead of a button that sends people elsewhere."
@@ -126,7 +128,7 @@ export default function BlocksHeroesPage() {
 />`}
         >
           <Frame height={680}>
-            <HeroNexus />
+            <HeroNexus headingAs="h2" />
           </Frame>
         </Demo>
 
@@ -145,6 +147,7 @@ export default function BlocksHeroesPage() {
 
       <Section
         id="hero-cinematic"
+        level={2}
         eyebrow="Blocks"
         title="HeroCinematic"
         desc="A full-bleed still or loop, a floating pill of navigation, and the brand set enormous along the bottom edge — cropped, because cropping the mark is what makes it a poster."
@@ -167,7 +170,7 @@ export default function BlocksHeroesPage() {
 />`}
         >
           <div className="p-3">
-            <HeroCinematic className="!min-h-[520px]" />
+            <HeroCinematic headingAs="h2" className="!min-h-[520px]" />
           </div>
         </Demo>
 
@@ -185,6 +188,7 @@ export default function BlocksHeroesPage() {
 
       <Section
         id="spline-scene"
+        level={2}
         eyebrow="Blocks"
         title="SplineScene"
         desc="A Spline 3D scene, loaded only once it is about to be looked at. The runtime is an optional peer — a project that never renders a scene never pays for one."

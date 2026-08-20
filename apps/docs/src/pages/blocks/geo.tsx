@@ -108,6 +108,7 @@ export default function BlocksGeoPage() {
 
       <Section
         id="globe-flights"
+        level={2}
         eyebrow="Blocks"
         title="GlobeFlights"
         desc="A slowly turning globe with great-circle routes drawn over it and a marker riding each arc."

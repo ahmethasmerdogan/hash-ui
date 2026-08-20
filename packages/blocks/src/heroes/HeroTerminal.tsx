@@ -42,6 +42,12 @@ export type HeroTerminalProps = {
   /** what the window bar shows — a URL, a search prompt */
   windowBar?: ReactNode;
   lines?: TerminalLine[];
+  /**
+   * The headline's element. A hero is its page's title, so h1 is right in a
+   * real page — and wrong on a docs page showing five of them, or anywhere
+   * this block sits below one. Whatever you pass, the type is unchanged.
+   */
+  headingAs?: "h1" | "h2";
   /** replaces the whole window mock */
   visual?: ReactNode;
   className?: string;
@@ -59,6 +65,7 @@ export function HeroTerminal({
   windowBar = "Search components, commands, or settings…",
   lines = DEMO_LINES,
   visual,
+  headingAs = "h1",
   className,
 }: HeroTerminalProps) {
   const [ref, rise] = useRise<HTMLElement>();
@@ -86,7 +93,7 @@ export function HeroTerminal({
 
         <div {...RISE_ATTR} style={rise(1)}>
           <SplitHeadline
-            as="h1"
+            as={headingAs}
             lead={title}
             trail={titleTrail}
             className={cx(badge ? "mt-7" : "", "mx-auto max-w-3xl")}

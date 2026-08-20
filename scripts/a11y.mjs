@@ -4,10 +4,10 @@
 /*   npm run dev                                                       */
 /*   node scripts/a11y.mjs                                             */
 /*                                                                     */
-/* The narrowest useful check, and the one this repo kept failing: a    */
-/* control that a screen reader announces as "button" and nothing else. */
-/* An icon is not a name, and a <Switch> or <Checkbox> has no text of   */
-/* its own — both need one supplied.                                   */
+/* The narrowest useful checks, and the ones this repo kept failing: a  */
+/* control that a screen reader announces as "button" and nothing else, */
+/* and a page with no single heading. An icon is not a name, and a      */
+/* <Switch> or <Checkbox> has no text of its own — both need one.       */
 /*                                                                     */
 /* Routes come from the docs map, so this can never fall behind it.     */
 /* ------------------------------------------------------------------ */
@@ -59,6 +59,12 @@ for (const route of ROUTES) {
       out.push(`img without alt: ${el.getAttribute("src")?.slice(-36)}`);
     });
 
+    /* one h1 per page: it is the document's title, not a section heading.
+       The blocks pages stack up to five Sections and each used to render
+       its own h1, leaving the page with no single heading at all. */
+    const h1s = document.querySelectorAll("h1").length;
+    if (h1s !== 1) out.push(`${h1s} <h1> elements (expected exactly 1)`);
+
     document.querySelectorAll("input, select, textarea").forEach((el) => {
       const labelled =
         el.getAttribute("aria-label") ||
@@ -80,8 +86,8 @@ for (const route of ROUTES) {
 
 console.log(
   total === 0
-    ? `\n✓ every control across ${ROUTES.length} routes has an accessible name`
-    : `\n${total} unnamed across ${ROUTES.length} routes`,
+    ? `\n✓ ${ROUTES.length} routes: every control named, one h1 each`
+    : `\n${total} problems across ${ROUTES.length} routes`,
 );
 
 await browser.close();

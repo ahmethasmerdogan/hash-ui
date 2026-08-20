@@ -13,6 +13,24 @@ import { GITHUB_TREE } from "@/lib/site";
 /* straight to the file the page is about.                             */
 /* ------------------------------------------------------------------ */
 
+function Heading({
+  level,
+  className,
+  children,
+}: {
+  level: 1 | 2;
+  className?: string;
+  children: ReactNode;
+}) {
+  /* the styling is identical either way — this is document structure, not
+     a change in how the page looks */
+  return level === 1 ? (
+    <h1 className={className}>{children}</h1>
+  ) : (
+    <h2 className={className}>{children}</h2>
+  );
+}
+
 export function Section({
   id,
   eyebrow,
@@ -21,6 +39,7 @@ export function Section({
   registry,
   source,
   pkg = "core",
+  level = 1,
   children,
   className,
 }: {
@@ -34,6 +53,12 @@ export function Section({
   source?: string;
   /** which workspace the source lives in — blocks pages set "blocks" */
   pkg?: "core" | "blocks";
+  /**
+   * Heading level. A page has one h1; every Section after the first on the
+   * same page is a section of it, not another document. The blocks pages
+   * stack up to five, so they pass 2 on all but the first.
+   */
+  level?: 1 | 2;
   children: ReactNode;
   className?: string;
 }) {
@@ -61,9 +86,12 @@ export function Section({
           <span aria-hidden>]</span>
         </div>
         <div className="group/h flex items-center gap-2.5">
-          <h1 className="text-[34px] leading-tight font-bold tracking-[-0.03em] text-ink md:text-[38px]">
+          <Heading
+            level={level}
+            className="text-[34px] leading-tight font-bold tracking-[-0.03em] text-ink md:text-[38px]"
+          >
             {title}
-          </h1>
+          </Heading>
           <button
             type="button"
             onClick={copyLink}

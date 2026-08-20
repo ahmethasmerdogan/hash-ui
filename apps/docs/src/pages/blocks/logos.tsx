@@ -75,6 +75,7 @@ export default function BlocksLogosPage() {
 
       <Section
         id="integrations-marquee"
+        level={2}
         eyebrow="Blocks"
         title="IntegrationsMarquee"
         desc="Three rows of integration chips drifting past each other behind a radial mask, with your own mark held still in the middle."

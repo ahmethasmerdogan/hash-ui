@@ -82,6 +82,7 @@ export default function BlocksFootersPage() {
 
       <Section
         id="grid-footer"
+        level={2}
         eyebrow="Blocks"
         title="GridFooter"
         desc="A footer built as an exposed grid rather than as stacked columns: social marks, a description and the link list all sit in cells of one ruled table, and the rules are the design."
