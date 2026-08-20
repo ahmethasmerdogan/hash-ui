@@ -67,6 +67,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://hashui.vercel.app/docs/components/overlays</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://hashui.vercel.app/docs/components/feedback</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

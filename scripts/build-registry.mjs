@@ -123,6 +123,54 @@ const ITEMS = [
       "Table, THead, TBody, Tr, Th and Td for a bespoke table; DataTable on top for columns-in-rows-out with sorting that reports itself on the header cell.",
   },
   {
+    name: "overlay-primitives",
+    file: "overlay-primitives.ts",
+    lib: true,
+    title: "Overlay primitives",
+    description:
+      "useDismiss, useFocusTrap, useScrollLock and useAnchoredPosition — the four jobs every overlay has, written once. Anchoring is a rect, a flip and a clamp; no floating-ui.",
+  },
+  {
+    name: "popover",
+    file: "Popover.tsx",
+    deps: ["cx", "overlay-primitives"],
+    title: "Popover & HoverCard",
+    description:
+      "A panel anchored to a trigger. Popover opens on click and takes focus; HoverCard opens on hover and never does, because stealing focus from a passing pointer is hostile.",
+  },
+  {
+    name: "sheet",
+    file: "Sheet.tsx",
+    deps: ["cx", "icons", "button", "overlay-primitives"],
+    title: "Sheet & AlertDialog",
+    description:
+      "A side panel and a confirmation. The sheet dismisses on Escape and on a click outside; the alert dialog does neither, because a stray click is not an answer.",
+  },
+  {
+    name: "layout",
+    file: "Layout.tsx",
+    deps: ["cx", "icons"],
+    title: "Collapsible, ScrollArea, AspectRatio, InputOTP",
+    description:
+      "The structural pieces. The OTP field is one real input behind six boxes, so a paste, a password manager and the browser's own SMS autofill all land.",
+  },
+  {
+    name: "combobox",
+    file: "Combobox.tsx",
+    deps: ["cx", "icons", "overlay-primitives"],
+    title: "Combobox & Command",
+    description:
+      "A field that filters a list, at two scales. Focus stays in the field and the highlighted row is announced through aria-activedescendant.",
+  },
+  {
+    name: "calendar",
+    file: "Calendar.tsx",
+    deps: ["cx", "icons", "popover"],
+    title: "Calendar & DatePicker",
+    description:
+      "A month grid with no date library — Intl for the names, local midnight throughout, and a roving tab stop so it is one stop rather than forty-two.",
+  },
+  {
     name: "tabs",
     file: "Tabs.tsx",
     deps: ["cx"],
@@ -414,7 +462,11 @@ const targetOf = (item) =>
 
 /** `import { cx } from "./cx.js"` → `import { cx } from "@/lib/hashui/cx"` */
 function rewriteImports(code) {
-  return code.replace(/from "\.\/([A-Za-z]+)\.js"/g, (whole, base) => {
+  /* [\w-]+, not [A-Za-z]+: a hyphenated module — overlay-primitives — did
+     not match at all, so it was neither rewritten nor reported. The throw
+     below only fires on a match, which made an unmapped import silent
+     exactly when the filename was least ordinary. */
+  return code.replace(/from "\.\/([\w-]+)\.js"/g, (whole, base) => {
     const item = BY_FILE.get(base);
     if (!item) throw new Error(`unmapped internal import: ./${base}.js`);
     const dir = item.lib ? `@/${LIB_DIR}` : `@/${UI_DIR}`;

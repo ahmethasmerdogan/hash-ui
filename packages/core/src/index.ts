@@ -29,6 +29,12 @@ export * from "./Table.js";
 /* feedback & overlays */
 export * from "./Feedback.js";
 export * from "./Overlay.js";
+export * from "./overlay-primitives.js";
+export * from "./Popover.js";
+export * from "./Layout.js";
+export * from "./Combobox.js";
+export * from "./Calendar.js";
+export * from "./Sheet.js";
 
 /* motion */
 export * from "./Motion.js";

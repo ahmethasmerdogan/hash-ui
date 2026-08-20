@@ -12,6 +12,20 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- **The overlay family.** `Popover`, `HoverCard`, `Sheet`, `AlertDialog`,
+  `Combobox`, `Command`, `Calendar`, `DatePicker`, `Collapsible`,
+  `ScrollArea`, `AspectRatio` and `InputOTP` — the structural half of shadcn's
+  set, which HashUI had none of.
+
+  `overlay-primitives.ts` holds the four jobs every one of them has:
+  dismissing, trapping focus, locking the scroll and standing next to
+  something. Anchoring is a rect, a flip and a clamp — no floating-ui, which
+  is 30 kB and most of this package.
+
+  No date library either. `Intl` supplies the month and weekday names, so the
+  calendar speaks the reader's language without shipping a locale table, and
+  dates are local midnight throughout.
+
 - **The form parts that were missing.** `Label`, `Textarea`, `Field`,
   `Separator`, `Toggle`, `ToggleGroup` and `Spinner`. The system was rich in
   expressive pieces — meters, glow pills, commit graphs — and had no label, no

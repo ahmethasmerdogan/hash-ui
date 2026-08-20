@@ -448,6 +448,26 @@ body {
     opacity: 1;
   }
 }
+/* Sheets come from the edge they are attached to. Four keyframes rather
+   than one with a variable, because a transform cannot be interpolated
+   from a custom property in every browser that matters yet. */
+@keyframes hashui-sheet-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes hashui-sheet-left {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes hashui-sheet-top {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes hashui-sheet-bottom {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
 @keyframes hashui-modal-in {
   from {
     opacity: 0;

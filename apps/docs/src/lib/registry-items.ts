@@ -153,6 +153,86 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     ]
   },
   {
+    "name": "overlay-primitives",
+    "title": "Overlay primitives",
+    "description": "useDismiss, useFocusTrap, useScrollLock and useAnchoredPosition — the four jobs every overlay has, written once. Anchoring is a rect, a flip and a clamp; no floating-ui.",
+    "type": "registry:lib",
+    "target": "lib/hashui/overlay-primitives.ts",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens"
+    ]
+  },
+  {
+    "name": "popover",
+    "title": "Popover & HoverCard",
+    "description": "A panel anchored to a trigger. Popover opens on click and takes focus; HoverCard opens on hover and never does, because stealing focus from a passing pointer is hostile.",
+    "type": "registry:ui",
+    "target": "components/hashui/popover.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx",
+      "overlay-primitives"
+    ]
+  },
+  {
+    "name": "sheet",
+    "title": "Sheet & AlertDialog",
+    "description": "A side panel and a confirmation. The sheet dismisses on Escape and on a click outside; the alert dialog does neither, because a stray click is not an answer.",
+    "type": "registry:ui",
+    "target": "components/hashui/sheet.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx",
+      "icons",
+      "button",
+      "overlay-primitives"
+    ]
+  },
+  {
+    "name": "layout",
+    "title": "Collapsible, ScrollArea, AspectRatio, InputOTP",
+    "description": "The structural pieces. The OTP field is one real input behind six boxes, so a paste, a password manager and the browser's own SMS autofill all land.",
+    "type": "registry:ui",
+    "target": "components/hashui/layout.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx",
+      "icons"
+    ]
+  },
+  {
+    "name": "combobox",
+    "title": "Combobox & Command",
+    "description": "A field that filters a list, at two scales. Focus stays in the field and the highlighted row is announced through aria-activedescendant.",
+    "type": "registry:ui",
+    "target": "components/hashui/combobox.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx",
+      "icons",
+      "overlay-primitives"
+    ]
+  },
+  {
+    "name": "calendar",
+    "title": "Calendar & DatePicker",
+    "description": "A month grid with no date library — Intl for the names, local midnight throughout, and a roving tab stop so it is one stop rather than forty-two.",
+    "type": "registry:ui",
+    "target": "components/hashui/calendar.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx",
+      "icons",
+      "popover"
+    ]
+  },
+  {
     "name": "tabs",
     "title": "Tabs",
     "description": "PillTabs, NotchTabs, DotTabs, UnderlineTabs and PillNav — five tab treatments on one item model.",

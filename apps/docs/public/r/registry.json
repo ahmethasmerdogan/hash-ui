@@ -205,6 +205,116 @@
       ]
     },
     {
+      "name": "overlay-primitives",
+      "type": "registry:lib",
+      "title": "Overlay primitives",
+      "description": "useDismiss, useFocusTrap, useScrollLock and useAnchoredPosition — the four jobs every overlay has, written once. Anchoring is a rect, a flip and a clamp; no floating-ui.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/overlay-primitives.ts",
+          "type": "registry:lib",
+          "target": "lib/hashui/overlay-primitives.ts"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover & HoverCard",
+      "description": "A panel anchored to a trigger. Popover opens on click and takes focus; HoverCard opens on hover and never does, because stealing focus from a passing pointer is hostile.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/overlay-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet & AlertDialog",
+      "description": "A side panel and a confirmation. The sheet dismisses on Escape and on a click outside; the alert dialog does neither, because a stray click is not an answer.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/button.json",
+        "https://hashui.vercel.app/r/overlay-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "type": "registry:ui",
+      "title": "Collapsible, ScrollArea, AspectRatio, InputOTP",
+      "description": "The structural pieces. The OTP field is one real input behind six boxes, so a paste, a password manager and the browser's own SMS autofill all land.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/layout.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox & Command",
+      "description": "A field that filters a list, at two scales. Focus stays in the field and the highlighted row is announced through aria-activedescendant.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/overlay-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/combobox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar & DatePicker",
+      "description": "A month grid with no date library — Intl for the names, local midnight throughout, and a roving tab stop so it is one stop rather than forty-two.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/calendar.tsx"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
@@ -412,6 +522,36 @@
           "path": "registry/hashui/table.tsx",
           "type": "registry:ui",
           "target": "components/hashui/table.tsx"
+        },
+        {
+          "path": "registry/hashui/overlay-primitives.ts",
+          "type": "registry:lib",
+          "target": "lib/hashui/overlay-primitives.ts"
+        },
+        {
+          "path": "registry/hashui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/popover.tsx"
+        },
+        {
+          "path": "registry/hashui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/sheet.tsx"
+        },
+        {
+          "path": "registry/hashui/layout.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/layout.tsx"
+        },
+        {
+          "path": "registry/hashui/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/combobox.tsx"
+        },
+        {
+          "path": "registry/hashui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/calendar.tsx"
         },
         {
           "path": "registry/hashui/tabs.tsx",

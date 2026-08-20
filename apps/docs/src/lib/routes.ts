@@ -117,6 +117,13 @@ export const NAV: NavGroup[] = [
         Component: lazy(() => import("@/pages/components/forms")),
       },
       {
+        path: "/docs/components/overlays",
+        label: "Overlays & pickers",
+        desc: "Popover, HoverCard, Sheet, AlertDialog, Combobox, Command, Calendar, DatePicker and the structural pieces.",
+        keywords: "Popover HoverCard Sheet Drawer AlertDialog Combobox Command Calendar DatePicker Collapsible ScrollArea AspectRatio InputOTP dialog modal select date otp",
+        Component: lazy(() => import("@/pages/components/overlays")),
+      },
+      {
         path: "/docs/components/feedback",
         label: "Feedback & overlays",
         desc: "Alerts, a live toast queue, tooltips, modals, dropdowns, skeletons.",
