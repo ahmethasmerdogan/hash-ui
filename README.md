@@ -231,7 +231,7 @@ scripts/
   size.mjs                # gzip size of both packages, against a budget
   filmstrip.mjs           # N frames of one element, side by side
   make-og.mjs             # brand SVGs → PNG
-  export-ui.mjs           # copy the library into another repo
+  export-ui.mjs           # copy the library into another repo (--blocks too)
 ```
 
 One route documents one source file, which is one registry item — so a page, a
