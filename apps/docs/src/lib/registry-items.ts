@@ -128,6 +128,31 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     ]
   },
   {
+    "name": "form",
+    "title": "Form parts",
+    "description": "Label, Textarea, Field, Separator, Toggle, ToggleGroup and Spinner. Field generates the ids and wires aria-describedby and aria-invalid, so a hint and an error are announced rather than merely shown.",
+    "type": "registry:ui",
+    "target": "components/hashui/form.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx"
+    ]
+  },
+  {
+    "name": "table",
+    "title": "Table & DataTable",
+    "description": "Table, THead, TBody, Tr, Th and Td for a bespoke table; DataTable on top for columns-in-rows-out with sorting that reports itself on the header cell.",
+    "type": "registry:ui",
+    "target": "components/hashui/table.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "cx",
+      "icons"
+    ]
+  },
+  {
     "name": "tabs",
     "title": "Tabs",
     "description": "PillTabs, NotchTabs, DotTabs, UnderlineTabs and PillNav — five tab treatments on one item model.",

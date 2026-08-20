@@ -17,12 +17,14 @@ export * from "./Avatar.js";
 export * from "./Card.js";
 export * from "./controls.js";
 export * from "./Inputs.js";
+export * from "./Form.js";
 
 /* navigation & data */
 export * from "./Tabs.js";
 export * from "./Progress.js";
 export * from "./Timeline.js";
 export * from "./CommitGraph.js";
+export * from "./Table.js";
 
 /* feedback & overlays */
 export * from "./Feedback.js";

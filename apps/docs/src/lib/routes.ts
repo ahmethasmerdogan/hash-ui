@@ -110,6 +110,13 @@ export const NAV: NavGroup[] = [
         Component: lazy(() => import("@/pages/components/inputs")),
       },
       {
+        path: "/docs/components/forms",
+        label: "Forms & tables",
+        desc: "Field, Label, Textarea, Separator, Toggle, ToggleGroup, Spinner, Table and DataTable.",
+        keywords: "Field Label Textarea Separator Toggle ToggleGroup Spinner Table DataTable form validation sort",
+        Component: lazy(() => import("@/pages/components/forms")),
+      },
+      {
         path: "/docs/components/feedback",
         label: "Feedback & overlays",
         desc: "Alerts, a live toast queue, tooltips, modals, dropdowns, skeletons.",

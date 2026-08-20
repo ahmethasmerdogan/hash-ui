@@ -170,6 +170,41 @@
       ]
     },
     {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form parts",
+      "description": "Label, Textarea, Field, Separator, Toggle, ToggleGroup and Spinner. Field generates the ids and wires aria-describedby and aria-invalid, so a hint and an error are announced rather than merely shown.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/form.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table & DataTable",
+      "description": "Table, THead, TBody, Tr, Th and Td for a bespoke table; DataTable on top for columns-in-rows-out with sorting that reports itself on the header cell.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/table.tsx"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
@@ -367,6 +402,16 @@
           "path": "registry/hashui/inputs.tsx",
           "type": "registry:ui",
           "target": "components/hashui/inputs.tsx"
+        },
+        {
+          "path": "registry/hashui/form.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/form.tsx"
+        },
+        {
+          "path": "registry/hashui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/table.tsx"
         },
         {
           "path": "registry/hashui/tabs.tsx",

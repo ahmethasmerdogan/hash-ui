@@ -107,6 +107,22 @@ const ITEMS = [
       "Slider, RadioGroup, RadioCards, SelectField, Accordion, Stepper, Pagination and Breadcrumbs.",
   },
   {
+    name: "form",
+    file: "Form.tsx",
+    deps: ["cx"],
+    title: "Form parts",
+    description:
+      "Label, Textarea, Field, Separator, Toggle, ToggleGroup and Spinner. Field generates the ids and wires aria-describedby and aria-invalid, so a hint and an error are announced rather than merely shown.",
+  },
+  {
+    name: "table",
+    file: "Table.tsx",
+    deps: ["cx", "icons"],
+    title: "Table & DataTable",
+    description:
+      "Table, THead, TBody, Tr, Th and Td for a bespoke table; DataTable on top for columns-in-rows-out with sorting that reports itself on the header cell.",
+  },
+  {
     name: "tabs",
     file: "Tabs.tsx",
     deps: ["cx"],

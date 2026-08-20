@@ -10,6 +10,32 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- **The form parts that were missing.** `Label`, `Textarea`, `Field`,
+  `Separator`, `Toggle`, `ToggleGroup` and `Spinner`. The system was rich in
+  expressive pieces — meters, glow pills, commit graphs — and had no label, no
+  textarea, and no way to attach a description or an error to a control.
+
+  `Field` is the one that matters: it generates the ids and wires
+  `aria-describedby` and `aria-invalid` itself, so a hint and an error are
+  announced rather than merely displayed. shadcn solves this with a Form built
+  on react-hook-form; this needs no form library. The control arrives as a
+  function of the props it has to carry, so they are visible at the call site
+  instead of being applied by `cloneElement` behind your back.
+
+- **`Table` and `DataTable`.** HashUI documented a data table and shipped no
+  table — the demo was hand-written markup, so anyone who liked it had to copy
+  the markup rather than the component. The primitives carry the house style
+  and nothing else; `DataTable` sits on top for columns-in-rows-out, with
+  sorting that reports itself in `aria-sort` on the header cell rather than
+  only in an arrow glyph.
+
+- **`LiquidMetalButton` is a fragment shader**, and looks like metal. What it
+  was before was a rotating conic gradient that read as a dark pinwheel.
+  `runShader` in `effects/gl.ts` is the shared WebGL plumbing, and a registry
+  item in its own right.
+
 ### Changed
 
 - **Buttons are squared, not pills.** `Button` now defaults to
