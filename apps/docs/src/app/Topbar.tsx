@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   cx,
@@ -13,6 +14,20 @@ import {
 import { LogoMark } from "@/components/Logo";
 import { AccentPicker } from "@/components/AccentPicker";
 import { SITE } from "@/lib/site";
+
+/* one description of each theme mode, so the segmented control and the
+   narrow-screen toggle can never drift apart */
+const THEME_MODES: Record<ThemeMode, { icon: ReactNode; name: string }> = {
+  system: { icon: <IContrast size={14} />, name: "Match the system theme" },
+  light: { icon: <ISun size={14} />, name: "Light theme" },
+  dark: { icon: <IMoon size={14} />, name: "Dark theme" },
+};
+const THEME_ORDER: ThemeMode[] = ["system", "light", "dark"];
+const NEXT_MODE: Record<ThemeMode, ThemeMode> = {
+  system: "light",
+  light: "dark",
+  dark: "system",
+};
 
 const TABS = [
   { to: "/docs", label: "Docs", match: (p: string) => p === "/docs" },
@@ -61,7 +76,7 @@ export function Topbar({
           type="button"
           onClick={onMenu}
           aria-label="Open navigation"
-          className="flex size-9 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 lg:hidden"
+          className="flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 lg:hidden"
         >
           <IMenu size={16} />
         </button>
@@ -127,15 +142,30 @@ export function Topbar({
 
           <AccentPicker />
 
+          {/* Three segments cost 108px. Below sm that is the difference
+              between a header that fits a 320px screen and one that does
+              not — and WCAG 1.4.10 asks for no horizontal scrolling at
+              exactly that width. The same three modes, one at a time. */}
+          <button
+            type="button"
+            onClick={() => setMode(NEXT_MODE[mode])}
+            aria-label={`${THEME_MODES[mode].name}. Activate for ${THEME_MODES[NEXT_MODE[mode]].name.toLowerCase()}`}
+            title={THEME_MODES[mode].name}
+            className="flex size-9 shrink-0 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink sm:hidden"
+          >
+            {THEME_MODES[mode].icon}
+          </button>
+
           <SegmentedControl<ThemeMode>
+            className="max-sm:hidden"
             size="sm"
             value={mode}
             onChange={setMode}
-            options={[
-              { value: "system", label: <IContrast size={14} />, name: "Match the system theme" },
-              { value: "light", label: <ISun size={14} />, name: "Light theme" },
-              { value: "dark", label: <IMoon size={14} />, name: "Dark theme" },
-            ]}
+            options={THEME_ORDER.map((value) => ({
+              value,
+              label: THEME_MODES[value].icon,
+              name: THEME_MODES[value].name,
+            }))}
           />
         </div>
       </div>
