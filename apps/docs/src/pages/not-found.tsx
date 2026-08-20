@@ -8,6 +8,7 @@ export default function NotFound() {
         className="mx-auto max-w-md bg-surface/60"
         icon={<ICompass />}
         title="404 — nothing documented here"
+        titleAs="h1"
         desc="That page moved when the docs were split component-by-component. Press ⌘K to search, or start from the beginning."
         action={
           <Link to="/docs">

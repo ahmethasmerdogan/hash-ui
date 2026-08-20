@@ -23,15 +23,45 @@ function setMeta(selector: string, attr: string, value: string) {
   if (el) el.setAttribute(attr, value);
 }
 
+/* robots is absent from index.html — it only exists on the routes that need
+   it, so it is created and removed rather than rewritten */
+function setRobots(value: string | null) {
+  let el = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+  if (value === null) {
+    el?.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement("meta");
+    el.name = "robots";
+    document.head.appendChild(el);
+  }
+  el.content = value;
+}
+
 export function DocumentHead() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     const page = pageAt(pathname);
+    /* every path that is neither the landing page nor a documented route
+       renders the 404 page, and should be labelled as one — the tab, the
+       history entry and the screen-reader announcement all said "HashUI —
+       A design foundation" before, which is the landing page's title */
+    const missing = !page && pathname !== "/";
 
-    const title = page ? `${page.label} — ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
-    const description = page?.desc ?? SITE.description;
-    const url = `${SITE.url}${pathname === "/" ? "/" : pathname}`;
+    const title = missing
+      ? `Page not found — ${SITE.name}`
+      : page
+        ? `${page.label} — ${SITE.name}`
+        : `${SITE.name} — ${SITE.tagline}`;
+    const description = missing
+      ? "That page does not exist. Search the docs, or start from the beginning."
+      : (page?.desc ?? SITE.description);
+    /* a 404 that declares itself canonical is asking to be indexed as a real
+       page; point at the docs root instead and mark it noindex */
+    const url = missing ? `${SITE.url}/docs` : `${SITE.url}${pathname === "/" ? "/" : pathname}`;
+    setRobots(missing ? "noindex, follow" : null);
 
     document.title = title;
     setMeta('meta[name="description"]', "content", description);

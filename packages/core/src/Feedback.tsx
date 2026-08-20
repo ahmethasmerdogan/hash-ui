@@ -218,12 +218,18 @@ export function Skeleton({ className }: { className?: string }) {
 export function EmptyState({
   icon,
   title,
+  titleAs: TitleTag = "div",
   desc,
   action,
   className,
 }: {
   icon: ReactNode;
   title: string;
+  /** Render the title as a heading when the empty state *is* the page —
+   *  a 404, or a search that returned nothing. Inside a panel it should
+   *  stay a `div`, which is why that is the default: an empty inbox card
+   *  is not a section of the document. */
+  titleAs?: "div" | "h1" | "h2" | "h3";
   desc?: string;
   action?: ReactNode;
   className?: string;
@@ -238,7 +244,7 @@ export function EmptyState({
       <span className="flex size-12 items-center justify-center rounded-[15px] border border-line bg-gradient-to-b from-surface to-elev text-ink-2 shadow-soft [&>svg]:size-5">
         {icon}
       </span>
-      <div className="mt-4 text-[15px] font-semibold text-ink">{title}</div>
+      <TitleTag className="mt-4 text-[15px] font-semibold text-ink">{title}</TitleTag>
       {desc && (
         <p className="mt-1.5 max-w-60 text-[13px] leading-relaxed text-ink-3">
           {desc}

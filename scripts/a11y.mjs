@@ -21,6 +21,10 @@ const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 const routesSrc = await readFile(`${ROOT}apps/docs/src/lib/routes.ts`, "utf8");
 const ROUTES = ["/", ...[...routesSrc.matchAll(/path:\s*"([^"]+)"/g)].map((m) => m[1])];
+/* plus one URL that is deliberately not in the table: the 404 is a real page
+   a real visitor lands on, and it shipped with no h1 at all because nothing
+   ever checked a route the map does not know about */
+ROUTES.push("/docs/__not-found__");
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
