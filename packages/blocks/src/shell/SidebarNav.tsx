@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   cx,
   Avatar,
@@ -241,18 +241,70 @@ export function WorkspaceSwitcher({
   const [open, setOpen] = useState(false);
   const [internal, setInternal] = useState(workspaces[0]);
   const current = selected ?? internal;
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
   const choose = (ws: string) => {
     (onSelect ?? setInternal)(ws);
     setOpen(false);
+    triggerRef.current?.focus();
+  };
+
+  /* A menu that can only be dismissed by clicking somewhere else is a trap
+     for anyone not using a mouse. Escape closes it and hands focus back. */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  /* Arrow keys walk the options; the browser only does this for a real
+     <select>, and this is a listbox made of buttons. */
+  const onListKeyDown = (e: React.KeyboardEvent) => {
+    const items = Array.from(
+      listRef.current?.querySelectorAll<HTMLButtonElement>('[role="option"]') ?? [],
+    );
+    if (!items.length) return;
+    const i = items.indexOf(document.activeElement as HTMLButtonElement);
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      const next =
+        e.key === "ArrowDown"
+          ? items[(i + 1 + items.length) % items.length]
+          : items[(i - 1 + items.length) % items.length];
+      next?.focus();
+    }
+    if (e.key === "Home") {
+      e.preventDefault();
+      items[0]?.focus();
+    }
+    if (e.key === "End") {
+      e.preventDefault();
+      items[items.length - 1]?.focus();
+    }
   };
 
   return (
     <div className="relative">
       <button
+        ref={triggerRef}
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowDown" && !open) {
+            e.preventDefault();
+            setOpen(true);
+          }
+        }}
         className="group/ws flex w-full items-center justify-between gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-elev"
       >
         <span className="flex min-w-0 items-center gap-2.5">
@@ -271,7 +323,9 @@ export function WorkspaceSwitcher({
         <>
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
           <div
+            ref={listRef}
             role="listbox"
+            onKeyDown={onListKeyDown}
             className="absolute top-full left-0 z-50 mt-1 flex w-full flex-col gap-0.5 rounded-xl border border-line bg-surface p-1.5"
           >
             {workspaces.map((ws) => (
@@ -280,6 +334,7 @@ export function WorkspaceSwitcher({
                 type="button"
                 role="option"
                 aria-selected={ws === current}
+                autoFocus={ws === current}
                 onClick={() => choose(ws)}
                 className={cx(
                   "rounded-lg px-3 py-1.5 text-left text-[13px] transition-colors",
