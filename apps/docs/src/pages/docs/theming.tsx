@@ -99,7 +99,7 @@ const accents = [
   { name: "red", hex: "#ef4444", note: "rejected / offline" },
   { name: "pink", hex: "#ec4899", note: "prospecting / new" },
   { name: "violet", hex: "#8b5cf6", note: "platform" },
-  { name: "ring", hex: "#178a47", note: "1px ring under every button face" },
+  { name: "ring", hex: "#13703a", note: "1px ring under every button face" },
 ];
 
 export default function Foundations() {
