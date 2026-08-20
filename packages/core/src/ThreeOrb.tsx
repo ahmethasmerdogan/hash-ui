@@ -1,16 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { cx } from "./cx.js";
 
-/* Lazy three.js scene — the library chunk loads only when scrolled into view. */
+/* Lazy three.js scene — the library chunk loads only when scrolled into view.
+ *
+ * `three` is an optional peer, so it may legitimately not be installed. A
+ * bundler leaves the unresolved dynamic import as a module that throws when
+ * it is reached, which is late and invisible: the rejection surfaces inside
+ * an IntersectionObserver callback, and all the reader sees is a box that
+ * says "loading three.js scene…" for ever. The three blocks with optional
+ * peers already catch this and say what to install; so does this one now. */
 export function ThreeOrb({
   height = 340,
+  fallback,
   className,
 }: {
   height?: number;
+  /** Rendered in place of the scene when `three` is not installed. */
+  fallback?: ReactNode;
   className?: string;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -23,7 +34,18 @@ export function ThreeOrb({
       async ([e]) => {
         if (!e.isIntersecting || cleanup) return;
         obs.disconnect();
-        const THREE = await import("three");
+
+        let THREE: typeof import("three");
+        try {
+          THREE = await import("three");
+        } catch {
+          console.warn(
+            "[hash-ui] <ThreeOrb> needs the optional peer `three`.\n" +
+              "  npm i three",
+          );
+          if (!disposed) setFailed(true);
+          return;
+        }
         if (disposed) return;
 
         const w = host.clientWidth;
@@ -143,11 +165,17 @@ export function ThreeOrb({
       className={cx("relative w-full overflow-hidden rounded-2xl", className)}
       style={{ height }}
     >
-      {!ready && (
-        <div className="absolute inset-0 flex items-center justify-center font-mono text-[12px] text-ink-3">
-          loading three.js scene…
-        </div>
-      )}
+      {failed
+        ? (fallback ?? (
+            <div className="absolute inset-0 flex items-center justify-center px-6 text-center font-mono text-[12px] text-ink-3">
+              three.js is not installed
+            </div>
+          ))
+        : !ready && (
+            <div className="absolute inset-0 flex items-center justify-center font-mono text-[12px] text-ink-3">
+              loading three.js scene…
+            </div>
+          )}
     </div>
   );
 }
