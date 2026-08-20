@@ -46,10 +46,15 @@ const DEMO: Logo[] = [
   { alt: "Clerk", src: svgl("clerk-wordmark-light"), srcDark: svgl("clerk-wordmark-dark") },
 ];
 
-/* grayscale at rest is the convention here: a wall of twelve brand palettes
-   fights everything around it. Hover restores the real thing. */
+/* Grayscale at rest is the convention here: a wall of twelve brand palettes
+   fights everything around it. Hover restores the real thing.
+
+   The box is fixed rather than `w-auto`, and object-contain fits each mark
+   inside it. With `w-auto` the image occupies no width until it loads, so a
+   grid of eight remote wordmarks shifted its whole layout on arrival —
+   0.06 CLS, which is small enough to pass and large enough to see. */
 const IMG =
-  "h-6 w-auto max-w-[120px] object-contain opacity-65 grayscale transition duration-300 group-hover/logo:opacity-100 group-hover/logo:grayscale-0";
+  "h-6 w-[120px] object-contain opacity-65 grayscale transition duration-300 group-hover/logo:opacity-100 group-hover/logo:grayscale-0";
 
 function LogoMark({ logo }: { logo: Logo }) {
   const inner =
@@ -60,6 +65,7 @@ function LogoMark({ logo }: { logo: Logo }) {
           src={logo.src}
           alt={logo.alt}
           loading="lazy"
+          decoding="async"
           className={cx(IMG, logo.srcDark && "dark:hidden")}
         />
         {logo.srcDark && (
@@ -68,6 +74,7 @@ function LogoMark({ logo }: { logo: Logo }) {
             alt=""
             aria-hidden
             loading="lazy"
+            decoding="async"
             className={cx(IMG, "hidden dark:block")}
           />
         )}

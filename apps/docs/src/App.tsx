@@ -68,8 +68,13 @@ function DocsLayout({ children }: { children: React.ReactNode }) {
       <Sidebar />
       <main id="content" tabIndex={-1} className="min-w-0 flex-1 lg:pl-10 xl:pl-14">
         <div className="mx-auto min-w-0 max-w-4xl">
-          <Suspense fallback={<PageSkeleton />}>{children}</Suspense>
-          <Pager path={pathname} />
+          {/* the pager goes inside the boundary: outside it, it rendered
+              against the skeleton's height and was pushed down when the real
+              page arrived — the whole of this route's layout shift */}
+          <Suspense fallback={<PageSkeleton />}>
+            {children}
+            <Pager path={pathname} />
+          </Suspense>
         </div>
       </main>
     </div>
