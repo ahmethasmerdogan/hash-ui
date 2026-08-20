@@ -52,14 +52,21 @@ export function CommandK({
     );
   }, [flat, q]);
 
+  const restoreRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     if (!open) return;
+    /* whatever had focus when the palette opened gets it back when it
+       closes — otherwise a keyboard user lands on <body> and has to tab
+       from the top of the document again */
+    restoreRef.current = document.activeElement as HTMLElement | null;
     setQ("");
     setActive(0);
     requestAnimationFrame(() => inputRef.current?.focus());
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
+      restoreRef.current?.focus?.();
     };
   }, [open]);
 
@@ -73,7 +80,13 @@ export function CommandK({
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      else if (e.key === "ArrowDown") {
+      else if (e.key === "Tab") {
+        /* a modal that lets Tab walk out into the page behind it is not
+           modal. Every row is reachable with the arrow keys, so there is
+           nowhere else for focus to usefully go. */
+        e.preventDefault();
+        inputRef.current?.focus();
+      } else if (e.key === "ArrowDown") {
         e.preventDefault();
         setActive((a) => Math.min(filtered.length - 1, a + 1));
       } else if (e.key === "ArrowUp") {
@@ -105,6 +118,9 @@ export function CommandK({
         onClick={onClose}
       />
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search documentation"
         className="dark relative w-full max-w-135"
         style={{ animation: "hashui-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
@@ -116,12 +132,29 @@ export function CommandK({
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search components, patterns, tokens…"
+              role="combobox"
+              aria-label="Search documentation"
+              aria-expanded
+              aria-controls="cmdk-list"
+              aria-autocomplete="list"
+              aria-activedescendant={filtered[active] ? `cmdk-opt-${active}` : undefined}
               className="w-full bg-transparent text-[15px] text-ink outline-none placeholder:text-ink-3"
             />
             <Kbd>esc</Kbd>
           </div>
 
-          <div ref={listRef} className="scroll-thin max-h-[46vh] overflow-y-auto py-2">
+          <div
+            ref={listRef}
+            id="cmdk-list"
+            role="listbox"
+            aria-label="Search results"
+            className="scroll-thin max-h-[46vh] overflow-y-auto py-2"
+          >
+            <p role="status" className="sr-only">
+              {filtered.length === 0
+                ? "No results"
+                : `${filtered.length} result${filtered.length === 1 ? "" : "s"}`}
+            </p>
             {filtered.length === 0 && (
               <div className="px-5 py-8 text-center text-[13.5px] text-ink-3">
                 Nothing matches “{q}”
@@ -130,16 +163,23 @@ export function CommandK({
             {filtered.map((it, i) => {
               const groupHeader =
                 it.group !== lastGroup ? (
-                  <div className="px-5 pt-3 pb-1 text-[12.5px] font-medium text-ink-3">
+                  <div
+                    role="presentation"
+                    className="px-5 pt-3 pb-1 text-[12.5px] font-medium text-ink-3"
+                  >
                     {it.group}
                   </div>
                 ) : null;
               lastGroup = it.group;
               return (
-                <div key={it.path}>
+                <div key={it.path} role="presentation">
                   {groupHeader}
                   <button
                     type="button"
+                    role="option"
+                    id={`cmdk-opt-${i}`}
+                    aria-selected={i === active}
+                    tabIndex={-1}
                     data-idx={i}
                     onMouseEnter={() => setActive(i)}
                     onClick={() => {
