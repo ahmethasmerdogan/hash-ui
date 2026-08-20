@@ -98,7 +98,7 @@ function GetStartedCard() {
 function PaymentSuccessModal() {
   return (
     <Card floating className="w-full max-w-3xl overflow-hidden rounded-[24px]">
-      <div className="grid md:grid-cols-[1fr_1.05fr]">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.05fr]">
         {/* left */}
         <div className="flex flex-col items-center justify-center px-8 py-10 text-center">
           <span className="relative flex size-17 items-center justify-center rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 text-white ring-8 ring-emerald-500/12">
@@ -255,7 +255,7 @@ const WIZARD_STEPS = [
 function WizardModal() {
   return (
     <Card floating className="w-full max-w-4xl overflow-hidden rounded-[24px]">
-      <div className="grid md:grid-cols-[280px_1fr]">
+      <div className="grid grid-cols-1 md:grid-cols-[280px_1fr]">
         <div className="border-b border-line p-4 md:border-r md:border-b-0">
           {WIZARD_STEPS.map((s, i) => {
             const active = i === 0;
@@ -353,7 +353,7 @@ export default function OverlaysSection() {
       title="Overlays & onboarding"
       desc="The ringed-check onboarding list, the split success modal, the grainy gradient install sheet and the numbered add-on wizard."
     >
-      <div className="grid items-start gap-6 xl:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-2">
         <Demo label="Get started checklist" refName="get-started-design-0001" contentClassName="py-10">
           <GetStartedCard />
         </Demo>

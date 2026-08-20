@@ -68,7 +68,7 @@ export default function TabsSection() {
         />
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Underline tabs" refName="menu-design-001">
           <UnderlineTabs
             items={[

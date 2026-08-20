@@ -61,7 +61,7 @@ const RESOURCES: Array<[string, string]> = [
 export function Footer() {
   return (
     <footer className="border-t border-line bg-surface/50">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-10">
+      <div className="mx-auto grid grid-cols-1 max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-10">
         <div>
           <div className="flex items-center gap-2.5">
             <LogoMark size={30} />

@@ -57,7 +57,7 @@ export default function ProgressSection() {
       title="Progress & meters"
       desc="Every meter the references use: LCD countdowns, tick bars, dotted credit meters, rings, and the striped policy range with its diagnosis marker."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="LCD countdown" refName="button-design-0001.jpeg" variant="dark" contentClassName="py-10">
           <CountdownLCD
             segments={[
@@ -99,7 +99,7 @@ export default function ProgressSection() {
         </div>
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Tick meters" imports={["TickBars","ProgressBar"]} refName="card-design-0001 · datatable-003">
           <div className="flex flex-col items-start gap-4">
             {[

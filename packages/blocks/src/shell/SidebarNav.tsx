@@ -560,7 +560,7 @@ function PlaceholderContent() {
   return (
     <div className="flex flex-col gap-5">
       <div className="h-8 w-48 rounded-lg bg-ink/5 dark:bg-white/6" />
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="h-32 rounded-2xl border border-line bg-surface" />
         <div className="h-32 rounded-2xl border border-line bg-surface" />
       </div>

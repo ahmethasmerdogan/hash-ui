@@ -18,7 +18,7 @@ const ACCENT_IDS = Object.keys(ACCENTS) as AccentId[];
 function AccentPresets() {
   const { accent, setAccent } = useTheme();
   return (
-    <div className="grid w-full gap-4 lg:grid-cols-[minmax(0,300px)_1fr]">
+    <div className="grid grid-cols-1 w-full gap-4 lg:grid-cols-[minmax(0,300px)_1fr]">
       <div className="flex flex-col gap-1.5">
         {ACCENT_IDS.map((id) => {
           const a = ACCENTS[id];
@@ -183,7 +183,7 @@ setAccent("violet");   // persisted, applied to <html data-accent>
         </div>
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Type voices" refName="see Typography for the live switcher" contentClassName="!justify-start">
           <div className="flex w-full flex-col gap-5">
             <div className="rounded-xl border border-line bg-surface p-5 shadow-soft">

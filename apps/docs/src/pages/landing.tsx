@@ -65,7 +65,11 @@ const FEATURES = [
 
 function Sampler() {
   return (
-    <div className="dot-grid grid gap-4 rounded-[22px] border border-line bg-canvas p-5 sm:grid-cols-2 lg:grid-cols-3">
+    /* grid-cols-1 is not redundant: with no template at all the single
+       implicit column is auto-sized, so the widest card set the track width
+       and the whole landing page scrolled sideways on a phone. Tailwind's
+       grid-cols-* emit minmax(0,1fr), which is exactly what stops that. */
+    <div className="dot-grid grid grid-cols-1 gap-4 rounded-[22px] border border-line bg-canvas p-5 sm:grid-cols-2 lg:grid-cols-3">
       <Card className="rounded-2xl p-5">
         <div className="microlabel mb-3">BUTTONS</div>
         <div className="flex flex-wrap gap-2.5">
@@ -250,7 +254,7 @@ export default function Landing() {
 
       {/* ------------------------------------------------ features ---- */}
       <section className="pt-16">
-        <div className="grid divide-line overflow-hidden rounded-2xl border border-line bg-surface md:grid-cols-3 md:divide-x">
+        <div className="grid grid-cols-1 divide-line overflow-hidden rounded-2xl border border-line bg-surface md:grid-cols-3 md:divide-x">
           {FEATURES.map((it) => (
             <div
               key={it.title}
@@ -339,7 +343,7 @@ export default function Landing() {
           />
         </Card>
 
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {BLOCK_PAGES.map((p) => (
             <Link key={p.path} to={p.path} className="group/b">
               <Card className="flex h-full items-start justify-between gap-2 p-4 transition-colors group-hover/b:border-line-strong">
@@ -380,7 +384,7 @@ export default function Landing() {
       </section>
 
       {/* --------------------------------------------------- usage ---- */}
-      <section className="grid gap-6 pt-16 lg:grid-cols-2">
+      <section className="grid grid-cols-1 gap-6 pt-16 lg:grid-cols-2">
         <div>
           <div className="microlabel mb-2 flex items-center gap-2 !text-brand">
             <span aria-hidden>[</span> Two lines of setup{" "}

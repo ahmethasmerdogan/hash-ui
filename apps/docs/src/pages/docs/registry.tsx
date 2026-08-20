@@ -106,7 +106,7 @@ export default function Registry() {
       </Alert>
 
       {/* ------------------------------------------------------ how ---- */}
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {[
           {
             icon: <ILayers size={17} />,
@@ -136,7 +136,7 @@ export default function Registry() {
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <CodeBlock
           filename="terminal — one component"
           code={`npx shadcn@latest add ${registryUrl("button")}
@@ -166,7 +166,7 @@ export default function Registry() {
           permissive CORS, so anything that speaks HTTP can read it — a codegen
           script, an editor extension, an agent.
         </p>
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <CodeBlock
             filename="terminal"
             code={`# the index — every item, with its files and deps
@@ -233,7 +233,7 @@ await writeFile("src/ui/button.tsx", button.files[0].content);`}
         <p className="mb-4 text-[14px] leading-relaxed text-ink-2">
           Both routes ship the same code. Pick by how much you expect to change.
         </p>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {[
             {
               tone: "green" as const,

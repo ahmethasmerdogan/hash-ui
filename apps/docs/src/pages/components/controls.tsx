@@ -145,7 +145,7 @@ export default function ControlsSection() {
       title="Controls"
       desc="Switches, rounded checkboxes and the raised-thumb segmented control that shows up in nearly every light reference."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Switch & checkbox" imports={["Switch","Checkbox"]} refName="card-design-0001">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
             <span className="flex items-center gap-3">
@@ -190,7 +190,7 @@ export default function ControlsSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Search field" refName="datatable-0001 · menu-design-001">
           <div className="w-full max-w-sm">
             <SearchField />

@@ -85,7 +85,7 @@ function AuditMiniCard() {
 /* Landing widgets — Ornek1 / Ornek6 credit-score hero */
 function LandingWidgets() {
   return (
-    <div className="grid w-full items-start gap-8 xl:grid-cols-[0.95fr_1.05fr]">
+    <div className="grid grid-cols-1 w-full items-start gap-8 xl:grid-cols-[0.95fr_1.05fr]">
       <div className="text-left">
         <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pr-3.5 pl-2 text-[13px] font-medium text-ink shadow-soft">
           <span className="flex size-5 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-300">
@@ -261,7 +261,7 @@ export default function MarketingSection() {
             <span className="text-ink-3">[</span> How It Works{" "}
             <span className="text-ink-3">]</span>
           </div>
-          <div className="mt-4 grid gap-6 border-t border-line pt-6 md:grid-cols-[1.2fr_1fr]">
+          <div className="mt-4 grid grid-cols-1 gap-6 border-t border-line pt-6 md:grid-cols-[1.2fr_1fr]">
             <h3 className="max-w-md text-[26px] leading-snug font-semibold tracking-[-0.01em] text-ink md:text-[30px]">
               Audit execution, built for review from day one
             </h3>
@@ -283,7 +283,7 @@ export default function MarketingSection() {
             <AuditMiniCard />
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
               [
                 "Audit Work You Can Stand Behind",

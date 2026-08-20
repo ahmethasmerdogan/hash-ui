@@ -74,7 +74,7 @@ export default function MotionSection() {
       title="Motion & effects"
       desc="MagicUI-style animation primitives — tickers, typewriters, marquees, shimmer borders, spotlights and meteors — all dependency-free, plus a lazy-loaded three.js scene."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Number ticker" refName="hashui motion" contentClassName="py-10">
           <div className="grid w-full max-w-md grid-cols-3 gap-3">
             {[
@@ -116,7 +116,7 @@ export default function MotionSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Shimmer button & border beam" refName="hashui motion" variant="dark" contentClassName="py-12">
           <DemoCol className="w-full max-w-sm">
             <ShimmerButton>
@@ -161,7 +161,7 @@ export default function MotionSection() {
         <MarqueeLogos />
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Spotlight card" refName="hashui motion" contentClassName="py-10">
           <Spotlight className="w-full max-w-sm rounded-2xl border border-line bg-surface p-6 shadow-card">
             <div className="text-[15px] font-bold text-ink">
@@ -196,7 +196,7 @@ export default function MotionSection() {
       </div>
 
       <Demo label="Scroll reveal" refName="hashui motion" contentClassName="py-10">
-        <div className="grid w-full max-w-2xl gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 w-full max-w-2xl gap-4 sm:grid-cols-3">
           {[0, 120, 240].map((d, i) => (
             <Reveal key={d} delay={d}>
               <Card className="rounded-2xl p-5 text-center">

@@ -109,10 +109,14 @@ export function Section({
             href={`${GITHUB_TREE}/packages/${pkg}/src/${source}`}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 font-mono text-[11.5px] font-medium text-ink-2 transition-colors hover:border-line-strong hover:text-ink"
+            className="mt-4 inline-flex max-w-full items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 font-mono text-[11.5px] font-medium text-ink-2 transition-colors hover:border-line-strong hover:text-ink"
           >
-            packages/{pkg}/src/{source}
-            <IArrowUpRight size={12} />
+            {/* the path is one unbreakable token; on a phone it is the
+                widest thing on the page unless it is allowed to truncate */}
+            <span className="truncate">
+              packages/{pkg}/src/{source}
+            </span>
+            <IArrowUpRight size={12} className="shrink-0" />
           </a>
         )}
       </div>

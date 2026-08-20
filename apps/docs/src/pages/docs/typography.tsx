@@ -22,7 +22,7 @@ const WEIGHTS = [
 function FontPicker() {
   const { font, setFont } = useTheme();
   return (
-    <div className="grid w-full gap-3 sm:grid-cols-3">
+    <div className="grid grid-cols-1 w-full gap-3 sm:grid-cols-3">
       {(Object.keys(FONTS) as FontId[]).map((id) => {
         const f = FONTS[id];
         const on = font === id;
@@ -82,7 +82,7 @@ export default function TypographySection() {
         <FontPicker />
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-[1.35fr_1fr]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr]">
         <Demo label="Type scale" refName="hashui foundation" contentClassName="!items-stretch !justify-start py-8">
           <div className="flex w-full flex-col gap-5">
             {SCALE.map((s) => (
@@ -120,7 +120,7 @@ export default function TypographySection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Geist Mono — data voice" refName="all metric refs" contentClassName="!items-stretch py-8">
           <Card className="w-full rounded-2xl p-5">
             <div className="microlabel mb-3">TABULAR NUMERALS</div>

@@ -105,7 +105,7 @@ export default function Introduction() {
       }
     >
       <Demo label="What you get" contentClassName="!items-stretch !justify-start py-8">
-        <div className="grid w-full gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 w-full gap-4 sm:grid-cols-3">
           {[
             { icon: <ICube size={18} />, v: "70+", l: "components", d: "across 16 source files" },
             { icon: <ILayers size={18} />, v: "83", l: "icons", d: "hand-drawn, tree-shakeable" },
@@ -261,7 +261,7 @@ scripts/build-registry.mjs   # generates public/r from the package source`}
       </div>
 
       {/* ------------------------------------------------ next steps ---- */}
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Link to="/docs/installation">
           <Card className="h-full rounded-2xl p-5 transition-colors hover:border-line-strong">
             <StatusPill tone="green" size="sm">

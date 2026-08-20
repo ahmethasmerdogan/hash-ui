@@ -42,7 +42,7 @@ export default function BadgesSection() {
         </div>
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Dot & tag pills" refName="datatable-0002 · menu-design-001">
           <div className="flex max-w-md flex-wrap items-center justify-center gap-2.5">
             <StatusPill tone="red" dot>
@@ -87,7 +87,7 @@ export default function BadgesSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="State pills" refName="active-node-0001">
           <Card className="flex w-full max-w-sm items-center gap-3.5 rounded-2xl px-5 py-5">
             <GlowDot tone="red" />

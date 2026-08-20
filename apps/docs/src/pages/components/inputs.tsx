@@ -85,7 +85,7 @@ export default function InputsSection() {
       title="Inputs & selection"
       desc="Sliders, radios and plan pickers, styled selects, accordions, a horizontal stepper, pagination and breadcrumbs — plus the emissions goal bar rebuilt from the dashboard reference."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Slider" imports={["Slider"]} refName="hashui original" contentClassName="py-10">
           <SliderDemo />
         </Demo>
@@ -130,7 +130,7 @@ export default function InputsSection() {
         />
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Accordion" imports={["Accordion"]} refName="hashui original" contentClassName="py-10 !px-5">
           <Accordion
             items={[
@@ -158,7 +158,7 @@ export default function InputsSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Pagination & breadcrumbs" refName="ui-design-4 header">
           <div className="flex flex-col items-center gap-6">
             <Breadcrumbs

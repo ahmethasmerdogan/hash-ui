@@ -463,7 +463,7 @@ export default function CardsSection() {
       title="Card"
       desc="Nested card-in-card layering: white shells, gray inset panels, hairline internals. Recreations of the order tracker, the schedule agenda and the ops incident card."
     >
-      <div className="grid items-start gap-6 xl:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-2">
         <Demo label="Order tracking" refName="button-0002" contentClassName="py-10 !px-4">
           <OrderTrackingCard />
         </Demo>

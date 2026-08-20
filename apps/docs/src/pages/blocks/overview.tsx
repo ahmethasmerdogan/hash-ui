@@ -45,7 +45,7 @@ export default function BlocksOverviewPage() {
 @import "@hash-ui/blocks/css";`}
       />
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {BLOCK_PAGES.map((p) => (
           <Link key={p.path} to={p.path} className="group/card">
             <Card
@@ -71,7 +71,7 @@ export default function BlocksOverviewPage() {
         ))}
       </div>
 
-      <div className="mt-2 grid gap-3 sm:grid-cols-2">
+      <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {RULES.map((r) => (
           <Card key={r.title} className="p-5">
             <div className="microlabel mb-2.5 !text-brand">{r.title}</div>

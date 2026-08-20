@@ -183,7 +183,7 @@ function LandingTemplate() {
           <h2 className="text-center text-[28px] font-bold tracking-tight text-ink">
             Simple pricing
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Card className="rounded-2xl p-6">
               <div className="text-[15px] font-bold text-ink">Free</div>
               <p className="mt-1 text-[13px] text-ink-2">
@@ -294,7 +294,7 @@ function DashboardTemplate() {
 
         <div className="mx-auto max-w-5xl p-5 md:p-7">
           {/* stat row */}
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
               { l: "CO₂e emitted", v: 1223, u: "kg", d: "↓ 22.1%", good: true },
               { l: "CO₂e saved", v: 42500, u: "kg", d: "↑ 22.1%", good: true },
@@ -319,7 +319,7 @@ function DashboardTemplate() {
           </div>
 
           {/* goal + score */}
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
             <Reveal>
               <Card className="rounded-2xl p-5">
                 <div className="text-[13.5px] font-semibold text-ink">
@@ -536,7 +536,7 @@ function PostdripsMock() {
 
 function AuthTemplate() {
   return (
-    <div className="grid min-h-[calc(100vh-49px)] lg:grid-cols-2">
+    <div className="grid grid-cols-1 min-h-[calc(100vh-49px)] lg:grid-cols-2">
       {/* ---- form side ---- */}
       <div className="flex items-center justify-center px-6 py-14">
         <div className="w-full max-w-[380px]">
@@ -699,7 +699,7 @@ export default function TemplatesSection() {
       title="Templates"
       desc="Three full-screen demo sites assembled entirely from HashUI primitives and the new motion layer — open them like real products."
     >
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {TEMPLATES.map((t, i) => (
           <Reveal key={t.id} delay={i * 100}>
             <TiltCard max={6}>

@@ -277,7 +277,7 @@ export function HeroNexus({
       <div {...RISE_ATTR} style={rise(5)} className="mx-auto max-w-4xl px-6 pb-20">
         {visual ?? (
           <WindowFrame contentClassName="bg-inset">
-            <div className="grid gap-3 p-4 sm:grid-cols-[180px_1fr]">
+            <div className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-[180px_1fr]">
               <div className="hidden flex-col gap-1.5 sm:flex">
                 {[0, 1, 2, 3, 4].map((i) => (
                   <div

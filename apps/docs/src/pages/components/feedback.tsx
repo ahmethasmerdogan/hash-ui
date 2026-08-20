@@ -173,7 +173,7 @@ export default function FeedbackSection() {
         </div>
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Toast queue (live)" imports={["ToastProvider","useToast"]} refName="hashui original">
           <ToastButtons />
         </Demo>
@@ -208,7 +208,7 @@ export default function FeedbackSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Dialog (live)" imports={["Modal","ModalClose"]} refName="hashui original" contentClassName="py-12">
           <ModalDemo />
         </Demo>
@@ -236,7 +236,7 @@ export default function FeedbackSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Skeleton" imports={["Skeleton"]} refName="hashui original" contentClassName="py-10">
           <Card className="w-full max-w-sm rounded-2xl p-4">
             <div className="flex items-center gap-3">

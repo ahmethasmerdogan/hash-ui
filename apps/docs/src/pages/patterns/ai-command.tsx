@@ -470,7 +470,7 @@ export default function ChatSection() {
       title="AI & command"
       desc="The AI deal-insight panel with quoted source citations, the dark command palette with term highlighting, and the deploy-log console with severity filters."
     >
-      <div className="grid items-start gap-6 xl:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-2">
         <Demo label="AI insight panel" refName="ai-chat-0001" contentClassName="py-8 !px-4">
           <AIPanel />
         </Demo>

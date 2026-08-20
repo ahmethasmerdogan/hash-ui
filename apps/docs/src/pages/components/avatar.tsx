@@ -15,7 +15,7 @@ export default function AvatarsSection() {
       title="Avatar"
       desc="Gradient-initial avatars with presence, overlapping groups from the invite card, and the memoji social-proof cards rebuilt with emoji tints."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Sizes & presence" imports={["Avatar","AvatarGroup"]} refName="datatable-0002">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Avatar name="Santi Carloza" size="xs" />

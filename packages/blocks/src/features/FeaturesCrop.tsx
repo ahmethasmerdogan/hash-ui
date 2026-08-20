@@ -114,7 +114,7 @@ export function FeaturesCrop({
   return (
     <section ref={ref} className={cx("w-full py-20 md:py-28", className)}>
       <div className="mx-auto max-w-4xl px-6">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {items.map((item, i) => (
             <Plate key={i} style={rise(i)}>
               {item.label && (

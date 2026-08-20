@@ -90,7 +90,7 @@ export default function ButtonsSection() {
         </div>
       </Demo>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo label="Attached group & block button" imports={["ButtonGroup","Button"]} refName="Ornek2">
           <DemoCol className="w-full max-w-sm">
             <ButtonGroup
@@ -132,7 +132,7 @@ export default function ButtonsSection() {
         </Demo>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <Demo
           label="Social action bar"
           imports={["IconButton", "Button"]}

@@ -28,7 +28,7 @@ export default function TimelinesSection() {
       title="Timeline & flows"
       desc="The delivery stepper with overview tiles, the service-stage pipeline with protocol connectors, and the spreadsheet commit graph with its hover card."
     >
-      <div className="grid items-start gap-6 xl:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-2">
         <Demo label="Delivery timeline" imports={["DeliveryTimeline"]} refName="time-line-001" contentClassName="py-10">
           <Card floating className="w-full max-w-105 rounded-[20px]">
             <div className="flex items-center justify-between border-b border-line px-5 py-4">
