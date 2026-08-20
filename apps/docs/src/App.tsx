@@ -4,6 +4,7 @@ import { ThemeProvider, ToastProvider, Skeleton, cx, IArrowUp } from "hash-ui";
 import { Topbar } from "@/app/Topbar";
 import { Sidebar, MobileNav } from "@/app/Sidebar";
 import { CommandK } from "@/app/CommandK";
+import { DocumentHead } from "@/app/DocumentHead";
 import { Footer, Pager } from "@/app/Footer";
 import { PAGES } from "@/lib/routes";
 
@@ -96,6 +97,7 @@ export default function App() {
     <ThemeProvider>
       <ToastProvider>
         <div className="min-h-screen bg-canvas">
+          <DocumentHead />
           <ScrollToTop />
           <Topbar
             onMenu={() => setNavOpen(true)}
