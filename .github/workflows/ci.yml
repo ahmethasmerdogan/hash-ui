@@ -101,6 +101,14 @@ jobs:
         env:
           BASE_URL: http://localhost:5180
 
+      # 2.5.8 is mostly its exceptions — a small control with room around it
+      # passes. Checking the size alone reports 49 violations here, none of
+      # which are violations.
+      - name: Target-size sweep
+        run: node scripts/targets.mjs
+        env:
+          BASE_URL: http://localhost:5180
+
       # The same suite with the setting on, and every assertion inverted:
       # anything that still moves is the failure. A system that claims to
       # respect reduced motion should be checked under it.

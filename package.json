@@ -21,6 +21,7 @@
     "build:blocks": "npm run build -w @hash-ui/blocks",
     "motion": "node scripts/motion.mjs",
     "reflow": "node scripts/reflow.mjs",
+    "targets": "node scripts/targets.mjs",
     "filmstrip": "node scripts/filmstrip.mjs",
     "test": "npm run test -w hash-ui && npm run test -w @hash-ui/blocks",
     "sitemap": "node scripts/build-sitemap.mjs"
