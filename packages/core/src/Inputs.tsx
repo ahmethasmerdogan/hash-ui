@@ -91,7 +91,7 @@ export function RadioGroup<T extends string>({
               className={cx(
                 "mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full border transition-all",
                 on
-                  ? "border-emerald-600 bg-emerald-600"
+                  ? "border-brand bg-brand"
                   : "border-line-strong bg-surface",
               )}
             >
@@ -140,7 +140,7 @@ export function RadioCards<T extends string>({
             className={cx(
               "rounded-2xl border-2 p-4 text-left transition-all",
               on
-                ? "border-emerald-600 bg-emerald-500/6"
+                ? "border-brand bg-brand-soft"
                 : "border-line bg-surface hover:border-line-strong",
             )}
           >
@@ -152,7 +152,7 @@ export function RadioCards<T extends string>({
                 className={cx(
                   "flex size-5 items-center justify-center rounded-full border transition-all",
                   on
-                    ? "border-emerald-600 bg-emerald-600 text-white"
+                    ? "border-brand bg-brand text-white"
                     : "border-line-strong",
                 )}
               >
@@ -195,7 +195,7 @@ export function SelectField({
         </span>
       )}
       <span className="relative block">
-        <select className="h-10.5 w-full appearance-none rounded-[10px] border border-line-strong bg-surface px-3.5 pr-9 text-sm text-ink shadow-soft outline-none focus:border-emerald-500 focus:ring-[3px] focus:ring-emerald-500/15">
+        <select className="h-10.5 w-full appearance-none rounded-[10px] border border-line-strong bg-surface px-3.5 pr-9 text-sm text-ink shadow-soft outline-none focus:border-brand focus:ring-[3px] focus:ring-brand/15">
           {options.map((o) => (
             <option key={o}>{o}</option>
           ))}

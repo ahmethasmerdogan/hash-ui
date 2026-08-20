@@ -7,14 +7,15 @@ export function Switch({
   checked,
   onChange,
   size = "md",
-  tone = "green",
+  tone = "brand",
   label,
   className,
 }: {
   checked?: boolean;
   onChange?: (v: boolean) => void;
   size?: "sm" | "md";
-  tone?: "green" | "ink";
+  /** "green" is kept as an alias for "brand"; the name is historical */
+  tone?: "brand" | "green" | "ink";
   /**
    * What the switch is for. A switch is a control with two states and no
    * text of its own — without this it announces as "switch, on" and nothing
@@ -43,10 +44,11 @@ export function Switch({
       onClick={toggle}
       className={cx(
         "inline-flex shrink-0 items-center rounded-full p-[3px] transition-colors duration-200",
+        /* the lit track is a selection, not a status — it follows the accent */
         on
           ? tone === "ink"
             ? "bg-ink"
-            : "bg-emerald-500"
+            : "bg-brand"
           : "bg-ink/15 dark:bg-white/15",
         dims.track,
         className,
@@ -67,13 +69,14 @@ export function Switch({
 export function Checkbox({
   checked,
   onChange,
-  tone = "green",
+  tone = "brand",
   label,
   className,
 }: {
   checked?: boolean;
   onChange?: (v: boolean) => void;
-  tone?: "green" | "orange" | "blue";
+  /** "green" is kept as an alias for "brand"; the name is historical */
+  tone?: "brand" | "green" | "orange" | "blue";
   /**
    * What is being checked. Like <Switch>, this renders a control with no
    * text of its own — omit only when a visible <label> already points at it.
@@ -84,7 +87,8 @@ export function Checkbox({
   const [internal, setInternal] = useState(checked ?? false);
   const on = checked ?? internal;
   const tones = {
-    green: "bg-emerald-500 border-emerald-500",
+    brand: "bg-brand border-brand",
+    green: "bg-brand border-brand",
     orange: "bg-orange-500 border-orange-500",
     blue: "bg-blue-600 border-blue-600",
   };
