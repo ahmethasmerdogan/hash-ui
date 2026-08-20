@@ -128,4 +128,23 @@ next person to touch it will be reading your message, not your diff.
 
 ---
 
+## Releasing
+
+Both packages carry the same version, and the site reads it from
+`apps/docs/src/lib/site.ts` — bump all four together or the docs will describe
+a release that npm has never seen.
+
+```bash
+npm version 0.7.0 -w hash-ui -w @hash-ui/blocks --no-git-tag-version
+# then package.json, apps/docs/package.json and SITE.version by hand
+
+npm run build:all
+npm publish -w hash-ui
+npm publish -w @hash-ui/blocks      # core first: blocks lists it as a peer
+```
+
+`prepublishOnly` rebuilds each package, so a stale `dist/` cannot ship.
+
+---
+
 MIT licensed. By contributing you agree your work ships under the same terms.
