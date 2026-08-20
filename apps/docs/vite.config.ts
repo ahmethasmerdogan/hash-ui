@@ -17,6 +17,14 @@ export default defineConfig({
     },
   },
   server: { port: 5180 },
+
+  /* maplibre-gl loads its tile decoder as a separate worker module. Vite's
+     dependency pre-bundling rewrites the package but does not serve that
+     worker alongside it, so the request 404s in dev, the library quietly
+     falls back to decoding tiles on the main thread, and the console carries
+     a failed request on every visit to /docs/blocks/geo. Excluding it from
+     the optimizer leaves the package's own module graph intact. */
+  optimizeDeps: { exclude: ["maplibre-gl"] },
   build: {
     rollupOptions: {
       output: {
