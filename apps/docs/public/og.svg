@@ -40,7 +40,7 @@
   <text x="88" y="300" font-size="72" font-weight="700" letter-spacing="-2.6" fill="#1c1b18">A design foundation,</text>
   <text x="88" y="382" font-size="72" font-weight="700" letter-spacing="-2.6" fill="#1c1b18">distilled from the wild.</text>
 
-  <text x="88" y="440" font-size="24" font-weight="400" fill="#6b6862">70+ flat, shadow-free components and 83 hand-drawn icons.</text>
+  <text x="88" y="440" font-size="24" font-weight="400" fill="#6b6862">70+ components, 21 page blocks, 83 hand-drawn icons.</text>
 
   <!-- install pill -->
   <g transform="translate(88, 478)">
@@ -52,13 +52,16 @@
   <!-- stat rail -->
   <g transform="translate(520, 478)">
     <rect width="592" height="56" rx="14" fill="#f7f7f5" stroke="#e6e5e1" stroke-width="1.5"/>
-    <text x="30" y="35" font-size="18" font-weight="600" fill="#1c1b18">70+</text>
-    <text x="72" y="35" font-size="16" fill="#a3a099">components</text>
-    <text x="204" y="35" font-size="18" font-weight="600" fill="#1c1b18">83</text>
-    <text x="232" y="35" font-size="16" fill="#a3a099">icons</text>
-    <text x="308" y="35" font-size="18" font-weight="600" fill="#1c1b18">0</text>
-    <text x="326" y="35" font-size="16" fill="#a3a099">runtime deps</text>
-    <text x="472" y="35" font-size="18" font-weight="600" fill="#059669">MIT</text>
+    <text x="26" y="35" font-size="18" font-weight="600" fill="#1c1b18">70+</text>
+    <text x="66" y="35" font-size="16" fill="#a3a099">components</text>
+    <text x="184" y="35" font-size="18" font-weight="600" fill="#1c1b18">21</text>
+    <text x="209" y="35" font-size="16" fill="#a3a099">blocks</text>
+    <text x="272" y="35" font-size="18" font-weight="600" fill="#1c1b18">83</text>
+    <text x="298" y="35" font-size="16" fill="#a3a099">icons</text>
+    <text x="358" y="35" font-size="18" font-weight="600" fill="#1c1b18">5</text>
+    <text x="374" y="35" font-size="16" fill="#a3a099">themes</text>
+    <text x="446" y="35" font-size="18" font-weight="600" fill="#1c1b18">0</text>
+    <text x="462" y="35" font-size="16" fill="#a3a099">runtime deps</text>
   </g>
 
   <text x="1112" y="122" font-size="18" font-weight="500" fill="#a3a099" text-anchor="end">github.com/ahmethasmerdogan/hash-ui</text>
