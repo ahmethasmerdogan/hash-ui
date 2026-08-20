@@ -202,6 +202,14 @@ const BLOCK_ITEMS = [
       "useInView, useScrollProgress, useMagnetic, usePointer and useReducedMotion — the jobs framer-motion would otherwise be installed for.",
   },
   {
+    name: "blocks-gl",
+    file: "effects/gl.ts",
+    lib: true,
+    title: "Shader runner",
+    description:
+      "runShader — compile, link, one full-screen triangle, capped DPR, pause off screen, freeze under reduced motion, and delete it all on unmount. The eighty lines every fragment-shader effect otherwise repeats.",
+  },
+  {
     name: "blocks-parts",
     file: "parts.tsx",
     title: "Block parts",

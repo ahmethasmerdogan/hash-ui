@@ -1,23 +1,145 @@
-import { useCallback, useRef, useState, type ButtonHTMLAttributes, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ButtonHTMLAttributes,
+  type ReactNode,
+} from "react";
 import { cx, ISparkleFill } from "hash-ui";
+import { runShader } from "./gl.js";
 
 /* ------------------------------------------------------------------ */
 /* LiquidMetalButton                                                   */
 /*                                                                     */
-/* A brushed-metal pill with a sheen that keeps turning under it, a    */
-/* glowing rim, and a ripple that leaves from wherever you clicked.    */
+/* A button whose face is poured chrome: ridges that fold over each    */
+/* other, glints that slide along them, a hard horizon reflected in    */
+/* the surface.                                                        */
 /*                                                                     */
-/* The original drives the metal with a WebGL fragment shader          */
-/* (@paper-design/shaders). Nothing here needs a GPU program: a conic  */
-/* gradient rotating behind a vertical ramp reads as the same swirling */
-/* metal, costs one composited layer, and degrades to a still gradient */
-/* when the reader asks for less motion.                               */
+/* This was a rotating conic gradient twice, and read as a dark        */
+/* pinwheel both times — spokes radiating from the middle of a pill,   */
+/* which is a shape metal never makes. The lesson was on the same page:*/
+/* NeuralVortex is a fragment shader and looks like something, and the */
+/* CSS approximation next to it did not. So this is a shader now, and  */
+/* the CSS is the fallback rather than the plan.                       */
 /*                                                                     */
-/* It keeps HashUI's button anatomy — vertical gradient, 1px ring,     */
-/* inset top highlight, pill by default — so it sits next to <Button>  */
-/* without looking imported. The glow is the one liberty, and it is    */
-/* why this lives in blocks and not core.                              */
+/* What makes chrome read as chrome is not the metal, it is the room.  */
+/* A polished surface is only ever a picture of its surroundings, so   */
+/* the shader reflects a bright sky over a dark floor with a hard      */
+/* horizon between them; the horizon sliding across a moving ridge is  */
+/* the whole effect. Matte metal is the same code with a soft horizon. */
+/*                                                                     */
+/* It keeps HashUI's button anatomy — the lamp is overhead, the ring   */
+/* is 1px, there is a hairline specular along the top — so it sits     */
+/* next to <Button> without looking imported.                          */
 /* ------------------------------------------------------------------ */
+
+const FRAG = `
+precision highp float;
+
+uniform vec2  u_res;
+uniform float u_time;
+uniform float u_seed;
+uniform float u_flow;
+
+float hash(vec2 p) {
+  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+float vnoise(vec2 p) {
+  vec2 i = floor(p), f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i),               hash(i + vec2(1.0, 0.0)), u.x),
+             mix(hash(i + vec2(0.0,1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+
+/* Three octaves, not five. A button is roughly 260x88 CSS px: the fourth
+   octave lands at about a pixel and a half, and a height field with pixel-
+   sized detail is not a surface, it is static. */
+float fbm(vec2 p) {
+  float v = 0.0, a = 0.55;
+  for (int i = 0; i < 3; i++) { v += a * vnoise(p); p *= 2.03; a *= 0.5; }
+  return v;
+}
+
+/* The surface. Two rounds of domain warping: the field is used to displace
+   its own sample point, twice, which is what folds the ridges over each
+   other. A single fbm only ever drifts, and drifting reads as fog. */
+float height(vec2 p, float t) {
+  vec2 q = vec2(fbm(p + vec2(0.0, t * 0.11)),
+                fbm(p + vec2(5.2, 1.3) - t * 0.09));
+  vec2 r = vec2(fbm(p + 2.1 * q + vec2(1.7, 9.2) + t * 0.07),
+                fbm(p + 2.1 * q + vec2(8.3, 2.8) - t * 0.06));
+  return fbm(p + 2.1 * r);
+}
+
+/* The room the metal is standing in: bright sky, dark floor, and a hard
+   edge where they meet. That edge is the effect — a soft one gives matte
+   plastic no matter how good the ridges are. */
+vec3 env(vec3 dir) {
+  float y = dir.y;
+  vec3 sky   = mix(vec3(0.60, 0.62, 0.67), vec3(1.00, 1.00, 1.00), smoothstep(0.0, 0.55, y));
+  vec3 floorC = mix(vec3(0.025, 0.025, 0.032), vec3(0.20, 0.21, 0.24), smoothstep(-0.9, 0.0, y));
+  vec3 c = mix(floorC, sky, smoothstep(-0.03, 0.03, y));
+  /* one bright strip above the horizon — the window in the room, and the
+     thing that becomes a travelling glint once the surface moves */
+  c += vec3(1.0) * smoothstep(0.11, 0.015, abs(y - 0.17)) * 0.40;
+  return c;
+}
+
+void main() {
+  vec2 uv = gl_FragCoord.xy / u_res;
+
+  /* sample space is corrected against height, not width: a pill is wide,
+     and sampling it square smears every ridge sideways into a stripe */
+  vec2 p = (gl_FragCoord.xy * 2.0 - u_res) / u_res.y;
+
+  float t = u_time * u_flow;
+  float e = 3.5 / u_res.y;
+
+  /* 0.62 puts roughly two ridges across the face. Poured metal has big
+     slow features; small ones are sandpaper, which is where this shader
+     started before the scale and the octave count came down. */
+  float h  = height(p * 0.62 + u_seed, t);
+  float hx = height((p + vec2(e, 0.0)) * 0.62 + u_seed, t);
+  float hy = height((p + vec2(0.0, e)) * 0.62 + u_seed, t);
+
+  /* the normal is the gradient of the height field. This pair is how molten
+     it looks: a big multiplier over a small z is crumpled foil, and that is
+     what the first attempt at this shader produced. */
+  vec3 n = normalize(vec3((h - hx) * 2.4, (h - hy) * 2.4, 0.55));
+
+  vec3 view = vec3(0.0, 0.0, 1.0);
+  vec3 col = env(reflect(-view, n));
+
+  /* one hard light so the surface throws glints rather than a wash */
+  vec3 L = normalize(vec3(-0.35, 0.86, 0.52));
+  col += vec3(1.0) * pow(max(dot(reflect(-L, n), view), 0.0), 44.0) * 0.9;
+
+  /* HashUI lights every button from directly above. The metal obeys the
+     same lamp, or it looks pasted onto the page. */
+  col *= mix(1.16, 0.55, uv.y);
+
+  /* Guarantee the label has something to sit on.
+   *
+   * Measured over eight frames, a glint sliding under the text took the
+   * background to L = 0.75 — white on that is 1.3:1, and the word simply
+   * disappeared for a frame. Darkening the whole face is what flattened
+   * the first version of this shader into a dull plate, so instead the
+   * highlights are capped inside the label band and nowhere else: metal
+   * below the cap keeps every bit of its detail, and only the blown parts
+   * come down. Capping the largest channel at 0.44 puts relative luminance
+   * under 0.15, which clears 4.5:1 against white — AA, at the worst frame the
+   * animation can produce rather than the average one. */
+  float band = smoothstep(0.52, 0.20, abs(uv.y - 0.5))
+             * smoothstep(1.06, 0.80, abs(uv.x - 0.5) * 2.0);
+  float capV = mix(1.0, 0.44, band);
+  float mx = max(col.r, max(col.g, col.b));
+  if (mx > capV) col *= capV / mx;
+
+  gl_FragColor = vec4(col, 1.0);
+}
+`;
 
 type Ripple = { id: number; x: number; y: number };
 
@@ -37,8 +159,11 @@ export type LiquidMetalButtonProps = Omit<
    */
   "aria-label"?: string;
   size?: "sm" | "md" | "lg";
-  /** turn the rim glow off and keep only the metal */
+  /** a cool white rim light. Off by default: chrome next to a coloured
+   *  halo reads as plastic with a lamp behind it. */
   glow?: boolean;
+  /** how fast the metal flows. 0 is a frozen pour. */
+  flow?: number;
 };
 
 const TEXT_SIZE = {
@@ -53,12 +178,17 @@ const ICON_SIZE = {
   lg: "size-13",
 };
 
+/* every button gets its own offset into the noise, so a row of them is not
+   the same pour repeated */
+let seedSeq = 0;
+
 export function LiquidMetalButton({
   label = "Get started",
   viewMode = "text",
   icon,
   size = "md",
-  glow = true,
+  glow = false,
+  flow = 1,
   className,
   onClick,
   "aria-label": ariaLabel,
@@ -66,6 +196,20 @@ export function LiquidMetalButton({
 }: LiquidMetalButtonProps) {
   const [ripples, setRipples] = useState<Ripple[]>([]);
   const seq = useRef(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const seed = useRef((seedSeq = (seedSeq + 7.3) % 100));
+  const flowRef = useRef(flow);
+  flowRef.current = flow;
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    return (
+      runShader(canvas, FRAG, {
+        uniforms: () => ({ u_seed: seed.current, u_flow: flowRef.current }),
+      }) ?? undefined
+    );
+  }, []);
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -97,44 +241,37 @@ export function LiquidMetalButton({
         ariaLabel ?? (isIcon && typeof label === "string" ? label : undefined)
       }
       className={cx(
-        "group/lm relative isolate inline-flex items-center justify-center overflow-hidden",
+        "group/lm relative isolate inline-flex items-center justify-center overflow-hidden rounded-full",
         "font-medium tracking-[-0.01em] text-white select-none",
-        "ring-1 ring-black/25 ring-inset",
+        "ring-1 ring-black/35 ring-inset",
         "transition-transform duration-200 active:scale-[0.97]",
         "focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none",
-        isIcon ? "rounded-full" : "rounded-full",
         isIcon ? ICON_SIZE[size] : TEXT_SIZE[size],
-        glow && "fx-glow-ring",
+        glow && "fx-glow-rim",
         className,
       )}
       {...rest}
     >
-      {/* The metal is three layers, and it needs all three.
-
-          1. the chrome itself: alternating dark / near-white / mid bands on a
-             conic gradient, turning. Alternation is what reads as metal —
-             a single ramp only ever reads as a dark button.
-          2. the light falling on it: hot top edge, shaded underside.
-          3. a hairline specular along the very top, the same one every other
-             HashUI button carries. */}
-      <span
+      {/* The chrome. `fx-metal-still` underneath is what shows when there is
+          no WebGL context to be had — a plain vertical steel ramp, which is
+          a duller button rather than a broken one. */}
+      <span aria-hidden className="fx-metal-still absolute inset-0 -z-20 rounded-full" />
+      <canvas
+        ref={canvasRef}
         aria-hidden
-        className="fx-metal-spin absolute inset-0 -z-20 overflow-hidden rounded-full"
+        className="absolute inset-0 -z-10 size-full rounded-full"
       />
+      {/* the hairline specular every other HashUI button carries */}
       <span
         aria-hidden
-        className="fx-metal-lit pointer-events-none absolute inset-0 -z-10 rounded-full"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-[6%] top-px -z-10 h-px rounded-full bg-white/55"
+        className="pointer-events-none absolute inset-x-[6%] top-px z-0 h-px rounded-full bg-white/60"
       />
 
       {ripples.map((p) => (
         <span
           key={p.id}
           aria-hidden
-          className="pointer-events-none absolute size-6 rounded-full bg-white/50"
+          className="pointer-events-none absolute z-10 size-6 rounded-full bg-white/60"
           style={{
             left: p.x - 12,
             top: p.y - 12,
@@ -143,7 +280,7 @@ export function LiquidMetalButton({
         />
       ))}
 
-      <span className="relative z-10 flex items-center gap-2 drop-shadow-[0_1px_0_rgba(0,0,0,0.45)]">
+      <span className="relative z-10 flex items-center gap-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.75)]">
         {isIcon ? (
           (icon ?? <ISparkleFill size={size === "lg" ? 18 : 16} />)
         ) : (

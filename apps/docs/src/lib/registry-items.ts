@@ -264,6 +264,18 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     ]
   },
   {
+    "name": "blocks-gl",
+    "title": "Shader runner",
+    "description": "runShader — compile, link, one full-screen triangle, capped DPR, pause off screen, freeze under reduced motion, and delete it all on unmount. The eighty lines every fragment-shader effect otherwise repeats.",
+    "type": "registry:lib",
+    "target": "lib/hashui/blocks-gl.ts",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens"
+    ]
+  },
+  {
     "name": "blocks-parts",
     "title": "Block parts",
     "description": "ActionButton, Eyebrow, SplitHeadline, WindowFrame and WindowField — the small pieces every block is assembled from.",
@@ -558,7 +570,8 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
       "tokens",
       "blocks-tokens",
       "cx",
-      "icons"
+      "icons",
+      "blocks-gl"
     ]
   },
   {

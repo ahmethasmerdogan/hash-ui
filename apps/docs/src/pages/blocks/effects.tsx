@@ -47,7 +47,8 @@ export default function BlocksEffectsPage() {
           imports={["LiquidMetalButton"]}
           code={`<LiquidMetalButton label="Get started" />
 <LiquidMetalButton viewMode="icon" aria-label="Sparkle" />
-<LiquidMetalButton label="Ship it" size="lg" glow={false} />`}
+<LiquidMetalButton label="Ship it" size="lg" flow={0.45} />
+<LiquidMetalButton label="Rim light" size="sm" glow />`}
         >
           <DemoCol>
             <div className="flex flex-wrap items-center justify-center gap-6">
@@ -57,16 +58,18 @@ export default function BlocksEffectsPage() {
                 label="Ship it"
                 size="lg"
                 icon={<IZap size={16} />}
+                flow={0.45}
               />
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6">
-              <LiquidMetalButton label="No glow" size="sm" glow={false} />
-              <LiquidMetalButton viewMode="icon" size="sm" glow={false} aria-label="Sparkle, no glow" />
+              <LiquidMetalButton label="Rim light" size="sm" glow />
+              <LiquidMetalButton viewMode="icon" size="sm" glow aria-label="Sparkle with rim light" />
             </div>
             <p className="max-w-md text-center text-[12.5px] leading-relaxed text-ink-3">
-              The metal is a vertical ramp under a rotating conic sheen — the
-              same anatomy as every other HashUI button, in a cool neutral. The
-              original drives it with a WebGL fragment shader.
+              A fragment shader, like the original. The chrome is a reflection
+              of a room — bright sky over a dark floor with a hard horizon —
+              off a height field that folds over itself as it moves. Without
+              WebGL the button falls back to a still steel ramp.
             </p>
           </DemoCol>
         </Demo>

@@ -444,6 +444,23 @@
       ]
     },
     {
+      "name": "blocks-gl",
+      "type": "registry:lib",
+      "title": "Shader runner",
+      "description": "runShader — compile, link, one full-screen triangle, capped DPR, pause off screen, freeze under reduced motion, and delete it all on unmount. The eighty lines every fragment-shader effect otherwise repeats.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/blocks-gl.ts",
+          "type": "registry:lib",
+          "target": "lib/hashui/blocks-gl.ts"
+        }
+      ]
+    },
+    {
       "name": "blocks-parts",
       "type": "registry:ui",
       "title": "Block parts",
@@ -820,7 +837,8 @@
         "https://hashui.vercel.app/r/tokens.json",
         "https://hashui.vercel.app/r/blocks-tokens.json",
         "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://hashui.vercel.app/r/icons.json",
+        "https://hashui.vercel.app/r/blocks-gl.json"
       ],
       "files": [
         {

@@ -120,49 +120,27 @@
     0 0 24px -4px var(--fx-glow);
 }
 
-/* The turning chrome. `inset: -60%` so the square gradient still covers the
-   pill at every angle of its rotation. */
-.fx-metal-spin::after {
-  content: "";
-  position: absolute;
-  inset: -60%;
-  background: conic-gradient(
-    from 0deg,
-    var(--fx-chrome-dark) 0%,
-    var(--fx-chrome-lit) 9%,
-    var(--fx-chrome-dark) 20%,
-    var(--fx-chrome-mid) 31%,
-    var(--fx-chrome-dark) 42%,
-    var(--fx-chrome-lit) 54%,
-    var(--fx-chrome-dark) 66%,
-    var(--fx-chrome-mid) 78%,
-    var(--fx-chrome-dark) 88%,
-    var(--fx-chrome-lit) 96%,
-    var(--fx-chrome-dark) 100%
-  );
-  animation: hashui-fx-swirl 7s linear infinite;
-  pointer-events: none;
-}
-
-/* The light falling on it: a hot top edge and a shaded underside. Without
-   this the chrome reads as a flat disc of stripes rather than as an object. */
-.fx-metal-lit {
+/* The still fallback under the shader canvas: a plain vertical steel ramp.
+   Shown when WebGL is unavailable, and visible for the frame before the
+   context is up. A duller button, never a broken one. */
+.fx-metal-still {
   background:
-    /* a pool of shade through the middle, so a white label stays legible
-       however the bands happen to be turned */
-    radial-gradient(
-      70% 130% at 50% 50%,
-      rgba(0, 0, 0, 0.55) 0%,
-      rgba(0, 0, 0, 0.12) 70%,
-      transparent 100%
-    ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.34) 0%,
-      rgba(255, 255, 255, 0.06) 26%,
-      rgba(0, 0, 0, 0.26) 62%,
-      rgba(0, 0, 0, 0.55) 100%
+      #6f747d 0%,
+      #4a4f57 26%,
+      #24272c 58%,
+      #14161a 100%
     );
+}
+
+/* A cool white rim rather than a brand-coloured halo. Chrome sitting in a
+   mint glow reads as plastic with a lamp behind it, which is what the
+   previous fx-glow-ring did to it. */
+.fx-glow-rim {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 6px 22px -6px rgba(190, 205, 225, 0.45);
 }
 
 .fx-kenburns {
@@ -309,7 +287,6 @@
    a reader who asks for less motion still gets the whole layout. */
 @media (prefers-reduced-motion: reduce) {
   .fx-aurora,
-  .fx-metal-spin::after,
   .fx-sweep,
   .fx-kenburns,
   .fx-shimmer,
