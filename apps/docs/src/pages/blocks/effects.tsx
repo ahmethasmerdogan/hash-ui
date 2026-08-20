@@ -46,13 +46,13 @@ export default function BlocksEffectsPage() {
           label="LiquidMetalButton"
           imports={["LiquidMetalButton"]}
           code={`<LiquidMetalButton label="Get started" />
-<LiquidMetalButton viewMode="icon" />
+<LiquidMetalButton viewMode="icon" aria-label="Sparkle" />
 <LiquidMetalButton label="Ship it" size="lg" glow={false} />`}
         >
           <DemoCol>
             <div className="flex flex-wrap items-center justify-center gap-6">
               <LiquidMetalButton label="Get started" />
-              <LiquidMetalButton viewMode="icon" />
+              <LiquidMetalButton viewMode="icon" aria-label="Sparkle" />
               <LiquidMetalButton
                 label="Ship it"
                 size="lg"
@@ -61,7 +61,7 @@ export default function BlocksEffectsPage() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6">
               <LiquidMetalButton label="No glow" size="sm" glow={false} />
-              <LiquidMetalButton viewMode="icon" size="sm" glow={false} />
+              <LiquidMetalButton viewMode="icon" size="sm" glow={false} aria-label="Sparkle, no glow" />
             </div>
             <p className="max-w-md text-center text-[12.5px] leading-relaxed text-ink-3">
               The metal is a vertical ramp under a rotating conic sheen — the

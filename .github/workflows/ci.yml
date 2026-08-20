@@ -76,6 +76,11 @@ jobs:
           QA_URL: http://localhost:5180
           MOTION_SKIP: spline
 
+      - name: Accessible-name sweep
+        run: node scripts/a11y.mjs
+        env:
+          QA_URL: http://localhost:5180
+
       # The same suite with the setting on, and every assertion inverted:
       # anything that still moves is the failure. A system that claims to
       # respect reduced motion should be checked under it.

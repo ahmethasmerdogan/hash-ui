@@ -31,6 +31,11 @@ export type LiquidMetalButtonProps = Omit<
   viewMode?: "text" | "icon";
   /** glyph for icon mode, or the leading glyph in text mode */
   icon?: ReactNode;
+  /**
+   * Required in icon mode, where there is no text to read. Falls back to
+   * `label` so the common case needs nothing extra.
+   */
+  "aria-label"?: string;
   size?: "sm" | "md" | "lg";
   /** turn the rim glow off and keep only the metal */
   glow?: boolean;
@@ -56,6 +61,7 @@ export function LiquidMetalButton({
   glow = true,
   className,
   onClick,
+  "aria-label": ariaLabel,
   ...rest
 }: LiquidMetalButtonProps) {
   const [ripples, setRipples] = useState<Ripple[]>([]);
@@ -86,6 +92,10 @@ export function LiquidMetalButton({
     <button
       type="button"
       onClick={handleClick}
+      /* in icon mode the glyph is the whole button, and a glyph is not a name */
+      aria-label={
+        ariaLabel ?? (isIcon && typeof label === "string" ? label : undefined)
+      }
       className={cx(
         "group/lm relative isolate inline-flex items-center justify-center overflow-hidden",
         "font-medium tracking-[-0.01em] text-white select-none",

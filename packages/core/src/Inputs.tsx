@@ -13,6 +13,7 @@ export function Slider({
   max = 100,
   step = 1,
   suffix,
+  label,
   className,
 }: {
   value?: number;
@@ -21,6 +22,11 @@ export function Slider({
   max?: number;
   step?: number;
   suffix?: string;
+  /**
+   * What the slider adjusts. A range input renders no text, so without this
+   * it announces as "slider, 60" with no indication of 60 of what.
+   */
+  label?: string;
   className?: string;
 }) {
   const [internal, setInternal] = useState(value ?? 60);
@@ -39,6 +45,7 @@ export function Slider({
           setInternal(n);
           onChange?.(n);
         }}
+        aria-label={label}
         className="hashui-range w-full"
         style={{
           background: `linear-gradient(to right, #059669 0%, #059669 ${pct}%, var(--line) ${pct}%, var(--line) 100%)`,

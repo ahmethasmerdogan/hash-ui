@@ -59,14 +59,14 @@ function SliderDemo() {
           <span className="font-medium text-ink">Seats</span>
           <span className="text-ink-3">per workspace</span>
         </div>
-        <Slider value={seats} onChange={setSeats} min={1} max={24} />
+        <Slider value={seats} onChange={setSeats} min={1} max={24} label="Seats" />
       </div>
       <div>
         <div className="mb-2 flex items-center justify-between text-[13px]">
           <span className="font-medium text-ink">Monthly limit</span>
           <span className="text-ink-3">of 324 prompts</span>
         </div>
-        <Slider value={limit} onChange={setLimit} suffix="%" />
+        <Slider value={limit} onChange={setLimit} suffix="%" label="Usage limit" />
       </div>
     </div>
   );

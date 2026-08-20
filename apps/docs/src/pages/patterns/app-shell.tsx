@@ -300,6 +300,7 @@ function AccountMenu() {
             checked={resolved === "dark"}
             onChange={(v) => setMode(v ? "dark" : "light")}
             size="sm"
+            label="Dark mode"
           />
         </span>
       </div>

@@ -47,11 +47,15 @@ function ActionRow({
         <div className="mt-0.5 truncate text-[12.5px] text-ink-2">{sub}</div>
       </div>
       <span className="flex overflow-hidden rounded-[10px] border border-line shadow-soft">
-        {[<IX key="x" size={14} />, <IPencil key="p" size={13} />, <ICheck key="c" size={14} />].map(
-          (ic, i) => (
+        {[
+          { icon: <IX size={14} />, name: "Dismiss" },
+          { icon: <IPencil size={13} />, name: "Edit" },
+          { icon: <ICheck size={14} />, name: "Accept" },
+        ].map(({ icon: ic, name }, i) => (
             <button
-              key={i}
+              key={name}
               type="button"
+              aria-label={name}
               className={cx(
                 "flex h-8.5 w-9.5 items-center justify-center bg-surface text-ink-2 transition-colors hover:bg-elev hover:text-ink",
                 i > 0 && "border-l border-line",

@@ -216,7 +216,7 @@ function ScheduleCard() {
         {/* expanded row */}
         <div className="rounded-xl border border-line shadow-soft">
           <div className="flex items-center gap-3 px-3.5 py-3">
-            <Checkbox checked />
+            <Checkbox checked label="Task complete" />
             <span className="text-[13.5px] font-semibold whitespace-nowrap text-ink tabular-nums">
               08.00 – 10.00
             </span>
@@ -260,7 +260,7 @@ function ScheduleCard() {
               <div className="flex shrink-0 flex-col items-end gap-2.5">
                 <OutlineBadge tone="green">Priority</OutlineBadge>
                 <span className="flex items-center gap-2 whitespace-nowrap">
-                  <Switch size="sm" />
+                  <Switch size="sm" label="Enable" />
                   <span className="text-[12px] text-ink-2">Remind</span>
                 </span>
               </div>
@@ -280,7 +280,7 @@ function ScheduleCard() {
             className="mt-2 flex items-center gap-3 rounded-xl border border-line px-3.5 py-3"
             style={{ opacity: op as number }}
           >
-            <Checkbox />
+            <Checkbox label="Select item" />
             <span className="text-[13.5px] font-semibold whitespace-nowrap text-ink tabular-nums">
               {time}
             </span>

@@ -5,6 +5,8 @@ export type TabItem = {
   id: string;
   label: string;
   icon?: ReactNode;
+  /** accessible name for an icon-only tab, i.e. one with an empty `label` */
+  name?: string;
   divider?: boolean; // draw a separator before this item (tabs-design v.2 "UI Kit")
 };
 
@@ -72,6 +74,9 @@ export function PillTabs({
 }
 
 /* v.2 — browser-notch tabs: active tab rises out of the bar with inverse corners */
+/* A tab whose `label` is empty is icon-only by design — the reference this
+   came from opens with a bare compass. `name` is where its accessible name
+   comes from in that case, falling back to the id so it is never nameless. */
 export function NotchTabs({
   items,
   value,
@@ -102,6 +107,7 @@ export function NotchTabs({
               <button
                 key={t.id}
                 type="button"
+                aria-label={t.label ? undefined : (t.name ?? t.id)}
                 onClick={() => set(t.id)}
                 className="relative -mt-3.5 flex items-center gap-2.5 self-stretch rounded-t-[18px] px-7 text-[15px] font-semibold text-white"
                 style={{ background: tabBg, height: 64 + RISE }}
@@ -139,6 +145,7 @@ export function NotchTabs({
               {t.divider && <span className="mx-1 h-8 w-px bg-white/12" />}
               <button
                 type="button"
+                aria-label={t.label ? undefined : (t.name ?? t.id)}
                 onClick={() => set(t.id)}
                 className="flex h-full items-center gap-2.5 px-6 text-[15px] font-medium text-[#7c7c85] transition-colors hover:text-[#b0b0b8]"
               >

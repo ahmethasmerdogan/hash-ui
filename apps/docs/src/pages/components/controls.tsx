@@ -99,7 +99,7 @@ function SignupFields() {
         />
       </div>
       <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-left">
-        <Checkbox checked={optOut} onChange={setOptOut} />
+        <Checkbox checked={optOut} onChange={setOptOut} label="Opt out of marketing email" />
         <span className="text-[12.5px] leading-snug text-ink-2">
           I don’t want to receive emails about product feature updates and best
           practices.
@@ -149,19 +149,19 @@ export default function ControlsSection() {
         <Demo label="Switch & checkbox" imports={["Switch","Checkbox"]} refName="card-design-0001">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
             <span className="flex items-center gap-3">
-              <Switch checked={undefined} />
+              <Switch checked={undefined} label="Enabled" />
               <span className="text-sm text-ink-2">Remind</span>
             </span>
             <span className="flex items-center gap-3">
-              <Switch size="sm" />
+              <Switch size="sm" label="Compact" />
               <span className="text-sm text-ink-2">Compact</span>
             </span>
             <span className="flex items-center gap-3">
-              <Checkbox checked={undefined} />
+              <Checkbox checked={undefined} label="Example option" />
               <span className="text-sm text-ink-2">08.00 – 10.00</span>
             </span>
             <span className="flex items-center gap-3">
-              <Checkbox tone="orange" checked={undefined} />
+              <Checkbox tone="orange" checked={undefined} label="Flagged for review" />
               <span className="text-sm text-ink-2">Design specs</span>
             </span>
           </div>

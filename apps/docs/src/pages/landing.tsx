@@ -136,8 +136,8 @@ function Sampler() {
       <Card className="rounded-2xl p-5">
         <div className="microlabel mb-3">CONTROLS</div>
         <div className="flex flex-wrap items-center gap-4">
-          <Switch checked />
-          <Switch size="sm" />
+          <Switch checked label="Notifications" />
+          <Switch size="sm" label="Compact rows" />
           <OutlineBadge tone="green">Priority</OutlineBadge>
           <span className="inline-flex items-center gap-1.5 text-[13px] text-ink-2">
             Filter <CountBadge tone="orange">3</CountBadge>

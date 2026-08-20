@@ -224,6 +224,7 @@ scripts/
   qa.mjs                  # every route × both themes, in a real browser
   shots.mjs               # visual regression captures
   motion.mjs              # does each animation actually move? (pixel diff)
+  a11y.mjs                # every control has an accessible name
   filmstrip.mjs           # N frames of one element, side by side
   make-og.mjs             # brand SVGs → PNG
   export-ui.mjs           # copy the library into another repo
@@ -247,6 +248,7 @@ npm test             # unit tests, including a server-render pass
 node scripts/qa.mjs      # route sweep: overflow, contrast, shadows, interaction
 node scripts/shots.mjs   # screenshots, light + dark
 node scripts/motion.mjs  # 27 animation checks, by pixel diff
+node scripts/a11y.mjs    # accessible names, every route
 node scripts/filmstrip.mjs /docs/blocks/effects "button.group\\/lm" 6 200
 ```
 

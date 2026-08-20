@@ -47,7 +47,7 @@ export default function TabsSection() {
       <Demo label="v.2 — browser notch" refName="tabs-design-0001" variant="dark" contentClassName="py-10">
         <NotchTabs
           items={[
-            { id: "discover", label: "", icon: <ICompass /> },
+            { id: "discover", label: "", name: "Discover", icon: <ICompass /> },
             { id: "models", label: "3D Models", icon: <ICube /> },
             { id: "avatars", label: "Avatars", icon: <IUser /> },
             { id: "animations", label: "Animations", icon: <ILayers /> },

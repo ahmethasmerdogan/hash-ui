@@ -200,7 +200,7 @@ function DiffTableDemo() {
           <span className="text-[13.5px] font-medium text-ink">
             Show changes
           </span>
-          <Switch tone="ink" checked={showChanges} onChange={setShowChanges} />
+          <Switch tone="ink" checked={showChanges} onChange={setShowChanges} label="Show changes" />
         </span>
       </div>
 
@@ -219,7 +219,7 @@ function DiffTableDemo() {
                 >
                   <span className="flex items-center gap-2">
                     {i === 0 ? (
-                      <Checkbox />
+                      <Checkbox label="Select row" />
                     ) : (
                       <span className="text-ink-3">{c.icon}</span>
                     )}
@@ -259,7 +259,7 @@ function DiffTableDemo() {
                           )}
                         </span>
                       ) : (
-                        <Checkbox />
+                        <Checkbox label="Select row" />
                       )}
                       <span className={cx(rev ? "text-ink-3" : "text-ink")}>
                         {r.id}
@@ -477,6 +477,7 @@ export default function TableSection() {
                 <tr className="border-b border-line bg-elev">
                   <th className="w-11 px-3.5 py-2.5">
                     <Checkbox
+                      label="Select all rows"
                       checked={selected.size === ROWS.length}
                       onChange={(v) =>
                         setSelected(
@@ -510,7 +511,7 @@ export default function TableSection() {
                       )}
                     >
                       <td className="px-3.5 py-2.5">
-                        <Checkbox checked={isSel} onChange={() => toggle(i)} />
+                        <Checkbox checked={isSel} onChange={() => toggle(i)} label="Select row" />
                       </td>
                       <td className="px-3 py-2.5">
                         <SignalBars level={r.priority} tone={r.ptone === "red" ? "red" : "green"} />
@@ -597,7 +598,7 @@ export default function TableSection() {
                     )}
                   >
                     <td className="w-10 px-3.5 py-3">
-                      <Checkbox />
+                      <Checkbox label="Select row" />
                     </td>
                     <td className="px-2 py-3 whitespace-nowrap">
                       <span className="flex items-center gap-2.5 font-medium text-ink">

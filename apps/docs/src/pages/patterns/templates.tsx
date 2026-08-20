@@ -357,7 +357,7 @@ function DashboardTemplate() {
               <div className="flex items-center justify-between border-b border-line px-4 py-3">
                 <span className="text-[14px] font-bold text-ink">Partners</span>
                 <span className="flex items-center gap-2.5 text-[12.5px] text-ink-2">
-                  Show changes <Switch size="sm" checked />
+                  Show changes <Switch size="sm" checked label="Show changes" />
                 </span>
               </div>
               <div className="scroll-thin overflow-x-auto">
@@ -583,7 +583,7 @@ function AuthTemplate() {
 
           <label className="mt-5 flex cursor-pointer items-start gap-3">
             <span className="mt-0.5">
-              <Checkbox />
+              <Checkbox label="Remember me" />
             </span>
             <span className="text-[13px] leading-snug text-ink-2">
               I don’t want to receive emails about Postdrips feature updates and

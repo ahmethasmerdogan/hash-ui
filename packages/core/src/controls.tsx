@@ -8,12 +8,19 @@ export function Switch({
   onChange,
   size = "md",
   tone = "green",
+  label,
   className,
 }: {
   checked?: boolean;
   onChange?: (v: boolean) => void;
   size?: "sm" | "md";
   tone?: "green" | "ink";
+  /**
+   * What the switch is for. A switch is a control with two states and no
+   * text of its own — without this it announces as "switch, on" and nothing
+   * else. Omit only when a visible <label> already points at it.
+   */
+  label?: string;
   className?: string;
 }) {
   const [internal, setInternal] = useState(checked ?? false);
@@ -32,6 +39,7 @@ export function Switch({
       type="button"
       role="switch"
       aria-checked={on}
+      aria-label={label}
       onClick={toggle}
       className={cx(
         "inline-flex shrink-0 items-center rounded-full p-[3px] transition-colors duration-200",
@@ -60,11 +68,17 @@ export function Checkbox({
   checked,
   onChange,
   tone = "green",
+  label,
   className,
 }: {
   checked?: boolean;
   onChange?: (v: boolean) => void;
   tone?: "green" | "orange" | "blue";
+  /**
+   * What is being checked. Like <Switch>, this renders a control with no
+   * text of its own — omit only when a visible <label> already points at it.
+   */
+  label?: string;
   className?: string;
 }) {
   const [internal, setInternal] = useState(checked ?? false);
@@ -79,6 +93,7 @@ export function Checkbox({
       type="button"
       role="checkbox"
       aria-checked={on}
+      aria-label={label}
       onClick={() => {
         const v = !on;
         setInternal(v);
@@ -105,7 +120,12 @@ export function SegmentedControl<T extends string>({
   size = "md",
   className,
 }: {
-  options: Array<{ value: T; label: ReactNode }>;
+  /**
+   * `label` may be an icon. When it is, give `name` too — otherwise the
+   * control announces itself as "button, button, button", which is what a
+   * screen reader has to work with when the only content is an <svg>.
+   */
+  options: Array<{ value: T; label: ReactNode; name?: string }>;
   value: T;
   onChange: (v: T) => void;
   size?: "sm" | "md";
@@ -125,6 +145,8 @@ export function SegmentedControl<T extends string>({
             key={o.value}
             type="button"
             onClick={() => onChange(o.value)}
+            aria-label={o.name}
+            aria-pressed={active}
             className={cx(
               "inline-flex items-center justify-center gap-1.5 rounded-lg font-medium transition-all duration-150",
               size === "sm" ? "h-6.5 px-2.5 text-xs" : "h-7.5 px-3.5 text-[13px]",

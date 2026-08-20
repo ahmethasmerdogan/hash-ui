@@ -132,9 +132,9 @@ export function Topbar({
             value={mode}
             onChange={setMode}
             options={[
-              { value: "system", label: <IContrast size={14} /> },
-              { value: "light", label: <ISun size={14} /> },
-              { value: "dark", label: <IMoon size={14} /> },
+              { value: "system", label: <IContrast size={14} />, name: "Match the system theme" },
+              { value: "light", label: <ISun size={14} />, name: "Light theme" },
+              { value: "dark", label: <IMoon size={14} />, name: "Dark theme" },
             ]}
           />
         </div>
