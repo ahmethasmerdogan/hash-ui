@@ -15,6 +15,12 @@
 /* 2D canvas and diffed there, so this needs no image library.          */
 /* ------------------------------------------------------------------ */
 
+/* Section headings are h1 for the first section on a page and h2 for the
+   rest — a page may only have one h1. These selectors said h1 for all of
+   them, so the moment that rule was enforced five checks stopped finding
+   their element and reported the animation as still. A check that cannot
+   find its target has to say so differently from one that found a frozen
+   element, which is why the failure line now separates the two. */
 import { chromium } from "playwright";
 
 const BASE = process.env.QA_URL ?? "http://localhost:5180";
@@ -41,7 +47,7 @@ const CHECKS = [
     id: "liquid-metal-sheen",
     route: "/docs/blocks/effects",
     sel: "button.group\\/lm",
-    what: "the conic sheen keeps turning under the metal",
+    what: "the chrome keeps flowing under the label",
     kind: "idle",
     waitMs: 700,
     min: 0.01,
@@ -141,7 +147,7 @@ const CHECKS = [
     /* the media layer alone; inside the whole figure a 22s drift behind a
        vignette is far below the per-pixel threshold */
     sel: ".fx-aurora",
-    preScroll: "h1:text-is('HeroCinematic')",
+    preScroll: ":is(h1, h2):text-is('HeroCinematic')",
     preScrollMs: 900,
     noScroll: true,
     what: "the aurora behind the cinematic hero drifts",
@@ -154,7 +160,7 @@ const CHECKS = [
     route: "/docs/blocks/heroes",
     /* the canvas only exists after the block is near the viewport, so the
        heading is the anchor we can actually scroll to first */
-    preScroll: "h1:text-is('SplineScene')",
+    preScroll: ":is(h1, h2):text-is('SplineScene')",
     preScrollMs: 1000,
     sel: "canvas[data-spline-canvas], .spline-host canvas, canvas",
     nth: 0,
@@ -168,7 +174,7 @@ const CHECKS = [
   {
     id: "spline-3d",
     route: "/docs/blocks/heroes",
-    preScroll: "h1:text-is('SplineScene')",
+    preScroll: ":is(h1, h2):text-is('SplineScene')",
     preScrollMs: 1000,
     sel: "canvas",
     timeout: 25000,
@@ -191,7 +197,7 @@ const CHECKS = [
   {
     id: "hero-split-enter",
     route: "/docs/blocks/heroes",
-    sel: "figure:has(h1:text-is('Ship 10× faster with HashUI'))",
+    sel: "figure:has(:is(h1, h2):text-is('Ship 10× faster with HashUI'))",
     what: "HeroSplit fades its headline and CTAs up",
     kind: "enter",
     waitMs: 0,
@@ -273,7 +279,7 @@ const CHECKS = [
     id: "cinematic-kenburns",
     route: "/docs/blocks/heroes",
     sel: ".fx-kenburns",
-    preScroll: "h1:text-is('HeroCinematic')",
+    preScroll: ":is(h1, h2):text-is('HeroCinematic')",
     preScrollMs: 900,
     noScroll: true,
     what: "the stand-in backdrop keeps pushing in",
@@ -430,6 +436,7 @@ for (const c of skipped) {
 
 for (const c of checks) {
   let note = "";
+  let missing = false;
   let ratio = 0;
   try {
     await page.goto(BASE + c.route, { waitUntil: "domcontentloaded" });
@@ -571,7 +578,16 @@ for (const c of checks) {
       ratio = a && b ? await page.evaluate(diffInPage, [a, b]) : -1;
     }
   } catch (e) {
-    note = String(e.message ?? e).split("\n")[0].slice(0, 90);
+    const msg = String(e.message ?? e).split("\n")[0];
+    /* A selector that matches nothing and an element that never moves are
+       different failures with different fixes, and this script used to
+       print both as "still". Five checks sat in that bucket for weeks
+       reporting broken animations that were running perfectly — the
+       headings had become h2, and nothing said so. */
+    /* CONNECTION_REFUSED belongs in the same bucket: the check never ran,
+       so calling the animation still is a guess dressed as a measurement. */
+    missing = /waitFor|Timeout|strict mode|no element|ERR_CONNECTION|ERR_/i.test(msg);
+    note = (missing ? "DID NOT RUN — " : "") + msg.slice(0, 74);
   }
 
   /* Under reduced motion the pass condition flips: a check that still shows
@@ -584,18 +600,23 @@ for (const c of checks) {
     : reduced
       ? isInteraction || ratio < 0.01
       : ratio >= (c.min ?? 0.01);
-  results.push({ ...c, ratio, ok, note });
+  results.push({ ...c, ratio, ok, note, missing });
   console.log(
     `${ok ? "  ✓" : "  ✗"} ${c.id.padEnd(24)} ${(ratio * 100).toFixed(2).padStart(6)}% changed  ${note || c.what}`,
   );
 }
 
 const failed = results.filter((r) => !r.ok);
+const notFound = failed.filter((r) => r.missing);
+const frozen = failed.filter((r) => !r.missing);
 console.log(
   `\n${results.length - failed.length}/${results.length} ` +
     (reduced ? "still (reduced motion)." : "moving.") +
     (skipped.length ? `  ${skipped.length} skipped.` : "") +
-    (failed.length ? `  still: ${failed.map((f) => f.id).join(", ")}` : ""),
+    (frozen.length ? `  ${reduced ? "moving" : "still"}: ${frozen.map((f) => f.id).join(", ")}` : "") +
+    (notFound.length
+      ? `\ncould not be measured — selector or server, not the animation: ${notFound.map((f) => f.id).join(", ")}`
+      : ""),
 );
 
 await browser.close();
