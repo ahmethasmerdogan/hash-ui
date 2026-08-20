@@ -226,6 +226,7 @@ scripts/
   motion.mjs              # does each animation actually move? (pixel diff)
   a11y.mjs                # every control has an accessible name
   verify-registry.mjs     # lay the registry out as the CLI would, compile it
+  contrast.mjs            # every accent × both themes, against WCAG AA
   filmstrip.mjs           # N frames of one element, side by side
   make-og.mjs             # brand SVGs → PNG
   export-ui.mjs           # copy the library into another repo

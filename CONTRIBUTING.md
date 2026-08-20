@@ -100,6 +100,7 @@ node scripts/qa.mjs      # every route × both themes, in a real browser
 node scripts/motion.mjs  # does each animation actually move?
 node scripts/a11y.mjs    # every control has an accessible name
 node scripts/verify-registry.mjs   # the copy-paste route still compiles
+node scripts/contrast.mjs          # every accent × both themes, WCAG AA
 
 MOTION_REDUCED=1 node scripts/motion.mjs   # …and hold still when asked to
 ```

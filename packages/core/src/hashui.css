@@ -52,6 +52,10 @@
   --btn-brand-a: #2eb266;
   --btn-brand-b: #1d9b52;
   --btn-brand-ring: #178a47;
+  /* The label on the brand face. Amber is light enough that white on it
+     measures 2.05:1 — nowhere near readable — so that preset flips to ink
+     instead of being darkened into a brown nobody asked for. */
+  --btn-brand-fg: #ffffff;
 
   /* dots / patterns */
   --dot: #d6d5d0;
@@ -114,9 +118,9 @@
   --brand: #2563eb;
   --brand-ink: #1d4ed8;
   --brand-soft: #eff6ff;
-  --btn-brand-a: #5b93ff;
-  --btn-brand-b: #2563eb;
-  --btn-brand-ring: #1d4ed8;
+  --btn-brand-a: #5487eb;
+  --btn-brand-b: #225bd8;
+  --btn-brand-ring: #1b4bb5;
 }
 .dark[data-accent="blue"] {
   --brand: #60a5fa;
@@ -128,9 +132,9 @@
   --brand: #7c3aed;
   --brand-ink: #6d28d9;
   --brand-soft: #f5f3ff;
-  --btn-brand-a: #a06bff;
-  --btn-brand-b: #7c3aed;
-  --btn-brand-ring: #6d28d9;
+  --btn-brand-a: #9e6afc;
+  --btn-brand-b: #7b39eb;
+  --btn-brand-ring: #6829c9;
 }
 .dark[data-accent="violet"] {
   --brand: #a78bfa;
@@ -145,6 +149,8 @@
   --btn-brand-a: #fbbf24;
   --btn-brand-b: #e0910a;
   --btn-brand-ring: #c07c05;
+  /* ink on this face measures 8.41:1; white measures 2.05:1 */
+  --btn-brand-fg: #1c1b18;
 }
 .dark[data-accent="amber"] {
   --brand: #fbbf24;
@@ -156,9 +162,9 @@
   --brand: #e11d48;
   --brand-ink: #be123c;
   --brand-soft: #fff1f2;
-  --btn-brand-a: #fb6a86;
-  --btn-brand-b: #e11d48;
-  --btn-brand-ring: #be123c;
+  --btn-brand-a: #df5e77;
+  --btn-brand-b: #c81a40;
+  --btn-brand-ring: #a81435;
 }
 .dark[data-accent="rose"] {
   --brand: #fb7185;
@@ -240,7 +246,7 @@ body {
   --btn-a: var(--btn-brand-a);
   --btn-b: var(--btn-brand-b);
   --btn-ring: var(--btn-brand-ring);
-  color: #fff;
+  color: var(--btn-brand-fg);
 }
 .btn-primary {
   --btn-a: #5b93ff;
