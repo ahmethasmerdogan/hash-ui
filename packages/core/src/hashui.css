@@ -49,9 +49,14 @@
   --brand: #059669;
   --brand-ink: #047857;
   --brand-soft: #ecfdf3;
-  --btn-brand-a: #2eb266;
-  --btn-brand-b: #1d9b52;
-  --btn-brand-ring: #178a47;
+  /* White on the old face (#2eb266 → #1d9b52) measured 3.10:1 at the
+     gradient's midpoint, which is where a centred label sits. 4.5 is the
+     threshold, so the ramp is scaled to 81% of its former brightness —
+     the only accent of the five that needed it; the other four already
+     clear AA. */
+  --btn-brand-a: #259053;
+  --btn-brand-b: #177e42;
+  --btn-brand-ring: #13703a;
   /* The label on the brand face. Amber is light enough that white on it
      measures 2.05:1 — nowhere near readable — so that preset flips to ink
      instead of being darkened into a brown nobody asked for. */
