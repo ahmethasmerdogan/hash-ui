@@ -91,7 +91,12 @@ export function Topbar({
           </span>
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-1 md:flex">
+        {/* these appear at lg, with the sidebar. At md they turned on 274px
+            of tabs into a row that had no room for them — 768px, the width
+            of a portrait tablet, was the one size where the header did not
+            fit. Below lg the same destinations are in the drawer, which is
+            what the navigation button is for. */}
+        <nav className="ml-4 hidden items-center gap-1 lg:flex">
           {TABS.map((t) => (
             <Link
               key={t.to}
@@ -126,7 +131,7 @@ export function Topbar({
             target="_blank"
             rel="noreferrer"
             aria-label="HashUI on GitHub"
-            className="hidden size-9 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink sm:flex"
+            className="hidden size-9 shrink-0 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink sm:flex"
           >
             <IGithub />
           </a>
@@ -135,7 +140,7 @@ export function Topbar({
             target="_blank"
             rel="noreferrer"
             aria-label="hash-ui on npm"
-            className="hidden size-9 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink md:flex"
+            className="hidden size-9 shrink-0 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink md:flex"
           >
             <INpm />
           </a>

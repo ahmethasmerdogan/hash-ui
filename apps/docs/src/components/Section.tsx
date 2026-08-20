@@ -85,10 +85,13 @@ export function Section({
           {eyebrow}
           <span aria-hidden>]</span>
         </div>
-        <div className="group/h flex items-center gap-2.5">
+        <div className="group/h flex min-w-0 items-center gap-2.5">
           <Heading
             level={level}
-            className="text-[34px] leading-tight font-bold tracking-[-0.03em] text-ink md:text-[38px]"
+            /* block titles are single tokens — "IntegrationsMarquee" is 330px
+               at this size, wider than the narrowest phone, and no amount of
+               word wrapping helps a word with no spaces in it */
+            className="text-[34px] leading-tight font-bold tracking-[-0.03em] text-ink [overflow-wrap:anywhere] md:text-[38px]"
           >
             {title}
           </Heading>
@@ -96,7 +99,7 @@ export function Section({
             type="button"
             onClick={copyLink}
             aria-label={`Copy link to ${title}`}
-            className="mt-1 flex size-7 items-center justify-center rounded-lg border border-line bg-surface text-ink-3 opacity-0 transition-all duration-150 group-hover/h:opacity-100 hover:text-ink focus-visible:opacity-100"
+            className="mt-1 flex size-7 shrink-0 items-center justify-center rounded-lg border border-line bg-surface text-ink-3 opacity-0 transition-all duration-150 group-hover/h:opacity-100 hover:text-ink focus-visible:opacity-100"
           >
             <ILink size={13} />
           </button>
@@ -175,8 +178,11 @@ export function Demo({
       )}
     >
       {(label || refName || imports || snippet) && (
-        <figcaption className="flex items-center justify-between gap-4 px-3.5 pt-2 pb-2.5">
-          <span className="flex items-center gap-3 text-[13px] font-semibold text-ink">
+        <figcaption className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-3.5 pt-2 pb-2.5">
+          {/* the caption is prose and the controls are not: on a narrow
+              screen the caption wraps under them instead of pushing the
+              copy button off the side of the page */}
+          <span className="flex min-w-0 items-center gap-3 text-[13px] font-semibold text-ink">
             {label}
             {snippet && (
               <span className="inline-flex items-center rounded-[8px] bg-ink/6 p-0.5 dark:bg-white/8">
@@ -198,7 +204,7 @@ export function Demo({
               </span>
             )}
           </span>
-          <span className="flex items-center gap-2.5">
+          <span className="flex shrink-0 items-center gap-2.5">
             {refName && (
               <span className="hidden font-mono text-[10.5px] text-ink-3 sm:inline">
                 {refName}

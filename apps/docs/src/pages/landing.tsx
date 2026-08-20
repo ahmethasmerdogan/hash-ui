@@ -151,7 +151,10 @@ function Sampler() {
 
       <Card className="rounded-2xl p-5">
         <div className="microlabel mb-3">TABS</div>
-        <div className="dark -mx-1 rounded-xl bg-[#111113] p-3">
+        {/* DotTabs is deliberately large — three segments come to 346px, which
+            is wider than the narrowest phone. The sample scrolls rather than
+            the page. */}
+        <div className="dark scroll-thin -mx-1 overflow-x-auto rounded-xl bg-[#111113] p-3">
           <DotTabs
             items={[
               { id: "a", label: "Discover" },

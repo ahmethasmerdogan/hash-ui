@@ -93,6 +93,14 @@ jobs:
         env:
           QA_URL: http://localhost:5180
 
+      # WCAG 1.4.10: every route must reflow to 320px without a horizontal
+      # scrollbar. Screenshots never caught this — the page looks right, it
+      # is simply wider than the window it is in.
+      - name: Reflow sweep
+        run: node scripts/reflow.mjs
+        env:
+          BASE_URL: http://localhost:5180
+
       # The same suite with the setting on, and every assertion inverted:
       # anything that still moves is the failure. A system that claims to
       # respect reduced motion should be checked under it.
