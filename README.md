@@ -221,6 +221,7 @@ apps/docs/                # the docs site — Vite + React Router
 
 scripts/
   build-registry.mjs      # packages/core + packages/blocks → apps/docs/public/r
+  build-sitemap.mjs       # the docs map → sitemap.xml + robots.txt
   qa.mjs                  # every route × both themes, in a real browser
   shots.mjs               # visual regression captures
   motion.mjs              # does each animation actually move? (pixel diff)
