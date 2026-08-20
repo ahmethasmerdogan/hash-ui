@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { cx } from "hash-ui";
+import { cx, useReducedMotion } from "hash-ui";
 
 /* ------------------------------------------------------------------ */
 /* GlobeFlights                                                        */
@@ -128,6 +128,8 @@ export function GlobeFlights({
   /* rotation is mirrored into state so the glyph overlay can follow it; one
      setState per frame is cheap next to the WebGL draw it accompanies */
   const [rot, setRot] = useState({ phi: 0, theta: 0.25 });
+  /* cobe drives its own rAF loop, so the stylesheet cannot reach it */
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     let cancelled = false;
@@ -166,7 +168,7 @@ export function GlobeFlights({
         markers: flights.map((f) => ({ location: f.from, size: 0.035 })),
         ...theme,
         onRender: (state) => {
-          phi += speed;
+          if (!reduced) phi += speed;
           (state as { phi: number }).phi = phi;
           setRot({ phi, theta });
         },
@@ -179,7 +181,7 @@ export function GlobeFlights({
       cancelled = true;
       destroy?.();
     };
-  }, [flights, speed, size, light]);
+  }, [flights, speed, size, light, reduced]);
 
   /* the SVG shares the canvas box, so the centre is half the viewBox and the
      sphere's edge is `globeRadius` of its width */

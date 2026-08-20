@@ -28,6 +28,11 @@ const skip = (process.env.MOTION_SKIP ?? "")
   .map((s) => s.trim())
   .filter(Boolean);
 
+/* MOTION_REDUCED=1 inverts the whole suite: every check that normally has to
+   move now has to hold still. A system that claims to respect the setting has
+   to be checked under it, not just asserted about in a stylesheet. */
+const reduced = process.env.MOTION_REDUCED === "1";
+
 /* A check either passes `min` (it moved enough) or fails.
    `max` catches the opposite failure: something that should be still. */
 const CHECKS = [
@@ -410,6 +415,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage({
   viewport: { width: 1440, height: 1000 },
   deviceScaleFactor: 1,
+  reducedMotion: reduced ? "reduce" : "no-preference",
 });
 page.on("pageerror", (e) => console.log("    ! pageerror:", String(e).slice(0, 120)));
 
@@ -568,7 +574,16 @@ for (const c of checks) {
     note = String(e.message ?? e).split("\n")[0].slice(0, 90);
   }
 
-  const ok = !note && ratio >= (c.min ?? 0.01);
+  /* Under reduced motion the pass condition flips: a check that still shows
+     movement is the failure. Interaction checks are exempt — a menu that
+     opens on click is a state change, not an animation, and pinning it would
+     mean hiding information rather than calming it. */
+  const isInteraction = ["click", "clickChild", "hoverChild", "pointer", "scrollPage", "scrollInside"].includes(c.kind);
+  const ok = note
+    ? false
+    : reduced
+      ? isInteraction || ratio < 0.01
+      : ratio >= (c.min ?? 0.01);
   results.push({ ...c, ratio, ok, note });
   console.log(
     `${ok ? "  ✓" : "  ✗"} ${c.id.padEnd(24)} ${(ratio * 100).toFixed(2).padStart(6)}% changed  ${note || c.what}`,
@@ -577,7 +592,8 @@ for (const c of checks) {
 
 const failed = results.filter((r) => !r.ok);
 console.log(
-  `\n${results.length - failed.length}/${results.length} moving.` +
+  `\n${results.length - failed.length}/${results.length} ` +
+    (reduced ? "still (reduced motion)." : "moving.") +
     (skipped.length ? `  ${skipped.length} skipped.` : "") +
     (failed.length ? `  still: ${failed.map((f) => f.id).join(", ")}` : ""),
 );

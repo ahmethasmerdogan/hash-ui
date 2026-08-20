@@ -77,6 +77,25 @@ export function NumberTicker({
 /* TYPEWRITER — loops through words                                    */
 /* ------------------------------------------------------------------ */
 
+/**
+ * The OS "reduce motion" setting, live.
+ *
+ * The stylesheet can calm a CSS animation, but a component driven by a timer
+ * or requestAnimationFrame never sees it — those have to ask.
+ */
+export function useReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  return reduced;
+}
+
 export function Typewriter({
   words,
   typeMs = 65,
@@ -92,8 +111,12 @@ export function Typewriter({
   const [len, setLen] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const word = words[wi % words.length];
+  const reduced = useReducedMotion();
 
   useEffect(() => {
+    /* the whole point of the component is a moving caret; under the setting
+       it becomes the first word, spelled out and still */
+    if (reduced) return;
     let t: number;
     if (!deleting && len < word.length) {
       t = window.setTimeout(() => setLen(len + 1), typeMs);
@@ -108,7 +131,14 @@ export function Typewriter({
       }, 250);
     }
     return () => clearTimeout(t);
-  }, [len, deleting, word, typeMs, holdMs]);
+  }, [len, deleting, word, typeMs, holdMs, reduced]);
+
+  /* Calming the motion must not delete the content: with the timer stopped
+     `len` never advances, so the word is written out in full and the caret —
+     which is only ever decoration — goes away with it. */
+  if (reduced) {
+    return <span className={className}>{words[0]}</span>;
+  }
 
   return (
     <span className={className}>
