@@ -227,6 +227,7 @@ scripts/
   a11y.mjs                # every control has an accessible name
   verify-registry.mjs     # lay the registry out as the CLI would, compile it
   contrast.mjs            # every accent × both themes, against WCAG AA
+  size.mjs                # gzip size of both packages, against a budget
   filmstrip.mjs           # N frames of one element, side by side
   make-og.mjs             # brand SVGs → PNG
   export-ui.mjs           # copy the library into another repo

@@ -42,6 +42,12 @@ jobs:
       - name: The copied source compiles
         run: node scripts/verify-registry.mjs
 
+      # core's pitch is that it imports nothing but React; that claim has a
+      # weight attached, and a stray dependency would otherwise only show up
+      # in somebody else's bundle analyser
+      - name: Size budget
+        run: node scripts/size.mjs
+
   qa:
     runs-on: ubuntu-latest
     needs: build
