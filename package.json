@@ -21,7 +21,7 @@
     "build:blocks": "npm run build -w @hash-ui/blocks",
     "motion": "node scripts/motion.mjs",
     "filmstrip": "node scripts/filmstrip.mjs",
-    "test": "npm run test -w hash-ui"
+    "test": "npm run test -w hash-ui && npm run test -w @hash-ui/blocks"
   },
   "devDependencies": {
     "playwright": "^1.62.1",
