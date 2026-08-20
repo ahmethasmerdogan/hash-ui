@@ -1,4 +1,5 @@
 import { Section, Demo } from "@/components/Section";
+import { ThemeStudio } from "@/components/ThemeStudio";
 import {
   ACCENTS,
   Button,
@@ -112,6 +113,17 @@ export default function Foundations() {
       title="Theming & tokens"
       desc="Warm neutral canvas, hairline borders, one emerald accent surrounded by purposeful status hues. Depth is expressed with stacked surfaces — the system ships no drop shadows at all."
     >
+      {/* The studio comes first: a reader who lands here wants to try the
+          theme, not read the palette. The token tables below are the
+          reference for when they have picked one. */}
+      <Demo
+        label="Theme studio — every control writes to this document"
+        refName="live"
+        contentClassName="!block !min-h-0 !p-4"
+      >
+        <ThemeStudio />
+      </Demo>
+
       <Demo label="Surfaces & ink" refName="all references">
         <div className="grid w-full grid-cols-4 gap-3 md:grid-cols-8">
           {surfaceTokens.map((t) => (
