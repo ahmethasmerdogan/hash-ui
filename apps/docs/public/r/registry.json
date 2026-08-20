@@ -756,6 +756,47 @@
       ]
     },
     {
+      "name": "auth-card",
+      "type": "registry:ui",
+      "title": "AuthCard",
+      "description": "A sign-in / sign-up card that is a real form: submits on Enter, carries the autocomplete tokens a password manager matches on, and puts its error in a live region.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/button.json",
+        "https://hashui.vercel.app/r/form.json",
+        "https://hashui.vercel.app/r/controls.json",
+        "https://hashui.vercel.app/r/icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/auth-card.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/auth-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-split",
+      "type": "registry:ui",
+      "title": "AuthSplit",
+      "description": "AuthCard with the other half of the screen given over to a quote and customer marks. The panel is dropped below lg rather than stacked above the form.",
+      "registryDependencies": [
+        "https://hashui.vercel.app/r/tokens.json",
+        "https://hashui.vercel.app/r/blocks-tokens.json",
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/auth-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hashui/auth-split.tsx",
+          "type": "registry:ui",
+          "target": "components/hashui/auth-split.tsx"
+        }
+      ]
+    },
+    {
       "name": "cinematic-footer",
       "type": "registry:ui",
       "title": "CinematicFooter",

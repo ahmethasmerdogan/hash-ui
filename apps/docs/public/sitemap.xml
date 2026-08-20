@@ -122,6 +122,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://hashui.vercel.app/docs/blocks/auth</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://hashui.vercel.app/docs/blocks/footers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -493,6 +493,37 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     ]
   },
   {
+    "name": "auth-card",
+    "title": "AuthCard",
+    "description": "A sign-in / sign-up card that is a real form: submits on Enter, carries the autocomplete tokens a password manager matches on, and puts its error in a live region.",
+    "type": "registry:ui",
+    "target": "components/hashui/auth-card.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "form",
+      "controls",
+      "icons"
+    ]
+  },
+  {
+    "name": "auth-split",
+    "title": "AuthSplit",
+    "description": "AuthCard with the other half of the screen given over to a quote and customer marks. The panel is dropped below lg rather than stacked above the form.",
+    "type": "registry:ui",
+    "target": "components/hashui/auth-split.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "auth-card"
+    ]
+  },
+  {
     "name": "cinematic-footer",
     "title": "CinematicFooter",
     "description": "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",

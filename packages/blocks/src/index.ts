@@ -40,6 +40,10 @@ export * from "./heroes/SplineScene.js";
 
 /* footers */
 export * from "./footers/CinematicFooter.js";
+
+/* auth */
+export * from "./auth/AuthCard.js";
+export * from "./auth/AuthSplit.js";
 export * from "./footers/GridFooter.js";
 
 /* application shell */

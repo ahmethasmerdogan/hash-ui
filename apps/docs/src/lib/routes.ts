@@ -204,6 +204,13 @@ export const NAV: NavGroup[] = [
         Component: lazy(() => import("@/pages/blocks/logos")),
       },
       {
+        path: "/docs/blocks/auth",
+        label: "Auth screens",
+        desc: "Sign-in and sign-up, as a card or a split screen.",
+        keywords: "AuthCard AuthSplit login signin signup sign in register password authentication",
+        Component: lazy(() => import("@/pages/blocks/auth")),
+      },
+      {
         path: "/docs/blocks/footers",
         label: "Footers",
         badge: "New",

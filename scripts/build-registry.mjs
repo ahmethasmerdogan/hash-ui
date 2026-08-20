@@ -311,6 +311,20 @@ const BLOCK_ITEMS = [
       "A Spline 3D scene behind a dynamic import, so the runtime is fetched only once the block nears the viewport.",
   },
   {
+    name: "auth-card",
+    file: "auth/AuthCard.tsx",
+    title: "AuthCard",
+    description:
+      "A sign-in / sign-up card that is a real form: submits on Enter, carries the autocomplete tokens a password manager matches on, and puts its error in a live region.",
+  },
+  {
+    name: "auth-split",
+    file: "auth/AuthSplit.tsx",
+    title: "AuthSplit",
+    description:
+      "AuthCard with the other half of the screen given over to a quote and customer marks. The panel is dropped below lg rather than stacked above the form.",
+  },
+  {
     name: "cinematic-footer",
     file: "footers/CinematicFooter.tsx",
     title: "CinematicFooter",
