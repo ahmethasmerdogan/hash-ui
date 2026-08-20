@@ -78,12 +78,22 @@ float height(vec2 p, float t) {
    plastic no matter how good the ridges are. */
 vec3 env(vec3 dir) {
   float y = dir.y;
-  vec3 sky   = mix(vec3(0.60, 0.62, 0.67), vec3(1.00, 1.00, 1.00), smoothstep(0.0, 0.55, y));
-  vec3 floorC = mix(vec3(0.025, 0.025, 0.032), vec3(0.20, 0.21, 0.24), smoothstep(-0.9, 0.0, y));
-  vec3 c = mix(floorC, sky, smoothstep(-0.03, 0.03, y));
-  /* one bright strip above the horizon — the window in the room, and the
-     thing that becomes a travelling glint once the surface moves */
-  c += vec3(1.0) * smoothstep(0.11, 0.015, abs(y - 0.17)) * 0.40;
+  /* A dark room, not a photographer's studio.
+   *
+   * The first version ran the floor to near-black and the sky to pure
+   * white, which is correct for a mirrored sphere and wrong for a 40px
+   * pill: at that size a full-range height field is not marble, it is
+   * camouflage. The range here is compressed into dark steel, and the
+   * only thing allowed to reach white is the thin strip below — so the
+   * button reads as a dark surface with a highlight travelling over it,
+   * which is what the reference actually looks like. */
+  vec3 sky    = mix(vec3(0.26, 0.27, 0.30), vec3(0.52, 0.54, 0.58), smoothstep(0.0, 0.6, y));
+  vec3 floorC = mix(vec3(0.055, 0.055, 0.065), vec3(0.15, 0.155, 0.175), smoothstep(-0.9, 0.0, y));
+  /* a softer horizon too: a hard edge at this scale is a hard edge in the
+     middle of a button, and it reads as a seam rather than a reflection */
+  vec3 c = mix(floorC, sky, smoothstep(-0.10, 0.10, y));
+  /* the one bright thing in the room */
+  c += vec3(1.0) * smoothstep(0.07, 0.01, abs(y - 0.19)) * 0.55;
   return c;
 }
 
@@ -97,28 +107,29 @@ void main() {
   float t = u_time * u_flow;
   float e = 3.5 / u_res.y;
 
-  /* 0.62 puts roughly two ridges across the face. Poured metal has big
-     slow features; small ones are sandpaper, which is where this shader
-     started before the scale and the octave count came down. */
-  float h  = height(p * 0.62 + u_seed, t);
-  float hx = height((p + vec2(e, 0.0)) * 0.62 + u_seed, t);
-  float hy = height((p + vec2(0.0, e)) * 0.62 + u_seed, t);
+  /* 0.34: about one ridge across the face. Every previous value put more
+     detail on a 260x88 button than a button that size can carry — two
+     ridges was still busy enough to read as a pattern rather than a
+     surface. */
+  float h  = height(p * 0.34 + u_seed, t);
+  float hx = height((p + vec2(e, 0.0)) * 0.34 + u_seed, t);
+  float hy = height((p + vec2(0.0, e)) * 0.34 + u_seed, t);
 
   /* the normal is the gradient of the height field. This pair is how molten
      it looks: a big multiplier over a small z is crumpled foil, and that is
      what the first attempt at this shader produced. */
-  vec3 n = normalize(vec3((h - hx) * 2.4, (h - hy) * 2.4, 0.55));
+  vec3 n = normalize(vec3((h - hx) * 1.5, (h - hy) * 1.5, 0.72));
 
   vec3 view = vec3(0.0, 0.0, 1.0);
   vec3 col = env(reflect(-view, n));
 
   /* one hard light so the surface throws glints rather than a wash */
   vec3 L = normalize(vec3(-0.35, 0.86, 0.52));
-  col += vec3(1.0) * pow(max(dot(reflect(-L, n), view), 0.0), 44.0) * 0.9;
+  col += vec3(1.0) * pow(max(dot(reflect(-L, n), view), 0.0), 30.0) * 0.55;
 
   /* HashUI lights every button from directly above. The metal obeys the
      same lamp, or it looks pasted onto the page. */
-  col *= mix(1.16, 0.55, uv.y);
+  col *= mix(1.30, 0.62, uv.y);
 
   /* Guarantee the label has something to sit on.
    *
