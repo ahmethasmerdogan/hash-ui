@@ -94,9 +94,12 @@ when the hook gates *loading* rather than *showing*.
 
 ```bash
 npm run typecheck        # all three workspaces
+npm test                 # unit tests, including a server-render pass
 npm run build:all        # both packages, then the registry and the site
 node scripts/qa.mjs      # every route × both themes, in a real browser
 node scripts/motion.mjs  # does each animation actually move?
+
+MOTION_REDUCED=1 node scripts/motion.mjs   # …and hold still when asked to
 ```
 
 CI runs all of these. Two more tools help while you work:

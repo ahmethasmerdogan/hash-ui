@@ -24,6 +24,9 @@ jobs:
       - name: Typecheck every workspace
         run: npm run typecheck
 
+      - name: Unit tests
+        run: npm test
+
       - name: Build both npm packages
         run: npm run build:lib
 

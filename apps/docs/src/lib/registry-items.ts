@@ -543,7 +543,8 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "registryDependencies": [
       "tokens",
       "blocks-tokens",
-      "cx"
+      "cx",
+      "motion"
     ]
   },
   {

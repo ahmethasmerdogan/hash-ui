@@ -242,6 +242,7 @@ npm run build:lib    # build both npm packages
 npm run registry     # regenerate the shadcn registry
 npm run build        # registry + docs site
 npm run typecheck    # all three workspaces
+npm test             # unit tests, including a server-render pass
 
 node scripts/qa.mjs      # route sweep: overflow, contrast, shadows, interaction
 node scripts/shots.mjs   # screenshots, light + dark

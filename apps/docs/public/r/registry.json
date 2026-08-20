@@ -800,7 +800,8 @@
       "registryDependencies": [
         "https://hashui.vercel.app/r/tokens.json",
         "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://hashui.vercel.app/r/cx.json",
+        "https://hashui.vercel.app/r/motion.json"
       ],
       "files": [
         {
