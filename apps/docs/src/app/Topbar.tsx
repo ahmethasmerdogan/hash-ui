@@ -10,7 +10,7 @@ import {
   IMoon,
   ISearch,
   ISun,
-} from "hash-ui";
+} from "uicean";
 import { LogoMark } from "@/components/Logo";
 import { AccentPicker } from "@/components/AccentPicker";
 import { SITE } from "@/lib/site";
@@ -130,7 +130,7 @@ export function Topbar({
             href={SITE.github}
             target="_blank"
             rel="noreferrer"
-            aria-label="HashUI on GitHub"
+            aria-label="UICean on GitHub"
             className="hidden size-9 shrink-0 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink sm:flex"
           >
             <IGithub />
@@ -139,7 +139,7 @@ export function Topbar({
             href={SITE.npm}
             target="_blank"
             rel="noreferrer"
-            aria-label="hash-ui on npm"
+            aria-label="uicean on npm"
             className="hidden size-9 shrink-0 items-center justify-center rounded-[10px] border border-line bg-surface text-ink-2 transition-colors hover:text-ink md:flex"
           >
             <INpm />

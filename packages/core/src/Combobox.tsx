@@ -391,7 +391,7 @@ export function Command<T extends string>({
     <div className="fixed inset-0 z-[96] flex items-start justify-center px-4 pt-[12vh]">
       <div
         className="absolute inset-0 bg-[#1c1b18]/50 backdrop-blur-[3px] dark:bg-black/65"
-        style={{ animation: "hashui-overlay-in 0.15s ease-out" }}
+        style={{ animation: "uicean-overlay-in 0.15s ease-out" }}
       />
       <div
         ref={panelRef}
@@ -399,7 +399,7 @@ export function Command<T extends string>({
         aria-modal="true"
         aria-label={label}
         className="relative w-full max-w-135 overflow-hidden rounded-[calc(var(--radius)+10px)] border border-line bg-surface"
-        style={{ animation: "hashui-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
+        style={{ animation: "uicean-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
         <div className="flex items-center gap-3 border-b border-line px-5">
           <ISearch size={16} aria-hidden className="shrink-0 text-ink-3" />

@@ -8,7 +8,7 @@ import {
   Spinner,
   Checkbox,
   IArrowRight,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* AuthCard                                                            */
@@ -20,7 +20,7 @@ import {
 /*                                                                     */
 /* So it is a real <form> with a real submit button, the autocomplete   */
 /* tokens a password manager looks for, and the error in a live region. */
-/* Everything visual is HashUI's — hairline card, flat surface, the one */
+/* Everything visual is UICean's — hairline card, flat surface, the one */
 /* accent — and everything structural is what the browser already knows */
 /* how to do.                                                           */
 /*                                                                     */
@@ -74,7 +74,7 @@ export function AuthCard({
 }: AuthCardProps) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  /* Checkbox is a HashUI control rather than a bare input, so it carries no
+  /* Checkbox is a UICean control rather than a bare input, so it carries no
      name for FormData to find — its value comes from state instead */
   const [remember, setRemember] = useState(true);
   const signup = mode === "signup";
@@ -103,7 +103,7 @@ export function AuthCard({
 
       <div className="rounded-[calc(var(--radius)+8px)] border border-line bg-surface p-7">
         <TitleTag className="text-[22px] font-bold tracking-[-0.02em] text-ink">
-          {title ?? (signup ? "Create your account" : "Sign in to HashUI")}
+          {title ?? (signup ? "Create your account" : "Sign in to UICean")}
         </TitleTag>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-2">
           {subtitle ??
@@ -149,7 +149,7 @@ export function AuthCard({
 
           <div className="flex flex-col gap-1.5">
             <div className="flex items-baseline justify-between gap-3">
-              <Label htmlFor="hashui-auth-password" required>
+              <Label htmlFor="uicean-auth-password" required>
                 Password
               </Label>
               {!signup && (
@@ -162,7 +162,7 @@ export function AuthCard({
               )}
             </div>
             <input
-              id="hashui-auth-password"
+              id="uicean-auth-password"
               name="password"
               type="password"
               required

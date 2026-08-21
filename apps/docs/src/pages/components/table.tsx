@@ -31,7 +31,7 @@ import {
   IUpload,
   IUserCircle,
   IX,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* CHANGE-TRACKING GRID — ui-design-4                                   */

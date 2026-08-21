@@ -1,8 +1,8 @@
 import { useId } from "react";
-import { cx } from "hash-ui";
+import { cx } from "uicean";
 
 /* ------------------------------------------------------------------ */
-/* HashUI mark                                                         */
+/* UICean mark                                                         */
 /*                                                                     */
 /* The squircle carries the same anatomy as every button face in the   */
 /* system — vertical gradient, 1px ring of the same hue, hairline      */
@@ -28,7 +28,7 @@ export function LogoMark({
       viewBox="0 0 64 64"
       fill="none"
       role="img"
-      aria-label="HashUI"
+      aria-label="UICean"
       className={cx("shrink-0", className)}
     >
       {/* userSpaceOnUse, not the objectBoundingBox default: the glyph gradient
@@ -108,7 +108,7 @@ export function Logo({
         className="font-bold tracking-[-0.035em] text-ink"
         style={{ fontSize: size * 0.55 }}
       >
-        HashUI
+        UICean
       </span>
       {version && (
         <span className="rounded-full border border-line bg-elev px-2 py-0.5 font-mono text-[10px] font-medium text-ink-2">

@@ -1,5 +1,5 @@
 import { Section, Demo } from "@/components/Section";
-import { Card, FONTS, cx, type FontId, useTheme, ICheck } from "hash-ui";
+import { Card, FONTS, cx, type FontId, useTheme, ICheck } from "uicean";
 
 const SCALE = [
   { px: 44, w: 700, label: "Display", sample: "A design foundation" },
@@ -78,12 +78,12 @@ export default function TypographySection() {
       title="Typography"
       desc="Geist is the system typeface and Geist Mono carries every number, timestamp and code sample. Switch the sans stack below — the entire site re-renders live, so you can judge the system in a different voice."
     >
-      <Demo label="Typeface (live switch)" refName="hashui foundation">
+      <Demo label="Typeface (live switch)" refName="uicean foundation">
         <FontPicker />
       </Demo>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr]">
-        <Demo label="Type scale" refName="hashui foundation" contentClassName="!items-stretch !justify-start py-8">
+        <Demo label="Type scale" refName="uicean foundation" contentClassName="!items-stretch !justify-start py-8">
           <div className="flex w-full flex-col gap-5">
             {SCALE.map((s) => (
               <div key={s.label} className="flex items-baseline gap-5">
@@ -146,13 +146,13 @@ export default function TypographySection() {
           </Card>
         </Demo>
 
-        <Demo label="Paragraph specimen" refName="hashui foundation" contentClassName="!items-stretch py-8">
+        <Demo label="Paragraph specimen" refName="uicean foundation" contentClassName="!items-stretch py-8">
           <Card className="w-full rounded-2xl p-5">
             <div className="microlabel mb-2">
               CURRENT SANS · {FONTS[font].label.toUpperCase()}
             </div>
             <p className="text-[15px] leading-relaxed text-ink-2">
-              HashUI turns a folder of curated interface screenshots into a
+              UICean turns a folder of curated interface screenshots into a
               reusable React + Tailwind system. Every component links back to
               the reference it came from, so the design decisions stay
               traceable — tokens, primitives and patterns, in light and dark.

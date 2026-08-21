@@ -9,7 +9,7 @@ import {
 
 export type ThemeMode = "system" | "light" | "dark";
 
-/* Accent presets. The palette itself lives in hashui.css under
+/* Accent presets. The palette itself lives in uicean.css under
    [data-accent]; this table is only what a picker needs to draw itself. */
 export type AccentId = "emerald" | "blue" | "violet" | "amber" | "rose";
 
@@ -73,9 +73,9 @@ const Ctx = createContext<ThemeCtx>({
   setAccent: () => {},
 });
 
-const STORAGE_KEY = "hashui-theme";
-const FONT_KEY = "hashui-font";
-const ACCENT_KEY = "hashui-accent";
+const STORAGE_KEY = "uicean-theme";
+const FONT_KEY = "uicean-font";
+const ACCENT_KEY = "uicean-accent";
 
 /* Every browser global in this file goes through one of these three.
 
@@ -226,7 +226,7 @@ export function useTheme() {
  * nothing painted before React runs.
  *
  *   // app/layout.tsx
- *   import { themeScript } from "hash-ui";
+ *   import { themeScript } from "uicean";
  *
  *   <head>
  *     <script dangerouslySetInnerHTML={{ __html: themeScript }} />

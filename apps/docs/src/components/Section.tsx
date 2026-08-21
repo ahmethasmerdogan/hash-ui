@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { cx, useToast, ICopy, ILink, IArrowUpRight } from "hash-ui";
+import { cx, useToast, ICopy, ILink, IArrowUpRight } from "uicean";
 import { CodeBlock } from "@/components/Code";
 import { InstallTabs } from "@/components/InstallTabs";
 import { SNIPPETS } from "@/components/snippets";
@@ -155,7 +155,7 @@ export function Demo({
   const snippet = code ?? (label ? SNIPPETS[label] : undefined);
   const [view, setView] = useState<"preview" | "code">("preview");
   const copyImport = () => {
-    const stmt = `import { ${imports!.join(", ")} } from "hash-ui";`;
+    const stmt = `import { ${imports!.join(", ")} } from "uicean";`;
     navigator.clipboard
       .writeText(stmt)
       .then(() => push({ tone: "success", title: "Import copied", desc: stmt }));

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, Card, StatusPill } from "hash-ui";
+import { cx, Card, StatusPill } from "uicean";
 import { useRise, RISE_ATTR } from "../parts.js";
 import {
   StatDial,

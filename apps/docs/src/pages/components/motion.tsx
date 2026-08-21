@@ -23,11 +23,11 @@ import {
   ILayers,
   ISparkleFill,
   IZap,
-} from "hash-ui";
+} from "uicean";
 
 function MarqueeLogos() {
   const logos = [
-    { icon: <ISparkleFill size={15} />, name: "HashUI" },
+    { icon: <ISparkleFill size={15} />, name: "UICean" },
     { icon: <ICube size={15} />, name: "Spherule" },
     { icon: <IZap size={15} />, name: "Railspeed" },
     { icon: <IGrid size={15} />, name: "Peregrin" },
@@ -75,7 +75,7 @@ export default function MotionSection() {
       desc="MagicUI-style animation primitives — tickers, typewriters, marquees, shimmer borders, spotlights and meteors — all dependency-free, plus a lazy-loaded three.js scene."
     >
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Number ticker" refName="hashui motion" contentClassName="py-10">
+        <Demo label="Number ticker" refName="uicean motion" contentClassName="py-10">
           <div className="grid w-full max-w-md grid-cols-3 gap-3">
             {[
               { v: 58980, l: "USERS", suffix: "+" },
@@ -100,7 +100,7 @@ export default function MotionSection() {
           </div>
         </Demo>
 
-        <Demo label="Typewriter & gradient text" refName="hashui motion" contentClassName="py-10">
+        <Demo label="Typewriter & gradient text" refName="uicean motion" contentClassName="py-10">
           <DemoCol>
             <div className="text-center text-[26px] leading-snug font-bold tracking-tight text-ink">
               Build{" "}
@@ -117,7 +117,7 @@ export default function MotionSection() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Shimmer button & border beam" refName="hashui motion" variant="dark" contentClassName="py-12">
+        <Demo label="Shimmer button & border beam" refName="uicean motion" variant="dark" contentClassName="py-12">
           <DemoCol className="w-full max-w-sm">
             <ShimmerButton>
               <ISparkleFill size={14} /> Get Early Access
@@ -140,7 +140,7 @@ export default function MotionSection() {
           </DemoCol>
         </Demo>
 
-        <Demo label="Meteors" refName="hashui motion" variant="dark" contentClassName="py-12">
+        <Demo label="Meteors" refName="uicean motion" variant="dark" contentClassName="py-12">
           <Card className="relative w-full max-w-sm overflow-hidden rounded-2xl p-6">
             <Meteors count={10} />
             <StatusPill tone="green" size="sm" dot>
@@ -157,12 +157,12 @@ export default function MotionSection() {
         </Demo>
       </div>
 
-      <Demo label="Marquee" refName="hashui motion" contentClassName="py-10 !px-0">
+      <Demo label="Marquee" refName="uicean motion" contentClassName="py-10 !px-0">
         <MarqueeLogos />
       </Demo>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Spotlight card" refName="hashui motion" contentClassName="py-10">
+        <Demo label="Spotlight card" refName="uicean motion" contentClassName="py-10">
           <Spotlight className="w-full max-w-sm rounded-2xl border border-line bg-surface p-6 shadow-card">
             <div className="text-[15px] font-bold text-ink">
               Hover me — the light follows
@@ -177,7 +177,7 @@ export default function MotionSection() {
           </Spotlight>
         </Demo>
 
-        <Demo label="Tilt card" refName="hashui motion" contentClassName="py-10">
+        <Demo label="Tilt card" refName="uicean motion" contentClassName="py-10">
           <TiltCard className="w-full max-w-sm">
             <Card floating className="rounded-2xl p-6">
               <span className="flex size-10 items-center justify-center rounded-[12px] bg-gradient-to-b from-emerald-500 to-emerald-700 text-white shadow-btn">
@@ -195,7 +195,7 @@ export default function MotionSection() {
         </Demo>
       </div>
 
-      <Demo label="Scroll reveal" refName="hashui motion" contentClassName="py-10">
+      <Demo label="Scroll reveal" refName="uicean motion" contentClassName="py-10">
         <div className="grid grid-cols-1 w-full max-w-2xl gap-4 sm:grid-cols-3">
           {[0, 120, 240].map((d, i) => (
             <Reveal key={d} delay={d}>
@@ -212,7 +212,7 @@ export default function MotionSection() {
         </div>
       </Demo>
 
-      <Demo label="3D orb — three.js (lazy chunk)" refName="hashui motion" variant="dark" contentClassName="!p-2">
+      <Demo label="3D orb — three.js (lazy chunk)" refName="uicean motion" variant="dark" contentClassName="!p-2">
         <ThreeOrb className="bg-[radial-gradient(120%_120%_at_50%_0%,#0f2a1e_0%,#0b0b0e_60%)]" />
       </Demo>
     </Section>

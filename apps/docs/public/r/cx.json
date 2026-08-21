@@ -7,14 +7,14 @@
   "author": "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
   "dependencies": [],
   "registryDependencies": [
-    "https://hashui.vercel.app/r/tokens.json"
+    "https://uicean.vercel.app/r/tokens.json"
   ],
   "files": [
     {
-      "path": "registry/hashui/cx.ts",
-      "content": "/* cx — HashUI\n * https://hashui.vercel.app/docs\n *\n * Copied into your project by the shadcn CLI. It is yours now: edit it,\n * rename it, delete the parts you do not use. MIT licensed.\n */\n\nexport function cx(...parts: Array<string | false | null | undefined>) {\n  return parts.filter(Boolean).join(\" \");\n}\n",
+      "path": "registry/uicean/cx.ts",
+      "content": "/* cx — UICean\n * https://uicean.vercel.app/docs\n *\n * Copied into your project by the shadcn CLI. It is yours now: edit it,\n * rename it, delete the parts you do not use. MIT licensed.\n */\n\nexport function cx(...parts: Array<string | false | null | undefined>) {\n  return parts.filter(Boolean).join(\" \");\n}\n",
       "type": "registry:lib",
-      "target": "lib/hashui/cx.ts"
+      "target": "lib/uicean/cx.ts"
     }
   ]
 }

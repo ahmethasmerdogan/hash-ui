@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { Alert, Card, cx, ICheck, ISparkleFill } from "hash-ui";
+import { Alert, Card, cx, ICheck, ISparkleFill } from "uicean";
 import { Section } from "@/components/Section";
 import { CodeBlock } from "@/components/Code";
 import { InstallTabs } from "@/components/InstallTabs";
@@ -44,9 +44,9 @@ export default function Installation() {
       id="installation"
       eyebrow="Getting started"
       title="Installation"
-      desc="HashUI needs React and Tailwind CSS v4 — nothing else. Install the package for the whole system, or use the CLI to copy individual components into your own repo."
+      desc="UICean needs React and Tailwind CSS v4 — nothing else. Install the package for the whole system, or use the CLI to copy individual components into your own repo."
     >
-      <InstallTabs items={["hashui"]} defaultMode="npm" />
+      <InstallTabs items={["uicean"]} defaultMode="npm" />
 
       <Alert tone="info" title="Tailwind CSS v4 is a hard requirement">
         The token layer is built on <code className="font-mono">@theme inline</code>{" "}
@@ -85,7 +85,7 @@ npm install three`}
           title="Import the stylesheet after Tailwind"
           desc={
             <>
-              Order matters: <code className="font-mono">hash-ui/css</code> declares
+              Order matters: <code className="font-mono">uicean/css</code> declares
               the tokens and the <code className="font-mono">dark</code> variant on
               top of Tailwind's own layers. It also points Tailwind at the
               package bundle, so the component utilities are generated even
@@ -97,7 +97,7 @@ npm install three`}
           <CodeBlock
             filename="src/index.css"
             code={`@import "tailwindcss";
-@import "hash-ui/css";`}
+@import "uicean/css";`}
           />
         </Step>
 
@@ -140,7 +140,7 @@ createRoot(document.getElementById("root")!).render(
             filename="index.html"
             code={`<script>
   (function () {
-    var s = localStorage.getItem("hashui-theme");
+    var s = localStorage.getItem("uicean-theme");
     if (
       s === "dark" ||
       ((s === null || s === "system") &&

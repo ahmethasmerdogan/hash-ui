@@ -30,7 +30,7 @@ import {
   ISettings,
   ITrendUp,
   IZap,
-} from "hash-ui";
+} from "uicean";
 
 function TrackStep({
   label,

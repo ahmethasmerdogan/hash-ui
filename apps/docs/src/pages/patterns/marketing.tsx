@@ -8,7 +8,7 @@ import {
   ICheck,
   ISparkleFill,
   IStarFill,
-} from "hash-ui";
+} from "uicean";
 
 /* ---------------- Marketing feature panel — how-it-works-0001 ------------ */
 

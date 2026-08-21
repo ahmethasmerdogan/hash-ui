@@ -26,8 +26,8 @@ import {
   IMoon,
   ISparkleFill,
   IZap,
-} from "hash-ui";
-import { IntegrationsMarquee, LogoCloudSection } from "hash-ui-blocks";
+} from "uicean";
+import { IntegrationsMarquee, LogoCloudSection } from "uicean-blocks";
 import { LogoMark } from "@/components/Logo";
 import { InstallTabs } from "@/components/InstallTabs";
 import { CodeBlock } from "@/components/Code";
@@ -211,13 +211,13 @@ export default function Landing() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-ink-2">
-              HashUI turns a folder of curated interface screenshots into a
+              UICean turns a folder of curated interface screenshots into a
               reusable React&nbsp;19 + Tailwind&nbsp;v4 system — tokens,
               primitives, and now whole page blocks, in light and dark.
             </p>
 
             <div className="mx-auto mt-8 max-w-lg text-left">
-              <InstallTabs items={["hashui"]} defaultMode="npm" />
+              <InstallTabs items={["uicean"]} defaultMode="npm" />
             </div>
 
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -430,11 +430,11 @@ export default function Landing() {
           <CodeBlock
             filename="src/index.css"
             code={`@import "tailwindcss";
-@import "hash-ui/css";`}
+@import "uicean/css";`}
           />
           <CodeBlock
             filename="src/App.tsx"
-            code={`import { ThemeProvider, ToastProvider, Button, StatusPill } from "hash-ui";
+            code={`import { ThemeProvider, ToastProvider, Button, StatusPill } from "uicean";
 
 export default function App() {
   return (

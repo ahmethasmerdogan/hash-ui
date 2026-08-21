@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { cx, Button, IMenu, IX } from "hash-ui";
+import { cx, Button, IMenu, IX } from "uicean";
 import { ActionButton, useRise, RISE_ATTR, type Action } from "../parts.js";
 import { LogoCloud, type Logo } from "../logos/LogoCloud.js";
 
@@ -45,13 +45,13 @@ const DEMO_LINKS: NavLink[] = [
 ];
 
 export function HeroSplit({
-  brand = "hashui",
+  brand = "uicean",
   links = DEMO_LINKS,
   navActions = [
     { label: "Login", href: "#", variant: "ghost" },
     { label: "Sign up", href: "#", variant: "dark" },
   ],
-  title = "Ship 10× faster with HashUI",
+  title = "Ship 10× faster with UICean",
   description = "Highly customizable components for building modern websites and applications that look and feel the way you mean it.",
   actions = [
     { label: "Start building", href: "#", variant: "dark" },

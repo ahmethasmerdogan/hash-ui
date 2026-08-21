@@ -1,12 +1,12 @@
 import { Section, Demo } from "@/components/Section";
-import { Card } from "hash-ui";
+import { Card } from "uicean";
 import {
   HeroTerminal,
   HeroSplit,
   HeroNexus,
   HeroCinematic,
   SplineHero,
-} from "hash-ui-blocks";
+} from "uicean-blocks";
 
 const BLEED = "!block !min-h-0 !p-0";
 
@@ -82,13 +82,13 @@ export default function BlocksHeroesPage() {
           imports={["HeroSplit"]}
           contentClassName={BLEED}
           code={`<HeroSplit
-  brand="hashui"
+  brand="uicean"
   links={[{ label: "Features", href: "#" }, { label: "Pricing", href: "#" }]}
   navActions={[
     { label: "Login", href: "#", variant: "ghost" },
     { label: "Sign up", href: "#", variant: "dark" },
   ]}
-  title="Ship 10× faster with HashUI"
+  title="Ship 10× faster with UICean"
   clients={[{ alt: "Vercel" }, { alt: "Supabase" }]}
 />`}
         >

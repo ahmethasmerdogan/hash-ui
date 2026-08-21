@@ -22,7 +22,7 @@ import {
   IUpload,
   IWarning,
   IX,
-} from "hash-ui";
+} from "uicean";
 
 function ToastButtons() {
   const { push } = useToast();
@@ -147,9 +147,9 @@ export default function FeedbackSection() {
       title="Feedback & overlays"
       desc="Inline alerts, a live toast queue, tooltips, a real modal with focus handling, dropdown menus, shimmer skeletons and empty states — the layer every professional library needs."
     >
-      <Demo label="Alerts" imports={["Alert"]} refName="hashui original" contentClassName="!items-stretch">
+      <Demo label="Alerts" imports={["Alert"]} refName="uicean original" contentClassName="!items-stretch">
         <div className="flex w-full max-w-xl flex-col gap-3">
-          <Alert tone="info" title="A new version of HashUI is available">
+          <Alert tone="info" title="A new version of UICean is available">
             v0.2 adds the feedback layer and the input collection.
           </Alert>
           <Alert tone="success" title="Payment received — order #4821 confirmed" />
@@ -174,11 +174,11 @@ export default function FeedbackSection() {
       </Demo>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Toast queue (live)" imports={["ToastProvider","useToast"]} refName="hashui original">
+        <Demo label="Toast queue (live)" imports={["ToastProvider","useToast"]} refName="uicean original">
           <ToastButtons />
         </Demo>
 
-        <Demo label="Tooltip & dropdown" imports={["Tooltip","Dropdown"]} refName="hashui original" contentClassName="py-12">
+        <Demo label="Tooltip & dropdown" imports={["Tooltip","Dropdown"]} refName="uicean original" contentClassName="py-12">
           <div className="flex items-center gap-6">
             <Tooltip label="Add to favorites">
               <Button variant="outline" size="sm" className="!w-9 !px-0" aria-label="Star">
@@ -209,11 +209,11 @@ export default function FeedbackSection() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Dialog (live)" imports={["Modal","ModalClose"]} refName="hashui original" contentClassName="py-12">
+        <Demo label="Dialog (live)" imports={["Modal","ModalClose"]} refName="uicean original" contentClassName="py-12">
           <ModalDemo />
         </Demo>
 
-        <Demo label="Button states" refName="hashui original">
+        <Demo label="Button states" refName="uicean original">
           <DemoCol>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Button variant="green" loading>
@@ -237,7 +237,7 @@ export default function FeedbackSection() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Skeleton" imports={["Skeleton"]} refName="hashui original" contentClassName="py-10">
+        <Demo label="Skeleton" imports={["Skeleton"]} refName="uicean original" contentClassName="py-10">
           <Card className="w-full max-w-sm rounded-2xl p-4">
             <div className="flex items-center gap-3">
               <Skeleton className="size-10 !rounded-full" />
@@ -258,7 +258,7 @@ export default function FeedbackSection() {
           </Card>
         </Demo>
 
-        <Demo label="Empty state" imports={["EmptyState"]} refName="hashui original" contentClassName="py-10">
+        <Demo label="Empty state" imports={["EmptyState"]} refName="uicean original" contentClassName="py-10">
           <EmptyState
             className="max-w-sm bg-surface/60"
             icon={<IFolder />}

@@ -9,7 +9,7 @@ import {
   IContrast,
   IMoon,
   ISun,
-} from "hash-ui";
+} from "uicean";
 
 /* 4-point sparkle used across the icon refs */
 function Star4({ size = 30, fill = "white" }: { size?: number; fill?: string }) {
@@ -248,7 +248,7 @@ function AppearancePanel() {
 
       <div className="mt-5 text-[15px] font-semibold text-ink">Color Scheme</div>
       <p className="mt-1 text-[12.5px] leading-relaxed text-ink-3">
-        Turn on dark mode, or let HashUI visually match your device settings.
+        Turn on dark mode, or let UICean visually match your device settings.
         This card drives the real site theme.
       </p>
       <div className="mt-3.5 grid grid-cols-3 gap-2.5">

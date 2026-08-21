@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, IMapPin, ICalendar } from "hash-ui";
+import { cx, IMapPin, ICalendar } from "uicean";
 import { CropMarks, SetGlyph, IconTile, Sparkline } from "./visuals.js";
 import { useRise, RISE_ATTR } from "../parts.js";
 

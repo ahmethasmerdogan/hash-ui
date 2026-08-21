@@ -34,7 +34,7 @@ export function DeliveryTimeline({
                 <span className="z-10 flex size-6 items-center justify-center rounded-full border-2 border-emerald-500 bg-surface">
                   <span
                     className="size-3 rounded-full border-2 border-emerald-500 border-t-transparent"
-                    style={{ animation: "hashui-spin 1s linear infinite" }}
+                    style={{ animation: "uicean-spin 1s linear infinite" }}
                   />
                 </span>
               ) : (

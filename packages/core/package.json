@@ -1,5 +1,5 @@
 {
-  "name": "hash-ui",
+  "name": "uicean",
   "version": "0.6.0",
   "description": "A flat, shadow-free React + Tailwind CSS v4 design system — 70+ components and 83 hand-drawn icons, distilled from 36 curated interface references.",
   "keywords": [
@@ -17,13 +17,13 @@
   ],
   "license": "MIT",
   "author": "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
-  "homepage": "https://hashui.vercel.app",
+  "homepage": "https://uicean.vercel.app",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahmethasmerdogan/hash-ui.git",
+    "url": "git+https://github.com/ahmethasmerdogan/uicean.git",
     "directory": "packages/core"
   },
-  "bugs": "https://github.com/ahmethasmerdogan/hash-ui/issues",
+  "bugs": "https://github.com/ahmethasmerdogan/uicean/issues",
   "type": "module",
   "sideEffects": [
     "*.css"
@@ -36,8 +36,8 @@
       "types": "./dist/types/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./css": "./dist/hashui.css",
-    "./hashui.css": "./dist/hashui.css",
+    "./css": "./dist/uicean.css",
+    "./uicean.css": "./dist/uicean.css",
     "./presets/brand-bridge.css": "./dist/presets/brand-bridge.css",
     "./package.json": "./package.json"
   },

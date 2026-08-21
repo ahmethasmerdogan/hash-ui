@@ -23,7 +23,7 @@ import {
   IUsers,
   IWarning,
   IZap,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* APP SHELL                                                           */
@@ -425,7 +425,7 @@ export default function AppShellSection() {
       id="appshell"
       eyebrow="Patterns"
       title="App shell"
-      desc="The productivity status bar with a live clock, the ops sidebar with its gradient active state, and a kanban column peek — assembled entirely from HashUI primitives."
+      desc="The productivity status bar with a live clock, the ops sidebar with its gradient active state, and a kanban column peek — assembled entirely from UICean primitives."
     >
       <Demo label="Top status bar" refName="top-alert-0001" contentClassName="py-10">
         <TopStatusBar />

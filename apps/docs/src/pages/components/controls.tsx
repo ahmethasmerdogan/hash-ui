@@ -7,7 +7,7 @@ import {
   SegmentedControl,
   Switch,
   cx,
-} from "hash-ui";
+} from "uicean";
 
 function GoogleG() {
   return (

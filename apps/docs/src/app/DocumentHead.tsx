@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site";
 /* DocumentHead                                                        */
 /*                                                                     */
 /* A single-page app keeps whatever <title> index.html shipped with, so */
-/* all thirty-three routes were called "HashUI — React + Tailwind v4    */
+/* all thirty-three routes were called "UICean — React + Tailwind v4    */
 /* design system". That is one title in the browser's history, one in   */
 /* every bookmark, one for a search engine to index, and — the part     */
 /* that actually breaks something — one announcement for a screen       */
@@ -46,7 +46,7 @@ export function DocumentHead() {
     const page = pageAt(pathname);
     /* every path that is neither the landing page nor a documented route
        renders the 404 page, and should be labelled as one — the tab, the
-       history entry and the screen-reader announcement all said "HashUI —
+       history entry and the screen-reader announcement all said "UICean —
        A design foundation" before, which is the landing page's title */
     const missing = !page && pathname !== "/";
 

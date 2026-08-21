@@ -1,6 +1,6 @@
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Section, Demo } from "@/components/Section";
-import { Card } from "hash-ui";
+import { Card } from "uicean";
 import {
   Map,
   MapMarker,
@@ -9,7 +9,7 @@ import {
   MarkerTooltip,
   MarkerLabel,
   GlobeFlights,
-} from "hash-ui-blocks";
+} from "uicean-blocks";
 
 const TOOLTIP_PLACES = [
   { id: 1, name: "Empire State Building", lng: -73.9857, lat: 40.7484 },
@@ -30,7 +30,7 @@ export default function BlocksGeoPage() {
         id="map"
         eyebrow="Blocks"
         title="Map"
-        desc="A composable MapLibre surface. Markers are React children rather than imperative marker calls, so a pin can be any HashUI component and its tooltip is ordinary JSX."
+        desc="A composable MapLibre surface. Markers are React children rather than imperative marker calls, so a pin can be any UICean component and its tooltip is ordinary JSX."
         registry="map"
         pkg="blocks"
         source="geo/Map.tsx"

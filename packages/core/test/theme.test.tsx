@@ -32,8 +32,8 @@ describe("ThemeProvider", () => {
   });
 
   it("picks up a stored preference after mount", async () => {
-    localStorage.setItem("hashui-theme", "dark");
-    localStorage.setItem("hashui-accent", "rose");
+    localStorage.setItem("uicean-theme", "dark");
+    localStorage.setItem("uicean-accent", "rose");
     render(
       <ThemeProvider>
         <Probe />
@@ -45,7 +45,7 @@ describe("ThemeProvider", () => {
   });
 
   it("ignores a stored value that is not one of the presets", async () => {
-    localStorage.setItem("hashui-accent", "chartreuse");
+    localStorage.setItem("uicean-accent", "chartreuse");
     render(
       <ThemeProvider>
         <Probe />
@@ -70,7 +70,7 @@ describe("ThemeProvider", () => {
       screen.getByText("violet").click();
     });
     expect(document.documentElement.getAttribute("data-accent")).toBe("violet");
-    expect(localStorage.getItem("hashui-accent")).toBe("violet");
+    expect(localStorage.getItem("uicean-accent")).toBe("violet");
   });
 
   it("follows the system scheme while the mode is 'system'", async () => {
@@ -110,8 +110,8 @@ describe("themeScript", () => {
   });
 
   it("applies the stored theme the same way the provider would", () => {
-    localStorage.setItem("hashui-theme", "dark");
-    localStorage.setItem("hashui-accent", "amber");
+    localStorage.setItem("uicean-theme", "dark");
+    localStorage.setItem("uicean-accent", "amber");
     new Function(themeScript)();
     expect(document.documentElement.classList.contains("dark")).toBe(true);
     expect(document.documentElement.getAttribute("data-accent")).toBe("amber");
@@ -122,7 +122,7 @@ describe("themeScript", () => {
        preset is ever renamed this is where it would silently drift */
     for (const id of Object.keys(ACCENTS)) {
       if (id === "emerald") continue;
-      localStorage.setItem("hashui-accent", id);
+      localStorage.setItem("uicean-accent", id);
       document.documentElement.removeAttribute("data-accent");
       new Function(themeScript)();
       expect(document.documentElement.getAttribute("data-accent")).toBe(id);

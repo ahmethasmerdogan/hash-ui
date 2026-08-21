@@ -12,7 +12,7 @@ import {
   IBox,
   ITruck,
   IZap,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* TIMELINES                                                           */

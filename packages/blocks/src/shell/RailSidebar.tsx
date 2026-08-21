@@ -14,7 +14,7 @@ import {
   IChevronDown,
   IChevronRight,
   IDots,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* RailSidebar                                                         */
@@ -29,7 +29,7 @@ import {
 /* panel is scrolled.                                                  */
 /*                                                                     */
 /* The reference marks the active row with a pale fill. That reads as  */
-/* "hovered" everywhere else in this system, so the row uses HashUI's  */
+/* "hovered" everywhere else in this system, so the row uses UICean's  */
 /* ink pill and leading dot instead — see <SidebarNav> for the rule.   */
 /* ------------------------------------------------------------------ */
 

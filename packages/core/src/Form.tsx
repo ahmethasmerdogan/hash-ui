@@ -2,7 +2,7 @@ import { useId, useState, type ReactNode, type TextareaHTMLAttributes } from "re
 import { cx } from "./cx.js";
 
 /* ------------------------------------------------------------------ */
-/* The form parts HashUI was missing.                                  */
+/* The form parts UICean was missing.                                  */
 /*                                                                     */
 /* The system was rich in expressive pieces — meters, glow pills,      */
 /* commit graphs — and had no label, no textarea, and no way to attach */
@@ -313,7 +313,7 @@ export function Spinner({
         style={{
           width: size,
           height: size,
-          animation: "hashui-spin 0.7s linear infinite",
+          animation: "uicean-spin 0.7s linear infinite",
         }}
       />
       {label && <span className="sr-only">{label}</span>}

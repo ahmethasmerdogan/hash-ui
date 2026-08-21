@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx } from "hash-ui";
+import { cx } from "uicean";
 import { AuthCard, type AuthCardProps } from "./AuthCard.js";
 
 /* ------------------------------------------------------------------ */

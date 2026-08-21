@@ -138,7 +138,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             <div
               key={t.id}
               className="pointer-events-auto flex items-start gap-3 rounded-2xl border border-line bg-surface px-4 py-3.5 shadow-pop"
-              style={{ animation: "hashui-toast-in 0.25s cubic-bezier(0.2,0.9,0.3,1)" }}
+              style={{ animation: "uicean-toast-in 0.25s cubic-bezier(0.2,0.9,0.3,1)" }}
             >
               <span className={cx("mt-px shrink-0", tone.icon)}>{tone.glyph}</span>
               <div className="min-w-0 flex-1">
@@ -205,7 +205,7 @@ export function Skeleton({ className }: { className?: string }) {
         background:
           "linear-gradient(100deg, var(--inset) 40%, var(--line) 50%, var(--inset) 60%)",
         backgroundSize: "200% 100%",
-        animation: "hashui-shimmer 1.6s linear infinite",
+        animation: "uicean-shimmer 1.6s linear infinite",
       }}
     />
   );

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx } from "hash-ui";
+import { cx } from "uicean";
 import { useInView } from "../hooks.js";
 import type { NavLink } from "./HeroSplit.js";
 

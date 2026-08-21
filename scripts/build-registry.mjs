@@ -9,8 +9,8 @@
 /*   apps/docs/src/lib/registry-items.ts  typed list for the docs UI    */
 /*                                                                      */
 /* Once the site is deployed those files are a plain JSON API:          */
-/*   npx shadcn@latest add https://hashui.vercel.app/r/button.json      */
-/*   curl  https://hashui.vercel.app/r/registry.json                    */
+/*   npx shadcn@latest add https://uicean.vercel.app/r/button.json      */
+/*   curl  https://uicean.vercel.app/r/registry.json                    */
 /* ------------------------------------------------------------------ */
 
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
@@ -22,12 +22,12 @@ const BLOCKS_SRC = `${ROOT}packages/blocks/src`;
 const OUT = `${ROOT}apps/docs/public/r`;
 const LIB = `${ROOT}apps/docs/src/lib`;
 
-const HOMEPAGE = "https://hashui.vercel.app";
+const HOMEPAGE = "https://uicean.vercel.app";
 const BASE = `${HOMEPAGE}/r`;
 
 /** where copied files land in the consumer's project */
-const UI_DIR = "components/hashui";
-const LIB_DIR = "lib/hashui";
+const UI_DIR = "components/uicean";
+const LIB_DIR = "lib/uicean";
 const CSS_DIR = "styles";
 
 /* ------------------------------------------------------------------ */
@@ -239,7 +239,7 @@ const ITEMS = [
 
 const CSS_ITEM = {
   name: "tokens",
-  file: "hashui.css",
+  file: "uicean.css",
   title: "Design tokens",
   description:
     "Every design token in one file: surfaces, ink, brand, the button-face palette, both themes and the utility classes. Import it after Tailwind.",
@@ -249,7 +249,7 @@ const CSS_ITEM = {
 /* ------------------------------------------------------------------ */
 /* Blocks — packages/blocks/src                                        */
 /*                                                                     */
-/* Section-sized pieces. They import from `hash-ui`, so copying one    */
+/* Section-sized pieces. They import from `uicean`, so copying one    */
 /* into a project means also copying whichever core files it reaches   */
 /* for; `rewriteBlockImports` below works that out per symbol rather   */
 /* than making every block depend on the whole library.                */
@@ -444,7 +444,7 @@ const BLOCKS_CSS_ITEM = {
   file: "blocks.css",
   title: "Effects tokens",
   description:
-    "The .fx-* layer: the one place in HashUI where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
+    "The .fx-* layer: the one place in UICean where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
 };
 
 /* source file name → registry item name, used to rewrite imports */
@@ -460,7 +460,7 @@ const targetOf = (item) =>
     ? `${LIB_DIR}/${item.name}.ts`
     : `${UI_DIR}/${item.name}.tsx`;
 
-/** `import { cx } from "./cx.js"` → `import { cx } from "@/lib/hashui/cx"` */
+/** `import { cx } from "./cx.js"` → `import { cx } from "@/lib/uicean/cx"` */
 function rewriteImports(code) {
   /* [\w-]+, not [A-Za-z]+: a hyphenated module — overlay-primitives — did
      not match at all, so it was neither rewritten nor reported. The throw
@@ -475,7 +475,7 @@ function rewriteImports(code) {
 }
 
 const BANNER = (item) =>
-  `/* ${item.title} — HashUI\n` +
+  `/* ${item.title} — UICean\n` +
   ` * ${HOMEPAGE}/docs\n` +
   ` *\n` +
   ` * Copied into your project by the shadcn CLI. It is yours now: edit it,\n` +
@@ -501,7 +501,7 @@ async function buildItem(item) {
     ],
     files: [
       {
-        path: `registry/hashui/${item.name}${item.lib ? ".ts" : ".tsx"}`,
+        path: `registry/uicean/${item.name}${item.lib ? ".ts" : ".tsx"}`,
         content,
         type: item.lib ? "registry:lib" : "registry:ui",
         target,
@@ -523,10 +523,10 @@ async function buildCssItem() {
     registryDependencies: [],
     files: [
       {
-        path: "registry/hashui/hashui.css",
+        path: "registry/uicean/uicean.css",
         content: raw,
         type: "registry:file",
-        target: `${CSS_DIR}/hashui.css`,
+        target: `${CSS_DIR}/uicean.css`,
       },
     ],
   };
@@ -536,7 +536,7 @@ async function buildCssItem() {
 /* ------------------------------------------------------------------ */
 /* Blocks: import rewriting                                            */
 /*                                                                     */
-/* A block says `import { cx, Button, IZap } from "hash-ui"`. Copied   */
+/* A block says `import { cx, Button, IZap } from "uicean"`. Copied   */
 /* into someone's project those three live in three different files,   */
 /* so the specifier has to be split per symbol. The map is built by    */
 /* reading the core sources rather than being maintained by hand — a   */
@@ -593,9 +593,9 @@ const blockTargetOf = (item) =>
 function rewriteBlockImports(code, file, symbolMap) {
   const deps = new Set();
 
-  /* `import { a, b } from "hash-ui"` → one import per core item */
+  /* `import { a, b } from "uicean"` → one import per core item */
   code = code.replace(
-    /import\s+(type\s+)?\{([^}]+)\}\s+from\s+"hash-ui";/g,
+    /import\s+(type\s+)?\{([^}]+)\}\s+from\s+"uicean";/g,
     (_whole, typeOnly, body) => {
       const names = body
         .split(",")
@@ -605,7 +605,7 @@ function rewriteBlockImports(code, file, symbolMap) {
       for (const name of names) {
         const bare = name.replace(/^type\s+/, "").split(/\s+as\s+/)[0].trim();
         const item = symbolMap.get(bare);
-        if (!item) throw new Error(`unmapped hash-ui symbol: ${bare} (${file})`);
+        if (!item) throw new Error(`unmapped uicean symbol: ${bare} (${file})`);
         deps.add(item);
         if (!byItem.has(item)) byItem.set(item, []);
         byItem.get(item).push(name);
@@ -651,7 +651,7 @@ async function buildBlockItem(item, symbolMap) {
     ],
     files: [
       {
-        path: `registry/hashui/${item.name}${item.lib ? ".ts" : ".tsx"}`,
+        path: `registry/uicean/${item.name}${item.lib ? ".ts" : ".tsx"}`,
         content: BANNER(item) + code,
         type: item.lib ? "registry:lib" : "registry:ui",
         target: blockTargetOf(item),
@@ -673,10 +673,10 @@ async function buildBlocksCssItem() {
     registryDependencies: [url(CSS_ITEM.name)],
     files: [
       {
-        path: "registry/hashui/blocks.css",
+        path: "registry/uicean/blocks.css",
         content: raw,
         type: "registry:file",
-        target: `${CSS_DIR}/hashui-blocks.css`,
+        target: `${CSS_DIR}/uicean-blocks.css`,
       },
     ],
   };
@@ -686,11 +686,11 @@ async function buildBlocksCssItem() {
 async function buildBundle(items, cssItem) {
   return {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
-    name: "hashui",
+    name: "uicean",
     type: "registry:ui",
-    title: "HashUI — the whole library",
+    title: "UICean — the whole library",
     description:
-      "Every HashUI component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
+      "Every UICean component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
     author: "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
     dependencies: [],
     registryDependencies: [],
@@ -723,7 +723,7 @@ for (const item of all) {
 /* the index — what `registry.json` is for */
 const index = {
   $schema: "https://ui.shadcn.com/schema/registry.json",
-  name: "hash-ui",
+  name: "uicean",
   homepage: HOMEPAGE,
   items: all.map((i) => ({
     name: i.name,

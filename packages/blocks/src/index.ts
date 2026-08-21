@@ -1,15 +1,15 @@
 /* ------------------------------------------------------------------ */
-/* hash-ui-blocks — marketing and application blocks                  */
+/* uicean-blocks — marketing and application blocks                  */
 /*                                                                     */
 /* Composed sections, not primitives. Everything here is built out of  */
-/* `hash-ui` core and inherits its tokens, so a block dropped into an  */
-/* existing HashUI app already matches it.                             */
+/* `uicean` core and inherits its tokens, so a block dropped into an  */
+/* existing UICean app already matches it.                             */
 /*                                                                     */
-/*   import { HeroTerminal, FeaturesBento } from "hash-ui-blocks";     */
+/*   import { HeroTerminal, FeaturesBento } from "uicean-blocks";     */
 /*                                                                     */
 /* Import the stylesheet after the core one:                           */
-/*   @import "hash-ui/css";                                            */
-/*   @import "hash-ui-blocks/css";                                    */
+/*   @import "uicean/css";                                            */
+/*   @import "uicean-blocks/css";                                    */
 /*                                                                     */
 /* Optional peers, each behind a dynamic import so it only costs you   */
 /* if you use the block that needs it:                                 */

@@ -19,7 +19,7 @@ import {
   Td,
   StatusPill,
   type Column,
-} from "hash-ui";
+} from "uicean";
 
 function FieldDemo() {
   const [handle, setHandle] = useState("");

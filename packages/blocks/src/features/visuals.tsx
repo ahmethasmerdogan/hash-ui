@@ -1,5 +1,5 @@
 import { useId, type ReactNode } from "react";
-import { cx, Avatar } from "hash-ui";
+import { cx, Avatar } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* The illustrations the feature grids are built out of.               */

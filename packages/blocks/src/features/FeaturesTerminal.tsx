@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, Card, ICommand, IZap, IDatabase, ILayers } from "hash-ui";
+import { cx, Card, ICommand, IZap, IDatabase, ILayers } from "uicean";
 import { SplitHeadline, useRise, RISE_ATTR } from "../parts.js";
 
 /* ------------------------------------------------------------------ */
@@ -143,7 +143,7 @@ const DEMO: TerminalFeature[] = [
     icon: <ILayers size={15} />,
     span: 7,
     lines: [
-      { kind: "prompt", text: "POST api.hashui.dev/v1/sync" },
+      { kind: "prompt", text: "POST api.uicean.dev/v1/sync" },
       { kind: "output", text: '{ "records": 128, "mode": "delta" }' },
       { kind: "step", text: "202 Accepted", meta: "41ms" },
     ],

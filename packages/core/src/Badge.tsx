@@ -206,7 +206,7 @@ export function AnnouncementPill({
               ? "linear-gradient(100deg,#f0338d,#e935c9,#8b3af5,#e935c9,#f0338d)"
               : "linear-gradient(115deg,#ff2fb4,#ff8ee0,#ffffff,#ff5ecf,#e935c9,#ff2fb4)",
           backgroundSize: "300% 100%",
-          animation: "hashui-gradient-x 4.5s ease-in-out infinite",
+          animation: "uicean-gradient-x 4.5s ease-in-out infinite",
         }}
       >
         {chip}
@@ -215,7 +215,7 @@ export function AnnouncementPill({
       <span
         aria-hidden
         className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-transparent via-white/12 to-transparent"
-        style={{ animation: "hashui-shine 4.5s ease-in-out infinite" }}
+        style={{ animation: "uicean-shine 4.5s ease-in-out infinite" }}
       />
     </span>
   );

@@ -25,7 +25,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const dir = mkdtempSync(join(tmpdir(), "hashui-pack-"));
+const dir = mkdtempSync(join(tmpdir(), "uicean-pack-"));
 const run = (cmd, args, cwd = dir) =>
   execFileSync(cmd, args, { cwd, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 
@@ -38,7 +38,7 @@ const check = (label, ok, detail = "") => {
 try {
   console.log("building and packing…");
   run("npm", ["run", "build:all"], ROOT);
-  for (const w of ["hash-ui", "hash-ui-blocks"])
+  for (const w of ["uicean", "uicean-blocks"])
     run("npm", ["pack", "-w", w, "--pack-destination", dir], ROOT);
   const tarballs = readdirSync(dir).filter((f) => f.endsWith(".tgz")).map((f) => `./${f}`);
   check(`packed ${tarballs.length} tarballs`, tarballs.length === 2);
@@ -49,10 +49,10 @@ try {
   run("npm", ["install", "--silent", "-D", "typescript@5.8", "@types/react@19", "@types/react-dom@19"]);
 
   writeFileSync(join(dir, "app.tsx"), `
-import { Button, Card, ThemeProvider, ThreeOrb, EmptyState, ICompass } from "hash-ui";
-import { HeroTerminal, FeaturesBento, CinematicFooter, GlobeFlights, DashboardShell } from "hash-ui-blocks";
-import "hash-ui/css";
-import "hash-ui-blocks/css";
+import { Button, Card, ThemeProvider, ThreeOrb, EmptyState, ICompass } from "uicean";
+import { HeroTerminal, FeaturesBento, CinematicFooter, GlobeFlights, DashboardShell } from "uicean-blocks";
+import "uicean/css";
+import "uicean-blocks/css";
 export const App = () => (
   <ThemeProvider>
     <HeroTerminal /><FeaturesBento /><GlobeFlights /><ThreeOrb />

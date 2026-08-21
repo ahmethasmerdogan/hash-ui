@@ -6,7 +6,7 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
 } from "react";
-import { cx, ISparkleFill } from "hash-ui";
+import { cx, ISparkleFill } from "uicean";
 import { runShader } from "./gl.js";
 
 /* ------------------------------------------------------------------ */
@@ -29,7 +29,7 @@ import { runShader } from "./gl.js";
 /* horizon between them; the horizon sliding across a moving ridge is  */
 /* the whole effect. Matte metal is the same code with a soft horizon. */
 /*                                                                     */
-/* It keeps HashUI's button anatomy — the lamp is overhead, the ring   */
+/* It keeps UICean's button anatomy — the lamp is overhead, the ring   */
 /* is 1px, there is a hairline specular along the top — so it sits     */
 /* next to <Button> without looking imported.                          */
 /* ------------------------------------------------------------------ */
@@ -127,7 +127,7 @@ void main() {
   vec3 L = normalize(vec3(-0.35, 0.86, 0.52));
   col += vec3(1.0) * pow(max(dot(reflect(-L, n), view), 0.0), 30.0) * 0.55;
 
-  /* HashUI lights every button from directly above. The metal obeys the
+  /* UICean lights every button from directly above. The metal obeys the
      same lamp, or it looks pasted onto the page. */
   col *= mix(1.30, 0.62, uv.y);
 
@@ -272,7 +272,7 @@ export function LiquidMetalButton({
         aria-hidden
         className="absolute inset-0 -z-10 size-full rounded-full"
       />
-      {/* the hairline specular every other HashUI button carries */}
+      {/* the hairline specular every other UICean button carries */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-x-[6%] top-px z-0 h-px rounded-full bg-white/60"
@@ -286,7 +286,7 @@ export function LiquidMetalButton({
           style={{
             left: p.x - 12,
             top: p.y - 12,
-            animation: "hashui-fx-ripple 600ms ease-out forwards",
+            animation: "uicean-fx-ripple 600ms ease-out forwards",
           }}
         />
       ))}

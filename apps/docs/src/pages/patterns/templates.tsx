@@ -34,7 +34,7 @@ import {
   ISparkleFill,
   IUsers,
   IZap,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 
@@ -69,7 +69,7 @@ function TemplateOverlay({
         </Button>
         <span className="text-[13px] font-semibold text-ink">{name}</span>
         <span className="ml-auto font-mono text-[11px] text-ink-3">
-          template preview · built 100% with HashUI
+          template preview · built 100% with UICean
         </span>
       </div>
       {children}
@@ -697,7 +697,7 @@ export default function TemplatesSection() {
       id="templates"
       eyebrow="Patterns"
       title="Templates"
-      desc="Three full-screen demo sites assembled entirely from HashUI primitives and the new motion layer — open them like real products."
+      desc="Three full-screen demo sites assembled entirely from UICean primitives and the new motion layer — open them like real products."
     >
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {TEMPLATES.map((t, i) => (

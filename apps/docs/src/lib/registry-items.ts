@@ -16,7 +16,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Design tokens",
     "description": "Every design token in one file: surfaces, ink, brand, the button-face palette, both themes and the utility classes. Import it after Tailwind.",
     "type": "registry:theme",
-    "target": "styles/hashui.css",
+    "target": "styles/uicean.css",
     "dependencies": [],
     "registryDependencies": []
   },
@@ -25,7 +25,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "cx",
     "description": "The three-line class-name joiner every component uses. No clsx, no tailwind-merge.",
     "type": "registry:lib",
-    "target": "lib/hashui/cx.ts",
+    "target": "lib/uicean/cx.ts",
     "dependencies": [],
     "registryDependencies": [
       "tokens"
@@ -36,7 +36,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Icons",
     "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
     "type": "registry:ui",
-    "target": "components/hashui/icons.tsx",
+    "target": "components/uicean/icons.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens"
@@ -47,7 +47,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "ThemeProvider",
     "description": "light / dark / system with a persisted choice, plus the live sans-stack switcher behind useTheme().",
     "type": "registry:ui",
-    "target": "components/hashui/theme.tsx",
+    "target": "components/uicean/theme.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens"
@@ -58,7 +58,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Button",
     "description": "One anatomy — vertical gradient, 1px ring, hairline highlight — across eight faces. Plus ButtonGroup, IconButton and SplitButton.",
     "type": "registry:ui",
-    "target": "components/hashui/button.tsx",
+    "target": "components/uicean/button.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -70,7 +70,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Badge & pill",
     "description": "StatusPill, DotPill, OutlineBadge, GlowPill, GlowDot, AnnouncementPill, CountBadge and Kbd — the whole status vocabulary.",
     "type": "registry:ui",
-    "target": "components/hashui/badge.tsx",
+    "target": "components/uicean/badge.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -82,7 +82,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Avatar",
     "description": "Gradient-initial avatars with presence rings, overlapping AvatarGroup and the EntityChip company mark.",
     "type": "registry:ui",
-    "target": "components/hashui/avatar.tsx",
+    "target": "components/uicean/avatar.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -94,7 +94,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Card",
     "description": "Card, InsetPanel, StatTile, OverviewTile and MetaRow — the card-in-card layering the system uses instead of shadows.",
     "type": "registry:ui",
-    "target": "components/hashui/card.tsx",
+    "target": "components/uicean/card.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -106,7 +106,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Controls",
     "description": "Switch, Checkbox, SegmentedControl and SearchField.",
     "type": "registry:ui",
-    "target": "components/hashui/controls.tsx",
+    "target": "components/uicean/controls.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -119,7 +119,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Inputs & selection",
     "description": "Slider, RadioGroup, RadioCards, SelectField, Accordion, Stepper, Pagination and Breadcrumbs.",
     "type": "registry:ui",
-    "target": "components/hashui/inputs.tsx",
+    "target": "components/uicean/inputs.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -132,7 +132,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Form parts",
     "description": "Label, Textarea, Field, Separator, Toggle, ToggleGroup and Spinner. Field generates the ids and wires aria-describedby and aria-invalid, so a hint and an error are announced rather than merely shown.",
     "type": "registry:ui",
-    "target": "components/hashui/form.tsx",
+    "target": "components/uicean/form.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -144,7 +144,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Table & DataTable",
     "description": "Table, THead, TBody, Tr, Th and Td for a bespoke table; DataTable on top for columns-in-rows-out with sorting that reports itself on the header cell.",
     "type": "registry:ui",
-    "target": "components/hashui/table.tsx",
+    "target": "components/uicean/table.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -157,7 +157,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Overlay primitives",
     "description": "useDismiss, useFocusTrap, useScrollLock and useAnchoredPosition — the four jobs every overlay has, written once. Anchoring is a rect, a flip and a clamp; no floating-ui.",
     "type": "registry:lib",
-    "target": "lib/hashui/overlay-primitives.ts",
+    "target": "lib/uicean/overlay-primitives.ts",
     "dependencies": [],
     "registryDependencies": [
       "tokens"
@@ -168,7 +168,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Popover & HoverCard",
     "description": "A panel anchored to a trigger. Popover opens on click and takes focus; HoverCard opens on hover and never does, because stealing focus from a passing pointer is hostile.",
     "type": "registry:ui",
-    "target": "components/hashui/popover.tsx",
+    "target": "components/uicean/popover.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -181,7 +181,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Sheet & AlertDialog",
     "description": "A side panel and a confirmation. The sheet dismisses on Escape and on a click outside; the alert dialog does neither, because a stray click is not an answer.",
     "type": "registry:ui",
-    "target": "components/hashui/sheet.tsx",
+    "target": "components/uicean/sheet.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -196,7 +196,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Collapsible, ScrollArea, AspectRatio, InputOTP",
     "description": "The structural pieces. The OTP field is one real input behind six boxes, so a paste, a password manager and the browser's own SMS autofill all land.",
     "type": "registry:ui",
-    "target": "components/hashui/layout.tsx",
+    "target": "components/uicean/layout.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -209,7 +209,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Combobox & Command",
     "description": "A field that filters a list, at two scales. Focus stays in the field and the highlighted row is announced through aria-activedescendant.",
     "type": "registry:ui",
-    "target": "components/hashui/combobox.tsx",
+    "target": "components/uicean/combobox.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -223,7 +223,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Calendar & DatePicker",
     "description": "A month grid with no date library — Intl for the names, local midnight throughout, and a roving tab stop so it is one stop rather than forty-two.",
     "type": "registry:ui",
-    "target": "components/hashui/calendar.tsx",
+    "target": "components/uicean/calendar.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -237,7 +237,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Tabs",
     "description": "PillTabs, NotchTabs, DotTabs, UnderlineTabs and PillNav — five tab treatments on one item model.",
     "type": "registry:ui",
-    "target": "components/hashui/tabs.tsx",
+    "target": "components/uicean/tabs.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -249,7 +249,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Progress & meters",
     "description": "ProgressBar, TickBars, SignalBars, DottedMeter, GoalBar, RainbowMeter, RingProgress, RangeBar, CountdownLCD and LcdTimer.",
     "type": "registry:ui",
-    "target": "components/hashui/progress.tsx",
+    "target": "components/uicean/progress.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -261,7 +261,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Timeline",
     "description": "DeliveryTimeline for ordered steps and StageFlow for service pipelines with protocol connectors.",
     "type": "registry:ui",
-    "target": "components/hashui/timeline.tsx",
+    "target": "components/uicean/timeline.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -275,7 +275,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "CommitGraph",
     "description": "A branching git graph with a hover card and diff counts — built for event-sourced history.",
     "type": "registry:ui",
-    "target": "components/hashui/commit-graph.tsx",
+    "target": "components/uicean/commit-graph.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -289,7 +289,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Feedback",
     "description": "Alert, ToastProvider + useToast, Tooltip, Skeleton and EmptyState.",
     "type": "registry:ui",
-    "target": "components/hashui/feedback.tsx",
+    "target": "components/uicean/feedback.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -302,7 +302,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Overlay",
     "description": "Modal with focus and Esc handling, ModalClose, and the Dropdown menu.",
     "type": "registry:ui",
-    "target": "components/hashui/overlay.tsx",
+    "target": "components/uicean/overlay.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -315,7 +315,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Motion",
     "description": "NumberTicker, Typewriter, Marquee, ShimmerButton, BorderBeam, Spotlight, TiltCard, Reveal, Meteors and GradientText — all dependency-free.",
     "type": "registry:ui",
-    "target": "components/hashui/motion.tsx",
+    "target": "components/uicean/motion.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -327,7 +327,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "ThreeOrb",
     "description": "A wireframe three.js scene that imports the library only once it scrolls into view.",
     "type": "registry:ui",
-    "target": "components/hashui/three-orb.tsx",
+    "target": "components/uicean/three-orb.tsx",
     "dependencies": [
       "three"
     ],
@@ -337,20 +337,20 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     ]
   },
   {
-    "name": "hashui",
-    "title": "HashUI — the whole library",
-    "description": "Every HashUI component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
+    "name": "uicean",
+    "title": "UICean — the whole library",
+    "description": "Every UICean component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
     "type": "registry:ui",
-    "target": "styles/hashui.css",
+    "target": "styles/uicean.css",
     "dependencies": [],
     "registryDependencies": []
   },
   {
     "name": "blocks-tokens",
     "title": "Effects tokens",
-    "description": "The .fx-* layer: the one place in HashUI where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
+    "description": "The .fx-* layer: the one place in UICean where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
     "type": "registry:theme",
-    "target": "styles/hashui-blocks.css",
+    "target": "styles/uicean-blocks.css",
     "dependencies": [],
     "registryDependencies": [
       "tokens"
@@ -361,7 +361,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Block hooks",
     "description": "useInView, useScrollProgress, useMagnetic, usePointer and useReducedMotion — the jobs framer-motion would otherwise be installed for.",
     "type": "registry:lib",
-    "target": "lib/hashui/blocks-hooks.ts",
+    "target": "lib/uicean/blocks-hooks.ts",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -373,7 +373,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Shader runner",
     "description": "runShader — compile, link, one full-screen triangle, capped DPR, pause off screen, freeze under reduced motion, and delete it all on unmount. The eighty lines every fragment-shader effect otherwise repeats.",
     "type": "registry:lib",
-    "target": "lib/hashui/blocks-gl.ts",
+    "target": "lib/uicean/blocks-gl.ts",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -385,7 +385,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Block parts",
     "description": "ActionButton, Eyebrow, SplitHeadline, WindowFrame and WindowField — the small pieces every block is assembled from.",
     "type": "registry:ui",
-    "target": "components/hashui/blocks-parts.tsx",
+    "target": "components/uicean/blocks-parts.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -400,7 +400,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Block visuals",
     "description": "StatDial, FingerprintMark, Sparkline, AvatarStack, SetGlyph, IconTile and CropMarks — drawn illustrations, so a feature card never ships a stale PNG.",
     "type": "registry:ui",
-    "target": "components/hashui/block-visuals.tsx",
+    "target": "components/uicean/block-visuals.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -414,7 +414,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "LogoCloud",
     "description": "The social-proof grid in two treatments — plain rules, or plus marks on the interior crossings with a checkerboard tint.",
     "type": "registry:ui",
-    "target": "components/hashui/logo-cloud.tsx",
+    "target": "components/uicean/logo-cloud.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -428,7 +428,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "IntegrationsMarquee",
     "description": "Three rows of integration chips drifting behind a radial mask, with your own mark held still in the middle.",
     "type": "registry:ui",
-    "target": "components/hashui/integrations-marquee.tsx",
+    "target": "components/uicean/integrations-marquee.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -444,7 +444,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "FeaturesBento",
     "description": "An uneven twelve-column feature grid: a wide claim across the top, then cards that change width as the row goes on.",
     "type": "registry:ui",
-    "target": "components/hashui/features-bento.tsx",
+    "target": "components/uicean/features-bento.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -461,7 +461,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "FeaturesTerminal",
     "description": "The developer-platform grid — every card opens with a terminal or an API exchange, given as data rather than as a screenshot.",
     "type": "registry:ui",
-    "target": "components/hashui/features-terminal.tsx",
+    "target": "components/uicean/features-terminal.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -477,7 +477,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "FeaturesCrop",
     "description": "Feature plates under printer's crop marks, closed by a full-width card with a row of captioned glyphs.",
     "type": "registry:ui",
-    "target": "components/hashui/features-crop.tsx",
+    "target": "components/uicean/features-crop.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -493,7 +493,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "HeroTerminal",
     "description": "The developer-tool opening: announcement chip, two-tone headline, two calls to action, and the install running underneath.",
     "type": "registry:ui",
-    "target": "components/hashui/hero-terminal.tsx",
+    "target": "components/uicean/hero-terminal.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -509,7 +509,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "HeroSplit",
     "description": "A real navigation bar, a left-aligned headline and a client strip — the marketing-site opening rather than a launch page.",
     "type": "registry:ui",
-    "target": "components/hashui/hero-split.tsx",
+    "target": "components/uicean/hero-split.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -526,7 +526,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "HeroNexus",
     "description": "The SaaS opening: grouped nav menus, an announcement pill, a headline whose last word cycles, and an inline capture form.",
     "type": "registry:ui",
-    "target": "components/hashui/hero-nexus.tsx",
+    "target": "components/uicean/hero-nexus.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -545,7 +545,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "HeroCinematic",
     "description": "A full-bleed still or loop, a floating pill of navigation, and the brand set enormous and cropped along the bottom edge.",
     "type": "registry:ui",
-    "target": "components/hashui/hero-cinematic.tsx",
+    "target": "components/uicean/hero-cinematic.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -560,7 +560,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "SplineScene",
     "description": "A Spline 3D scene behind a dynamic import, so the runtime is fetched only once the block nears the viewport.",
     "type": "registry:ui",
-    "target": "components/hashui/spline-scene.tsx",
+    "target": "components/uicean/spline-scene.tsx",
     "dependencies": [
       "@splinetool/react-spline"
     ],
@@ -577,7 +577,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "AuthCard",
     "description": "A sign-in / sign-up card that is a real form: submits on Enter, carries the autocomplete tokens a password manager matches on, and puts its error in a live region.",
     "type": "registry:ui",
-    "target": "components/hashui/auth-card.tsx",
+    "target": "components/uicean/auth-card.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -594,7 +594,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "AuthSplit",
     "description": "AuthCard with the other half of the screen given over to a quote and customer marks. The panel is dropped below lg rather than stacked above the form.",
     "type": "registry:ui",
-    "target": "components/hashui/auth-split.tsx",
+    "target": "components/uicean/auth-split.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -608,7 +608,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "CinematicFooter",
     "description": "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",
     "type": "registry:ui",
-    "target": "components/hashui/cinematic-footer.tsx",
+    "target": "components/uicean/cinematic-footer.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -623,7 +623,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "GridFooter",
     "description": "A footer built as an exposed ruled grid rather than as stacked columns.",
     "type": "registry:ui",
-    "target": "components/hashui/grid-footer.tsx",
+    "target": "components/uicean/grid-footer.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -638,7 +638,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "DashboardShell",
     "description": "A workspace switcher, a nested navigation tree and a pinned footer group, wrapped in a collapsible rail with a top bar and a search overlay.",
     "type": "registry:ui",
-    "target": "components/hashui/dashboard-shell.tsx",
+    "target": "components/uicean/dashboard-shell.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -654,7 +654,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "RailSidebar",
     "description": "The two-part admin navigation: a narrow rail of destinations, and a searchable panel holding the tree for the selected one.",
     "type": "registry:ui",
-    "target": "components/hashui/rail-sidebar.tsx",
+    "target": "components/uicean/rail-sidebar.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -669,7 +669,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "Map",
     "description": "A composable MapLibre surface whose markers are React children — Map, MapMarker, MarkerContent, MarkerDot, MarkerTooltip and MarkerLabel.",
     "type": "registry:ui",
-    "target": "components/hashui/map.tsx",
+    "target": "components/uicean/map.tsx",
     "dependencies": [
       "maplibre-gl"
     ],
@@ -684,7 +684,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "GlobeFlights",
     "description": "A turning globe with great-circle routes and a glyph riding each arc, hidden as it passes behind the planet.",
     "type": "registry:ui",
-    "target": "components/hashui/globe-flights.tsx",
+    "target": "components/uicean/globe-flights.tsx",
     "dependencies": [
       "cobe"
     ],
@@ -700,7 +700,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "LiquidMetalButton",
     "description": "A brushed-metal pill with a turning sheen, a glowing rim and a ripple from wherever you clicked. No shader program.",
     "type": "registry:ui",
-    "target": "components/hashui/liquid-metal-button.tsx",
+    "target": "components/uicean/liquid-metal-button.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -715,7 +715,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "GeminiRibbon",
     "description": "Five ribbons that draw themselves as the page passes, each trailing a blurred copy of itself for the light.",
     "type": "registry:ui",
-    "target": "components/hashui/gemini-ribbon.tsx",
+    "target": "components/uicean/gemini-ribbon.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",
@@ -729,7 +729,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     "title": "NeuralVortex",
     "description": "A full-bleed WebGL backdrop of filaments that lean towards the pointer. One fragment shader, no dependencies.",
     "type": "registry:ui",
-    "target": "components/hashui/neural-vortex.tsx",
+    "target": "components/uicean/neural-vortex.tsx",
     "dependencies": [],
     "registryDependencies": [
       "tokens",

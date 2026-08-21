@@ -1,10 +1,10 @@
 # Changelog
 
-All notable changes to HashUI. The format follows
+All notable changes to UICean. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the packages
 follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
-`hash-ui` and `hash-ui-blocks` are versioned together.
+`uicean` and `uicean-blocks` are versioned together.
 
 ---
 
@@ -15,7 +15,7 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 - **The overlay family.** `Popover`, `HoverCard`, `Sheet`, `AlertDialog`,
   `Combobox`, `Command`, `Calendar`, `DatePicker`, `Collapsible`,
   `ScrollArea`, `AspectRatio` and `InputOTP` — the structural half of shadcn's
-  set, which HashUI had none of.
+  set, which UICean had none of.
 
   `overlay-primitives.ts` holds the four jobs every one of them has:
   dismissing, trapping focus, locking the scroll and standing next to
@@ -38,7 +38,7 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
   function of the props it has to carry, so they are visible at the call site
   instead of being applied by `cloneElement` behind your back.
 
-- **`Table` and `DataTable`.** HashUI documented a data table and shipped no
+- **`Table` and `DataTable`.** UICean documented a data table and shipped no
   table — the demo was hand-written markup, so anyone who liked it had to copy
   the markup rather than the component. The primitives carry the house style
   and nothing else; `DataTable` sits on top for columns-in-rows-out, with
@@ -87,7 +87,7 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-**`hash-ui-blocks`** — a second package of section-sized pieces, built out of
+**`uicean-blocks`** — a second package of section-sized pieces, built out of
 the core primitives so they inherit your tokens rather than bringing their own.
 Twenty-one blocks in seven groups:
 
@@ -164,4 +164,4 @@ for when a number is not enough to judge timing or easing.
 
 ### Changed
 
-- The canonical URL is `hashui.vercel.app`.
+- The canonical URL is `uicean.vercel.app`.

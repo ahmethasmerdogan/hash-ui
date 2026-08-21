@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
-import { cx, Kbd, ISearch } from "hash-ui";
+import { cx, Kbd, ISearch } from "uicean";
 import { NAV, type DocPage } from "@/lib/routes";
 
 function Match({ label, q }: { label: string; q: string }) {
@@ -114,7 +114,7 @@ export function CommandK({
     <div className="fixed inset-0 z-[96] flex items-start justify-center px-4 pt-[12vh]">
       <div
         className="absolute inset-0 bg-[#1c1b18]/50 backdrop-blur-[3px] dark:bg-black/65"
-        style={{ animation: "hashui-overlay-in 0.15s ease-out" }}
+        style={{ animation: "uicean-overlay-in 0.15s ease-out" }}
         onClick={onClose}
       />
       <div
@@ -122,7 +122,7 @@ export function CommandK({
         aria-modal="true"
         aria-label="Search documentation"
         className="dark relative w-full max-w-135"
-        style={{ animation: "hashui-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
+        style={{ animation: "uicean-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
         <div className="overflow-hidden rounded-[20px] border border-line bg-canvas shadow-float">
           <div className="flex items-center gap-3 border-b border-line px-5 py-4">

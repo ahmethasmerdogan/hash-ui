@@ -1,6 +1,6 @@
 import { Section, Demo } from "@/components/Section";
-import { Card } from "hash-ui";
-import { AuthCard, AuthSplit } from "hash-ui-blocks";
+import { Card } from "uicean";
+import { AuthCard, AuthSplit } from "uicean-blocks";
 
 const BLEED = "!block !min-h-0 !p-0";
 

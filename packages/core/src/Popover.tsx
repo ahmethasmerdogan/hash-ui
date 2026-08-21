@@ -129,7 +129,7 @@ export function Popover({
                  runs. One transparent frame, and the panel is focusable
                  throughout it. */
               opacity: pos ? 1 : 0,
-              animation: pos ? "hashui-modal-in 0.14s cubic-bezier(0.2,0.9,0.3,1)" : undefined,
+              animation: pos ? "uicean-modal-in 0.14s cubic-bezier(0.2,0.9,0.3,1)" : undefined,
             }}
           >
             {children}
@@ -214,7 +214,7 @@ export function HoverCard({
                  runs. One transparent frame, and the panel is focusable
                  throughout it. */
               opacity: pos ? 1 : 0,
-              animation: pos ? "hashui-modal-in 0.14s cubic-bezier(0.2,0.9,0.3,1)" : undefined,
+              animation: pos ? "uicean-modal-in 0.14s cubic-bezier(0.2,0.9,0.3,1)" : undefined,
             }}
           >
             {children}

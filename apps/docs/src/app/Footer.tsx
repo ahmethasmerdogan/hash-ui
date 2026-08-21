@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IArrowLeft, IArrowRight, IArrowUpRight } from "hash-ui";
+import { IArrowLeft, IArrowRight, IArrowUpRight } from "uicean";
 import { LogoMark } from "@/components/Logo";
 import { neighbours } from "@/lib/routes";
 import { SITE } from "@/lib/site";

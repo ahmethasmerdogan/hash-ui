@@ -33,7 +33,7 @@
       <path d="M44.5 12L39.5 53"/>
     </g>
   </g>
-  <text x="196" y="140" font-size="46" font-weight="700" letter-spacing="-1.6" fill="#1c1b18">HashUI</text>
+  <text x="196" y="140" font-size="46" font-weight="700" letter-spacing="-1.6" fill="#1c1b18">UICean</text>
   <text x="196" y="172" font-size="20" font-weight="500" fill="#6b6862">React 19 · Tailwind CSS v4 · Geist</text>
 
   <!-- headline -->
@@ -46,7 +46,7 @@
   <g transform="translate(88, 478)">
     <rect width="392" height="56" rx="14" fill="#ffffff" stroke="#e6e5e1" stroke-width="1.5"/>
     <text x="26" y="35" font-size="21" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace" fill="#059669">$</text>
-    <text x="48" y="35" font-size="21" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1c1b18">npm install hash-ui</text>
+    <text x="48" y="35" font-size="21" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1c1b18">npm install uicean</text>
   </g>
 
   <!-- stat rail -->
@@ -64,5 +64,5 @@
     <text x="462" y="35" font-size="16" fill="#a3a099">runtime deps</text>
   </g>
 
-  <text x="1112" y="122" font-size="18" font-weight="500" fill="#a3a099" text-anchor="end">github.com/ahmethasmerdogan/hash-ui</text>
+  <text x="1112" y="122" font-size="18" font-weight="500" fill="#a3a099" text-anchor="end">github.com/ahmethasmerdogan/uicean</text>
 </svg>

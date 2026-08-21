@@ -19,11 +19,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "hash-ui": ["../../packages/core/src/index.ts"],
-      "hash-ui-blocks": ["../../packages/blocks/src/index.ts"]
+      "uicean": ["../../packages/core/src/index.ts"],
+      "uicean-blocks": ["../../packages/blocks/src/index.ts"]
     }
   },
-  /* the docs app resolves hash-ui-blocks to source, so it needs the same
+  /* the docs app resolves uicean-blocks to source, so it needs the same
      ambient shims for that package's optional peers */
   "include": [
     "src",

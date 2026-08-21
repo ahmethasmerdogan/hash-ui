@@ -6,7 +6,7 @@ import {
   type ComponentType,
   type ReactNode,
 } from "react";
-import { cx, Spotlight } from "hash-ui";
+import { cx, Spotlight } from "uicean";
 import { useInView } from "../hooks.js";
 
 /* ------------------------------------------------------------------ */
@@ -43,7 +43,7 @@ function loadRuntime() {
     }))
     .catch(() => {
       console.warn(
-        "[hash-ui-blocks] <SplineScene> needs the optional peer `@splinetool/react-spline`.\n" +
+        "[uicean-blocks] <SplineScene> needs the optional peer `@splinetool/react-spline`.\n" +
           "  npm i @splinetool/react-spline",
       );
       return { default: (() => null) as ComponentType<SplineProps> };
@@ -86,7 +86,7 @@ function Loading({ label }: { label: string }) {
         aria-hidden
         className="fx-shimmer pointer-events-none absolute inset-0 opacity-60"
       />
-      <span className="relative size-7 animate-[hashui-spin_900ms_linear_infinite] rounded-full border-2 border-current border-t-transparent text-ink-3" />
+      <span className="relative size-7 animate-[uicean-spin_900ms_linear_infinite] rounded-full border-2 border-current border-t-transparent text-ink-3" />
       <span className="relative text-[12.5px] text-ink-3">{label}</span>
     </div>
   );

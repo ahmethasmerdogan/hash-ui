@@ -10,7 +10,7 @@ import {
   IBox,
   IZap,
   IHash,
-} from "hash-ui";
+} from "uicean";
 import { ActionButton, useRise, RISE_ATTR, type Action } from "../parts.js";
 
 /* ------------------------------------------------------------------ */
@@ -23,7 +23,7 @@ import { ActionButton, useRise, RISE_ATTR, type Action } from "../parts.js";
 /* and react-use-measure. Core already has <Marquee>, which does the    */
 /* same job on a CSS keyframe, so the port is mostly deletion. One      */
 /* behavioural difference worth knowing: upstream *slows* on hover,     */
-/* core's Marquee *pauses* — the HashUI convention, kept on purpose.    */
+/* core's Marquee *pauses* — the UICean convention, kept on purpose.    */
 /* ------------------------------------------------------------------ */
 
 export type Integration = {

@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { ThemeProvider, ToastProvider, Skeleton, cx, IArrowUp } from "hash-ui";
+import { ThemeProvider, ToastProvider, Skeleton, cx, IArrowUp } from "uicean";
 import { Topbar } from "@/app/Topbar";
 import { Sidebar, MobileNav } from "@/app/Sidebar";
 import { CommandK } from "@/app/CommandK";

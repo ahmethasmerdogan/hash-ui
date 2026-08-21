@@ -1,11 +1,11 @@
 import { Section, Demo } from "@/components/Section";
-import { Card } from "hash-ui";
+import { Card } from "uicean";
 import {
   LogoCloud,
   LogoCloudPlus,
   LogoCloudSection,
   IntegrationsMarquee,
-} from "hash-ui-blocks";
+} from "uicean-blocks";
 
 const BLEED = "!block !min-h-0 !p-0";
 
@@ -107,7 +107,7 @@ export default function BlocksLogosPage() {
             built on framer-motion and react-use-measure. Core already has{" "}
             <code className="font-mono">&lt;Marquee&gt;</code> on a CSS keyframe, so
             the port was mostly deletion. One behavioural difference kept on
-            purpose: upstream <em>slows</em> on hover, HashUI <em>pauses</em>.
+            purpose: upstream <em>slows</em> on hover, UICean <em>pauses</em>.
           </p>
         </Card>
       </Section>

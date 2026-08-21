@@ -1,11 +1,11 @@
 /* ------------------------------------------------------------------ */
-/* HashUI — the token layer                                            */
+/* UICean — the token layer                                            */
 /*                                                                     */
 /* Import it AFTER Tailwind, wherever it ended up:                     */
 /*                                                                     */
 /*   @import "tailwindcss";                                            */
-/*   @import "hash-ui/css";          — installed from npm              */
-/*   @import "./styles/hashui.css";  — copied in by the shadcn CLI     */
+/*   @import "uicean/css";          — installed from npm              */
+/*   @import "./styles/uicean.css";  — copied in by the shadcn CLI     */
 /*                                                                     */
 /* Requires Tailwind CSS v4 — the token layer is built on              */
 /* @theme inline and @custom-variant, which do not exist in v3.        */
@@ -13,13 +13,13 @@
 /* Fonts are optional but the system is drawn for them:                */
 /*   npm i @fontsource-variable/geist @fontsource-variable/geist-mono  */
 /*                                                                     */
-/* https://hashui.vercel.app/docs/theming                              */
+/* https://uicean.vercel.app/docs/theming                              */
 /* ------------------------------------------------------------------ */
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ---------------------------------- */
-/* HashUI design tokens               */
+/* UICean design tokens               */
 /* Distilled from 36 curated UI refs  */
 /* v0.4 — flat (no shadows), Geist    */
 /* ---------------------------------- */
@@ -66,7 +66,7 @@
   /* Corner radius — one number the button family reads.                */
   /*                                                                    */
   /* shadcn exposes exactly this: a single --radius, with the steps      */
-  /* derived from it by calc(). HashUI had the same numbers written out  */
+  /* derived from it by calc(). UICean had the same numbers written out  */
   /* in eight places, so "make the buttons squarer" meant eight edits    */
   /* and a chance to miss one. Now it means changing this line.          */
   /*                                                                    */
@@ -384,14 +384,14 @@ body {
 }
 
 /* range input (Slider) */
-.hashui-range {
+.uicean-range {
   -webkit-appearance: none;
   appearance: none;
   height: 6px;
   border-radius: 999px;
   outline: none;
 }
-.hashui-range::-webkit-slider-thumb {
+.uicean-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 18px;
@@ -402,11 +402,11 @@ body {
   cursor: grab;
   transition: transform 0.15s;
 }
-.hashui-range::-webkit-slider-thumb:active {
+.uicean-range::-webkit-slider-thumb:active {
   cursor: grabbing;
   transform: scale(1.08);
 }
-.hashui-range::-moz-range-thumb {
+.uicean-range::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 999px;
@@ -416,12 +416,12 @@ body {
 }
 
 /* keyframes */
-@keyframes hashui-spin {
+@keyframes uicean-spin {
   to {
     transform: rotate(360deg);
   }
 }
-@keyframes hashui-pulse {
+@keyframes uicean-pulse {
   0%,
   100% {
     opacity: 1;
@@ -430,7 +430,7 @@ body {
     opacity: 0.45;
   }
 }
-@keyframes hashui-toast-in {
+@keyframes uicean-toast-in {
   from {
     opacity: 0;
     transform: translateY(10px) scale(0.98);
@@ -440,7 +440,7 @@ body {
     transform: translateY(0) scale(1);
   }
 }
-@keyframes hashui-overlay-in {
+@keyframes uicean-overlay-in {
   from {
     opacity: 0;
   }
@@ -451,24 +451,24 @@ body {
 /* Sheets come from the edge they are attached to. Four keyframes rather
    than one with a variable, because a transform cannot be interpolated
    from a custom property in every browser that matters yet. */
-@keyframes hashui-sheet-right {
+@keyframes uicean-sheet-right {
   from { transform: translateX(100%); }
   to   { transform: translateX(0); }
 }
-@keyframes hashui-sheet-left {
+@keyframes uicean-sheet-left {
   from { transform: translateX(-100%); }
   to   { transform: translateX(0); }
 }
-@keyframes hashui-sheet-top {
+@keyframes uicean-sheet-top {
   from { transform: translateY(-100%); }
   to   { transform: translateY(0); }
 }
-@keyframes hashui-sheet-bottom {
+@keyframes uicean-sheet-bottom {
   from { transform: translateY(100%); }
   to   { transform: translateY(0); }
 }
 
-@keyframes hashui-modal-in {
+@keyframes uicean-modal-in {
   from {
     opacity: 0;
     transform: translateY(10px) scale(0.97);
@@ -478,7 +478,7 @@ body {
     transform: translateY(0) scale(1);
   }
 }
-@keyframes hashui-shimmer {
+@keyframes uicean-shimmer {
   from {
     background-position: 200% 0;
   }
@@ -488,12 +488,12 @@ body {
 }
 
 /* ---- motion / MagicUI-style effects ---- */
-@keyframes hashui-rotate {
+@keyframes uicean-rotate {
   to {
     transform: rotate(360deg);
   }
 }
-@keyframes hashui-shine {
+@keyframes uicean-shine {
   0%,
   25% {
     transform: translateX(-140%) skewX(-18deg);
@@ -503,12 +503,12 @@ body {
     transform: translateX(320%) skewX(-18deg);
   }
 }
-@keyframes hashui-marquee {
+@keyframes uicean-marquee {
   to {
     transform: translateX(-50%);
   }
 }
-@keyframes hashui-gradient-x {
+@keyframes uicean-gradient-x {
   0%,
   100% {
     background-position: 0% 50%;
@@ -517,7 +517,7 @@ body {
     background-position: 100% 50%;
   }
 }
-@keyframes hashui-meteor {
+@keyframes uicean-meteor {
   0% {
     transform: rotate(215deg) translateX(0);
     opacity: 0;
@@ -533,12 +533,12 @@ body {
     opacity: 0;
   }
 }
-@keyframes hashui-beam {
+@keyframes uicean-beam {
   to {
     offset-distance: 100%;
   }
 }
-@keyframes hashui-caret {
+@keyframes uicean-caret {
   0%,
   45% {
     opacity: 1;

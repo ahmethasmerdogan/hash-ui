@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "hash-ui",
-  "homepage": "https://hashui.vercel.app",
+  "name": "uicean",
+  "homepage": "https://uicean.vercel.app",
   "items": [
     {
       "name": "tokens",
@@ -11,9 +11,9 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/hashui/hashui.css",
+          "path": "registry/uicean/uicean.css",
           "type": "registry:file",
-          "target": "styles/hashui.css"
+          "target": "styles/uicean.css"
         }
       ]
     },
@@ -23,13 +23,13 @@
       "title": "cx",
       "description": "The three-line class-name joiner every component uses. No clsx, no tailwind-merge.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json"
+        "https://uicean.vercel.app/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/cx.ts",
+          "path": "registry/uicean/cx.ts",
           "type": "registry:lib",
-          "target": "lib/hashui/cx.ts"
+          "target": "lib/uicean/cx.ts"
         }
       ]
     },
@@ -39,13 +39,13 @@
       "title": "Icons",
       "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json"
+        "https://uicean.vercel.app/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/icons.tsx",
+          "path": "registry/uicean/icons.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/icons.tsx"
+          "target": "components/uicean/icons.tsx"
         }
       ]
     },
@@ -55,13 +55,13 @@
       "title": "ThemeProvider",
       "description": "light / dark / system with a persisted choice, plus the live sans-stack switcher behind useTheme().",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json"
+        "https://uicean.vercel.app/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/theme.tsx",
+          "path": "registry/uicean/theme.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/theme.tsx"
+          "target": "components/uicean/theme.tsx"
         }
       ]
     },
@@ -71,14 +71,14 @@
       "title": "Button",
       "description": "One anatomy — vertical gradient, 1px ring, hairline highlight — across eight faces. Plus ButtonGroup, IconButton and SplitButton.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/button.tsx",
+          "path": "registry/uicean/button.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/button.tsx"
+          "target": "components/uicean/button.tsx"
         }
       ]
     },
@@ -88,14 +88,14 @@
       "title": "Badge & pill",
       "description": "StatusPill, DotPill, OutlineBadge, GlowPill, GlowDot, AnnouncementPill, CountBadge and Kbd — the whole status vocabulary.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/badge.tsx",
+          "path": "registry/uicean/badge.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/badge.tsx"
+          "target": "components/uicean/badge.tsx"
         }
       ]
     },
@@ -105,14 +105,14 @@
       "title": "Avatar",
       "description": "Gradient-initial avatars with presence rings, overlapping AvatarGroup and the EntityChip company mark.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/avatar.tsx",
+          "path": "registry/uicean/avatar.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/avatar.tsx"
+          "target": "components/uicean/avatar.tsx"
         }
       ]
     },
@@ -122,14 +122,14 @@
       "title": "Card",
       "description": "Card, InsetPanel, StatTile, OverviewTile and MetaRow — the card-in-card layering the system uses instead of shadows.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/card.tsx",
+          "path": "registry/uicean/card.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/card.tsx"
+          "target": "components/uicean/card.tsx"
         }
       ]
     },
@@ -139,15 +139,15 @@
       "title": "Controls",
       "description": "Switch, Checkbox, SegmentedControl and SearchField.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/controls.tsx",
+          "path": "registry/uicean/controls.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/controls.tsx"
+          "target": "components/uicean/controls.tsx"
         }
       ]
     },
@@ -157,15 +157,15 @@
       "title": "Inputs & selection",
       "description": "Slider, RadioGroup, RadioCards, SelectField, Accordion, Stepper, Pagination and Breadcrumbs.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/inputs.tsx",
+          "path": "registry/uicean/inputs.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/inputs.tsx"
+          "target": "components/uicean/inputs.tsx"
         }
       ]
     },
@@ -175,14 +175,14 @@
       "title": "Form parts",
       "description": "Label, Textarea, Field, Separator, Toggle, ToggleGroup and Spinner. Field generates the ids and wires aria-describedby and aria-invalid, so a hint and an error are announced rather than merely shown.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/form.tsx",
+          "path": "registry/uicean/form.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/form.tsx"
+          "target": "components/uicean/form.tsx"
         }
       ]
     },
@@ -192,15 +192,15 @@
       "title": "Table & DataTable",
       "description": "Table, THead, TBody, Tr, Th and Td for a bespoke table; DataTable on top for columns-in-rows-out with sorting that reports itself on the header cell.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/table.tsx",
+          "path": "registry/uicean/table.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/table.tsx"
+          "target": "components/uicean/table.tsx"
         }
       ]
     },
@@ -210,13 +210,13 @@
       "title": "Overlay primitives",
       "description": "useDismiss, useFocusTrap, useScrollLock and useAnchoredPosition — the four jobs every overlay has, written once. Anchoring is a rect, a flip and a clamp; no floating-ui.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json"
+        "https://uicean.vercel.app/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/overlay-primitives.ts",
+          "path": "registry/uicean/overlay-primitives.ts",
           "type": "registry:lib",
-          "target": "lib/hashui/overlay-primitives.ts"
+          "target": "lib/uicean/overlay-primitives.ts"
         }
       ]
     },
@@ -226,15 +226,15 @@
       "title": "Popover & HoverCard",
       "description": "A panel anchored to a trigger. Popover opens on click and takes focus; HoverCard opens on hover and never does, because stealing focus from a passing pointer is hostile.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/overlay-primitives.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/overlay-primitives.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/popover.tsx",
+          "path": "registry/uicean/popover.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/popover.tsx"
+          "target": "components/uicean/popover.tsx"
         }
       ]
     },
@@ -244,17 +244,17 @@
       "title": "Sheet & AlertDialog",
       "description": "A side panel and a confirmation. The sheet dismisses on Escape and on a click outside; the alert dialog does neither, because a stray click is not an answer.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/button.json",
-        "https://hashui.vercel.app/r/overlay-primitives.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/button.json",
+        "https://uicean.vercel.app/r/overlay-primitives.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/sheet.tsx",
+          "path": "registry/uicean/sheet.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/sheet.tsx"
+          "target": "components/uicean/sheet.tsx"
         }
       ]
     },
@@ -264,15 +264,15 @@
       "title": "Collapsible, ScrollArea, AspectRatio, InputOTP",
       "description": "The structural pieces. The OTP field is one real input behind six boxes, so a paste, a password manager and the browser's own SMS autofill all land.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/layout.tsx",
+          "path": "registry/uicean/layout.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/layout.tsx"
+          "target": "components/uicean/layout.tsx"
         }
       ]
     },
@@ -282,16 +282,16 @@
       "title": "Combobox & Command",
       "description": "A field that filters a list, at two scales. Focus stays in the field and the highlighted row is announced through aria-activedescendant.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/overlay-primitives.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/overlay-primitives.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/combobox.tsx",
+          "path": "registry/uicean/combobox.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/combobox.tsx"
+          "target": "components/uicean/combobox.tsx"
         }
       ]
     },
@@ -301,16 +301,16 @@
       "title": "Calendar & DatePicker",
       "description": "A month grid with no date library — Intl for the names, local midnight throughout, and a roving tab stop so it is one stop rather than forty-two.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/popover.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/popover.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/calendar.tsx",
+          "path": "registry/uicean/calendar.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/calendar.tsx"
+          "target": "components/uicean/calendar.tsx"
         }
       ]
     },
@@ -320,14 +320,14 @@
       "title": "Tabs",
       "description": "PillTabs, NotchTabs, DotTabs, UnderlineTabs and PillNav — five tab treatments on one item model.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/tabs.tsx",
+          "path": "registry/uicean/tabs.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/tabs.tsx"
+          "target": "components/uicean/tabs.tsx"
         }
       ]
     },
@@ -337,14 +337,14 @@
       "title": "Progress & meters",
       "description": "ProgressBar, TickBars, SignalBars, DottedMeter, GoalBar, RainbowMeter, RingProgress, RangeBar, CountdownLCD and LcdTimer.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/progress.tsx",
+          "path": "registry/uicean/progress.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/progress.tsx"
+          "target": "components/uicean/progress.tsx"
         }
       ]
     },
@@ -354,16 +354,16 @@
       "title": "Timeline",
       "description": "DeliveryTimeline for ordered steps and StageFlow for service pipelines with protocol connectors.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/badge.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/badge.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/timeline.tsx",
+          "path": "registry/uicean/timeline.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/timeline.tsx"
+          "target": "components/uicean/timeline.tsx"
         }
       ]
     },
@@ -373,16 +373,16 @@
       "title": "CommitGraph",
       "description": "A branching git graph with a hover card and diff counts — built for event-sourced history.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/avatar.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/avatar.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/commit-graph.tsx",
+          "path": "registry/uicean/commit-graph.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/commit-graph.tsx"
+          "target": "components/uicean/commit-graph.tsx"
         }
       ]
     },
@@ -392,15 +392,15 @@
       "title": "Feedback",
       "description": "Alert, ToastProvider + useToast, Tooltip, Skeleton and EmptyState.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/feedback.tsx",
+          "path": "registry/uicean/feedback.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/feedback.tsx"
+          "target": "components/uicean/feedback.tsx"
         }
       ]
     },
@@ -410,15 +410,15 @@
       "title": "Overlay",
       "description": "Modal with focus and Esc handling, ModalClose, and the Dropdown menu.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/overlay.tsx",
+          "path": "registry/uicean/overlay.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/overlay.tsx"
+          "target": "components/uicean/overlay.tsx"
         }
       ]
     },
@@ -428,14 +428,14 @@
       "title": "Motion",
       "description": "NumberTicker, Typewriter, Marquee, ShimmerButton, BorderBeam, Spotlight, TiltCard, Reveal, Meteors and GradientText — all dependency-free.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/motion.tsx",
+          "path": "registry/uicean/motion.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/motion.tsx"
+          "target": "components/uicean/motion.tsx"
         }
       ]
     },
@@ -445,153 +445,153 @@
       "title": "ThreeOrb",
       "description": "A wireframe three.js scene that imports the library only once it scrolls into view.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/three-orb.tsx",
+          "path": "registry/uicean/three-orb.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/three-orb.tsx"
+          "target": "components/uicean/three-orb.tsx"
         }
       ]
     },
     {
-      "name": "hashui",
+      "name": "uicean",
       "type": "registry:ui",
-      "title": "HashUI — the whole library",
-      "description": "Every HashUI component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
+      "title": "UICean — the whole library",
+      "description": "Every UICean component, the icon set, the theme provider and the token stylesheet, copied into your project in one command.",
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/hashui/hashui.css",
+          "path": "registry/uicean/uicean.css",
           "type": "registry:file",
-          "target": "styles/hashui.css"
+          "target": "styles/uicean.css"
         },
         {
-          "path": "registry/hashui/cx.ts",
+          "path": "registry/uicean/cx.ts",
           "type": "registry:lib",
-          "target": "lib/hashui/cx.ts"
+          "target": "lib/uicean/cx.ts"
         },
         {
-          "path": "registry/hashui/icons.tsx",
+          "path": "registry/uicean/icons.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/icons.tsx"
+          "target": "components/uicean/icons.tsx"
         },
         {
-          "path": "registry/hashui/theme.tsx",
+          "path": "registry/uicean/theme.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/theme.tsx"
+          "target": "components/uicean/theme.tsx"
         },
         {
-          "path": "registry/hashui/button.tsx",
+          "path": "registry/uicean/button.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/button.tsx"
+          "target": "components/uicean/button.tsx"
         },
         {
-          "path": "registry/hashui/badge.tsx",
+          "path": "registry/uicean/badge.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/badge.tsx"
+          "target": "components/uicean/badge.tsx"
         },
         {
-          "path": "registry/hashui/avatar.tsx",
+          "path": "registry/uicean/avatar.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/avatar.tsx"
+          "target": "components/uicean/avatar.tsx"
         },
         {
-          "path": "registry/hashui/card.tsx",
+          "path": "registry/uicean/card.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/card.tsx"
+          "target": "components/uicean/card.tsx"
         },
         {
-          "path": "registry/hashui/controls.tsx",
+          "path": "registry/uicean/controls.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/controls.tsx"
+          "target": "components/uicean/controls.tsx"
         },
         {
-          "path": "registry/hashui/inputs.tsx",
+          "path": "registry/uicean/inputs.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/inputs.tsx"
+          "target": "components/uicean/inputs.tsx"
         },
         {
-          "path": "registry/hashui/form.tsx",
+          "path": "registry/uicean/form.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/form.tsx"
+          "target": "components/uicean/form.tsx"
         },
         {
-          "path": "registry/hashui/table.tsx",
+          "path": "registry/uicean/table.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/table.tsx"
+          "target": "components/uicean/table.tsx"
         },
         {
-          "path": "registry/hashui/overlay-primitives.ts",
+          "path": "registry/uicean/overlay-primitives.ts",
           "type": "registry:lib",
-          "target": "lib/hashui/overlay-primitives.ts"
+          "target": "lib/uicean/overlay-primitives.ts"
         },
         {
-          "path": "registry/hashui/popover.tsx",
+          "path": "registry/uicean/popover.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/popover.tsx"
+          "target": "components/uicean/popover.tsx"
         },
         {
-          "path": "registry/hashui/sheet.tsx",
+          "path": "registry/uicean/sheet.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/sheet.tsx"
+          "target": "components/uicean/sheet.tsx"
         },
         {
-          "path": "registry/hashui/layout.tsx",
+          "path": "registry/uicean/layout.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/layout.tsx"
+          "target": "components/uicean/layout.tsx"
         },
         {
-          "path": "registry/hashui/combobox.tsx",
+          "path": "registry/uicean/combobox.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/combobox.tsx"
+          "target": "components/uicean/combobox.tsx"
         },
         {
-          "path": "registry/hashui/calendar.tsx",
+          "path": "registry/uicean/calendar.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/calendar.tsx"
+          "target": "components/uicean/calendar.tsx"
         },
         {
-          "path": "registry/hashui/tabs.tsx",
+          "path": "registry/uicean/tabs.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/tabs.tsx"
+          "target": "components/uicean/tabs.tsx"
         },
         {
-          "path": "registry/hashui/progress.tsx",
+          "path": "registry/uicean/progress.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/progress.tsx"
+          "target": "components/uicean/progress.tsx"
         },
         {
-          "path": "registry/hashui/timeline.tsx",
+          "path": "registry/uicean/timeline.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/timeline.tsx"
+          "target": "components/uicean/timeline.tsx"
         },
         {
-          "path": "registry/hashui/commit-graph.tsx",
+          "path": "registry/uicean/commit-graph.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/commit-graph.tsx"
+          "target": "components/uicean/commit-graph.tsx"
         },
         {
-          "path": "registry/hashui/feedback.tsx",
+          "path": "registry/uicean/feedback.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/feedback.tsx"
+          "target": "components/uicean/feedback.tsx"
         },
         {
-          "path": "registry/hashui/overlay.tsx",
+          "path": "registry/uicean/overlay.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/overlay.tsx"
+          "target": "components/uicean/overlay.tsx"
         },
         {
-          "path": "registry/hashui/motion.tsx",
+          "path": "registry/uicean/motion.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/motion.tsx"
+          "target": "components/uicean/motion.tsx"
         },
         {
-          "path": "registry/hashui/three-orb.tsx",
+          "path": "registry/uicean/three-orb.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/three-orb.tsx"
+          "target": "components/uicean/three-orb.tsx"
         }
       ]
     },
@@ -599,15 +599,15 @@
       "name": "blocks-tokens",
       "type": "registry:theme",
       "title": "Effects tokens",
-      "description": "The .fx-* layer: the one place in HashUI where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
+      "description": "The .fx-* layer: the one place in UICean where glow is allowed, plus the grid, aurora, metal and marquee utilities the blocks use.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json"
+        "https://uicean.vercel.app/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/blocks.css",
+          "path": "registry/uicean/blocks.css",
           "type": "registry:file",
-          "target": "styles/hashui-blocks.css"
+          "target": "styles/uicean-blocks.css"
         }
       ]
     },
@@ -617,14 +617,14 @@
       "title": "Block hooks",
       "description": "useInView, useScrollProgress, useMagnetic, usePointer and useReducedMotion — the jobs framer-motion would otherwise be installed for.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/blocks-hooks.ts",
+          "path": "registry/uicean/blocks-hooks.ts",
           "type": "registry:lib",
-          "target": "lib/hashui/blocks-hooks.ts"
+          "target": "lib/uicean/blocks-hooks.ts"
         }
       ]
     },
@@ -634,14 +634,14 @@
       "title": "Shader runner",
       "description": "runShader — compile, link, one full-screen triangle, capped DPR, pause off screen, freeze under reduced motion, and delete it all on unmount. The eighty lines every fragment-shader effect otherwise repeats.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/blocks-gl.ts",
+          "path": "registry/uicean/blocks-gl.ts",
           "type": "registry:lib",
-          "target": "lib/hashui/blocks-gl.ts"
+          "target": "lib/uicean/blocks-gl.ts"
         }
       ]
     },
@@ -651,17 +651,17 @@
       "title": "Block parts",
       "description": "ActionButton, Eyebrow, SplitHeadline, WindowFrame and WindowField — the small pieces every block is assembled from.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/button.json",
-        "https://hashui.vercel.app/r/blocks-hooks.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/button.json",
+        "https://uicean.vercel.app/r/blocks-hooks.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/blocks-parts.tsx",
+          "path": "registry/uicean/blocks-parts.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/blocks-parts.tsx"
+          "target": "components/uicean/blocks-parts.tsx"
         }
       ]
     },
@@ -671,16 +671,16 @@
       "title": "Block visuals",
       "description": "StatDial, FingerprintMark, Sparkline, AvatarStack, SetGlyph, IconTile and CropMarks — drawn illustrations, so a feature card never ships a stale PNG.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/avatar.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/avatar.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/block-visuals.tsx",
+          "path": "registry/uicean/block-visuals.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/block-visuals.tsx"
+          "target": "components/uicean/block-visuals.tsx"
         }
       ]
     },
@@ -690,16 +690,16 @@
       "title": "LogoCloud",
       "description": "The social-proof grid in two treatments — plain rules, or plus marks on the interior crossings with a checkerboard tint.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/logo-cloud.tsx",
+          "path": "registry/uicean/logo-cloud.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/logo-cloud.tsx"
+          "target": "components/uicean/logo-cloud.tsx"
         }
       ]
     },
@@ -709,18 +709,18 @@
       "title": "IntegrationsMarquee",
       "description": "Three rows of integration chips drifting behind a radial mask, with your own mark held still in the middle.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/motion.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-parts.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/motion.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-parts.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/integrations-marquee.tsx",
+          "path": "registry/uicean/integrations-marquee.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/integrations-marquee.tsx"
+          "target": "components/uicean/integrations-marquee.tsx"
         }
       ]
     },
@@ -730,19 +730,19 @@
       "title": "FeaturesBento",
       "description": "An uneven twelve-column feature grid: a wide claim across the top, then cards that change width as the row goes on.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/card.json",
-        "https://hashui.vercel.app/r/badge.json",
-        "https://hashui.vercel.app/r/blocks-parts.json",
-        "https://hashui.vercel.app/r/block-visuals.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/card.json",
+        "https://uicean.vercel.app/r/badge.json",
+        "https://uicean.vercel.app/r/blocks-parts.json",
+        "https://uicean.vercel.app/r/block-visuals.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/features-bento.tsx",
+          "path": "registry/uicean/features-bento.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/features-bento.tsx"
+          "target": "components/uicean/features-bento.tsx"
         }
       ]
     },
@@ -752,18 +752,18 @@
       "title": "FeaturesTerminal",
       "description": "The developer-platform grid — every card opens with a terminal or an API exchange, given as data rather than as a screenshot.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/card.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-parts.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/card.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-parts.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/features-terminal.tsx",
+          "path": "registry/uicean/features-terminal.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/features-terminal.tsx"
+          "target": "components/uicean/features-terminal.tsx"
         }
       ]
     },
@@ -773,18 +773,18 @@
       "title": "FeaturesCrop",
       "description": "Feature plates under printer's crop marks, closed by a full-width card with a row of captioned glyphs.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/block-visuals.json",
-        "https://hashui.vercel.app/r/blocks-parts.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/block-visuals.json",
+        "https://uicean.vercel.app/r/blocks-parts.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/features-crop.tsx",
+          "path": "registry/uicean/features-crop.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/features-crop.tsx"
+          "target": "components/uicean/features-crop.tsx"
         }
       ]
     },
@@ -794,18 +794,18 @@
       "title": "HeroTerminal",
       "description": "The developer-tool opening: announcement chip, two-tone headline, two calls to action, and the install running underneath.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-parts.json",
-        "https://hashui.vercel.app/r/features-terminal.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-parts.json",
+        "https://uicean.vercel.app/r/features-terminal.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/hero-terminal.tsx",
+          "path": "registry/uicean/hero-terminal.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/hero-terminal.tsx"
+          "target": "components/uicean/hero-terminal.tsx"
         }
       ]
     },
@@ -815,19 +815,19 @@
       "title": "HeroSplit",
       "description": "A real navigation bar, a left-aligned headline and a client strip — the marketing-site opening rather than a launch page.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/button.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-parts.json",
-        "https://hashui.vercel.app/r/logo-cloud.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/button.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-parts.json",
+        "https://uicean.vercel.app/r/logo-cloud.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/hero-split.tsx",
+          "path": "registry/uicean/hero-split.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/hero-split.tsx"
+          "target": "components/uicean/hero-split.tsx"
         }
       ]
     },
@@ -837,21 +837,21 @@
       "title": "HeroNexus",
       "description": "The SaaS opening: grouped nav menus, an announcement pill, a headline whose last word cycles, and an inline capture form.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/button.json",
-        "https://hashui.vercel.app/r/motion.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-parts.json",
-        "https://hashui.vercel.app/r/blocks-hooks.json",
-        "https://hashui.vercel.app/r/hero-split.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/button.json",
+        "https://uicean.vercel.app/r/motion.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-parts.json",
+        "https://uicean.vercel.app/r/blocks-hooks.json",
+        "https://uicean.vercel.app/r/hero-split.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/hero-nexus.tsx",
+          "path": "registry/uicean/hero-nexus.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/hero-nexus.tsx"
+          "target": "components/uicean/hero-nexus.tsx"
         }
       ]
     },
@@ -861,17 +861,17 @@
       "title": "HeroCinematic",
       "description": "A full-bleed still or loop, a floating pill of navigation, and the brand set enormous and cropped along the bottom edge.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/blocks-hooks.json",
-        "https://hashui.vercel.app/r/hero-split.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/blocks-hooks.json",
+        "https://uicean.vercel.app/r/hero-split.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/hero-cinematic.tsx",
+          "path": "registry/uicean/hero-cinematic.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/hero-cinematic.tsx"
+          "target": "components/uicean/hero-cinematic.tsx"
         }
       ]
     },
@@ -881,17 +881,17 @@
       "title": "SplineScene",
       "description": "A Spline 3D scene behind a dynamic import, so the runtime is fetched only once the block nears the viewport.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/motion.json",
-        "https://hashui.vercel.app/r/blocks-hooks.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/motion.json",
+        "https://uicean.vercel.app/r/blocks-hooks.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/spline-scene.tsx",
+          "path": "registry/uicean/spline-scene.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/spline-scene.tsx"
+          "target": "components/uicean/spline-scene.tsx"
         }
       ]
     },
@@ -901,19 +901,19 @@
       "title": "AuthCard",
       "description": "A sign-in / sign-up card that is a real form: submits on Enter, carries the autocomplete tokens a password manager matches on, and puts its error in a live region.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/button.json",
-        "https://hashui.vercel.app/r/form.json",
-        "https://hashui.vercel.app/r/controls.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/button.json",
+        "https://uicean.vercel.app/r/form.json",
+        "https://uicean.vercel.app/r/controls.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/auth-card.tsx",
+          "path": "registry/uicean/auth-card.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/auth-card.tsx"
+          "target": "components/uicean/auth-card.tsx"
         }
       ]
     },
@@ -923,16 +923,16 @@
       "title": "AuthSplit",
       "description": "AuthCard with the other half of the screen given over to a quote and customer marks. The panel is dropped below lg rather than stacked above the form.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/auth-card.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/auth-card.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/auth-split.tsx",
+          "path": "registry/uicean/auth-split.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/auth-split.tsx"
+          "target": "components/uicean/auth-split.tsx"
         }
       ]
     },
@@ -942,17 +942,17 @@
       "title": "CinematicFooter",
       "description": "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-hooks.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-hooks.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/cinematic-footer.tsx",
+          "path": "registry/uicean/cinematic-footer.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/cinematic-footer.tsx"
+          "target": "components/uicean/cinematic-footer.tsx"
         }
       ]
     },
@@ -962,17 +962,17 @@
       "title": "GridFooter",
       "description": "A footer built as an exposed ruled grid rather than as stacked columns.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-parts.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-parts.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/grid-footer.tsx",
+          "path": "registry/uicean/grid-footer.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/grid-footer.tsx"
+          "target": "components/uicean/grid-footer.tsx"
         }
       ]
     },
@@ -982,18 +982,18 @@
       "title": "DashboardShell",
       "description": "A workspace switcher, a nested navigation tree and a pinned footer group, wrapped in a collapsible rail with a top bar and a search overlay.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/avatar.json",
-        "https://hashui.vercel.app/r/badge.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/avatar.json",
+        "https://uicean.vercel.app/r/badge.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/dashboard-shell.tsx",
+          "path": "registry/uicean/dashboard-shell.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/dashboard-shell.tsx"
+          "target": "components/uicean/dashboard-shell.tsx"
         }
       ]
     },
@@ -1003,17 +1003,17 @@
       "title": "RailSidebar",
       "description": "The two-part admin navigation: a narrow rail of destinations, and a searchable panel holding the tree for the selected one.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/controls.json",
-        "https://hashui.vercel.app/r/icons.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/controls.json",
+        "https://uicean.vercel.app/r/icons.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/rail-sidebar.tsx",
+          "path": "registry/uicean/rail-sidebar.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/rail-sidebar.tsx"
+          "target": "components/uicean/rail-sidebar.tsx"
         }
       ]
     },
@@ -1023,15 +1023,15 @@
       "title": "Map",
       "description": "A composable MapLibre surface whose markers are React children — Map, MapMarker, MarkerContent, MarkerDot, MarkerTooltip and MarkerLabel.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/map.tsx",
+          "path": "registry/uicean/map.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/map.tsx"
+          "target": "components/uicean/map.tsx"
         }
       ]
     },
@@ -1041,16 +1041,16 @@
       "title": "GlobeFlights",
       "description": "A turning globe with great-circle routes and a glyph riding each arc, hidden as it passes behind the planet.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/motion.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/motion.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/globe-flights.tsx",
+          "path": "registry/uicean/globe-flights.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/globe-flights.tsx"
+          "target": "components/uicean/globe-flights.tsx"
         }
       ]
     },
@@ -1060,17 +1060,17 @@
       "title": "LiquidMetalButton",
       "description": "A brushed-metal pill with a turning sheen, a glowing rim and a ripple from wherever you clicked. No shader program.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/icons.json",
-        "https://hashui.vercel.app/r/blocks-gl.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/icons.json",
+        "https://uicean.vercel.app/r/blocks-gl.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/liquid-metal-button.tsx",
+          "path": "registry/uicean/liquid-metal-button.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/liquid-metal-button.tsx"
+          "target": "components/uicean/liquid-metal-button.tsx"
         }
       ]
     },
@@ -1080,16 +1080,16 @@
       "title": "GeminiRibbon",
       "description": "Five ribbons that draw themselves as the page passes, each trailing a blurred copy of itself for the light.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json",
-        "https://hashui.vercel.app/r/blocks-hooks.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json",
+        "https://uicean.vercel.app/r/blocks-hooks.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/gemini-ribbon.tsx",
+          "path": "registry/uicean/gemini-ribbon.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/gemini-ribbon.tsx"
+          "target": "components/uicean/gemini-ribbon.tsx"
         }
       ]
     },
@@ -1099,15 +1099,15 @@
       "title": "NeuralVortex",
       "description": "A full-bleed WebGL backdrop of filaments that lean towards the pointer. One fragment shader, no dependencies.",
       "registryDependencies": [
-        "https://hashui.vercel.app/r/tokens.json",
-        "https://hashui.vercel.app/r/blocks-tokens.json",
-        "https://hashui.vercel.app/r/cx.json"
+        "https://uicean.vercel.app/r/tokens.json",
+        "https://uicean.vercel.app/r/blocks-tokens.json",
+        "https://uicean.vercel.app/r/cx.json"
       ],
       "files": [
         {
-          "path": "registry/hashui/neural-vortex.tsx",
+          "path": "registry/uicean/neural-vortex.tsx",
           "type": "registry:ui",
-          "target": "components/hashui/neural-vortex.tsx"
+          "target": "components/uicean/neural-vortex.tsx"
         }
       ]
     }

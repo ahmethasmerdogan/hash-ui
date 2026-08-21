@@ -22,7 +22,7 @@ import {
   IMoon,
   type AccentId,
   type ThemeMode,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* ThemeStudio                                                         */
@@ -70,7 +70,7 @@ export function ThemeStudio() {
 }
 
 /* accent: ${ACCENTS[accent].label.toLowerCase()} — set it on <html> and the
-   whole system follows, or copy the preset out of hashui.css to pin it */
+   whole system follows, or copy the preset out of uicean.css to pin it */
 <html data-accent="${accent}">`;
 
   const copy = () => {

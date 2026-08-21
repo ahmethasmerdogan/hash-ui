@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cx, useToast, ICopy, ICheck } from "hash-ui";
+import { cx, useToast, ICopy, ICheck } from "uicean";
 import { SITE, registryUrl } from "@/lib/site";
 
 /* ------------------------------------------------------------------ */

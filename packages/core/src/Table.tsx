@@ -5,7 +5,7 @@ import { IChevronDown } from "./icons.js";
 /* ------------------------------------------------------------------ */
 /* Table                                                               */
 /*                                                                     */
-/* HashUI documented a data table and shipped no table: the demo on    */
+/* UICean documented a data table and shipped no table: the demo on    */
 /* the data page was hand-written markup, so anyone who liked it had   */
 /* to copy the markup rather than the component.                       */
 /*                                                                     */

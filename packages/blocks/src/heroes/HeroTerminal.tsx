@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, IArrowRight, IChevronRight } from "hash-ui";
+import { cx, IArrowRight, IChevronRight } from "uicean";
 import {
   ActionButton,
   SplitHeadline,

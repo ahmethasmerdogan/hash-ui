@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, IPlus } from "hash-ui";
+import { cx, IPlus } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* LogoCloud / LogoCloudPlus                                           */

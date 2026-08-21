@@ -1,5 +1,5 @@
 import { useMemo, useState, type ComponentType } from "react";
-import * as HashUI from "hash-ui";
+import * as UICean from "uicean";
 import {
   Card,
   SearchField,
@@ -7,7 +7,7 @@ import {
   cx,
   useToast,
   type IconProps,
-} from "hash-ui";
+} from "uicean";
 import { Section, Demo } from "@/components/Section";
 import { CodeBlock } from "@/components/Code";
 
@@ -15,7 +15,7 @@ import { CodeBlock } from "@/components/Code";
    shows up here without anyone remembering to update a list. */
 type IconEntry = { name: string; Icon: ComponentType<IconProps> };
 
-const ICONS: IconEntry[] = Object.entries(HashUI as Record<string, unknown>)
+const ICONS: IconEntry[] = Object.entries(UICean as Record<string, unknown>)
   .filter(([name, value]) => /^I[A-Z]/.test(name) && typeof value === "function")
   .map(([name, value]) => ({ name, Icon: value as ComponentType<IconProps> }))
   .sort((a, b) => a.name.localeCompare(b.name));
@@ -52,7 +52,7 @@ export default function Icons() {
 
   const copy = (name: string) =>
     navigator.clipboard
-      .writeText(`import { ${name} } from "hash-ui";`)
+      .writeText(`import { ${name} } from "uicean";`)
       .then(() => push({ tone: "success", title: `${name} copied` }));
 
   return (
@@ -64,7 +64,7 @@ export default function Icons() {
       title="Icon library"
       desc={`All ${ICONS.length} icons are hand-drawn on a 24px grid with the same 1.8 stroke, sized by a single size prop and coloured by currentColor. They are plain components in one file — no icon package, and unused ones are tree-shaken away.`}
     >
-      <Demo label="Usage" code={`import { IZap, ISearch } from "hash-ui";
+      <Demo label="Usage" code={`import { IZap, ISearch } from "uicean";
 
 <IZap size={16} />
 <ISearch size={14} className="text-ink-3" />
@@ -72,12 +72,12 @@ export default function Icons() {
 // stroke, fill and everything else on <svg> passes through
 <IZap size={20} strokeWidth={2.4} className="text-emerald-600" />`}>
         <div className="flex flex-wrap items-center justify-center gap-7 text-ink">
-          <HashUI.IZap size={28} />
-          <HashUI.ISearch size={28} className="text-ink-3" />
-          <HashUI.ISparkleFill size={28} className="text-emerald-600" />
-          <HashUI.IGitBranch size={28} className="text-blue-600" />
-          <HashUI.IWarning size={28} className="text-amber-500" />
-          <HashUI.IHeartFill size={28} className="text-red-500" />
+          <UICean.IZap size={28} />
+          <UICean.ISearch size={28} className="text-ink-3" />
+          <UICean.ISparkleFill size={28} className="text-emerald-600" />
+          <UICean.IGitBranch size={28} className="text-blue-600" />
+          <UICean.IWarning size={28} className="text-amber-500" />
+          <UICean.IHeartFill size={28} className="text-red-500" />
         </div>
       </Demo>
 
@@ -128,7 +128,7 @@ export default function Icons() {
                 key={name}
                 type="button"
                 onClick={() => copy(name)}
-                title={`import { ${name} } from "hash-ui"`}
+                title={`import { ${name} } from "uicean"`}
                 className={cx(
                   "group/i flex aspect-square flex-col items-center justify-center gap-2.5 border-r border-b border-line transition-colors last:border-r-0 hover:bg-elev",
                 )}

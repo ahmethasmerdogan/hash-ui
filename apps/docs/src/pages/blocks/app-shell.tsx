@@ -1,6 +1,6 @@
 import { Section, Demo } from "@/components/Section";
-import { Card } from "hash-ui";
-import { DashboardShell, SidebarNav, RailSidebar } from "hash-ui-blocks";
+import { Card } from "uicean";
+import { DashboardShell, SidebarNav, RailSidebar } from "uicean-blocks";
 
 const BLEED = "!block !min-h-0 !p-4";
 
@@ -64,7 +64,7 @@ export default function BlocksAppShellPage() {
               The active row is an ink pill with a leading dot.
             </span>{" "}
             The reference used a pale grey fill — which reads as{" "}
-            <em>hovered</em> on every other HashUI surface and would have made
+            <em>hovered</em> on every other UICean surface and would have made
             the state ambiguous. The dot also holds the row&rsquo;s left edge
             steady, so nothing shifts when selection moves.
           </p>

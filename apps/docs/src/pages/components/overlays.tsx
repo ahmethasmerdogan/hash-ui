@@ -24,7 +24,7 @@ import {
   IFolder,
   ISettings,
   type Option,
-} from "hash-ui";
+} from "uicean";
 
 const COUNTRIES: Array<Option> = [
   { value: "tr", label: "Türkiye", description: "+90", keywords: "turkey turkiye" },

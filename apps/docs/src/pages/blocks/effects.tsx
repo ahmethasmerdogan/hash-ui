@@ -1,10 +1,10 @@
 import { Section, Demo, DemoCol } from "@/components/Section";
-import { Card, IArrowRight, IZap } from "hash-ui";
+import { Card, IArrowRight, IZap } from "uicean";
 import {
   LiquidMetalButton,
   GeminiRibbon,
   NeuralVortex,
-} from "hash-ui-blocks";
+} from "uicean-blocks";
 
 /* The ribbon and the vortex both want more room than a demo tile has, so
    each gets a framed viewport it can scroll or bleed inside of. */
@@ -16,7 +16,7 @@ function RibbonDemo() {
         <GeminiRibbon
           title="Scroll inside this frame"
           description="Five curves, five colours, one scroll position — drawn with dash offsets, not a motion library."
-          action={{ label: "hashui.vercel.app", href: "/" }}
+          action={{ label: "uicean.vercel.app", href: "/" }}
         />
       </div>
     </div>
@@ -32,7 +32,7 @@ export default function BlocksEffectsPage() {
         title="Effects"
         desc={
           <>
-            The one layer of HashUI where glow is allowed. Everything here is
+            The one layer of UICean where glow is allowed. Everything here is
             opt-in by name — the <code className="font-mono text-[13px]">.fx-*</code>{" "}
             classes never touch a core component, so the rest of the system
             stays flat.
@@ -91,8 +91,8 @@ export default function BlocksEffectsPage() {
           code={`{/* give the wrapper real height — the ribbons pin while it passes */}
 <div className="h-[400vh]">
   <GeminiRibbon
-    title="Build with HashUI"
-    action={{ label: "hashui.vercel.app", href: "/" }}
+    title="Build with UICean"
+    action={{ label: "uicean.vercel.app", href: "/" }}
   />
 </div>`}
           contentClassName="!p-0 !block !min-h-0"

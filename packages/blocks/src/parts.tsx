@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { cx, Button, type ButtonVariant, type ButtonSize } from "hash-ui";
+import { cx, Button, type ButtonVariant, type ButtonSize } from "uicean";
 import { useInView } from "./hooks.js";
 
 /* ------------------------------------------------------------------ */

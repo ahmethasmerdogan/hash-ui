@@ -29,7 +29,7 @@ export const NAV: NavGroup[] = [
       {
         path: "/docs",
         label: "Introduction",
-        desc: "What HashUI is, what it refuses to do, and how it is put together.",
+        desc: "What UICean is, what it refuses to do, and how it is put together.",
         keywords: "about overview philosophy readme",
         Component: lazy(() => import("@/pages/docs/introduction")),
       },

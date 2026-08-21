@@ -27,10 +27,10 @@ const SIDES = {
 } as const;
 
 const SLIDE = {
-  right: "hashui-sheet-right",
-  left: "hashui-sheet-left",
-  top: "hashui-sheet-top",
-  bottom: "hashui-sheet-bottom",
+  right: "uicean-sheet-right",
+  left: "uicean-sheet-left",
+  top: "uicean-sheet-top",
+  bottom: "uicean-sheet-bottom",
 } as const;
 
 export function Sheet({
@@ -66,7 +66,7 @@ export function Sheet({
     <div className="fixed inset-0 z-[93]">
       <div
         className="absolute inset-0 bg-[#1c1b18]/45 backdrop-blur-[3px] dark:bg-black/60"
-        style={{ animation: "hashui-overlay-in 0.2s ease-out" }}
+        style={{ animation: "uicean-overlay-in 0.2s ease-out" }}
       />
       <div
         ref={panelRef}
@@ -153,7 +153,7 @@ export function AlertDialog({
     <div className="fixed inset-0 z-[94] flex items-center justify-center p-4">
       <div
         className="absolute inset-0 bg-[#1c1b18]/45 backdrop-blur-[3px] dark:bg-black/60"
-        style={{ animation: "hashui-overlay-in 0.2s ease-out" }}
+        style={{ animation: "uicean-overlay-in 0.2s ease-out" }}
       />
       <div
         ref={panelRef}
@@ -164,7 +164,7 @@ export function AlertDialog({
         aria-labelledby={`${id}-t`}
         aria-describedby={description ? `${id}-d` : undefined}
         className="relative w-full max-w-105 rounded-[calc(var(--radius)+8px)] border border-line bg-surface p-6 outline-none"
-        style={{ animation: "hashui-modal-in 0.22s cubic-bezier(0.2,0.9,0.3,1)" }}
+        style={{ animation: "uicean-modal-in 0.22s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
         <h2 id={`${id}-t`} className="text-[16.5px] font-semibold text-ink">
           {title}

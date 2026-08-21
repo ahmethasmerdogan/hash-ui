@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 /* Library build, same shape as packages/core: one tree-shakeable ESM file.
-   Everything the consumer already has stays external — React, the hash-ui
+   Everything the consumer already has stays external — React, the uicean
    core, and the three optional peers that only some blocks reach for. */
 export default defineConfig({
   plugins: [react()],
@@ -17,7 +17,7 @@ export default defineConfig({
         "react",
         "react-dom",
         "react/jsx-runtime",
-        "hash-ui",
+        "uicean",
         "@splinetool/react-spline",
         "cobe",
         "maplibre-gl",

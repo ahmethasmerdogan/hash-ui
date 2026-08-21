@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, useToast, ICopy } from "hash-ui";
+import { cx, useToast, ICopy } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* Tiny dependency-free JSX highlighter                                */

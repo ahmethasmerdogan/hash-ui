@@ -10,7 +10,7 @@ import {
   RingProgress,
   TickBars,
   ICreditCard,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* PROGRESS                                                            */

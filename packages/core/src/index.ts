@@ -1,9 +1,9 @@
 /* ------------------------------------------------------------------ */
-/* HashUI — portable component bundle                                  */
+/* UICean — portable component bundle                                  */
 /*                                                                     */
 /* This folder is self-contained: it imports nothing outside itself     */
 /* except `react` / `react-dom`. Copy it into any Tailwind v4 project,  */
-/* import ./hashui.css after tailwind, and you're done.                 */
+/* import ./uicean.css after tailwind, and you're done.                 */
 /*                                                                     */
 /*   import { Button, StatusPill, Modal, useToast } from "@/ui";        */
 /*                                                                     */

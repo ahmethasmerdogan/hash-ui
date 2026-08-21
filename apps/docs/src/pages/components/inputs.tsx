@@ -16,7 +16,7 @@ import {
   IArrowLeft,
   IArrowRight,
   IHome,
-} from "hash-ui";
+} from "uicean";
 
 function StepperDemo() {
   const steps = ["Account", "Company", "Billing", "Review"];
@@ -86,7 +86,7 @@ export default function InputsSection() {
       desc="Sliders, radios and plan pickers, styled selects, accordions, a horizontal stepper, pagination and breadcrumbs — plus the emissions goal bar rebuilt from the dashboard reference."
     >
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Slider" imports={["Slider"]} refName="hashui original" contentClassName="py-10">
+        <Demo label="Slider" imports={["Slider"]} refName="uicean original" contentClassName="py-10">
           <SliderDemo />
         </Demo>
 
@@ -108,7 +108,7 @@ export default function InputsSection() {
         </Demo>
       </div>
 
-      <Demo label="Plan picker (card radio)" imports={["RadioCards"]} refName="hashui original">
+      <Demo label="Plan picker (card radio)" imports={["RadioCards"]} refName="uicean original">
         <RadioCards
           className="w-full max-w-xl"
           value={plan}
@@ -131,7 +131,7 @@ export default function InputsSection() {
       </Demo>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Demo label="Accordion" imports={["Accordion"]} refName="hashui original" contentClassName="py-10 !px-5">
+        <Demo label="Accordion" imports={["Accordion"]} refName="uicean original" contentClassName="py-10 !px-5">
           <Accordion
             items={[
               {
@@ -153,7 +153,7 @@ export default function InputsSection() {
           />
         </Demo>
 
-        <Demo label="Stepper (interactive)" imports={["Stepper"]} refName="hashui original" contentClassName="py-10">
+        <Demo label="Stepper (interactive)" imports={["Stepper"]} refName="uicean original" contentClassName="py-10">
           <StepperDemo />
         </Demo>
       </div>

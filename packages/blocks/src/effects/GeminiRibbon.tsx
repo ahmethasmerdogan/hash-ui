@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { cx } from "hash-ui";
+import { cx } from "uicean";
 import { useScrollProgress } from "../hooks.js";
 
 /* ------------------------------------------------------------------ */
@@ -46,7 +46,7 @@ export function GeminiRibbon({
 }: GeminiRibbonProps) {
   const [ref, progress] = useScrollProgress<HTMLDivElement>();
   /* useId so two ribbons on one page cannot fight over the filter id */
-  const blur = "hashui-blur-" + useId().replace(/:/g, "");
+  const blur = "uicean-blur-" + useId().replace(/:/g, "");
 
   return (
     <div ref={ref} className={cx("relative w-full", className)}>

@@ -15,10 +15,10 @@
 
     /* Resolve the core from source rather than its dist/, so blocks can be
        typechecked without building core first — the same trick the docs app
-       uses. The emitted .d.ts still says `from "hash-ui"`, which is what a
+       uses. The emitted .d.ts still says `from "uicean"`, which is what a
        consumer installing from npm needs. */
     "paths": {
-      "hash-ui": ["../core/src/index.ts"]
+      "uicean": ["../core/src/index.ts"]
     }
   },
   "include": ["src", "test", "vite.config.ts", "vitest.config.ts"]

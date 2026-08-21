@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, IXSocial, ILinkedIn, IGitBranch, IMail } from "hash-ui";
+import { cx, IXSocial, ILinkedIn, IGitBranch, IMail } from "uicean";
 import { useRise, RISE_ATTR } from "../parts.js";
 
 /* ------------------------------------------------------------------ */
@@ -56,7 +56,7 @@ export function GridFooter({
   description = "Your company description goes here. Describe your products or services in a way that engages your visitors — this cell can hold several sentences about your mission, vision and values.",
   social = DEMO_SOCIAL,
   links = DEMO_LINKS,
-  fineprint = "HashUI © 2026. All rights reserved.",
+  fineprint = "UICean © 2026. All rights reserved.",
   glow = true,
   className,
 }: GridFooterProps) {

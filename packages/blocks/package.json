@@ -1,7 +1,7 @@
 {
-  "name": "hash-ui-blocks",
+  "name": "uicean-blocks",
   "version": "0.6.0",
-  "description": "Marketing and application blocks for HashUI — heroes, feature grids, logo clouds, footers, app shells, maps and scroll-driven effects.",
+  "description": "Marketing and application blocks for UICean — heroes, feature grids, logo clouds, footers, app shells, maps and scroll-driven effects.",
   "keywords": [
     "react",
     "tailwindcss",
@@ -11,17 +11,17 @@
     "footer",
     "landing-page",
     "design-system",
-    "hash-ui"
+    "uicean"
   ],
   "license": "MIT",
   "author": "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
-  "homepage": "https://hashui.vercel.app/docs/blocks",
+  "homepage": "https://uicean.vercel.app/docs/blocks",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahmethasmerdogan/hash-ui.git",
+    "url": "git+https://github.com/ahmethasmerdogan/uicean.git",
     "directory": "packages/blocks"
   },
-  "bugs": "https://github.com/ahmethasmerdogan/hash-ui/issues",
+  "bugs": "https://github.com/ahmethasmerdogan/uicean/issues",
   "type": "module",
   "sideEffects": [
     "*.css"
@@ -53,7 +53,7 @@
   "peerDependencies": {
     "@splinetool/react-spline": ">=4",
     "cobe": "^0.6.5",
-    "hash-ui": "^0.5.0 || ^0.6.0",
+    "uicean": "^0.5.0 || ^0.6.0",
     "maplibre-gl": ">=4",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"

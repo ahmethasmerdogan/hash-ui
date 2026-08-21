@@ -1,6 +1,6 @@
 import { Section, Demo } from "@/components/Section";
-import { Card } from "hash-ui";
-import { CinematicFooter, GridFooter } from "hash-ui-blocks";
+import { Card } from "uicean";
+import { CinematicFooter, GridFooter } from "uicean-blocks";
 import { CodeBlock } from "@/components/Code";
 
 const BLEED = "!block !min-h-0 !p-0";
@@ -15,7 +15,7 @@ function RevealDemo() {
           <p className="microlabel !text-ink-3">Scroll down to reveal</p>
           <span className="mt-6 h-24 w-px bg-linear-to-b from-line-strong to-transparent" />
         </main>
-        <CinematicFooter sticky wordmark="HashUI" />
+        <CinematicFooter sticky wordmark="UICean" />
       </div>
     </div>
   );
@@ -44,7 +44,7 @@ export default function BlocksFootersPage() {
     headline="Ready to begin?"
     marquee={["Accountability redefined", "Transparent tracking"]}
     actions={[{ label: "Download iOS", href: "#" }]}
-    wordmark="HashUI"
+    wordmark="UICean"
   />
 </div>`}
         >
@@ -98,7 +98,7 @@ export default function BlocksFootersPage() {
   headline={<>Footer component<br />built as a grid</>}
   social={[{ label: "X", href: "#", icon: <IXSocial size={16} /> }]}
   links={[{ label: "Product", href: "#" }, { label: "Pricing", href: "#" }]}
-  fineprint="HashUI © 2026. All rights reserved."
+  fineprint="UICean © 2026. All rights reserved."
 />`}
         >
           <GridFooter />

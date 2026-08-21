@@ -3,7 +3,7 @@
 /* The docs site dogfoods the library from source (see vite.config.ts alias),
    so it reads the stylesheet and scans the components straight from the
    package folder — no build step between editing a component and seeing it. */
-@import "../../../packages/core/src/hashui.css";
+@import "../../../packages/core/src/uicean.css";
 @source "../../../packages/core/src";
 
 /* the blocks package is dogfooded the same way — its effects layer has to

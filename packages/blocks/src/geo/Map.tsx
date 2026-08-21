@@ -6,14 +6,14 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { cx } from "hash-ui";
+import { cx } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* Map, MapMarker, MarkerContent, MarkerTooltip, MarkerLabel           */
 /*                                                                     */
 /* A composable MapLibre surface. Markers are React children rather    */
 /* than imperative `new maplibregl.Marker()` calls, so a marker can be */
-/* any HashUI component and its tooltip is ordinary JSX.               */
+/* any UICean component and its tooltip is ordinary JSX.               */
 /*                                                                     */
 /* Markers are positioned by projecting their coordinates through the  */
 /* map on every move rather than by handing DOM nodes to MapLibre.     */
@@ -92,7 +92,7 @@ export function Map({
         ({ Map: MapLibreMap } = await import("maplibre-gl"));
       } catch {
         console.warn(
-          "[hash-ui-blocks] <Map> needs the optional peer `maplibre-gl`.\n" +
+          "[uicean-blocks] <Map> needs the optional peer `maplibre-gl`.\n" +
             "  npm i maplibre-gl\n" +
             '  and import its stylesheet once: import "maplibre-gl/dist/maplibre-gl.css";',
         );

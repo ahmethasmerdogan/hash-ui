@@ -10,7 +10,7 @@ import {
   ICopy,
   IDatabase,
   ILayers,
-} from "hash-ui";
+} from "uicean";
 import { Section } from "@/components/Section";
 import { CodeBlock } from "@/components/Code";
 import { REGISTRY_ITEMS } from "@/lib/registry-items";
@@ -40,7 +40,7 @@ function ItemRow({
               theme
             </StatusPill>
           )}
-          {item.name === "hashui" && (
+          {item.name === "uicean" && (
             <StatusPill tone="green" size="sm">
               all
             </StatusPill>
@@ -116,7 +116,7 @@ export default function Registry() {
           {
             icon: <IDatabase size={17} />,
             title: "2 · Run the CLI",
-            body: "shadcn resolves the dependency graph, rewrites imports to your aliases and writes the files into components/hashui.",
+            body: "shadcn resolves the dependency graph, rewrites imports to your aliases and writes the files into components/uicean.",
           },
           {
             icon: <ICopy size={17} />,
@@ -142,13 +142,13 @@ export default function Registry() {
           code={`npx shadcn@latest add ${registryUrl("button")}
 
 # writes:
-#   components/hashui/button.tsx
-#   lib/hashui/cx.ts          (registry dependency)
-#   styles/hashui.css         (registry dependency)`}
+#   components/uicean/button.tsx
+#   lib/uicean/cx.ts          (registry dependency)
+#   styles/uicean.css         (registry dependency)`}
         />
         <CodeBlock
           filename="terminal — the whole library"
-          code={`npx shadcn@latest add ${registryUrl("hashui")}
+          code={`npx shadcn@latest add ${registryUrl("uicean")}
 
 # every component, the icon set, the theme provider
 # and the token stylesheet, in one pass`}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ACCENTS, cx, useTheme, ICheck, type AccentId } from "hash-ui";
+import { ACCENTS, cx, useTheme, ICheck, type AccentId } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* AccentPicker                                                        */

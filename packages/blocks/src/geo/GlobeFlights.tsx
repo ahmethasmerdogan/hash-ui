@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { cx, useReducedMotion } from "hash-ui";
+import { cx, useReducedMotion } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* GlobeFlights                                                        */
@@ -142,7 +142,7 @@ export function GlobeFlights({
         createGlobe = (mod as { default: typeof import("cobe").default }).default;
       } catch {
         console.warn(
-          "[hash-ui-blocks] <GlobeFlights> needs the optional peer `cobe`.\n" +
+          "[uicean-blocks] <GlobeFlights> needs the optional peer `cobe`.\n" +
             "  npm i cobe",
         );
         if (!cancelled) setFailed(true);

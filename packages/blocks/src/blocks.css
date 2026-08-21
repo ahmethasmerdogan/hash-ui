@@ -1,11 +1,11 @@
 /* ------------------------------------------------------------------ */
-/* hash-ui-blocks — the effects layer                                 */
+/* uicean-blocks — the effects layer                                 */
 /*                                                                     */
 /* Import it AFTER the core token sheet:                               */
 /*                                                                     */
 /*   @import "tailwindcss";                                            */
-/*   @import "hash-ui/css";                                            */
-/*   @import "hash-ui-blocks/css";                                    */
+/*   @import "uicean/css";                                            */
+/*   @import "uicean-blocks/css";                                    */
 /*                                                                     */
 /* Core is flat on purpose — every --sh-* token there is `none` and    */
 /* depth comes from canvas > surface > elev > inset layering. Blocks   */
@@ -16,7 +16,7 @@
 /* classes below and nowhere else, so it is always something you       */
 /* opted into by name. Nothing here restyles a core component.         */
 /*                                                                     */
-/* https://hashui.vercel.app/docs/blocks                               */
+/* https://uicean.vercel.app/docs/blocks                               */
 /* ------------------------------------------------------------------ */
 
 :root {
@@ -106,7 +106,7 @@
     radial-gradient(55% 50% at 80% 25%, var(--fx-aurora-2), transparent 70%),
     radial-gradient(50% 60% at 50% 90%, var(--fx-aurora-3), transparent 70%);
   filter: blur(48px);
-  animation: hashui-fx-aurora 22s ease-in-out infinite alternate;
+  animation: uicean-fx-aurora 22s ease-in-out infinite alternate;
 }
 
 /* ---------------------------------- */
@@ -144,7 +144,7 @@
 }
 
 .fx-kenburns {
-  animation: hashui-fx-kenburns 18s ease-in-out infinite alternate;
+  animation: uicean-fx-kenburns 18s ease-in-out infinite alternate;
 }
 
 /* the plate under a block that is still fetching something large */
@@ -156,10 +156,10 @@
     transparent 80%
   );
   background-size: 220% 100%;
-  animation: hashui-fx-shimmer 1.6s ease-in-out infinite;
+  animation: uicean-fx-shimmer 1.6s ease-in-out infinite;
 }
 
-@keyframes hashui-fx-shimmer {
+@keyframes uicean-fx-shimmer {
   from {
     background-position: 140% 0;
   }
@@ -170,7 +170,7 @@
 
 /* the drifting wash behind GridFooter's lit cell */
 .fx-sweep {
-  animation: hashui-fx-sweep 14s ease-in-out infinite alternate;
+  animation: uicean-fx-sweep 14s ease-in-out infinite alternate;
 }
 
 /* frosted pill used by the cinematic footer's magnetic buttons */
@@ -207,7 +207,7 @@
 /* keyframes                          */
 /* ---------------------------------- */
 
-@keyframes hashui-fx-aurora {
+@keyframes uicean-fx-aurora {
   0% {
     transform: translate3d(-4%, -2%, 0) scale(1);
   }
@@ -216,14 +216,14 @@
   }
 }
 
-@keyframes hashui-fx-swirl {
+@keyframes uicean-fx-swirl {
   to {
     transform: rotate(1turn);
   }
 }
 
 /* the footer marquee runs on a slight tilt, so it gets its own track */
-@keyframes hashui-fx-marquee-x {
+@keyframes uicean-fx-marquee-x {
   to {
     transform: translate3d(-50%, 0, 0);
   }
@@ -231,7 +231,7 @@
 
 /* the lit cell in GridFooter: a wash that drifts across, so the one bright
    spot in an otherwise still footer is alive rather than painted on */
-@keyframes hashui-fx-sweep {
+@keyframes uicean-fx-sweep {
   0% {
     transform: translate3d(-30%, 0, 0) scale(1);
     opacity: 0.55;
@@ -246,7 +246,7 @@
 }
 
 /* the slow push behind HeroCinematic's stand-in backdrop */
-@keyframes hashui-fx-kenburns {
+@keyframes uicean-fx-kenburns {
   from {
     transform: scale(1) translate3d(-4%, 2%, 0);
     opacity: 0.75;
@@ -257,7 +257,7 @@
   }
 }
 
-@keyframes hashui-fx-ripple {
+@keyframes uicean-fx-ripple {
   from {
     transform: scale(0);
     opacity: 0.45;
@@ -268,7 +268,7 @@
   }
 }
 
-@keyframes hashui-fx-rise {
+@keyframes uicean-fx-rise {
   from {
     opacity: 0;
     transform: translate3d(0, 14px, 0);

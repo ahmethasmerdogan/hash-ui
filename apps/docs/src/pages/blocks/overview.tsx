@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
-import { Card, cx, IArrowRight, IArrowUpRight } from "hash-ui";
+import { Card, cx, IArrowRight, IArrowUpRight } from "uicean";
 import { BLOCK_PAGES } from "@/lib/routes";
 import { CodeBlock } from "@/components/Code";
 
@@ -15,7 +15,7 @@ const RULES = [
   },
   {
     title: "Core stays dependency-free",
-    body: "hash-ui still imports nothing but React. The three blocks that genuinely need a library — Spline, cobe, MapLibre — declare it as an optional peer and load it dynamically, so you only pay for the one you use.",
+    body: "uicean still imports nothing but React. The three blocks that genuinely need a library — Spline, cobe, MapLibre — declare it as an optional peer and load it dynamically, so you only pay for the one you use.",
   },
   {
     title: "Glow lives here and nowhere else",
@@ -38,11 +38,11 @@ export default function BlocksOverviewPage() {
       }
     >
       <CodeBlock
-        code={`npm i hash-ui-blocks
+        code={`npm i uicean-blocks
 
 # then, after the core stylesheet
-@import "hash-ui/css";
-@import "hash-ui-blocks/css";`}
+@import "uicean/css";
+@import "uicean-blocks/css";`}
       />
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

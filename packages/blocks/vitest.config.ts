@@ -7,10 +7,10 @@ export default defineConfig({
   resolve: {
     alias: {
       /* Resolve the core from source, the same way tsconfig's `paths` does.
-         Without this the tests import `hash-ui` through the workspace link,
+         Without this the tests import `uicean` through the workspace link,
          which points at a dist/ that has not been built yet — so they pass
          locally after a build and fail on a clean checkout. */
-      "hash-ui": fileURLToPath(new URL("../core/src/index.ts", import.meta.url)),
+      "uicean": fileURLToPath(new URL("../core/src/index.ts", import.meta.url)),
     },
   },
   test: {

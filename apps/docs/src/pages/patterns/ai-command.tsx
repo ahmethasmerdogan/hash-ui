@@ -21,7 +21,7 @@ import {
   IStar,
   IWarning,
   IX,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* AI INSIGHT PANEL — ai-chat-0001                                     */

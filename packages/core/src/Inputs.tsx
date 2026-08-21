@@ -46,7 +46,7 @@ export function Slider({
           onChange?.(n);
         }}
         aria-label={label}
-        className="hashui-range w-full"
+        className="uicean-range w-full"
         style={{
           background: `linear-gradient(to right, #059669 0%, #059669 ${pct}%, var(--line) ${pct}%, var(--line) 100%)`,
         }}

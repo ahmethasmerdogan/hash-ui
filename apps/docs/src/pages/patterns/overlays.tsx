@@ -14,7 +14,7 @@ import {
   ICompass,
   ISparkleFill,
   IX,
-} from "hash-ui";
+} from "uicean";
 
 /* ---------------- Get Started checklist — get-started-design-0001 -------- */
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { cx, IX } from "hash-ui";
+import { cx, IX } from "uicean";
 import { NAV } from "@/lib/routes";
 
 function NavList({ onNavigate }: { onNavigate?: () => void }) {
@@ -115,13 +115,13 @@ export function MobileNav({
     <div className="fixed inset-0 z-[80] lg:hidden">
       <div
         className="absolute inset-0 bg-[#1c1b18]/45 backdrop-blur-[2px] dark:bg-black/60"
-        style={{ animation: "hashui-overlay-in 0.15s ease-out" }}
+        style={{ animation: "uicean-overlay-in 0.15s ease-out" }}
         onClick={onClose}
       />
       <div
         data-nav-scroller
         className="scroll-thin absolute inset-y-0 left-0 flex w-[280px] flex-col overflow-y-auto border-r border-line bg-surface"
-        style={{ animation: "hashui-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
+        style={{ animation: "uicean-modal-in 0.2s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
         <button
           type="button"

@@ -24,10 +24,10 @@ const BUDGETS = `${ROOT}scripts/size-budget.json`;
 const update = process.argv.includes("--update");
 
 const TARGETS = [
-  { name: "hash-ui", file: "packages/core/dist/index.js" },
-  { name: "hash-ui/css", file: "packages/core/dist/hashui.css" },
-  { name: "hash-ui-blocks", file: "packages/blocks/dist/index.js" },
-  { name: "hash-ui-blocks/css", file: "packages/blocks/dist/blocks.css" },
+  { name: "uicean", file: "packages/core/dist/index.js" },
+  { name: "uicean/css", file: "packages/core/dist/uicean.css" },
+  { name: "uicean-blocks", file: "packages/blocks/dist/index.js" },
+  { name: "uicean-blocks/css", file: "packages/blocks/dist/blocks.css" },
 ];
 
 /** 15% of headroom over the measured size, rounded to a readable number */

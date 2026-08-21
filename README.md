@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="apps/docs/public/logo.svg" width="76" height="76" alt="HashUI" />
+<img src="apps/docs/public/logo.svg" width="76" height="76" alt="UICean" />
 
-# HashUI
+# UICean
 
 **A design foundation, distilled from the wild.**
 
@@ -11,16 +11,16 @@ A flat, shadow-free **React + Tailwind CSS v4** design system — 70+ components
 interface references.
 Install it from npm, or copy any component into your repo with the shadcn CLI.
 
-[![npm](https://img.shields.io/npm/v/hash-ui?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/hash-ui)
+[![npm](https://img.shields.io/npm/v/uicean?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/uicean)
 [![license](https://img.shields.io/badge/license-MIT-059669)](LICENSE)
 [![react](https://img.shields.io/badge/React-18%20%7C%2019-1c1b18?logo=react)](https://react.dev)
 [![tailwind](https://img.shields.io/badge/Tailwind-v4-1c1b18?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-### **[hashui.vercel.app →](https://hashui.vercel.app)**
+### **[uicean.vercel.app →](https://uicean.vercel.app)**
 
 [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
 
-<img src="apps/docs/public/og.png" width="760" alt="HashUI — 70+ flat, shadow-free components and 83 hand-drawn icons" />
+<img src="apps/docs/public/og.png" width="760" alt="UICean — 70+ flat, shadow-free components and 83 hand-drawn icons" />
 
 </div>
 
@@ -29,17 +29,17 @@ Install it from npm, or copy any component into your repo with the shadcn CLI.
 ## Install
 
 ```bash
-npm install hash-ui
+npm install uicean
 ```
 
 ```css
 /* src/index.css — order matters */
 @import "tailwindcss";
-@import "hash-ui/css";
+@import "uicean/css";
 ```
 
 ```tsx
-import { ThemeProvider, ToastProvider, Button, StatusPill } from "hash-ui";
+import { ThemeProvider, ToastProvider, Button, StatusPill } from "uicean";
 
 export default function App() {
   return (
@@ -54,7 +54,7 @@ export default function App() {
 ```
 
 That is the whole setup. No config file, no plugin, no runtime dependency beyond
-React — [full guide →](https://hashui.vercel.app/docs/installation)
+React — [full guide →](https://uicean.vercel.app/docs/installation)
 
 ### …or copy the source in instead
 
@@ -62,19 +62,19 @@ Every component is also a [shadcn registry](https://ui.shadcn.com/docs/registry)
 item, so you can take the code rather than the dependency:
 
 ```bash
-npx shadcn@latest add https://hashui.vercel.app/r/button.json   # one component
-npx shadcn@latest add https://hashui.vercel.app/r/hashui.json   # the whole library
+npx shadcn@latest add https://uicean.vercel.app/r/button.json   # one component
+npx shadcn@latest add https://uicean.vercel.app/r/uicean.json   # the whole library
 ```
 
 The registry is plain JSON with permissive CORS, so anything that speaks HTTP can
 read it:
 
 ```bash
-curl https://hashui.vercel.app/r/registry.json | jq '.items[].name'
-curl https://hashui.vercel.app/r/button.json  | jq -r '.files[0].content'
+curl https://uicean.vercel.app/r/registry.json | jq '.items[].name'
+curl https://uicean.vercel.app/r/button.json  | jq -r '.files[0].content'
 ```
 
-[Registry docs →](https://hashui.vercel.app/docs/registry)
+[Registry docs →](https://uicean.vercel.app/docs/registry)
 
 ### Blocks
 
@@ -83,18 +83,18 @@ scroll-driven effects — live in a second package so the core stays
 dependency-free.
 
 ```bash
-npm install hash-ui-blocks
+npm install uicean-blocks
 ```
 
 ```css
 /* after the core sheet — the effects layer reads its tokens */
 @import "tailwindcss";
-@import "hash-ui/css";
-@import "hash-ui-blocks/css";
+@import "uicean/css";
+@import "uicean-blocks/css";
 ```
 
 ```tsx
-import { HeroTerminal, FeaturesBento, CinematicFooter } from "hash-ui-blocks";
+import { HeroTerminal, FeaturesBento, CinematicFooter } from "uicean-blocks";
 ```
 
 Three blocks reach for a library, each declared an **optional peer** behind a
@@ -117,7 +117,7 @@ dynamic import — you only pay for the one you use:
 | **Feedback & overlays** | `Alert` · `ToastProvider` + `useToast` · `Tooltip` · `Modal` · `Dropdown` · `Skeleton` · `EmptyState` |
 | **Data** | `PillTabs` · `NotchTabs` · `DotTabs` · `UnderlineTabs` · `PillNav` · `ProgressBar` · `TickBars` · `SignalBars` · `DottedMeter` · `GoalBar` · `RainbowMeter` · `RingProgress` · `RangeBar` · `CountdownLCD` · `LcdTimer` · `DeliveryTimeline` · `StageFlow` · `CommitGraph` |
 | **Motion** | `NumberTicker` · `Typewriter` · `Marquee` · `ShimmerButton` · `BorderBeam` · `Spotlight` · `TiltCard` · `Reveal` · `Meteors` · `GradientText` · `ThreeOrb` |
-| **Icons** | 83 hand-drawn SVGs on a 24px grid — [browse them](https://hashui.vercel.app/docs/components/icons) |
+| **Icons** | 83 hand-drawn SVGs on a 24px grid — [browse them](https://uicean.vercel.app/docs/components/icons) |
 | **Blocks** *(separate package)* | `HeroTerminal` · `HeroSplit` · `HeroNexus` · `HeroCinematic` · `SplineHero` · `FeaturesBento` · `FeaturesTerminal` · `FeaturesCrop` · `LogoCloud` · `LogoCloudPlus` · `IntegrationsMarquee` · `CinematicFooter` · `GridFooter` · `DashboardShell` · `SidebarNav` · `RailSidebar` · `Map` + markers · `GlobeFlights` · `LiquidMetalButton` · `GeminiRibbon` · `NeuralVortex` |
 
 Semantic classes come from the token layer:
@@ -141,7 +141,7 @@ load-bearing — break one and the components stop looking related.
 4. **Two typographic voices.** Geist for the interface, Geist Mono with tabular
    numerals for every number, timestamp, ID and code sample.
 5. **No neon, no glow.** Accent colour carries meaning, not decoration. The one
-   exception is `hash-ui-blocks`, whose `.fx-*` effects layer may glow — it is
+   exception is `uicean-blocks`, whose `.fx-*` effects layer may glow — it is
    opt-in by class name and never restyles a core component.
 
 A CI check enforces #1 in the browser: `node scripts/qa.mjs` fails the build if
@@ -156,7 +156,7 @@ once in your HTML. Each supplies the same four tokens, so a preset is a palette
 swap and never a change in contrast, spacing or layout.
 
 ```tsx
-import { useTheme, ACCENTS } from "hash-ui";
+import { useTheme, ACCENTS } from "uicean";
 
 const { accent, setAccent } = useTheme();
 setAccent("violet");        // persisted to localStorage
@@ -188,10 +188,10 @@ the dark theme — follows.
 }
 ```
 
-Dropping HashUI into a product that already has its own tokens? Alias the names
+Dropping UICean into a product that already has its own tokens? Alias the names
 instead of restyling the components — a worked example lives in
 [`packages/core/src/presets/brand-bridge.css`](packages/core/src/presets/brand-bridge.css).
-[Theming docs →](https://hashui.vercel.app/docs/theming)
+[Theming docs →](https://uicean.vercel.app/docs/theming)
 
 ---
 
@@ -201,14 +201,14 @@ The library and the site that documents it share one repo. The site imports the
 library from source, so editing a component hot-reloads the page documenting it.
 
 ```
-packages/core/            # the published npm package `hash-ui`
+packages/core/            # the published npm package `uicean`
   src/
-    hashui.css            # every design token, in one file
+    uicean.css            # every design token, in one file
     index.ts              # the single barrel export
     Button.tsx …          # one file per component family
     presets/               # brand-bridge example
 
-packages/blocks/          # the published npm package `hash-ui-blocks`
+packages/blocks/          # the published npm package `uicean-blocks`
   src/
     blocks.css            # the .fx-* effects layer (the one place glow lives)
     hooks.ts              # useInView, useScrollProgress, useMagnetic …

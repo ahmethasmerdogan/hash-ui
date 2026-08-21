@@ -11,7 +11,7 @@ import {
   ICheck,
   IClock,
   IZap,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* BADGES                                                              */

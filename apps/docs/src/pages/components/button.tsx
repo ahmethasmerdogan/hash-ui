@@ -28,7 +28,7 @@ import {
   ISort,
   IX,
   IXSocial,
-} from "hash-ui";
+} from "uicean";
 
 function IMoonSmall() {
   return (

@@ -146,7 +146,7 @@ export function Typewriter({
       <span
         aria-hidden
         className="ml-0.5 inline-block h-[1em] w-[2.5px] translate-y-[0.12em] rounded-full bg-current"
-        style={{ animation: "hashui-caret 1.1s steps(1) infinite" }}
+        style={{ animation: "uicean-caret 1.1s steps(1) infinite" }}
       />
     </span>
   );
@@ -189,7 +189,7 @@ export function Marquee({
           pauseOnHover && "group-hover/mq:[animation-play-state:paused]",
         )}
         style={{
-          animation: `hashui-marquee ${duration}s linear infinite ${reverse ? "reverse" : ""}`,
+          animation: `uicean-marquee ${duration}s linear infinite ${reverse ? "reverse" : ""}`,
         }}
       >
         <div className="flex shrink-0 items-center gap-10">{children}</div>
@@ -225,7 +225,7 @@ export function ShimmerButton({
         style={{
           background:
             "conic-gradient(from 0deg, transparent 0 300deg, rgba(52,211,153,0.9) 330deg, #a7f3d0 345deg, rgba(52,211,153,0.9) 355deg, transparent 360deg)",
-          animation: "hashui-rotate 3.2s linear infinite",
+          animation: "uicean-rotate 3.2s linear infinite",
         }}
       />
       <span className="relative z-10 inline-flex h-11 items-center gap-2 overflow-hidden rounded-full bg-[#101013] px-6 text-[14.5px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
@@ -233,7 +233,7 @@ export function ShimmerButton({
         <span
           aria-hidden
           className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-          style={{ animation: "hashui-shine 3.2s ease-in-out infinite" }}
+          style={{ animation: "uicean-shine 3.2s ease-in-out infinite" }}
         />
       </span>
     </button>
@@ -269,7 +269,7 @@ export function BorderBeam({
           width,
           background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
           offsetPath: `rect(0px auto auto 0px round ${radius}px)`,
-          animation: `hashui-beam ${duration}s linear infinite`,
+          animation: `uicean-beam ${duration}s linear infinite`,
         }}
       />
     </span>
@@ -403,7 +403,7 @@ export function Meteors({ count = 9 }: { count?: number }) {
             {
               left: m.left,
               top: m.top,
-              animation: `hashui-meteor ${m.duration} linear ${m.delay} infinite`,
+              animation: `uicean-meteor ${m.duration} linear ${m.delay} infinite`,
             } as CSSProperties
           }
         >
@@ -432,7 +432,7 @@ export function GradientText({
         backgroundImage:
           "linear-gradient(90deg, #059669, #22d3ee, #8b5cf6, #ec4899, #059669)",
         backgroundSize: "300% 100%",
-        animation: "hashui-gradient-x 6s ease infinite",
+        animation: "uicean-gradient-x 6s ease infinite",
       }}
     >
       {children}

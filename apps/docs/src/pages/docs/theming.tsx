@@ -9,7 +9,7 @@ import {
   useTheme,
   ICheck,
   type AccentId,
-} from "hash-ui";
+} from "uicean";
 import { CodeBlock } from "@/components/Code";
 
 const ACCENT_IDS = Object.keys(ACCENTS) as AccentId[];
@@ -108,7 +108,7 @@ export default function Foundations() {
     <Section
       id="foundations"
       registry="tokens"
-      source="hashui.css"
+      source="uicean.css"
       eyebrow="Foundations"
       title="Theming & tokens"
       desc="Warm neutral canvas, hairline borders, one emerald accent surrounded by purposeful status hues. Depth is expressed with stacked surfaces — the system ships no drop shadows at all."
@@ -161,7 +161,7 @@ export default function Foundations() {
           is whatever the current accent says it is.
         </p>
         <CodeBlock
-          code={`import { useTheme, ACCENTS } from "hash-ui";
+          code={`import { useTheme, ACCENTS } from "uicean";
 
 const { accent, setAccent } = useTheme();
 setAccent("violet");   // persisted, applied to <html data-accent>

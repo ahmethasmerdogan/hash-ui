@@ -92,7 +92,7 @@ export function Button({
         <span
           aria-hidden
           className="size-[1em] rounded-full border-2 border-current border-t-transparent opacity-80"
-          style={{ animation: "hashui-spin 0.7s linear infinite" }}
+          style={{ animation: "uicean-spin 0.7s linear infinite" }}
         />
       ) : (
         iconLeft

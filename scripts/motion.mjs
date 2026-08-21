@@ -197,7 +197,7 @@ const CHECKS = [
   {
     id: "hero-split-enter",
     route: "/docs/blocks/heroes",
-    sel: "figure:has(:is(h1, h2):text-is('Ship 10× faster with HashUI'))",
+    sel: "figure:has(:is(h1, h2):text-is('Ship 10× faster with UICean'))",
     what: "HeroSplit fades its headline and CTAs up",
     kind: "enter",
     waitMs: 0,

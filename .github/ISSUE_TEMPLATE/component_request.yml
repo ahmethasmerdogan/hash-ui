@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Every piece in HashUI comes from a specific interface reference rather
+        Every piece in UICean comes from a specific interface reference rather
         than from a general idea of what a component should be. Agreeing on the
         reference first is what keeps the set looking related — and it takes
         five minutes instead of a rewrite.

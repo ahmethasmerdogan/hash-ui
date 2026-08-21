@@ -61,8 +61,8 @@ for (const accent of ACCENTS) {
     await page.goto(`${BASE}/docs/theming`, { waitUntil: "domcontentloaded" });
     await page.evaluate(
       ([a, t]) => {
-        localStorage.setItem("hashui-accent", a);
-        localStorage.setItem("hashui-theme", t);
+        localStorage.setItem("uicean-accent", a);
+        localStorage.setItem("uicean-theme", t);
       },
       [accent, theme],
     );

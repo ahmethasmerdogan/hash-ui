@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { cx, IArrowUp } from "hash-ui";
+import { cx, IArrowUp } from "uicean";
 import { useMagnetic, useScrollProgress } from "../hooks.js";
 
 /* ------------------------------------------------------------------ */
@@ -87,8 +87,8 @@ export function CinematicFooter({
     { label: "Terms of service", href: "#" },
     { label: "Support", href: "#" },
   ],
-  wordmark = "HashUI",
-  copyright = "© 2026 HashUI. All rights reserved.",
+  wordmark = "UICean",
+  copyright = "© 2026 UICean. All rights reserved.",
   credit,
   sticky,
   onBackToTop,
@@ -133,7 +133,7 @@ export function CinematicFooter({
         <div className="w-full overflow-hidden" data-fx-marquee>
           <div
             className="flex w-max items-center gap-8"
-            style={{ animation: "hashui-fx-marquee-x 32s linear infinite" }}
+            style={{ animation: "uicean-fx-marquee-x 32s linear infinite" }}
           >
             {[0, 1].map((copy) => (
               <div key={copy} className="flex shrink-0 items-center gap-8">

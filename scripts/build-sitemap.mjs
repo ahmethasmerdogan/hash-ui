@@ -20,7 +20,7 @@ const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const PUBLIC = `${ROOT}apps/docs/public`;
 
 const site = await readFile(`${ROOT}apps/docs/src/lib/site.ts`, "utf8");
-const ORIGIN = site.match(/url:\s*"([^"]+)"/)?.[1] ?? "https://hashui.vercel.app";
+const ORIGIN = site.match(/url:\s*"([^"]+)"/)?.[1] ?? "https://uicean.vercel.app";
 
 const routesSrc = await readFile(`${ROOT}apps/docs/src/lib/routes.ts`, "utf8");
 const routes = ["/", ...[...routesSrc.matchAll(/path:\s*"([^"]+)"/g)].map((m) => m[1])];

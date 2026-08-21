@@ -1,5 +1,5 @@
 import { Section, Demo, DemoCol } from "@/components/Section";
-import { Avatar, AvatarGroup, Card, EntityChip, IVerified } from "hash-ui";
+import { Avatar, AvatarGroup, Card, EntityChip, IVerified } from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* AVATARS                                                             */

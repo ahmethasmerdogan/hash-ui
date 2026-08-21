@@ -1,5 +1,5 @@
 import { useState, type FormEvent, type ReactNode } from "react";
-import { cx, Button, Typewriter, IChevronDown, IArrowRight, IMessage, IMail, IUsers, IHash } from "hash-ui";
+import { cx, Button, Typewriter, IChevronDown, IArrowRight, IMessage, IMail, IUsers, IHash } from "uicean";
 import {
   ActionButton,
   WindowFrame,

@@ -1,7 +1,7 @@
 /* Usage snippets, keyed by Demo label — Demo looks these up automatically. */
 
 export const SNIPPETS: Record<string, string> = {
-  "Accent faces": `import { Button } from "hash-ui";
+  "Accent faces": `import { Button } from "uicean";
 
 // every variant shares one anatomy:
 // gradient + 1px ring + inset top highlight
@@ -35,14 +35,14 @@ export const SNIPPETS: Record<string, string> = {
 <Button variant="primary" loading>Saving</Button>
 <Button variant="dark" disabled>Suggest more</Button>`,
 
-  "Status pills": `import { StatusPill } from "hash-ui";
+  "Status pills": `import { StatusPill } from "uicean";
 
 <StatusPill tone="green">Accepted</StatusPill>
 <StatusPill tone="amber">In Negotiation</StatusPill>
 <StatusPill tone="red" dot>Slow response</StatusPill>
 <StatusPill tone="violet" icon={<IZap />}>Platform</StatusPill>`,
 
-  "Sizes & presence": `import { Avatar, AvatarGroup } from "hash-ui";
+  "Sizes & presence": `import { Avatar, AvatarGroup } from "uicean";
 
 <Avatar name="Arlene McCoy" status="online" />
 <Avatar name="Jerome Bell" size="lg" status="away" ring />
@@ -54,7 +54,7 @@ export const SNIPPETS: Record<string, string> = {
   ]}
 />`,
 
-  "Switch & checkbox": `import { Switch, Checkbox } from "hash-ui";
+  "Switch & checkbox": `import { Switch, Checkbox } from "uicean";
 
 <Switch checked={remind} onChange={setRemind} />
 <Checkbox checked={done} onChange={setDone} />
@@ -70,7 +70,7 @@ export const SNIPPETS: Record<string, string> = {
   ]}
 />`,
 
-  Slider: `import { Slider } from "hash-ui";
+  Slider: `import { Slider } from "uicean";
 
 <Slider value={seats} onChange={setSeats} min={1} max={24} />
 <Slider value={limit} onChange={setLimit} suffix="%" />`,
@@ -100,7 +100,7 @@ export const SNIPPETS: Record<string, string> = {
 
   "Goal bar": `<GoalBar value={27} target={80} marks={[0, 27, 80, 100]} />`,
 
-  Alerts: `import { Alert } from "hash-ui";
+  Alerts: `import { Alert } from "uicean";
 
 <Alert tone="success" title="Payment received" />
 <Alert
@@ -187,7 +187,7 @@ push({
 <SignalBars level={row.priority} />
 <EntityChip name="Peregrin" hue="#0ea5e9" />`,
 
-  "Number ticker": `import { NumberTicker } from "hash-ui";
+  "Number ticker": `import { NumberTicker } from "uicean";
 
 <NumberTicker value={58980} suffix="+" />
 <NumberTicker value={4.98} decimals={2} />
@@ -228,7 +228,7 @@ push({
   <Card>fades up when scrolled into view</Card>
 </Reveal>`,
 
-  "3D orb — three.js (lazy chunk)": `import { ThreeOrb } from "hash-ui";
+  "3D orb — three.js (lazy chunk)": `import { ThreeOrb } from "uicean";
 
 // three.js loads as a separate chunk,
 // only when the scene scrolls into view

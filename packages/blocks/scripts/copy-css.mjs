@@ -1,4 +1,4 @@
-/* blocks.css is the consumer's `@import "hash-ui-blocks/css"` entry, never
+/* blocks.css is the consumer's `@import "uicean-blocks/css"` entry, never
    imported from TypeScript, so Vite never sees it. Copy it verbatim. */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";

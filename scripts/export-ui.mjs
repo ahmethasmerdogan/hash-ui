@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * Copy the HashUI source into another project, without npm or the CLI.
+ * Copy the UICean source into another project, without npm or the CLI.
  *
  *   node scripts/export-ui.mjs ../my-app/src/ui
  *
- * Copies packages/core/src/** (components, icons, theme, hashui.css) and
+ * Copies packages/core/src/** (components, icons, theme, uicean.css) and
  * prints the wiring you still have to add by hand. Pass --blocks to bring
  * the twenty-one page blocks along too, into a sibling blocks/ folder.
  *
- * Prefer `npx shadcn@latest add https://hashui.vercel.app/r/hashui.json` if
+ * Prefer `npx shadcn@latest add https://uicean.vercel.app/r/uicean.json` if
  * the target project is already shadcn-initialised.
  */
 import { cp, mkdir, readdir, stat } from "node:fs/promises";
@@ -62,7 +62,7 @@ console.log("next, in the consuming project:\n");
 console.log("  1. npm i @fontsource-variable/geist @fontsource-variable/geist-mono");
 console.log("  2. in your global stylesheet (Tailwind v4):\n");
 console.log('       @import "tailwindcss";');
-console.log('       @import "./ui/hashui.css";\n');
+console.log('       @import "./ui/uicean.css";\n');
 console.log("  3. in your entry file:\n");
 console.log('       import "@fontsource-variable/geist";');
 console.log('       import "@fontsource-variable/geist-mono";\n');
@@ -75,10 +75,10 @@ console.log('       <script dangerouslySetInnerHTML={{ __html: themeScript }} />
 
 if (withBlocks) {
   console.log(`  blocks: ${blockFiles} entries → ${resolve(DEST, "..", "blocks")}`);
-  console.log("  they import from \"hash-ui\" — point that at ./ui, e.g. a");
+  console.log("  they import from \"uicean\" — point that at ./ui, e.g. a");
   console.log("  tsconfig path or a bundler alias — and add the effects sheet");
   console.log("  AFTER the token sheet:\n");
-  console.log('       @import "./ui/hashui.css";');
+  console.log('       @import "./ui/uicean.css";');
   console.log('       @import "./blocks/blocks.css";\n');
   console.log("  three blocks need an optional peer, each behind a dynamic import:");
   console.log("       @splinetool/react-spline   <SplineScene>");

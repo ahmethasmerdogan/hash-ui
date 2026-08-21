@@ -11,8 +11,8 @@ export default defineConfig({
     alias: {
       /* the docs site dogfoods the library from source: editing a component
          hot-reloads the page it documents, with no rebuild step in between */
-      "hash-ui": r("../../packages/core/src/index.ts"),
-      "hash-ui-blocks": r("../../packages/blocks/src/index.ts"),
+      "uicean": r("../../packages/core/src/index.ts"),
+      "uicean-blocks": r("../../packages/blocks/src/index.ts"),
       "@": r("./src"),
     },
   },

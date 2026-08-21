@@ -1,17 +1,17 @@
 /* ------------------------------------------------------------------ */
 /* Brand bridge — worked example                                       */
 /*                                                                     */
-/* Use this when you are dropping HashUI into a product that already   */
+/* Use this when you are dropping UICean into a product that already   */
 /* has its own design tokens. Instead of restyling every component,    */
-/* you alias HashUI's token names onto the ones your app already       */
+/* you alias UICean's token names onto the ones your app already       */
 /* defines. The components keep working; they just speak your brand.   */
 /*                                                                     */
-/* Load it LAST, after both Tailwind and hashui.css:                   */
+/* Load it LAST, after both Tailwind and uicean.css:                   */
 /*                                                                     */
 /*   @import "tailwindcss";                                            */
 /*   ... your existing tokens ...                                      */
-/*   @import "hash-ui/css";                                            */
-/*   @import "hash-ui/presets/brand-bridge.css";                       */
+/*   @import "uicean/css";                                            */
+/*   @import "uicean/presets/brand-bridge.css";                       */
 /*                                                                     */
 /* Replace the right-hand side of every line below with your own       */
 /* variable names. Nothing else in the system needs to change.         */
@@ -33,7 +33,7 @@
   --ink2: var(--text-secondary);
   --ink3: var(--text-tertiary);
 
-  /* brand → your single functional accent (HashUI's emerald steps aside) */
+  /* brand → your single functional accent (UICean's emerald steps aside) */
   --brand: var(--accent);
   --brand-ink: var(--accent-hover);
   --brand-soft: var(--accent-soft);
@@ -121,17 +121,17 @@
 /* Some design systems ban gradients outright, or mandate a corporate  */
 /* corner radius. Opt in per document rather than forking components:  */
 /*                                                                     */
-/*   <html class="hashui-flat hashui-radius-brand">                    */
+/*   <html class="uicean-flat uicean-radius-brand">                    */
 /* ------------------------------------------------------------------ */
 
 /* flat fills — the top highlight and 1px ring anatomy survives */
-.hashui-flat .btn-face {
+.uicean-flat .btn-face {
   background-image: none;
   background-color: var(--btn-b);
 }
 
 /* square off the default pill */
-.hashui-radius-brand .btn-face,
-.hashui-radius-brand .rounded-full:where(button) {
+.uicean-radius-brand .btn-face,
+.uicean-radius-brand .rounded-full:where(button) {
   border-radius: var(--radius, 10px);
 }

@@ -12,7 +12,7 @@ import {
   IPencil,
   ISparkleFill,
   IX,
-} from "hash-ui";
+} from "uicean";
 import { Section, Demo } from "@/components/Section";
 import { CodeBlock } from "@/components/Code";
 import { SITE } from "@/lib/site";
@@ -97,7 +97,7 @@ export default function Introduction() {
       title="Introduction"
       desc={
         <>
-          HashUI is a personal design foundation turned into a real library. It
+          UICean is a personal design foundation turned into a real library. It
           started as 36 screenshots of interfaces worth stealing from, and ended
           as {COMPONENT_PAGES.length} documented component families that share
           one token set, one button recipe and two typographic voices.
@@ -204,10 +204,10 @@ export default function Introduction() {
           page that documents it.
         </p>
         <CodeBlock
-          filename="hash-ui/"
-          code={`packages/core/          # the published npm package \`hash-ui\`
+          filename="uicean/"
+          code={`packages/core/          # the published npm package \`uicean\`
   src/
-    hashui.css          # every design token, in one file
+    uicean.css          # every design token, in one file
     index.ts            # the single barrel export
     Button.tsx …        # one file per component family
     presets/            # brand-bridge example

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button, EmptyState, IArrowRight, ICompass } from "hash-ui";
+import { Button, EmptyState, IArrowRight, ICompass } from "uicean";
 
 export default function NotFound() {
   return (

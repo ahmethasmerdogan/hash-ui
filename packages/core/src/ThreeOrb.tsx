@@ -40,7 +40,7 @@ export function ThreeOrb({
           THREE = await import("three");
         } catch {
           console.warn(
-            "[hash-ui] <ThreeOrb> needs the optional peer `three`.\n" +
+            "[uicean] <ThreeOrb> needs the optional peer `three`.\n" +
               "  npm i three",
           );
           if (!disposed) setFailed(true);

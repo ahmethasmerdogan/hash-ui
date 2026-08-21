@@ -1,17 +1,17 @@
 <div align="center">
 
-# hash-ui-blocks
+# uicean-blocks
 
-**Whole strips of a page, for [HashUI](https://hashui.vercel.app).**
+**Whole strips of a page, for [UICean](https://uicean.vercel.app).**
 
 Twenty-one section-sized blocks — heroes, feature grids, logo clouds, footers,
 app shells, maps and scroll-driven effects — built out of the core primitives,
 so they inherit your tokens rather than bringing their own.
 
-[![npm](https://img.shields.io/npm/v/hash-ui-blocks?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/hash-ui-blocks)
+[![npm](https://img.shields.io/npm/v/uicean-blocks?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/uicean-blocks)
 [![license](https://img.shields.io/badge/license-MIT-059669)](LICENSE)
 
-### **[hashui.vercel.app/docs/blocks →](https://hashui.vercel.app/docs/blocks)**
+### **[uicean.vercel.app/docs/blocks →](https://uicean.vercel.app/docs/blocks)**
 
 </div>
 
@@ -20,18 +20,18 @@ so they inherit your tokens rather than bringing their own.
 ## Install
 
 ```bash
-npm install hash-ui hash-ui-blocks
+npm install uicean uicean-blocks
 ```
 
 ```css
 /* order matters — the effects layer reads the core tokens */
 @import "tailwindcss";
-@import "hash-ui/css";
-@import "hash-ui-blocks/css";
+@import "uicean/css";
+@import "uicean-blocks/css";
 ```
 
 ```tsx
-import { HeroTerminal, FeaturesBento, CinematicFooter } from "hash-ui-blocks";
+import { HeroTerminal, FeaturesBento, CinematicFooter } from "uicean-blocks";
 
 export default function Page() {
   return (
@@ -44,7 +44,7 @@ export default function Page() {
 }
 ```
 
-Requires **Tailwind CSS v4** and `hash-ui` as a peer. Every block ships working
+Requires **Tailwind CSS v4** and `uicean` as a peer. Every block ships working
 demo content, so it renders as itself before you pass it anything.
 
 ---
@@ -70,7 +70,7 @@ be taken apart: `useRise`, `useInView`, `useScrollProgress`, `useMagnetic`,
 
 ## Optional peers
 
-`hash-ui` itself imports nothing but React, and this package keeps that true
+`uicean` itself imports nothing but React, and this package keeps that true
 for everything it can. Three blocks genuinely need a library, and each loads
 it through a dynamic import behind a fallback — so you only pay for the one
 you use, and a missing peer renders a message instead of throwing the page
@@ -90,7 +90,7 @@ with no landmasses at all — verified against its own README configuration.
 
 ## The effects layer
 
-HashUI is flat by rule: every `--sh-*` token is `none`, and depth comes from
+UICean is flat by rule: every `--sh-*` token is `none`, and depth comes from
 stacked surfaces and hairlines. This package is the one sanctioned exception.
 Glow lives on the `.fx-*` classes in `blocks.css` and nowhere else, so it is
 always something you opted into by name. Nothing here restyles a core
@@ -103,7 +103,7 @@ Two things to know if you build on it:
   behind whatever ancestor background it finds.
 - **Every animation honours `prefers-reduced-motion`**, including the ones
   driven by a timer or `requestAnimationFrame`, which a stylesheet cannot
-  reach. `useReducedMotion` from `hash-ui` is how they ask.
+  reach. `useReducedMotion` from `uicean` is how they ask.
 
 ---
 
@@ -113,7 +113,7 @@ Every block is also a registry item, so the shadcn CLI will drop the source
 into your project — imports rewritten, dependencies resolved:
 
 ```bash
-npx shadcn@latest add https://hashui.vercel.app/r/hero-terminal.json
+npx shadcn@latest add https://uicean.vercel.app/r/hero-terminal.json
 ```
 
 ---

@@ -16,7 +16,7 @@ import {
   IPersonX,
   IPulse,
   IUser,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* TABS                                                                */

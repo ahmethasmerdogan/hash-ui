@@ -1,15 +1,15 @@
 <div align="center">
 
-# hash-ui
+# uicean
 
 **A design foundation, distilled from the wild.**
 
 A flat, shadow-free **React + Tailwind CSS v4** design system — 70+ components
 and 83 hand-drawn icons, rebuilt from 36 curated interface references.
 
-[Documentation](https://hashui.vercel.app) ·
-[GitHub](https://github.com/ahmethasmerdogan/hash-ui) ·
-[Registry](https://hashui.vercel.app/docs/registry)
+[Documentation](https://uicean.vercel.app) ·
+[GitHub](https://github.com/ahmethasmerdogan/uicean) ·
+[Registry](https://uicean.vercel.app/docs/registry)
 
 </div>
 
@@ -18,20 +18,20 @@ and 83 hand-drawn icons, rebuilt from 36 curated interface references.
 ## Install
 
 ```bash
-npm install hash-ui
+npm install uicean
 ```
 
 Peer requirements: **React 18 or 19** and **Tailwind CSS v4**. `three` is an
 optional peer, needed only by `<ThreeOrb />`.
 
 ```css
-/* src/index.css — order matters, hash-ui/css comes after Tailwind */
+/* src/index.css — order matters, uicean/css comes after Tailwind */
 @import "tailwindcss";
-@import "hash-ui/css";
+@import "uicean/css";
 ```
 
 ```tsx
-import { ThemeProvider, ToastProvider, Button, StatusPill } from "hash-ui";
+import { ThemeProvider, ToastProvider, Button, StatusPill } from "uicean";
 
 export default function App() {
   return (
@@ -45,7 +45,7 @@ export default function App() {
 }
 ```
 
-`hash-ui/css` also points Tailwind at this package's bundle, so the component
+`uicean/css` also points Tailwind at this package's bundle, so the component
 utilities are generated even though Tailwind skips `node_modules` by default.
 
 To avoid a flash of the wrong theme, set the class before React boots:
@@ -53,7 +53,7 @@ To avoid a flash of the wrong theme, set the class before React boots:
 ```html
 <script>
   (function () {
-    var s = localStorage.getItem("hashui-theme");
+    var s = localStorage.getItem("uicean-theme");
     if (s === "dark" || ((s === null || s === "system") &&
         matchMedia("(prefers-color-scheme: dark)").matches))
       document.documentElement.classList.add("dark");
@@ -61,15 +61,15 @@ To avoid a flash of the wrong theme, set the class before React boots:
 </script>
 ```
 
-[Full installation guide, including Next.js →](https://hashui.vercel.app/docs/installation)
+[Full installation guide, including Next.js →](https://uicean.vercel.app/docs/installation)
 
 ## Prefer to own the code?
 
 Every component is also a shadcn registry item:
 
 ```bash
-npx shadcn@latest add https://hashui.vercel.app/r/button.json
-npx shadcn@latest add https://hashui.vercel.app/r/hashui.json   # everything
+npx shadcn@latest add https://uicean.vercel.app/r/button.json
+npx shadcn@latest add https://uicean.vercel.app/r/uicean.json   # everything
 ```
 
 ## Theming
@@ -89,8 +89,8 @@ One block of CSS rebrands the system:
 Already have your own tokens? Alias them instead of restyling components:
 
 ```css
-@import "hash-ui/css";
-@import "hash-ui/presets/brand-bridge.css";
+@import "uicean/css";
+@import "uicean/presets/brand-bridge.css";
 ```
 
 ## Notes

@@ -52,13 +52,13 @@ export function Modal({
     >
       <div
         className="absolute inset-0 bg-[#1c1b18]/45 backdrop-blur-[3px] dark:bg-black/60"
-        style={{ animation: "hashui-overlay-in 0.2s ease-out" }}
+        style={{ animation: "uicean-overlay-in 0.2s ease-out" }}
         onClick={onClose}
       />
       <div
         ref={panelRef}
         className={cx("relative w-full", width)}
-        style={{ animation: "hashui-modal-in 0.22s cubic-bezier(0.2,0.9,0.3,1)" }}
+        style={{ animation: "uicean-modal-in 0.22s cubic-bezier(0.2,0.9,0.3,1)" }}
       >
         {children}
       </div>
@@ -141,7 +141,7 @@ export function Dropdown({
       {open && (
         <div
           className="absolute top-full left-0 z-40 mt-1.5 w-56 rounded-2xl border border-line bg-surface p-1.5 shadow-pop"
-          style={{ animation: "hashui-modal-in 0.16s cubic-bezier(0.2,0.9,0.3,1)" }}
+          style={{ animation: "uicean-modal-in 0.16s cubic-bezier(0.2,0.9,0.3,1)" }}
           role="menu"
         >
           {entries.map((e, i) => {

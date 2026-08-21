@@ -20,7 +20,7 @@ import {
   IChevronRight,
   IMenu,
   IX,
-} from "hash-ui";
+} from "uicean";
 
 /* ------------------------------------------------------------------ */
 /* SidebarNav / DashboardShell                                         */
@@ -34,7 +34,7 @@ import {
 /* The active row is a black ink pill with a leading dot. That is the  */
 /* system's rule and it is not negotiable per-block — the reference    */
 /* this came from used a pale grey fill, which reads as "hovered" in   */
-/* every other HashUI surface and would have made the state ambiguous. */
+/* every other UICean surface and would have made the state ambiguous. */
 /*                                                                     */
 /* Children expand by animating grid-template-rows from 0fr to 1fr.    */
 /* It is the only way to transition to a height you do not know, and   */
