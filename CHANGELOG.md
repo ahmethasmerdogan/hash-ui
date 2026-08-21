@@ -43,7 +43,7 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-## [Unreleased]
+## [0.6.0] — 2026-08-21
 
 ### Added
 
@@ -115,10 +115,6 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
   needed it.
 
 - Every route reflows to 320px without a horizontal scrollbar (WCAG 1.4.10).
-
----
-
-## [0.6.0] — 2026-08-19
 
 ### Added
 
