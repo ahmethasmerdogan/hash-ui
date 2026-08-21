@@ -37,7 +37,7 @@ Break one of these and the components stop looking related to each other.
 5. **No neon, no glow.** Accent colour carries meaning, not decoration.
 
 There is exactly one exception to (1) and (5): the `.fx-*` effects layer in
-`@hash-ui/blocks`. It is opt-in by class name, never restyles a core component,
+`hash-ui-blocks`. It is opt-in by class name, never restyles a core component,
 and the QA rule skips only elements that carry an `fx-*` class.
 
 ---
@@ -48,7 +48,7 @@ and the QA rule skips only elements that carry an `fx-*` class.
 packages/core/     the published package `hash-ui` — primitives, tokens, icons.
                    Imports nothing but React. Keep it that way.
 
-packages/blocks/   the published package `@hash-ui/blocks` — section-sized
+packages/blocks/   the published package `hash-ui-blocks` — section-sized
                    pieces built out of core. Anything glowy, anything with a
                    heavy dependency, goes here and nowhere else.
 
@@ -135,13 +135,13 @@ Both packages carry the same version, and the site reads it from
 a release that npm has never seen.
 
 ```bash
-npm version 0.7.0 -w hash-ui -w @hash-ui/blocks --no-git-tag-version
+npm version 0.7.0 -w hash-ui -w hash-ui-blocks --no-git-tag-version
 # then package.json, apps/docs/package.json and SITE.version by hand
 
 npm run pack-test                   # see below — run this before publishing
 npm run build:all
 npm publish -w hash-ui
-npm publish -w @hash-ui/blocks      # core first: blocks lists it as a peer
+npm publish -w hash-ui-blocks      # core first: blocks lists it as a peer
 ```
 
 `prepublishOnly` rebuilds each package, so a stale `dist/` cannot ship.

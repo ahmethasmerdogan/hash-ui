@@ -92,7 +92,7 @@ export function Map({
         ({ Map: MapLibreMap } = await import("maplibre-gl"));
       } catch {
         console.warn(
-          "[@hash-ui/blocks] <Map> needs the optional peer `maplibre-gl`.\n" +
+          "[hash-ui-blocks] <Map> needs the optional peer `maplibre-gl`.\n" +
             "  npm i maplibre-gl\n" +
             '  and import its stylesheet once: import "maplibre-gl/dist/maplibre-gl.css";',
         );

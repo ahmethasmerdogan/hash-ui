@@ -1,6 +1,6 @@
 import { Section, Demo } from "@/components/Section";
 import { Card } from "hash-ui";
-import { DashboardShell, SidebarNav, RailSidebar } from "@hash-ui/blocks";
+import { DashboardShell, SidebarNav, RailSidebar } from "hash-ui-blocks";
 
 const BLEED = "!block !min-h-0 !p-4";
 

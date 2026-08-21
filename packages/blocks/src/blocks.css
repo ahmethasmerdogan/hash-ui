@@ -1,11 +1,11 @@
 /* ------------------------------------------------------------------ */
-/* @hash-ui/blocks — the effects layer                                 */
+/* hash-ui-blocks — the effects layer                                 */
 /*                                                                     */
 /* Import it AFTER the core token sheet:                               */
 /*                                                                     */
 /*   @import "tailwindcss";                                            */
 /*   @import "hash-ui/css";                                            */
-/*   @import "@hash-ui/blocks/css";                                    */
+/*   @import "hash-ui-blocks/css";                                    */
 /*                                                                     */
 /* Core is flat on purpose — every --sh-* token there is `none` and    */
 /* depth comes from canvas > surface > elev > inset layering. Blocks   */

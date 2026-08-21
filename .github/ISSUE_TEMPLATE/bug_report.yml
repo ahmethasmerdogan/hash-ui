@@ -14,7 +14,7 @@ body:
     id: version
     attributes:
       label: Version
-      placeholder: hash-ui 0.6.0 / @hash-ui/blocks 0.6.0
+      placeholder: hash-ui 0.6.0 / hash-ui-blocks 0.6.0
     validations:
       required: true
 

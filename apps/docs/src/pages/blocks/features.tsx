@@ -1,5 +1,5 @@
 import { Section, Demo } from "@/components/Section";
-import { FeaturesBento, FeaturesTerminal, FeaturesCrop } from "@hash-ui/blocks";
+import { FeaturesBento, FeaturesTerminal, FeaturesCrop } from "hash-ui-blocks";
 
 /* Feature grids are page-width by nature, so each demo drops the tile's
    usual padding and lets the block bleed to the edges of the frame. */

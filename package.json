@@ -12,19 +12,19 @@
   "scripts": {
     "dev": "npm run dev -w @hash-ui/docs",
     "build": "npm run registry && npm run sitemap && npm run build -w @hash-ui/docs",
-    "build:lib": "npm run build -w hash-ui && npm run build -w @hash-ui/blocks",
+    "build:lib": "npm run build -w hash-ui && npm run build -w hash-ui-blocks",
     "build:all": "npm run build:lib && npm run build",
     "preview": "npm run preview -w @hash-ui/docs",
     "registry": "node scripts/build-registry.mjs",
-    "typecheck": "npm run typecheck -w hash-ui && npm run typecheck -w @hash-ui/blocks && npm run typecheck -w @hash-ui/docs",
+    "typecheck": "npm run typecheck -w hash-ui && npm run typecheck -w hash-ui-blocks && npm run typecheck -w @hash-ui/docs",
     "export:ui": "node scripts/export-ui.mjs",
-    "build:blocks": "npm run build -w @hash-ui/blocks",
+    "build:blocks": "npm run build -w hash-ui-blocks",
     "motion": "node scripts/motion.mjs",
     "reflow": "node scripts/reflow.mjs",
     "targets": "node scripts/targets.mjs",
     "pack-test": "node scripts/pack-test.mjs",
     "filmstrip": "node scripts/filmstrip.mjs",
-    "test": "npm run test -w hash-ui && npm run test -w @hash-ui/blocks",
+    "test": "npm run test -w hash-ui && npm run test -w hash-ui-blocks",
     "sitemap": "node scripts/build-sitemap.mjs"
   },
   "devDependencies": {

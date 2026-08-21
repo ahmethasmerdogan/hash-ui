@@ -38,11 +38,11 @@ export default function BlocksOverviewPage() {
       }
     >
       <CodeBlock
-        code={`npm i @hash-ui/blocks
+        code={`npm i hash-ui-blocks
 
 # then, after the core stylesheet
 @import "hash-ui/css";
-@import "@hash-ui/blocks/css";`}
+@import "hash-ui-blocks/css";`}
       />
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

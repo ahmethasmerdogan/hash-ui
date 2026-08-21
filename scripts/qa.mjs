@@ -8,7 +8,7 @@
 /* system claims to follow — no horizontal overflow, no drop shadows,   */
 /* no invisible text — then drives the interactive surfaces.            */
 /*                                                                      */
-/* The one sanctioned exception to the shadow rule is @hash-ui/blocks'   */
+/* The one sanctioned exception to the shadow rule is hash-ui-blocks'   */
 /* effects layer: elements carrying an `fx-*` class may glow. Anything   */
 /* else that casts a blurred shadow is still a failure.                 */
 /* ------------------------------------------------------------------ */

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 /*                                                                     */
 /* Upstream these jobs belong to framer-motion (useScroll, useInView,  */
 /* useSpring). They are small enough to own outright, and owning them  */
-/* is what keeps @hash-ui/blocks installable without a motion library. */
+/* is what keeps hash-ui-blocks installable without a motion library. */
 /* ------------------------------------------------------------------ */
 
 /**

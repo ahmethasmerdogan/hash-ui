@@ -1,6 +1,6 @@
 <div align="center">
 
-# @hash-ui/blocks
+# hash-ui-blocks
 
 **Whole strips of a page, for [HashUI](https://hashui.vercel.app).**
 
@@ -8,7 +8,7 @@ Twenty-one section-sized blocks — heroes, feature grids, logo clouds, footers,
 app shells, maps and scroll-driven effects — built out of the core primitives,
 so they inherit your tokens rather than bringing their own.
 
-[![npm](https://img.shields.io/npm/v/@hash-ui/blocks?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/@hash-ui/blocks)
+[![npm](https://img.shields.io/npm/v/hash-ui-blocks?color=059669&label=npm&logo=npm&logoColor=white)](https://www.npmjs.com/package/hash-ui-blocks)
 [![license](https://img.shields.io/badge/license-MIT-059669)](LICENSE)
 
 ### **[hashui.vercel.app/docs/blocks →](https://hashui.vercel.app/docs/blocks)**
@@ -20,18 +20,18 @@ so they inherit your tokens rather than bringing their own.
 ## Install
 
 ```bash
-npm install hash-ui @hash-ui/blocks
+npm install hash-ui hash-ui-blocks
 ```
 
 ```css
 /* order matters — the effects layer reads the core tokens */
 @import "tailwindcss";
 @import "hash-ui/css";
-@import "@hash-ui/blocks/css";
+@import "hash-ui-blocks/css";
 ```
 
 ```tsx
-import { HeroTerminal, FeaturesBento, CinematicFooter } from "@hash-ui/blocks";
+import { HeroTerminal, FeaturesBento, CinematicFooter } from "hash-ui-blocks";
 
 export default function Page() {
   return (

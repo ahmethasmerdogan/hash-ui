@@ -32,7 +32,7 @@ function compile(gl: WebGLRenderingContext, type: number, src: string) {
     /* a shader that fails to compile is a bug in this package, not a
        property of the visitor's machine — say so rather than rendering
        nothing and leaving no trace */
-    console.warn("[@hash-ui/blocks] shader failed to compile:\n" + gl.getShaderInfoLog(sh));
+    console.warn("[hash-ui-blocks] shader failed to compile:\n" + gl.getShaderInfoLog(sh));
     gl.deleteShader(sh);
     return null;
   }
@@ -62,7 +62,7 @@ export function runShader(
   gl.attachShader(prog, fs);
   gl.linkProgram(prog);
   if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-    console.warn("[@hash-ui/blocks] shader failed to link:\n" + gl.getProgramInfoLog(prog));
+    console.warn("[hash-ui-blocks] shader failed to link:\n" + gl.getProgramInfoLog(prog));
     return null;
   }
   gl.useProgram(prog);

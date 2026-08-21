@@ -83,18 +83,18 @@ scroll-driven effects — live in a second package so the core stays
 dependency-free.
 
 ```bash
-npm install @hash-ui/blocks
+npm install hash-ui-blocks
 ```
 
 ```css
 /* after the core sheet — the effects layer reads its tokens */
 @import "tailwindcss";
 @import "hash-ui/css";
-@import "@hash-ui/blocks/css";
+@import "hash-ui-blocks/css";
 ```
 
 ```tsx
-import { HeroTerminal, FeaturesBento, CinematicFooter } from "@hash-ui/blocks";
+import { HeroTerminal, FeaturesBento, CinematicFooter } from "hash-ui-blocks";
 ```
 
 Three blocks reach for a library, each declared an **optional peer** behind a
@@ -141,7 +141,7 @@ load-bearing — break one and the components stop looking related.
 4. **Two typographic voices.** Geist for the interface, Geist Mono with tabular
    numerals for every number, timestamp, ID and code sample.
 5. **No neon, no glow.** Accent colour carries meaning, not decoration. The one
-   exception is `@hash-ui/blocks`, whose `.fx-*` effects layer may glow — it is
+   exception is `hash-ui-blocks`, whose `.fx-*` effects layer may glow — it is
    opt-in by class name and never restyles a core component.
 
 A CI check enforces #1 in the browser: `node scripts/qa.mjs` fails the build if
@@ -208,7 +208,7 @@ packages/core/            # the published npm package `hash-ui`
     Button.tsx …          # one file per component family
     presets/               # brand-bridge example
 
-packages/blocks/          # the published npm package `@hash-ui/blocks`
+packages/blocks/          # the published npm package `hash-ui-blocks`
   src/
     blocks.css            # the .fx-* effects layer (the one place glow lives)
     hooks.ts              # useInView, useScrollProgress, useMagnetic …

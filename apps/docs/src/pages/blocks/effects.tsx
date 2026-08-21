@@ -4,7 +4,7 @@ import {
   LiquidMetalButton,
   GeminiRibbon,
   NeuralVortex,
-} from "@hash-ui/blocks";
+} from "hash-ui-blocks";
 
 /* The ribbon and the vortex both want more room than a demo tile has, so
    each gets a framed viewport it can scroll or bleed inside of. */

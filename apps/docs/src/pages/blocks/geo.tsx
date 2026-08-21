@@ -9,7 +9,7 @@ import {
   MarkerTooltip,
   MarkerLabel,
   GlobeFlights,
-} from "@hash-ui/blocks";
+} from "hash-ui-blocks";
 
 const TOOLTIP_PLACES = [
   { id: 1, name: "Empire State Building", lng: -73.9857, lat: 40.7484 },

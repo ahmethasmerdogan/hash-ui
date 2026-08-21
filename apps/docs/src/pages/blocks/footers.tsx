@@ -1,6 +1,6 @@
 import { Section, Demo } from "@/components/Section";
 import { Card } from "hash-ui";
-import { CinematicFooter, GridFooter } from "@hash-ui/blocks";
+import { CinematicFooter, GridFooter } from "hash-ui-blocks";
 import { CodeBlock } from "@/components/Code";
 
 const BLEED = "!block !min-h-0 !p-0";

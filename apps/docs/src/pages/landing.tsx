@@ -27,7 +27,7 @@ import {
   ISparkleFill,
   IZap,
 } from "hash-ui";
-import { IntegrationsMarquee, LogoCloudSection } from "@hash-ui/blocks";
+import { IntegrationsMarquee, LogoCloudSection } from "hash-ui-blocks";
 import { LogoMark } from "@/components/Logo";
 import { InstallTabs } from "@/components/InstallTabs";
 import { CodeBlock } from "@/components/Code";

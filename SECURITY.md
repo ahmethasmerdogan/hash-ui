@@ -18,11 +18,11 @@ branches yet.
 | Package | Supported |
 | --- | --- |
 | `hash-ui` | 0.6.x |
-| `@hash-ui/blocks` | 0.6.x |
+| `hash-ui-blocks` | 0.6.x |
 
 ## What reaches the network
 
-`hash-ui` reaches nothing. Three blocks in `@hash-ui/blocks` do, each behind an
+`hash-ui` reaches nothing. Three blocks in `hash-ui-blocks` do, each behind an
 optional peer you have to install yourself:
 
 | Block | Peer | Fetches |

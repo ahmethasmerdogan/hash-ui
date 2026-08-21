@@ -142,7 +142,7 @@ export function GlobeFlights({
         createGlobe = (mod as { default: typeof import("cobe").default }).default;
       } catch {
         console.warn(
-          "[@hash-ui/blocks] <GlobeFlights> needs the optional peer `cobe`.\n" +
+          "[hash-ui-blocks] <GlobeFlights> needs the optional peer `cobe`.\n" +
             "  npm i cobe",
         );
         if (!cancelled) setFailed(true);

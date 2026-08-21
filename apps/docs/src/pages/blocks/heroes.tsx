@@ -6,7 +6,7 @@ import {
   HeroNexus,
   HeroCinematic,
   SplineHero,
-} from "@hash-ui/blocks";
+} from "hash-ui-blocks";
 
 const BLEED = "!block !min-h-0 !p-0";
 

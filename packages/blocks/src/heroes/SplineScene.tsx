@@ -43,7 +43,7 @@ function loadRuntime() {
     }))
     .catch(() => {
       console.warn(
-        "[@hash-ui/blocks] <SplineScene> needs the optional peer `@splinetool/react-spline`.\n" +
+        "[hash-ui-blocks] <SplineScene> needs the optional peer `@splinetool/react-spline`.\n" +
           "  npm i @splinetool/react-spline",
       );
       return { default: (() => null) as ComponentType<SplineProps> };

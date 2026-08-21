@@ -38,7 +38,7 @@ const check = (label, ok, detail = "") => {
 try {
   console.log("building and packing…");
   run("npm", ["run", "build:all"], ROOT);
-  for (const w of ["hash-ui", "@hash-ui/blocks"])
+  for (const w of ["hash-ui", "hash-ui-blocks"])
     run("npm", ["pack", "-w", w, "--pack-destination", dir], ROOT);
   const tarballs = readdirSync(dir).filter((f) => f.endsWith(".tgz")).map((f) => `./${f}`);
   check(`packed ${tarballs.length} tarballs`, tarballs.length === 2);
@@ -50,9 +50,9 @@ try {
 
   writeFileSync(join(dir, "app.tsx"), `
 import { Button, Card, ThemeProvider, ThreeOrb, EmptyState, ICompass } from "hash-ui";
-import { HeroTerminal, FeaturesBento, CinematicFooter, GlobeFlights, DashboardShell } from "@hash-ui/blocks";
+import { HeroTerminal, FeaturesBento, CinematicFooter, GlobeFlights, DashboardShell } from "hash-ui-blocks";
 import "hash-ui/css";
-import "@hash-ui/blocks/css";
+import "hash-ui-blocks/css";
 export const App = () => (
   <ThemeProvider>
     <HeroTerminal /><FeaturesBento /><GlobeFlights /><ThreeOrb />

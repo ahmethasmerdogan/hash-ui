@@ -4,7 +4,7 @@ All notable changes to HashUI. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the packages
 follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
-`hash-ui` and `@hash-ui/blocks` are versioned together.
+`hash-ui` and `hash-ui-blocks` are versioned together.
 
 ---
 
@@ -87,7 +87,7 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-**`@hash-ui/blocks`** — a second package of section-sized pieces, built out of
+**`hash-ui-blocks`** — a second package of section-sized pieces, built out of
 the core primitives so they inherit your tokens rather than bringing their own.
 Twenty-one blocks in seven groups:
 

@@ -1,5 +1,5 @@
 {
-  "name": "@hash-ui/blocks",
+  "name": "hash-ui-blocks",
   "version": "0.6.0",
   "description": "Marketing and application blocks for HashUI — heroes, feature grids, logo clouds, footers, app shells, maps and scroll-driven effects.",
   "keywords": [
@@ -44,9 +44,6 @@
     "README.md",
     "LICENSE"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json && node scripts/copy-css.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
