@@ -200,7 +200,7 @@ export default function Landing() {
           <div className="px-6 pt-9 pb-11 text-center md:px-12">
             <div className="mb-7 flex justify-center">
               <AnnouncementPill chip={SITE.version}>
-                21 new page blocks · shadcn registry · MIT
+                23 page blocks · shadcn registry · MIT
               </AnnouncementPill>
             </div>
 

@@ -8,6 +8,23 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.6.1] — 2026-08-21
+
+### Changed
+
+- **The mark is three waves, not a hash.** The hash belonged to the old name.
+  The tile is unchanged — it still carries the button-face recipe, so the
+  logo is a spec of the design language — and the glyph now says what the
+  name says. Three waves rather than four, at this amplitude rather than
+  more, because at 16px in a browser tab any tighter and they merge.
+
+- **The package descriptions say what is actually in here.** The published
+  0.6.0 said "70+ components and 83 hand-drawn icons", which was written
+  before forms, tables and the whole overlay family landed. It is 96
+  components and 82 icons, counted rather than remembered.
+
+---
+
 ## [Unreleased]
 
 ### Added

@@ -2,11 +2,11 @@
 
 export const SITE = {
   name: "UICean",
-  version: "v0.6",
+  version: "0.6.1",
   pkg: "uicean",
   tagline: "A design foundation, distilled from the wild.",
   description:
-    "A flat, shadow-free React 19 + Tailwind CSS v4 design system — 70+ components, 21 page blocks and 83 hand-drawn icons, distilled from curated interface references.",
+    "A flat, shadow-free React 19 + Tailwind CSS v4 design system — 96 components, 23 page blocks and 82 hand-drawn icons, in light and dark, with five accent themes.",
   url: "https://uicean.vercel.app",
   github: "https://github.com/ahmethasmerdogan/uicean",
   npm: "https://www.npmjs.com/package/uicean",

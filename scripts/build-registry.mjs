@@ -49,7 +49,7 @@ const ITEMS = [
     file: "icons.tsx",
     title: "Icons",
     description:
-      "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
+      "82 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
   },
   {
     name: "theme",

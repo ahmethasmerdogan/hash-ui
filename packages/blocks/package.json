@@ -1,7 +1,7 @@
 {
   "name": "uicean-blocks",
-  "version": "0.6.0",
-  "description": "Marketing and application blocks for UICean — heroes, feature grids, logo clouds, footers, app shells, maps and scroll-driven effects.",
+  "version": "0.6.1",
+  "description": "Section-sized page blocks for UICean \u2014 heroes, feature grids, logo clouds, footers, app shells, sign-in screens, maps and WebGL effects. Built from the core primitives, so they inherit your tokens instead of bringing their own.",
   "keywords": [
     "react",
     "tailwindcss",
@@ -11,10 +11,16 @@
     "footer",
     "landing-page",
     "design-system",
-    "uicean"
+    "uicean",
+    "auth",
+    "login",
+    "shadcn",
+    "registry",
+    "webgl",
+    "shader"
   ],
   "license": "MIT",
-  "author": "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
+  "author": "Ahmet H\u00e2\u015fim Erdo\u011fan <a.erdogan6868@gmail.com>",
   "homepage": "https://uicean.vercel.app/docs/blocks",
   "repository": {
     "type": "git",

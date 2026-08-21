@@ -37,7 +37,7 @@
       "name": "icons",
       "type": "registry:ui",
       "title": "Icons",
-      "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
+      "description": "82 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
       "registryDependencies": [
         "https://uicean.vercel.app/r/tokens.json"
       ],

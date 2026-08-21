@@ -7,7 +7,7 @@ import { cx } from "uicean";
 /* The squircle carries the same anatomy as every button face in the   */
 /* system — vertical gradient, 1px ring of the same hue, hairline      */
 /* highlight along the top edge — so the logo is itself a spec of the  */
-/* design language. The glyph is an italic hash: two bars, two rails.  */
+/* design language. The glyph is three waves: UI + ocean.              */
 /* ------------------------------------------------------------------ */
 
 export function LogoMark({
@@ -77,16 +77,20 @@ export function LogoMark({
         strokeLinecap="round"
       />
 
+      {/* Three waves — UI + ocean, and the same idea the system expresses
+          everywhere else: depth as stacked surfaces rather than shadow.
+          Three rather than four, and this amplitude rather than more,
+          because at 16px in a browser tab any tighter and they merge into
+          a smudge. */}
       <g
         stroke={`url(#${id}-glyph)`}
-        strokeWidth="5.6"
+        strokeWidth="4.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M14 26.5H50" />
-        <path d="M14 40.5H50" />
-        <path d="M28.5 12L23.5 53" />
-        <path d="M44.5 12L39.5 53" />
+        <path d="M13 21 Q22.5 15 32 21 T51 21" />
+        <path d="M13 32 Q22.5 26 32 32 T51 32" />
+        <path d="M13 43 Q22.5 37 32 43 T51 43" />
       </g>
     </svg>
   );

@@ -6,8 +6,8 @@
 
 **A design foundation, distilled from the wild.**
 
-A flat, shadow-free **React + Tailwind CSS v4** design system — 70+ components,
-21 page blocks, 83 hand-drawn icons and five accent themes, rebuilt from curated
+A flat, shadow-free **React + Tailwind CSS v4** design system — 96 components,
+23 page blocks, 82 hand-drawn icons and five accent themes, rebuilt from curated
 interface references.
 Install it from npm, or copy any component into your repo with the shadcn CLI.
 
@@ -20,7 +20,7 @@ Install it from npm, or copy any component into your repo with the shadcn CLI.
 
 [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
 
-<img src="apps/docs/public/og.png" width="760" alt="UICean — 70+ flat, shadow-free components and 83 hand-drawn icons" />
+<img src="apps/docs/public/og.png" width="760" alt="UICean — 96 flat, shadow-free components and 82 hand-drawn icons" />
 
 </div>
 
@@ -117,7 +117,7 @@ dynamic import — you only pay for the one you use:
 | **Feedback & overlays** | `Alert` · `ToastProvider` + `useToast` · `Tooltip` · `Modal` · `Dropdown` · `Skeleton` · `EmptyState` |
 | **Data** | `PillTabs` · `NotchTabs` · `DotTabs` · `UnderlineTabs` · `PillNav` · `ProgressBar` · `TickBars` · `SignalBars` · `DottedMeter` · `GoalBar` · `RainbowMeter` · `RingProgress` · `RangeBar` · `CountdownLCD` · `LcdTimer` · `DeliveryTimeline` · `StageFlow` · `CommitGraph` |
 | **Motion** | `NumberTicker` · `Typewriter` · `Marquee` · `ShimmerButton` · `BorderBeam` · `Spotlight` · `TiltCard` · `Reveal` · `Meteors` · `GradientText` · `ThreeOrb` |
-| **Icons** | 83 hand-drawn SVGs on a 24px grid — [browse them](https://uicean.vercel.app/docs/components/icons) |
+| **Icons** | 82 hand-drawn SVGs on a 24px grid — [browse them](https://uicean.vercel.app/docs/components/icons) |
 | **Blocks** *(separate package)* | `HeroTerminal` · `HeroSplit` · `HeroNexus` · `HeroCinematic` · `SplineHero` · `FeaturesBento` · `FeaturesTerminal` · `FeaturesCrop` · `LogoCloud` · `LogoCloudPlus` · `IntegrationsMarquee` · `CinematicFooter` · `GridFooter` · `DashboardShell` · `SidebarNav` · `RailSidebar` · `Map` + markers · `GlobeFlights` · `LiquidMetalButton` · `GeminiRibbon` · `NeuralVortex` |
 
 Semantic classes come from the token layer:
