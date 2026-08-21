@@ -1,6 +1,6 @@
 {
   "name": "uicean-blocks",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Section-sized page blocks for UICean \u2014 heroes, feature grids, logo clouds, footers, app shells, sign-in screens, maps and WebGL effects. Built from the core primitives, so they inherit your tokens instead of bringing their own.",
   "keywords": [
     "react",
@@ -59,7 +59,7 @@
   "peerDependencies": {
     "@splinetool/react-spline": ">=4",
     "cobe": "^0.6.5",
-    "uicean": "^0.5.0 || ^0.6.0",
+    "uicean": "^0.6.0",
     "maplibre-gl": ">=4",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"

@@ -2,7 +2,7 @@
 
 export const SITE = {
   name: "UICean",
-  version: "0.6.1",
+  version: "0.6.2",
   pkg: "uicean",
   tagline: "A design foundation, distilled from the wild.",
   description:

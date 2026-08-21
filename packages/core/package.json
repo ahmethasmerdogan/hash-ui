@@ -1,7 +1,7 @@
 {
   "name": "uicean",
-  "version": "0.6.1",
-  "description": "A flat, shadow-free React 19 + Tailwind CSS v4 design system. 96 components and 82 icons \u2014 forms, tables, popovers, sheets, comboboxes, a calendar and a command palette \u2014 in light and dark, with five accent themes and one --radius token. No runtime dependency but React.",
+  "version": "0.6.2",
+  "description": "A flat, shadow-free React 19 + Tailwind CSS v4 design system. 96 components and 82 icons \u2014 forms, tables, popovers, sheets, comboboxes, a calendar and a command palette \u2014 light and dark, five accent themes, one --radius token.",
   "keywords": [
     "react",
     "react-19",

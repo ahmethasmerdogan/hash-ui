@@ -8,6 +8,24 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.6.2] — 2026-08-21
+
+### Fixed
+
+- **The npm description was cut off mid-word.** npm truncates at 255
+  characters and 0.6.1's was 270, so the package page ended on "No runtime
+  depend". It is 226 now.
+
+- **`uicean-blocks` asked for `uicean@^0.5.0 || ^0.6.0`.** The `^0.5.0` half
+  was carried over verbatim from the old scoped name and points at a version
+  that has never existed under this one.
+
+- The terminal in `HeroTerminal` typed `npx create-hash-app@latest`. The
+  rename swept every spelling of the package name and missed this, because it
+  is not the package name.
+
+---
+
 ## [0.6.1] — 2026-08-21
 
 ### Changed

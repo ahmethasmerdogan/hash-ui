@@ -24,7 +24,7 @@ import { TerminalMock, type TerminalLine } from "../features/FeaturesTerminal.js
 /* ------------------------------------------------------------------ */
 
 const DEMO_LINES: TerminalLine[] = [
-  { kind: "prompt", text: "npx create-hash-app@latest" },
+  { kind: "prompt", text: "npx create-uicean-app@latest" },
   { kind: "step", text: "Resolving packages…" },
   { kind: "step", text: "Fetching dependencies…" },
   { kind: "step", text: "Linking dependencies…" },
