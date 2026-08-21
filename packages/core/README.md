@@ -5,7 +5,7 @@
 **A design foundation, distilled from the wild.**
 
 A flat, shadow-free **React + Tailwind CSS v4** design system — 96 components
-and 82 hand-drawn icons, rebuilt from 36 curated interface references.
+and 83 hand-drawn icons, rebuilt from 36 curated interface references.
 
 [Documentation](https://uicean.vercel.app) ·
 [GitHub](https://github.com/ahmethasmerdogan/uicean) ·

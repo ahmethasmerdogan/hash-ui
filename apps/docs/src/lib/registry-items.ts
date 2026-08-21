@@ -34,7 +34,7 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
   {
     "name": "icons",
     "title": "Icons",
-    "description": "82 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
+    "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
     "type": "registry:ui",
     "target": "components/uicean/icons.tsx",
     "dependencies": [],

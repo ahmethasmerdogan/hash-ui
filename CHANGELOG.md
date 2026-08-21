@@ -39,7 +39,7 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 - **The package descriptions say what is actually in here.** The published
   0.6.0 said "70+ components and 83 hand-drawn icons", which was written
   before forms, tables and the whole overlay family landed. It is 96
-  components and 82 icons, counted rather than remembered.
+  components and 83 icons, counted rather than remembered.
 
 ---
 

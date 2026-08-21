@@ -25,7 +25,8 @@
     "pack-test": "node scripts/pack-test.mjs",
     "filmstrip": "node scripts/filmstrip.mjs",
     "test": "npm run test -w uicean && npm run test -w uicean-blocks",
-    "sitemap": "node scripts/build-sitemap.mjs"
+    "sitemap": "node scripts/build-sitemap.mjs",
+    "counts": "node scripts/counts.mjs"
   },
   "devDependencies": {
     "playwright": "^1.62.1",

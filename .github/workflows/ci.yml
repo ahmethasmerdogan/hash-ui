@@ -36,6 +36,13 @@ jobs:
       - name: Registry is in sync with the source
         run: git diff --exit-code apps/docs/public/r apps/docs/src/lib/registry-items.ts
 
+      # Every README and both manifests state how many components, blocks and
+      # icons there are. Those numbers were wrong three times, in both
+      # directions — prose drifting from the source, and the source growing
+      # past the prose.
+      - name: The numbers in the prose are true
+        run: node scripts/counts.mjs
+
       # The npm route is covered by `typecheck`. This covers the other one:
       # lay every registry item out where the CLI would put it and compile it
       # there, with the real optional peers installed rather than our shims.

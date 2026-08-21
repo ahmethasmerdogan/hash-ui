@@ -169,7 +169,7 @@ export const NAV: NavGroup[] = [
         path: "/docs/components/icons",
         label: "Icon library",
         badge: "New",
-        desc: "All 82 hand-drawn SVG icons, searchable, with copyable imports.",
+        desc: "All 83 hand-drawn SVG icons, searchable, with copyable imports.",
         keywords: "icons svg icon set lucide search",
         Component: lazy(() => import("@/pages/components/icons")),
       },

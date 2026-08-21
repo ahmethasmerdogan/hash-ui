@@ -39,7 +39,7 @@
   <text x="88" y="300" font-size="72" font-weight="700" letter-spacing="-2.6" fill="#1c1b18">A design foundation,</text>
   <text x="88" y="382" font-size="72" font-weight="700" letter-spacing="-2.6" fill="#1c1b18">distilled from the wild.</text>
 
-  <text x="88" y="440" font-size="24" font-weight="400" fill="#6b6862">96 components, 21 page blocks, 82 hand-drawn icons.</text>
+  <text x="88" y="440" font-size="24" font-weight="400" fill="#6b6862">96 components, 21 page blocks, 83 hand-drawn icons.</text>
 
   <!-- install pill -->
   <g transform="translate(88, 478)">
@@ -53,9 +53,9 @@
     <rect width="592" height="56" rx="14" fill="#f7f7f5" stroke="#e6e5e1" stroke-width="1.5"/>
     <text x="26" y="35" font-size="18" font-weight="600" fill="#1c1b18">96</text>
     <text x="66" y="35" font-size="16" fill="#a3a099">components</text>
-    <text x="184" y="35" font-size="18" font-weight="600" fill="#1c1b18">23</text>
+    <text x="184" y="35" font-size="18" font-weight="600" fill="#1c1b18">21</text>
     <text x="209" y="35" font-size="16" fill="#a3a099">blocks</text>
-    <text x="272" y="35" font-size="18" font-weight="600" fill="#1c1b18">82</text>
+    <text x="272" y="35" font-size="18" font-weight="600" fill="#1c1b18">83</text>
     <text x="298" y="35" font-size="16" fill="#a3a099">icons</text>
     <text x="358" y="35" font-size="18" font-weight="600" fill="#1c1b18">5</text>
     <text x="374" y="35" font-size="16" fill="#a3a099">themes</text>

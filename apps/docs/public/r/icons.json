@@ -3,7 +3,7 @@
   "name": "icons",
   "type": "registry:ui",
   "title": "Icons",
-  "description": "82 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
+  "description": "83 hand-drawn SVG icons on a 24px grid with a shared 1.8 stroke. Tree-shakeable, no icon package.",
   "author": "Ahmet Hâşim Erdoğan <a.erdogan6868@gmail.com>",
   "dependencies": [],
   "registryDependencies": [
