@@ -72,6 +72,35 @@ npx shadcn@latest add https://uicean.vercel.app/r/button.json
 npx shadcn@latest add https://uicean.vercel.app/r/uicean.json   # everything
 ```
 
+## What is in it
+
+| | |
+| --- | --- |
+| **Forms** | `Field` · `Label` · `Textarea` · `SearchField` · `SelectField` · `Combobox` · `Checkbox` · `Switch` · `RadioGroup` · `RadioCards` · `Slider` · `Toggle` · `ToggleGroup` · `InputOTP` · `SegmentedControl` |
+| **Overlays** | `Modal` · `Sheet` · `AlertDialog` · `Popover` · `HoverCard` · `Dropdown` · `Tooltip` · `Command` · `ToastProvider` |
+| **Data** | `Table` · `DataTable` · `Pagination` · `DeliveryTimeline` · `StageFlow` · `CommitGraph` · `StatTile` · `ProgressBar` · `RingProgress` · `Stepper` |
+| **Dates** | `Calendar` · `DatePicker` |
+| **Structure** | `Card` · `Accordion` · `Collapsible` · `ScrollArea` · `AspectRatio` · `Separator` · `PillTabs` · `UnderlineTabs` · `NotchTabs` · `Breadcrumbs` · `EmptyState` · `Skeleton` |
+| **Expressive** | `Marquee` · `Typewriter` · `NumberTicker` · `Meteors` · `Spotlight` · `BorderBeam` · `TiltCard` · `GlowPill` · `ShimmerButton` · `ThreeOrb` |
+
+`Field` generates the ids and wires `aria-describedby` and `aria-invalid`, so
+a hint and an error are announced rather than merely shown. The overlays share
+one set of primitives — dismiss, focus trap, scroll lock, anchored positioning
+— so a fix to one is a fix to all of them. Anchoring is a rect, a flip and a
+clamp; there is no floating-ui. The calendar uses `Intl` rather than a date
+library, and works in local midnight throughout.
+
+## One number for the corners
+
+```css
+:root {
+  --radius: 10px;   /* every step derives from this */
+}
+```
+
+Buttons, inputs, cards, popovers and the calendar all read it. Set it to `0`
+for a square system, `16` for a soft one — nothing else has to change.
+
 ## Theming
 
 One block of CSS rebrands the system:

@@ -97,9 +97,24 @@ for (const [file, re, key] of CLAIMS) {
   if (!ok) bad++;
 }
 
+/* The other kind of false claim: a README that advertises a component the
+   package does not export. Writing the inventory table, I listed `Tabs` and
+   `Timeline` — neither exists; they are PillTabs and DeliveryTimeline. A
+   reader would have found that out by installing it. */
+const NOT_OURS = new Set(["Intl", "React", "Tailwind", "TypeScript"]);
+const exportedNames = new Set(exported);
+const readme = await readFile(`${ROOT}packages/core/README.md`, "utf8");
+const advertised = [
+  ...new Set([...readme.matchAll(/`([A-Z][A-Za-z]+)`/g)].map((m) => m[1])),
+].filter((n) => !NOT_OURS.has(n));
+const phantom = advertised.filter((n) => !exportedNames.has(n));
+
+for (const n of phantom) console.log(`  ✗ README advertises \`${n}\`, which is not exported`);
+bad += phantom.length;
+
 console.log(
   bad === 0
-    ? `✓ ${CLAIMS.length} claims across ${new Set(CLAIMS.map((c) => c[0])).size} files, all true`
-    : `\n${bad} of ${CLAIMS.length} claims disagree with the source`,
+    ? `✓ ${CLAIMS.length} claims and ${advertised.length} component names, all true`
+    : `\n${bad} claim${bad === 1 ? "" : "s"} disagree with the source`,
 );
 process.exit(bad ? 1 : 0);
