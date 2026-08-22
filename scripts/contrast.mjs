@@ -18,6 +18,10 @@ import { chromium } from "playwright";
 
 const BASE = process.env.QA_URL ?? "http://localhost:5180";
 const ACCENTS = ["emerald", "blue", "violet", "amber", "rose"];
+/* The sector themes move the surfaces and the ink as well as the accent, so
+   each one is a palette in its own right and has to be read on its own.
+   Sweeping the accent axis alone would have said nothing about them. */
+const SECTORS = ["default", "fintech", "health", "commerce", "editorial", "studio", "legal"];
 const THEMES = ["light", "dark"];
 
 /* WCAG relative luminance, then the contrast ratio between two colours. */
@@ -56,15 +60,24 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 const failures = [];
 const rows = [];
 
-for (const accent of ACCENTS) {
+/* accents against the default sector, then every sector at its own accent.
+   The full cross-product is 5 × 7 × 2 = 70 loads for very little: an accent
+   only overrides --brand, so it behaves the same in every room. */
+const COMBOS = [
+  ...ACCENTS.map((a) => ({ accent: a, sector: "default" })),
+  ...SECTORS.filter((x) => x !== "default").map((x) => ({ accent: "emerald", sector: x })),
+];
+
+for (const { accent, sector } of COMBOS) {
   for (const theme of THEMES) {
     await page.goto(`${BASE}/docs/theming`, { waitUntil: "domcontentloaded" });
     await page.evaluate(
-      ([a, t]) => {
+      ([a, t, sec]) => {
         localStorage.setItem("uicean-accent", a);
         localStorage.setItem("uicean-theme", t);
+        localStorage.setItem("uicean-sector", sec);
       },
-      [accent, theme],
+      [accent, theme, sector],
     );
     await page.reload({ waitUntil: "domcontentloaded" });
     await page.waitForTimeout(700);
@@ -118,8 +131,9 @@ for (const accent of ACCENTS) {
       const min =
         what.includes("ink on canvas") || what.includes("label on") ? 4.5 : 3.0;
       const ok = r >= min;
-      rows.push({ accent, theme, what, ratio: r.toFixed(2), min, ok });
-      if (!ok) failures.push(`${accent}/${theme}: ${what} = ${r.toFixed(2)} (needs ${min})`);
+      const palette = sector === "default" ? accent : sector;
+      rows.push({ accent: palette, theme, what, ratio: r.toFixed(2), min, ok });
+      if (!ok) failures.push(`${palette}/${theme}: ${what} = ${r.toFixed(2)} (needs ${min})`);
     }
   }
 }
@@ -130,7 +144,7 @@ for (const r of rows) {
   if (!worst.has(k) || Number(r.ratio) < Number(worst.get(k).ratio)) worst.set(k, r);
 }
 
-console.log(`${ACCENTS.length} accents × ${THEMES.length} themes\n`);
+console.log(`${COMBOS.length} palettes × ${THEMES.length} modes\n`);
 console.log("worst reading per surface:");
 for (const [what, r] of worst) {
   console.log(

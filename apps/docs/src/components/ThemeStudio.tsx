@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   ACCENTS,
+  THEMES,
   useTheme,
   useToast,
   cx,
@@ -21,6 +22,7 @@ import {
   ISun,
   IMoon,
   type AccentId,
+  type ThemeId,
   type ThemeMode,
 } from "uicean";
 
@@ -43,12 +45,13 @@ import {
 /* ------------------------------------------------------------------ */
 
 const ACCENT_IDS = Object.keys(ACCENTS) as AccentId[];
+const THEME_IDS = Object.keys(THEMES) as ThemeId[];
 
 /* the four radius steps, keyed to what the token produces at each stop */
 const RADIUS_STOPS = [0, 4, 6, 8, 10, 12, 16] as const;
 
 export function ThemeStudio() {
-  const { accent, setAccent, mode, setMode } = useTheme();
+  const { accent, setAccent, mode, setMode, theme, setTheme } = useTheme();
   const { push } = useToast();
   const [radius, setRadius] = useState(10);
   const [busy, setBusy] = useState(false);
@@ -64,14 +67,32 @@ export function ThemeStudio() {
     };
   }, [radius]);
 
+  /* Only the attributes that are not the default. Emitting
+     data-accent="emerald" would tell a reader to set the thing that is
+     already true, and the point of the default being attribute-free is
+     that there is nothing extra to reason about in devtools. */
+  const attrs = [
+    theme !== "default" && `data-theme="${theme}"`,
+    accent !== "emerald" && `data-accent="${accent}"`,
+  ].filter(Boolean);
+
+  const named =
+    theme === "default"
+      ? `${ACCENTS[accent].label.toLowerCase()} accent`
+      : `${THEMES[theme].label.toLowerCase()} sector` +
+        (accent === "emerald" ? "" : `, ${ACCENTS[accent].label.toLowerCase()} accent`);
+
   const css = `:root {
   /* corner radius — every step is derived from this one number */
   --radius: ${radius}px;
 }
 
-/* accent: ${ACCENTS[accent].label.toLowerCase()} — set it on <html> and the
-   whole system follows, or copy the preset out of uicean.css to pin it */
-<html data-accent="${accent}">`;
+${
+  attrs.length
+    ? `<!-- ${named}: set it on <html> and the whole system follows -->
+<html ${attrs.join(" ")}>`
+    : `<!-- the default room and the default accent: no attributes needed -->`
+}`;
 
   const copy = () => {
     void navigator.clipboard
@@ -85,6 +106,53 @@ export function ThemeStudio() {
       {/* controls                                                    */}
       {/* ---------------------------------------------------------- */}
       <Card className="flex flex-col gap-6 p-5">
+        <div>
+          <p className="microlabel mb-3">Sector</p>
+          <div className="grid grid-cols-1 gap-1.5">
+            {THEME_IDS.map((id) => {
+              const t = THEMES[id];
+              const on = theme === id;
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => {
+                    setTheme(id);
+                    /* the sector carries its own radius — picking one and
+                       leaving the slider where it was would show a theme
+                       nobody designed */
+                    setRadius(t.radius);
+                  }}
+                  aria-pressed={on}
+                  className={cx(
+                    "flex items-center gap-2.5 rounded-[var(--radius)] border px-3 py-2 text-left transition-colors",
+                    "outline-none focus-visible:ring-2 focus-visible:ring-brand/45",
+                    on ? "border-line-strong bg-elev" : "border-transparent hover:bg-inset",
+                  )}
+                >
+                  <span
+                    aria-hidden
+                    className="size-5 shrink-0 border border-black/10"
+                    style={{ background: t.swatch, borderRadius: t.radius * 0.5 }}
+                  />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-[13.5px] font-medium text-ink">
+                      {t.label}
+                    </span>
+                    <span className="block truncate text-[11.5px] text-ink-3">{t.note}</span>
+                  </span>
+                  {on && <ICheck size={14} className="shrink-0 text-brand" />}
+                </button>
+              );
+            })}
+          </div>
+          <p className="mt-2.5 text-[11.5px] leading-relaxed text-ink-3">
+            A sector moves the whole room — surfaces, ink, hairlines and the
+            corner radius, not just the hue. The accent below still overrides
+            the hue on top of it.
+          </p>
+        </div>
+
         <div>
           <p className="microlabel mb-3">Accent</p>
           <div className="grid grid-cols-1 gap-1.5">

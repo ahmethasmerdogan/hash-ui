@@ -198,6 +198,252 @@
   --brand-soft: rgba(251, 113, 133, 0.16);
 }
 
+/* ------------------------------------------------------------------ */
+/* Sector themes                                                       */
+/*                                                                     */
+/* An accent moves one hue. A sector theme moves the whole room: the   */
+/* surfaces, the ink, the weight of the hairlines, the corner radius   */
+/* and the accent together — because what separates a banking console  */
+/* from a recipe site is not which green they picked.                  */
+/*                                                                     */
+/* They compose with everything else. `data-theme` sets the room and    */
+/* `data-accent` still overrides the hue on top, so a fintech shell     */
+/* with a rose accent is one attribute away.                            */
+/*                                                                     */
+/* Each one is a full light block and a dark block. Every combination   */
+/* is checked by scripts/contrast.mjs — a theme that reads beautifully  */
+/* and fails AA is not a theme this system ships.                       */
+/* ------------------------------------------------------------------ */
+
+/* Fintech — cool, exact, tight. Numbers are the content, so the page
+   gets out of their way: near-neutral surfaces with a blue cast, hard
+   corners, and a hairline that reads as a rule in a ledger. */
+[data-theme="fintech"] {
+  --canvas: #f6f7f9;
+  --surface: #ffffff;
+  --elev: #f9fafb;
+  --inset: #f1f3f6;
+  --line: #e3e6eb;
+  --line-strong: #cbd1da;
+  --ink: #10141c;
+  --ink2: #59616e;
+  --ink3: #949bab;
+  --dot: #d2d7df;
+  --radius: 6px;
+  --brand: #1d4ed8;
+  --brand-ink: #1e40af;
+  --brand-soft: #eef3ff;
+  --btn-brand-a: #3b6ae0;
+  --btn-brand-b: #1b48c4;
+  --btn-brand-ring: #163ba4;
+}
+.dark[data-theme="fintech"] {
+  --canvas: #0a0d13;
+  --surface: #111621;
+  --elev: #161c29;
+  --inset: #1c2431;
+  --line: #232c3b;
+  --line-strong: #33405473;
+  --ink: #eef1f6;
+  --ink2: #97a1b2;
+  --ink3: #616b7d;
+  --dot: #212a38;
+  --brand: #7ea3ff;
+  --brand-ink: #a8c0ff;
+  --brand-soft: rgba(126, 163, 255, 0.15);
+}
+
+/* Health — airy and unhurried. More space between the surfaces, softer
+   corners, a teal that reads as clinical rather than corporate. The
+   canvas is cool because warm whites read as slightly unclean here. */
+[data-theme="health"] {
+  --canvas: #f2f7f7;
+  --surface: #ffffff;
+  --elev: #f7fbfb;
+  --inset: #ebf3f3;
+  --line: #dceaea;
+  --line-strong: #c3d9d9;
+  --ink: #10201f;
+  --ink2: #5a6d6c;
+  --ink3: #93a5a4;
+  --dot: #cfe0e0;
+  --radius: 14px;
+  --brand: #0f766e;
+  --brand-ink: #115e59;
+  --brand-soft: #e8f6f4;
+  --btn-brand-a: #1f8f85;
+  --btn-brand-b: #0d6b63;
+  --btn-brand-ring: #0a5a53;
+}
+.dark[data-theme="health"] {
+  --canvas: #06100f;
+  --surface: #0d1a19;
+  --elev: #122120;
+  --inset: #172927;
+  --line: #1e3230;
+  --line-strong: #2b4643;
+  --ink: #e8f2f1;
+  --ink2: #93a8a6;
+  --ink3: #5d7472;
+  --dot: #1c302e;
+  --brand: #5eddd0;
+  --brand-ink: #99ece3;
+  --brand-soft: rgba(94, 221, 208, 0.14);
+}
+
+/* Commerce — warm and quick. A cream canvas so product photography sits
+   on something rather than floating, and an orange that behaves like a
+   price tag: it wants to be pressed. */
+[data-theme="commerce"] {
+  --canvas: #faf6f1;
+  --surface: #ffffff;
+  --elev: #fdfaf7;
+  --inset: #f5efe8;
+  --line: #ece2d7;
+  --line-strong: #dbcbb9;
+  --ink: #21180f;
+  --ink2: #6f6154;
+  --ink3: #a89a8b;
+  --dot: #e0d3c4;
+  --radius: 10px;
+  --brand: #c2410c;
+  --brand-ink: #9a3412;
+  --brand-soft: #fff2e9;
+  /* scaled to 97.5%% of the hue that reads best: white on the midpoint
+     measured 4.44:1, and AA wants 4.5. This is 4.63. */
+  --btn-brand-a: #dc602a;
+  --btn-brand-b: #b23b08;
+  --btn-brand-ring: #983206;
+}
+.dark[data-theme="commerce"] {
+  --canvas: #120d08;
+  --surface: #1c150e;
+  --elev: #241b12;
+  --inset: #2c2117;
+  --line: #372a1e;
+  --line-strong: #4a3a29;
+  --ink: #f7efe6;
+  --ink2: #b3a596;
+  --ink3: #7d6f60;
+  --dot: #2f2418;
+  --brand: #fb923c;
+  --brand-ink: #fdba74;
+  --brand-soft: rgba(251, 146, 60, 0.15);
+}
+
+/* Editorial — paper. Almost no radius, warm off-white, and the accent is
+   the ink itself with red kept for the one thing that matters on the
+   page. Built for long reading rather than for clicking. */
+[data-theme="editorial"] {
+  --canvas: #f7f4ee;
+  --surface: #fffdf9;
+  --elev: #faf7f1;
+  --inset: #f0ece4;
+  --line: #e4ded2;
+  --line-strong: #cec6b6;
+  --ink: #1a1713;
+  --ink2: #625b50;
+  --ink3: #9c9384;
+  --dot: #ddd6c8;
+  --radius: 2px;
+  --brand: #a3231b;
+  --brand-ink: #841c15;
+  --brand-soft: #fdeeec;
+  --btn-brand-a: #b8433a;
+  --btn-brand-b: #9a1f18;
+  --btn-brand-ring: #811a14;
+}
+.dark[data-theme="editorial"] {
+  --canvas: #100e0b;
+  --surface: #191510;
+  --elev: #201b15;
+  --inset: #28221a;
+  --line: #322b22;
+  --line-strong: #453c30;
+  --ink: #f4efe6;
+  --ink2: #aba29a;
+  --ink3: #776e63;
+  --dot: #2b251d;
+  --brand: #f08a80;
+  --brand-ink: #f6b3ab;
+  --brand-soft: rgba(240, 138, 128, 0.14);
+}
+
+/* Studio — dark first. The light block exists so a print view is not a
+   black rectangle, but this theme is meant to be seen at night with one
+   loud accent doing all the pointing. */
+[data-theme="studio"] {
+  --canvas: #ececed;
+  --surface: #ffffff;
+  --elev: #f4f4f5;
+  --inset: #e7e7e9;
+  --line: #dcdcde;
+  --line-strong: #c2c2c6;
+  --ink: #0d0d0f;
+  --ink2: #55555c;
+  --ink3: #8e8e97;
+  --dot: #cfcfd3;
+  --radius: 12px;
+  --brand: #6d28d9;
+  --brand-ink: #5b21b6;
+  --brand-soft: #f2ecfe;
+  --btn-brand-a: #8b53e6;
+  --btn-brand-b: #6423cf;
+  --btn-brand-ring: #541cb0;
+}
+.dark[data-theme="studio"] {
+  --canvas: #08080a;
+  --surface: #101014;
+  --elev: #16161c;
+  --inset: #1d1d25;
+  --line: #26262f;
+  --line-strong: #383843;
+  --ink: #f3f3f6;
+  --ink2: #9c9caa;
+  --ink3: #67677a;
+  --dot: #202029;
+  --brand: #a78bfa;
+  --brand-ink: #c4b5fd;
+  --brand-soft: rgba(167, 139, 250, 0.16);
+}
+
+/* Legal — sober and dense. Cool paper, small corners, navy that has no
+   opinion of its own. Nothing here is trying to be liked. */
+[data-theme="legal"] {
+  --canvas: #f4f5f7;
+  --surface: #ffffff;
+  --elev: #f8f9fa;
+  --inset: #eef0f3;
+  --line: #e0e3e8;
+  --line-strong: #c7ccd4;
+  --ink: #14181f;
+  --ink2: #565d69;
+  --ink3: #8f96a3;
+  --dot: #d4d8de;
+  --radius: 4px;
+  --brand: #1e3a8a;
+  --brand-ink: #172f6e;
+  --brand-soft: #eef1f9;
+  --btn-brand-a: #3455a5;
+  --btn-brand-b: #1b3479;
+  --btn-brand-ring: #16295f;
+}
+.dark[data-theme="legal"] {
+  --canvas: #0a0c10;
+  --surface: #12151b;
+  --elev: #171b23;
+  --inset: #1d222b;
+  --line: #262c37;
+  --line-strong: #363e4c;
+  --ink: #eceff4;
+  --ink2: #949cab;
+  --ink3: #626a79;
+  --dot: #222834;
+  --brand: #93b0f5;
+  --brand-ink: #b6c9f9;
+  --brand-soft: rgba(147, 176, 245, 0.15);
+}
+
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);

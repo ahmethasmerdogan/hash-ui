@@ -26,6 +26,42 @@ export const ACCENTS: Record<
 
 const ACCENT_IDS = Object.keys(ACCENTS) as AccentId[];
 
+/* ------------------------------------------------------------------ */
+/* Sector themes                                                       */
+/*                                                                     */
+/* An accent moves one hue. A sector theme moves the whole room —      */
+/* surfaces, ink, hairlines, corner radius and accent together —       */
+/* because what separates a banking console from a recipe site is not  */
+/* which green they picked.                                            */
+/*                                                                     */
+/* The two axes compose: `data-theme` sets the room, `data-accent`      */
+/* still overrides the hue on top of it. The palettes live in           */
+/* uicean.css under [data-theme]; this table is what a picker needs.    */
+/* ------------------------------------------------------------------ */
+export type ThemeId =
+  | "default"
+  | "fintech"
+  | "health"
+  | "commerce"
+  | "editorial"
+  | "studio"
+  | "legal";
+
+export const THEMES: Record<
+  ThemeId,
+  { label: string; note: string; swatch: string; radius: number }
+> = {
+  default: { label: "Default", note: "Warm neutral, emerald", swatch: "#059669", radius: 10 },
+  fintech: { label: "Fintech", note: "Cool, exact, tight corners", swatch: "#1d4ed8", radius: 6 },
+  health: { label: "Health", note: "Airy, unhurried, soft", swatch: "#0f766e", radius: 14 },
+  commerce: { label: "Commerce", note: "Warm cream, price-tag orange", swatch: "#c2410c", radius: 10 },
+  editorial: { label: "Editorial", note: "Paper, almost no radius", swatch: "#a3231b", radius: 2 },
+  studio: { label: "Studio", note: "Dark first, one loud accent", swatch: "#6d28d9", radius: 12 },
+  legal: { label: "Legal", note: "Sober, dense, navy", swatch: "#1e3a8a", radius: 4 },
+};
+
+const THEME_IDS = Object.keys(THEMES) as ThemeId[];
+
 /* Typeface presets — Geist is the system default. */
 export type FontId = "geist" | "inter" | "system";
 
@@ -61,6 +97,8 @@ type ThemeCtx = {
   setFont: (f: FontId) => void;
   accent: AccentId;
   setAccent: (a: AccentId) => void;
+  theme: ThemeId;
+  setTheme: (t: ThemeId) => void;
 };
 
 const Ctx = createContext<ThemeCtx>({
@@ -71,11 +109,14 @@ const Ctx = createContext<ThemeCtx>({
   setFont: () => {},
   accent: "emerald",
   setAccent: () => {},
+  theme: "default",
+  setTheme: () => {},
 });
 
 const STORAGE_KEY = "uicean-theme";
 const FONT_KEY = "uicean-font";
 const ACCENT_KEY = "uicean-accent";
+const THEME_KEY = "uicean-sector";
 
 /* Every browser global in this file goes through one of these three.
 
@@ -126,6 +167,15 @@ function applyAccent(a: AccentId) {
   else el.setAttribute("data-accent", a);
 }
 
+/* Same reasoning as applyAccent: the default sets no attribute, so a
+   project that never picks a sector has nothing extra in its devtools. */
+function applyTheme(t: ThemeId) {
+  if (!canUseDOM) return;
+  const el = document.documentElement;
+  if (t === "default") el.removeAttribute("data-theme");
+  else el.setAttribute("data-theme", t);
+}
+
 const MODES = ["system", "light", "dark"] as const;
 const FONT_IDS = ["geist", "inter", "system"] as const;
 
@@ -136,11 +186,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [resolved, setResolved] = useState<"light" | "dark">("light");
   const [font, setFontState] = useState<FontId>("geist");
   const [accent, setAccentState] = useState<AccentId>("emerald");
+  const [theme, setThemeState] = useState<ThemeId>("default");
 
   useEffect(() => {
     setModeState(readStored(STORAGE_KEY, MODES, "system"));
     setFontState(readStored(FONT_KEY, FONT_IDS, "geist"));
     setAccentState(readStored(ACCENT_KEY, ACCENT_IDS, "emerald"));
+    setThemeState(readStored(THEME_KEY, THEME_IDS, "default"));
   }, []);
 
   const apply = useCallback((m: ThemeMode) => {
@@ -187,6 +239,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     applyAccent(a);
   }, []);
 
+  const setTheme = useCallback((t: ThemeId) => {
+    setThemeState(t);
+    writeStored(THEME_KEY, t);
+    applyTheme(t);
+  }, []);
+
   useEffect(() => {
     if (!canUseDOM) return;
     document.documentElement.style.setProperty(
@@ -199,9 +257,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     applyAccent(accent);
   }, [accent]);
 
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
   return (
     <Ctx.Provider
-      value={{ mode, resolved, setMode, font, setFont, accent, setAccent }}
+      value={{ mode, resolved, setMode, font, setFont, accent, setAccent, theme, setTheme }}
     >
       {children}
     </Ctx.Provider>
@@ -242,6 +304,8 @@ var dark=m==="dark"||(m==="system"&&matchMedia("(prefers-color-scheme: dark)").m
 d.classList.toggle("dark",dark);
 var a=localStorage.getItem("${ACCENT_KEY}");
 if(a&&a!=="emerald")d.setAttribute("data-accent",a);
+var t=localStorage.getItem("${THEME_KEY}");
+if(t&&t!=="default")d.setAttribute("data-theme",t);
 var f=localStorage.getItem("${FONT_KEY}");
 var s={geist:'"Geist Variable","Inter Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif',inter:'"Inter Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif',system:'-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif'}[f];
 if(s)d.style.setProperty("--font-sans-pick",s);
