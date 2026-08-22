@@ -33,6 +33,7 @@ function useInView<T extends HTMLElement>(threshold = 0.3) {
 
 export function NumberTicker({
   value,
+  from = 0,
   duration = 1400,
   prefix = "",
   suffix = "",
@@ -40,6 +41,13 @@ export function NumberTicker({
   className,
 }: {
   value: number;
+  /**
+   * Where the count starts. Zero is right for a total and wrong for a rate:
+   * uptime rolling up from 0% spends most of the animation displaying a
+   * figure that would be an outage, and it reads as a fault rather than as
+   * movement. Start near the target for those.
+   */
+  from?: number;
   duration?: number;
   prefix?: string;
   suffix?: string;
@@ -47,7 +55,7 @@ export function NumberTicker({
   className?: string;
 }) {
   const { ref, inView } = useInView<HTMLSpanElement>(0.6);
-  const [n, setN] = useState(0);
+  const [n, setN] = useState(from);
   useEffect(() => {
     if (!inView) return;
     let raf = 0;
@@ -55,12 +63,12 @@ export function NumberTicker({
     const tick = (t: number) => {
       const p = Math.min(1, (t - t0) / duration);
       const eased = 1 - Math.pow(1 - p, 3);
-      setN(value * eased);
+      setN(from + (value - from) * eased);
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, value, duration]);
+  }, [inView, value, from, duration]);
   return (
     <span ref={ref} className={cx("tabular-nums", className)}>
       {prefix}

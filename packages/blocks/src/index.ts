@@ -37,6 +37,10 @@ export * from "./heroes/HeroSplit.js";
 export * from "./heroes/HeroNexus.js";
 export * from "./heroes/HeroCinematic.js";
 export * from "./heroes/SplineScene.js";
+export * from "./heroes/HeroStack.js";
+export * from "./heroes/HeroMarquee.js";
+export * from "./heroes/HeroMetrics.js";
+export * from "./heroes/HeroEditorial.js";
 
 /* footers */
 export * from "./footers/CinematicFooter.js";
@@ -44,6 +48,7 @@ export * from "./footers/CinematicFooter.js";
 /* auth */
 export * from "./auth/AuthCard.js";
 export * from "./auth/AuthSplit.js";
+export * from "./auth/RegisterCard.js";
 export * from "./footers/GridFooter.js";
 
 /* application shell */

@@ -7,7 +7,7 @@
 **A design foundation, distilled from the wild.**
 
 A flat, shadow-free **React + Tailwind CSS v4** design system — 96 components,
-21 page blocks, 83 hand-drawn icons and five accent themes, rebuilt from curated
+25 page blocks, 83 hand-drawn icons and five accent themes, rebuilt from curated
 interface references.
 Install it from npm, or copy any component into your repo with the shadcn CLI.
 

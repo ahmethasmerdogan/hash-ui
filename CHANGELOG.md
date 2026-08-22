@@ -8,6 +8,31 @@ follow [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- **Six sector themes.** `data-theme` on `<html>` moves the whole room —
+  surfaces, ink, hairlines and corner radius — where `data-accent` only ever
+  moved one hue. fintech, health, commerce, editorial, studio, legal, each a
+  full light and dark block. They compose: a fintech shell with a rose accent
+  is one attribute away.
+
+- **Four heroes.** `HeroStack` (drawn panels that fan out), `HeroMarquee`
+  (two word bands drifting against each other), `HeroMetrics` (figures that
+  count once seen) and `HeroEditorial` with `PullQuote` (a masthead, entirely
+  typographic).
+
+- **`RegisterCard` and `VerifyCard`.** Sign-up is not sign-in with a
+  different heading: a password meter that says why rather than only how
+  much, a terms gate that states its reason instead of disabling the button,
+  and the verification screen after it.
+
+- `NumberTicker` takes `from`. Zero is right for a total and wrong for a
+  rate — uptime rolling up from 0% spends its animation displaying an outage.
+
+---
+
 ## [0.6.2] — 2026-08-21
 
 ### Fixed

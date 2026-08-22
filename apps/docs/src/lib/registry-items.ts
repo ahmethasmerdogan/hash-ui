@@ -604,6 +604,92 @@ export const REGISTRY_ITEMS: RegistryItem[] = [
     ]
   },
   {
+    "name": "hero-stack",
+    "title": "HeroStack",
+    "description": "Copy on the left, a stack of drawn panels fanning out on the right as the section is seen. No image ships with it.",
+    "type": "registry:ui",
+    "target": "components/uicean/hero-stack.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "icons",
+      "blocks-hooks",
+      "blocks-parts"
+    ]
+  },
+  {
+    "name": "hero-marquee",
+    "title": "HeroMarquee",
+    "description": "Centred and framed by two bands of words drifting against each other — a launch page where the product is the headline.",
+    "type": "registry:ui",
+    "target": "components/uicean/hero-marquee.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "icons",
+      "blocks-hooks"
+    ]
+  },
+  {
+    "name": "hero-metrics",
+    "title": "HeroMetrics",
+    "description": "A claim with figures under it that count once the section is seen, starting near the target rather than at zero.",
+    "type": "registry:ui",
+    "target": "components/uicean/hero-metrics.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "motion",
+      "badge",
+      "icons",
+      "blocks-hooks",
+      "blocks-parts"
+    ]
+  },
+  {
+    "name": "hero-editorial",
+    "title": "HeroEditorial & PullQuote",
+    "description": "A masthead rather than a pitch: a rule, a kicker, a headline at reading width and a byline. Everything typographic.",
+    "type": "registry:ui",
+    "target": "components/uicean/hero-editorial.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "avatar",
+      "icons",
+      "blocks-hooks"
+    ]
+  },
+  {
+    "name": "register-card",
+    "title": "RegisterCard & VerifyCard",
+    "description": "Sign-up with a password meter that says why rather than only how much, and the verification screen after it.",
+    "type": "registry:ui",
+    "target": "components/uicean/register-card.tsx",
+    "dependencies": [],
+    "registryDependencies": [
+      "tokens",
+      "blocks-tokens",
+      "cx",
+      "button",
+      "form",
+      "controls",
+      "layout",
+      "icons"
+    ]
+  },
+  {
     "name": "cinematic-footer",
     "title": "CinematicFooter",
     "description": "A tilted marquee band, an enormous sign-off, magnetic pills and a watermark — revealed by two CSS declarations rather than a scroll library.",

@@ -373,6 +373,41 @@ const BLOCK_ITEMS = [
       "AuthCard with the other half of the screen given over to a quote and customer marks. The panel is dropped below lg rather than stacked above the form.",
   },
   {
+    name: "hero-stack",
+    file: "heroes/HeroStack.tsx",
+    title: "HeroStack",
+    description:
+      "Copy on the left, a stack of drawn panels fanning out on the right as the section is seen. No image ships with it.",
+  },
+  {
+    name: "hero-marquee",
+    file: "heroes/HeroMarquee.tsx",
+    title: "HeroMarquee",
+    description:
+      "Centred and framed by two bands of words drifting against each other — a launch page where the product is the headline.",
+  },
+  {
+    name: "hero-metrics",
+    file: "heroes/HeroMetrics.tsx",
+    title: "HeroMetrics",
+    description:
+      "A claim with figures under it that count once the section is seen, starting near the target rather than at zero.",
+  },
+  {
+    name: "hero-editorial",
+    file: "heroes/HeroEditorial.tsx",
+    title: "HeroEditorial & PullQuote",
+    description:
+      "A masthead rather than a pitch: a rule, a kicker, a headline at reading width and a byline. Everything typographic.",
+  },
+  {
+    name: "register-card",
+    file: "auth/RegisterCard.tsx",
+    title: "RegisterCard & VerifyCard",
+    description:
+      "Sign-up with a password meter that says why rather than only how much, and the verification screen after it.",
+  },
+  {
     name: "cinematic-footer",
     file: "footers/CinematicFooter.tsx",
     title: "CinematicFooter",

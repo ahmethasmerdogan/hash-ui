@@ -6,6 +6,11 @@ import {
   HeroNexus,
   HeroCinematic,
   SplineHero,
+  HeroStack,
+  HeroMarquee,
+  HeroMetrics,
+  HeroEditorial,
+  PullQuote,
 } from "uicean-blocks";
 
 const BLEED = "!block !min-h-0 !p-0";
@@ -237,6 +242,93 @@ export default function BlocksHeroesPage() {
             scene sits far down a page most readers never reach.
           </p>
         </Card>
+      </Section>
+
+      <Section
+        id="hero-stack"
+        level={2}
+        eyebrow="Blocks"
+        title="HeroStack"
+        desc="Copy on the left, and on the right a stack of panels that fans out as the section comes into view. The panels are drawn, so they re-tint with the theme and ship no image."
+        registry="hero-stack"
+        pkg="blocks"
+        source="heroes/HeroStack.tsx"
+      >
+        <Demo label="HeroStack" imports={["HeroStack"]} contentClassName={BLEED}
+          code={`<HeroStack headline="Every screen your team already drew," headlineTrail="as code." />`}>
+          <HeroStack headingAs="h2" />
+        </Demo>
+      </Section>
+
+      <Section
+        id="hero-marquee"
+        level={2}
+        eyebrow="Blocks"
+        title="HeroMarquee"
+        desc="Centred and framed by two bands of words drifting against each other. For a launch page where the product is the headline and there is no screenshot worth showing yet."
+        registry="hero-marquee"
+        pkg="blocks"
+        source="heroes/HeroMarquee.tsx"
+      >
+        <Demo label="HeroMarquee — the two bands travel in opposite directions" imports={["HeroMarquee"]} contentClassName={BLEED}
+          code={`<HeroMarquee words={["Accessible by construction", "Light and dark", "MIT"]} />`}>
+          <HeroMarquee headingAs="h2" />
+        </Demo>
+      </Section>
+
+      <Section
+        id="hero-metrics"
+        level={2}
+        eyebrow="Blocks"
+        title="HeroMetrics"
+        desc="A claim with figures under it that count up once the section is actually seen — and start near the target rather than at zero."
+        registry="hero-metrics"
+        pkg="blocks"
+        source="heroes/HeroMetrics.tsx"
+      >
+        <Demo label="HeroMetrics" imports={["HeroMetrics"]} contentClassName={BLEED}
+          code={`<HeroMetrics
+  metrics={[
+    { value: 99.98, suffix: "%", decimals: 2, label: "Uptime, rolling 90 days" },
+    { value: 34, suffix: "ms", label: "Median edge response" },
+  ]}
+/>`}>
+          <HeroMetrics headingAs="h2" />
+        </Demo>
+        <Card className="p-5">
+          <p className="text-[13.5px] leading-relaxed text-ink-2">
+            <span className="font-semibold text-ink">Zero is right for a total and wrong for a rate.</span>{" "}
+            Uptime rolling up from 0% spends most of its animation displaying a
+            figure that would be an outage, and it reads as a fault rather than
+            as movement. <code className="font-mono">NumberTicker</code> takes a{" "}
+            <code className="font-mono">from</code> for exactly this.
+          </p>
+        </Card>
+      </Section>
+
+      <Section
+        id="hero-editorial"
+        level={2}
+        eyebrow="Blocks"
+        title="HeroEditorial"
+        desc="A masthead rather than a pitch — a rule, a kicker, a headline at reading width, a byline. Everything typographic; no gradient and no illustration."
+        registry="hero-editorial"
+        pkg="blocks"
+        source="heroes/HeroEditorial.tsx"
+      >
+        <Demo label="HeroEditorial — pairs with the editorial sector theme" imports={["HeroEditorial", "PullQuote"]} contentClassName={BLEED}
+          code={`<HeroEditorial kicker="Field notes" author={{ name: "Ada Lovelace", role: "Design systems" }}>
+  <PullQuote cite="from the introduction">
+    A system is judged on the day it is adopted, and paid for eighteen months later.
+  </PullQuote>
+</HeroEditorial>`}>
+          <HeroEditorial headingAs="h2">
+            <PullQuote cite="from the introduction">
+              A system is judged on the day it is adopted, and paid for eighteen
+              months later.
+            </PullQuote>
+          </HeroEditorial>
+        </Demo>
       </Section>
     </>
   );

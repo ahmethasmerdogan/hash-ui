@@ -132,6 +132,64 @@ const CHECKS = [
     min: 0.002,
   },
   {
+    id: "hero-stack-fan",
+    route: "/docs/blocks/heroes",
+    /* has-text, not text-is: a comma inside the string splits the outer
+       selector on parse, and both of these headlines contain one */
+    sel: "figure:has(:is(h1, h2):has-text('as code.'))",
+    what: "the three panels fan out once the section is seen",
+    kind: "enter",
+    waitMs: 0,
+    settleMs: 1500,
+    min: 0.01,
+  },
+  {
+    id: "hero-marquee-bands",
+    route: "/docs/blocks/heroes",
+    sel: "#hero-marquee [style*='uicean-marquee']",
+    what: "the two word bands drift against each other",
+    /* measure the band itself rather than the whole hero: two 20px strips
+       inside a 660px figure move too few of its pixels to clear any
+       threshold worth having */
+    kind: "idle",
+    waitMs: 2200,
+    min: 0.02,
+  },
+  {
+    id: "hero-metrics-count",
+    route: "/docs/blocks/heroes",
+    sel: "figure:has(:is(h1, h2):text-is('Numbers that hold up when someone checks them.'))",
+    what: "the figures count up once the section is seen",
+    kind: "enter",
+    waitMs: 0,
+    settleMs: 1500,
+    /* four short numbers changing their digits is a few hundred pixels in
+       a hero-sized frame; the default threshold is set for things that
+       move rather than things that re-render */
+    min: 0.001,
+  },
+  {
+    id: "hero-editorial-rise",
+    route: "/docs/blocks/heroes",
+    sel: "figure:has(:is(h1, h2):text-is('What a design system owes the person who inherits it'))",
+    what: "the masthead headline and deck rise on entry",
+    kind: "enter",
+    waitMs: 0,
+    settleMs: 1300,
+    min: 0.002,
+  },
+  {
+    id: "register-strength",
+    route: "/docs/blocks/auth",
+    sel: "#register-card figure",
+    what: "the password meter fills as a password is typed",
+    kind: "type",
+    typeSel: "#uicean-register-password",
+    typeText: "correct-horse-battery-9!",
+    settleMs: 400,
+    min: 0.001,
+  },
+  {
     id: "cinematic-reveal",
     route: "/docs/blocks/heroes",
     sel: "figure:has(.fx-aurora)",
@@ -515,6 +573,18 @@ for (const c of checks) {
       ratio = a && b ? await page.evaluate(diffInPage, [a, b]) : -1;
     }
 
+    if (c.kind === "type") {
+      /* typing-driven: the meter, the live filter, anything that reacts to
+         a keystroke rather than to time or to scroll */
+      const field = page.locator(c.typeSel);
+      await field.waitFor({ state: "visible", timeout: 10000 });
+      const a = await shot(el, page);
+      await field.fill(c.typeText ?? "test");
+      await page.waitForTimeout(c.settleMs ?? 300);
+      const b = await shot(el, page);
+      ratio = a && b ? await page.evaluate(diffInPage, [a, b]) : -1;
+    }
+
     if (c.kind === "clickChild") {
       const child = page.locator(c.childSel).nth(c.childNth ?? 0);
       await child.waitFor({ state: "visible", timeout: 10000 });
@@ -594,7 +664,7 @@ for (const c of checks) {
      movement is the failure. Interaction checks are exempt — a menu that
      opens on click is a state change, not an animation, and pinning it would
      mean hiding information rather than calming it. */
-  const isInteraction = ["click", "clickChild", "hoverChild", "pointer", "scrollPage", "scrollInside"].includes(c.kind);
+  const isInteraction = ["click", "clickChild", "hoverChild", "pointer", "scrollPage", "scrollInside", "type"].includes(c.kind);
   const ok = note
     ? false
     : reduced
